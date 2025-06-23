@@ -1,0 +1,76 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://bitcoinfriesland.com/</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/meetings</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/meetings"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/meetings?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/meetings?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/meetings"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/map</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/map"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/map?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/map?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/map"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/links</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/links"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/links?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/links?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/links"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/about</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/about?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/about?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/about"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/get-started</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/get-started"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/get-started?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/get-started?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/get-started"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/consumenten</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/consumenten"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/consumenten?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/consumenten?lang=fy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/consumenten"/>
+  </url>
+</urlset>

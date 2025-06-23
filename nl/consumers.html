@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Friesland - Bitcoin voor Consumenten</title>
+    <meta name="description" content="Het bevorderen van Bitcoin-adoptie en educatie in Friesland." />
+    <link rel="stylesheet" crossorigin href="../assets/index-jmfc5gRD.css">
+    <link rel="icon" href="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" />
+    <style>
+    /* Force hide desktop menu on mobile */
+    @media (max-width: 767px) {
+      .nav-menu {
+        display: none !important;
+      }
+      .desktop-only {
+        display: none !important;
+      }
+    }
+    
+    /* Show desktop menu only on desktop */
+    @media (min-width: 768px) {
+      .mobile-only {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+  <body>
+    <div id="root">
+          
+    <nav class="sticky top-0 z-50 transition-all duration-300 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Friesland</span>
+              </span>
+            </a>
+          </div>
+          
+          <!-- Desktop menu - FORCE HIDDEN ON MOBILE -->
+          <div class="nav-menu desktop-only">
+            <div class="flex items-center space-x-8">
+              <a href="index.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Home</a>
+              <a href="meetings.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Bijeenkomsten</a>
+              <a href="map.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Bitcoin Kaart</a>
+              <a href="links.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Links</a>
+              
+              <div class="flex items-center space-x-3 ml-4">
+                <a href="consumers.html">
+                  <button class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Consumenten
+                  </button>
+                </a>
+                <a href="business.html">
+                  <button class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Bedrijven
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile: Only Language selector + Hamburger -->
+          <div class="flex items-center space-x-2">
+            <!-- Language selector -->
+            <div class="relative">
+              <div class="flex items-center border border-gray-300 rounded-lg px-2 py-1 cursor-pointer" onclick="toggleLanguageDropdown()">
+                <span class="text-lg mr-1">🇳🇱</span>
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 919-9"></path>
+                </svg>
+              </div>
+              
+              <!-- Language dropdown -->
+              <div id="language-dropdown" class="hidden absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 min-w-[140px]">
+                <a href="../nl/consumers.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇳🇱</span>
+                  <span>Nederlands</span>
+                </a>
+                <a href="../en/consumers.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇬🇧</span>
+                  <span>English</span>
+                </a>
+                <a href="../fy/consumers.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <img src="../lovable-uploads/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2">
+                  <span>Frysk</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-only">
+              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden mobile-only">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Home</a>
+          <a href="meetings.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Bijeenkomsten</a>
+          <a href="map.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Bitcoin Kaart</a>
+          <a href="links.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Links</a>
+          <a href="consumers.html" class="block px-3 py-2 text-friesland-blue font-medium">Consumenten</a>
+          <a href="business.html" class="block px-3 py-2 text-bitcoin-orange font-medium">Bedrijven</a>
+        </div>
+      </div>
+    </nav>
+  
+                    <main class="flex-grow bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+              <!-- Header -->
+              <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+                  <span class="block text-friesland-blue">Bitcoin voor Consumenten</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                  Ontdek hoe Bitcoin je financiële vrijheid kan vergroten
+                </p>
+              </div>
+              
+              <!-- Why Bitcoin Section -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 max-w-5xl mx-auto mb-12">
+                <div class="p-6 md:p-8">
+                  <h2 class="text-2xl font-bold text-friesland-blue mb-6">
+                    Waarom Bitcoin voor dagelijks gebruik?
+                  </h2>
+                  
+                  <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <!-- Payments -->
+                    <div class="bg-friesland-blue/5 p-6 rounded-lg">
+                      <div class="flex items-center mb-4">
+                        <img src="../lovable-uploads/d7e9a943-b3b8-48a2-a2c3-4c8444e8883d.png" alt="Bitcoin Logo" class="h-8 w-8 mr-3">
+                        <h3 class="text-xl font-semibold">Betalingen</h3>
+                      </div>
+                      <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                          <span class="text-friesland-blue mr-2">•</span>
+                          <span>Directe betalingen zonder tussenpersonen</span>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-friesland-blue mr-2">•</span>
+                          <span>Lage transactiekosten met Lightning Network</span>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-friesland-blue mr-2">•</span>
+                          <span>Wereldwijd betalingen versturen zonder grenzen</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <!-- Savings -->
+                    <div class="bg-bitcoin-orange/5 p-6 rounded-lg">
+                      <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-bitcoin-orange mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold">Sparen</h3>
+                      </div>
+                      <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                          <span class="text-bitcoin-orange mr-2">•</span>
+                          <span>Bescherming tegen inflatie</span>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-bitcoin-orange mr-2">•</span>
+                          <span>Volledige controle over je eigen geld</span>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-bitcoin-orange mr-2">•</span>
+                          <span>Langetermijnwaardeopslag zonder derde partijen</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <!-- Getting Started Steps -->
+                  <div class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4">Aan de slag met Bitcoin:</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                      <ol class="space-y-4">
+                        <li class="flex">
+                          <span class="bg-friesland-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                          <div>
+                            <p class="font-medium">Kies een Bitcoin wallet</p>
+                            <p class="text-gray-600 mt-1">Begin met een gebruiksvriendelijke app zoals Wallet of Satoshi, BlueWallet of Phoenix.</p>
+                          </div>
+                        </li>
+                        <li class="flex">
+                          <span class="bg-friesland-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                          <div>
+                            <p class="font-medium">Koop je eerste bitcoin</p>
+                            <p class="text-gray-600 mt-1">Via een betrouwbare exchange zoals Bitonic of Strike.</p>
+                          </div>
+                        </li>
+                        <li class="flex">
+                          <span class="bg-friesland-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                          <div>
+                            <p class="font-medium">Bezoek een Bitcoin meetup</p>
+                            <p class="text-gray-600 mt-1">Leer van en ontmoet anderen in de community bij een Bitcoin Friesland bijeenkomst.</p>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Paying with Bitcoin -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 max-w-5xl mx-auto mb-12">
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center mb-6">
+                    <img src="../lovable-uploads/d7e9a943-b3b8-48a2-a2c3-4c8444e8883d.png" alt="Bitcoin Logo" class="h-8 w-8 mr-3">
+                    <h2 class="text-2xl font-bold text-friesland-blue">Betalen met Bitcoin</h2>
+                  </div>
+                  
+                  <div class="mb-6 space-y-4">
+                    <p class="text-gray-700">Bitcoin Lightning maakt betalen snel, gemakkelijk en goedkoop. Een ideale manier om alledaagse aankopen te doen zonder tussenkomst van banken.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                      <h3 class="text-lg font-semibold mb-3">Stap 1: Begin met een eenvoudige wallet</h3>
+                      <p class="text-gray-700 mb-4">Wallet of Satoshi is een perfecte wallet voor beginners. Het is gebruiksvriendelijk en binnen enkele minuten kun je ermee aan de slag.</p>
+                      
+                      <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                        <a href="https://apps.apple.com/nl/app/wallet-of-satoshi/id1438599608" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors">
+                          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                          </svg>
+                          <span>Download voor iOS</span>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.livingroomofsatoshi.wallet" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors">
+                          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                          </svg>
+                          <span>Download voor Android</span>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                      <h3 class="text-lg font-semibold mb-3">Stap 2: Vind plekken die Bitcoin accepteren</h3>
+                      <p class="text-gray-700 mb-4">Steeds meer winkels en webshops accepteren Bitcoin betalingen. Ontdek waar je kunt betalen met Bitcoin in Friesland en daarbuiten.</p>
+                      <a href="map.html" class="inline-flex items-center border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                        <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        Bekijk de Bitcoin Kaart
+                        <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Sparen met Bitcoin -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 max-w-5xl mx-auto mb-12">
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center mb-6">
+                    <svg class="h-8 w-8 text-bitcoin-orange mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-bitcoin-orange">Sparen met Bitcoin</h2>
+                  </div>
+                  
+                  <div class="mb-6 space-y-4">
+                    <p class="text-gray-700">Voor langetermijnsparen met Bitcoin is het belangrijk om je eigen sleutels te beheren. Hiervoor zijn hardware wallets ideaal - ze bieden maximale veiligheid en controle.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                      <h3 class="text-lg font-semibold mb-3">Waarom zelf je Bitcoin beheren?</h3>
+                      <p class="text-gray-700 mb-4">Wanneer je Bitcoin op een exchange laat staan, heb je niet volledig controle over je eigen geld. Het bekende gezegde in de Bitcoin-wereld luidt: "Not your keys, not your coins." Een hardware wallet geeft je volledige controle.</p>
+                      
+                      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                          <svg class="h-6 w-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                          </svg>
+                          <p class="text-yellow-700">
+                            <strong>Belangrijk:</strong> Een hardware wallet is als een kluis voor je digitale bezittingen. De sleutels blijven veilig offline bewaard, weg van potentiële online bedreigingen.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-4">
+                      <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3">Trezor Bitcoin Only</h3>
+                        <p class="text-gray-700 mb-4">De Trezor Safe 3 Bitcoin Only is een gebruiksvriendelijke hardware wallet speciaal ontworpen voor Bitcoin gebruikers. Combineer deze met een Trezor Keep Metal backup voor extra veiligheid.</p>
+                        <div class="flex flex-col gap-3">
+                          <a href="https://trezor.io/trezor-safe-3-bitcoin-only" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Bekijk Trezor Bitcoin Only
+                          </a>
+                          <a href="https://trezor.io/trezor-keep-metal-multi-share" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Trezor Keep Metal backup
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3">BitBox</h3>
+                        <p class="text-gray-700 mb-4">De BitBox is een compacte, Zwitserse hardware wallet met SD-kaart backup functionaliteit. Eenvoudig in gebruik en zeer veilig.</p>
+                        <a href="https://bitbox.swiss/" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline flex items-center">
+                          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
+                          Bekijk BitBox
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Bitcoin omzetten naar euro's -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 max-w-5xl mx-auto mb-12">
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center mb-6">
+                    <svg class="h-8 w-8 text-bitcoin-orange mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-bitcoin-orange">Bitcoin omzetten naar euro's</h2>
+                  </div>
+                  
+                  <div class="mb-6 space-y-4">
+                    <p class="text-gray-700 mb-4">Het omwisselen van Bitcoin naar euro's is eenvoudig via verschillende methoden:</p>
+                    
+                    <ul class="list-disc ml-6 mb-4 space-y-2 text-gray-700">
+                      <li>Gebruik een Bitcoin-uitwisseling zoals Bitonic of Strike</li>
+                      <li>Sommige Bitcoin-geldautomaten bieden ook opnamemogelijkheden</li>
+                      <li>Voor kleinere bedragen kan peer-to-peer handelen via platforms als Bisq of Hodl Hodl meer privacy bieden</li>
+                      <li>Bedrijfseigenaren kunnen ook betalingsverwerkers gebruiken die binnenkomende Bitcoin automatisch omzetten naar euro's</li>
+                    </ul>
+                    
+                    <p class="text-gray-700">Het is belangrijk om op de hoogte te blijven van de huidige belastingregels rondom het omzetten van cryptocurrencies naar fiat-valuta in Nederland.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mt-4">
+                      <h3 class="text-lg font-semibold mb-3">Populaire Uitwisselingen</h3>
+                      
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <a href="https://bitonic.nl/" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline flex items-center">
+                          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
+                          Bitonic
+                        </a>
+                        
+                        <a href="https://strike.me/" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline flex items-center">
+                          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
+                          Strike
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Hulp nodig? -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 max-w-5xl mx-auto mb-12">
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center mb-6">
+                    <svg class="h-8 w-8 text-friesland-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-friesland-blue">Hulp nodig?</h2>
+                  </div>
+                  
+                  <div class="mb-6 space-y-4">
+                    <p class="text-gray-700">Ben je nieuw met Bitcoin en heb je vragen? De Bitcoin Friesland community staat voor je klaar om te helpen.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                      <h3 class="text-lg font-semibold mb-3">Sluit je aan bij onze community</h3>
+                      
+                      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                          <svg class="h-6 w-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                          </svg>
+                          <p class="text-yellow-700">
+                            <strong>Tip:</strong> Onze regelmatige bijeenkomsten zijn perfect voor beginners, met vriendelijke mensen die klaar staan om al je vragen te beantwoorden.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <a href="meetings.html" class="w-full">
+                          <div class="w-full bg-friesland-blue hover:bg-friesland-blue/90 text-white py-3 px-4 rounded-lg font-medium flex items-center justify-center transition-colors">
+                            Kom naar een bijeenkomst
+                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                          </div>
+                        </a>
+                        
+                        <a href="https://t.me/BitcoinFriesland" target="_blank" rel="noopener noreferrer" class="w-full">
+                          <div class="w-full border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white py-3 px-4 rounded-lg font-medium flex items-center justify-center transition-colors">
+                            <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-.896 6.728-.896 6.728-1.268 8.368-1.268 8.368-.159.708-.534.708-.534.708s-2.376-.366-3.611-.854c-.801-.318-1.886-.75-1.886-.75s-.318-.159-.318-.477c0-.318.159-.477.318-.636.477-.477 3.611-3.611 5.497-5.338.159-.159.318-.477 0-.636-.318-.159-.636 0-.954.159-1.886 1.268-5.497 3.611-6.409 4.088-.636.318-1.268.159-1.268.159s-1.427-.477-1.427-.477-.954-.636 0-1.268c.954-.636 8.845-3.611 8.845-3.611s.636-.159.954-.159c.318 0 .636.159.636.636z"/>
+                            </svg>
+                            <span>Join onze Telegram groep</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+              
+              
+                </div>
+              </div>
+            </div>
+              
+                </div>
+              </div>
+            </div>
+          </main>
+          
+    <footer class="bg-gray-50 py-12 border-t border-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Fryslân</span>
+              </span>
+            </div>
+            <p class="text-gray-600 mb-4">Het bevorderen van Bitcoin-adoptie en educatie in Friesland. Word deel van de Bitcoin-beweging in Friesland</p>
+            <a href="consumers.html" class="inline-flex items-center text-friesland-blue hover:text-friesland-blue/80 font-medium">
+              Aan de slag →
+            </a>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">NAVIGATIE</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Home</a></li>
+              <li><a href="meetings.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Bijeenkomsten</a></li>
+              <li><a href="map.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Bitcoin Kaart</a></li>
+              <li><a href="links.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Links</a></li>
+              <li><a href="about.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Over ons</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">VERBINDEN</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://t.me/bitcoinfriesland" target="_blank" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                  </svg>
+                  Telegram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  X
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  Nostr
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@bitcoinfriesland.com" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p class="text-gray-500 text-sm">© 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers.</p>
+        </div>
+      </div>
+    </footer>
+  
+        </div>
+    <script>
+      // Force show desktop menu on desktop
+      function updateMenuVisibility() {
+        const desktopMenu = document.querySelector('.nav-menu');
+        if (desktopMenu && window.innerWidth >= 768) {
+          desktopMenu.style.display = 'flex';
+        }
+      }
+      
+      // Run on load and resize
+      window.addEventListener('load', updateMenuVisibility);
+      window.addEventListener('resize', updateMenuVisibility);
+      
+      
+      // Language dropdown toggle
+      function toggleLanguageDropdown() {
+        const dropdown = document.getElementById('language-dropdown');
+        if (dropdown) {
+          dropdown.classList.toggle('hidden');
+        }
+      }
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('language-dropdown');
+        const trigger = event.target.closest('[onclick="toggleLanguageDropdown()"]');
+        
+        if (!trigger && dropdown && !dropdown.contains(event.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
+      
+
+      // Language switcher - now handled by direct links
+      
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (menu) {
+          menu.classList.toggle('hidden');
+        }
+      }
+      
+      // FAQ toggle functionality
+      function toggleFAQ(element) {
+        const content = element.nextElementSibling;
+        const arrow = element.querySelector('svg');
+        
+        if (content.style.display === 'none' || content.style.display === '') {
+          content.style.display = 'block';
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          content.style.display = 'none';
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      }
+      
+      // Scroll shadow for header
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('nav');
+        if (window.scrollY > 0) {
+          header.classList.add('shadow-md');
+        } else {
+          header.classList.remove('shadow-md');
+        }
+      });
+    </script>
+  </body>
+</html>

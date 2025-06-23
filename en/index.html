@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Friesland - index</title>
+    <meta name="description" content="Promoting Bitcoin adoption and education in Friesland." />
+    <link rel="stylesheet" crossorigin href="../assets/index-jmfc5gRD.css">
+    <link rel="icon" href="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" />
+    <style>
+    /* Force hide desktop menu on mobile */
+    @media (max-width: 767px) {
+      .nav-menu {
+        display: none !important;
+      }
+      .desktop-only {
+        display: none !important;
+      }
+    }
+    
+    /* Show desktop menu only on desktop */
+    @media (min-width: 768px) {
+      .mobile-only {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+  <body>
+    <div id="root">
+    
+    <nav class="sticky top-0 z-50 transition-all duration-300 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Friesland</span>
+              </span>
+            </a>
+          </div>
+          
+          <!-- Desktop menu - FORCE HIDDEN ON MOBILE -->
+          <div class="nav-menu desktop-only">
+            <div class="flex items-center space-x-8">
+              <a href="index.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors text-friesland-blue pb-1 relative" style="border-bottom: 2px solid rgb(0 102 204);">Home</a>
+              <a href="meetings.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Meetings</a>
+              <a href="map.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Bitcoin Map</a>
+              <a href="links.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Links</a>
+              
+              <div class="flex items-center space-x-3 ml-4">
+                <a href="consumers.html">
+                  <button class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Consumers
+                  </button>
+                </a>
+                <a href="business.html">
+                  <button class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Business
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile: Only Language selector + Hamburger -->
+          <div class="flex items-center space-x-2">
+            <!-- Language selector -->
+            <div class="relative">
+              <div class="flex items-center border border-gray-300 rounded-lg px-2 py-1 cursor-pointer" onclick="toggleLanguageDropdown()">
+                <span class="text-lg mr-1">🇬🇧</span>
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 919-9"></path>
+                </svg>
+              </div>
+              
+              <!-- Language dropdown -->
+              <div id="language-dropdown" class="hidden absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 min-w-[140px]">
+                <a href="../nl/index.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇳🇱</span>
+                  <span>Nederlands</span>
+                </a>
+                <a href="../en/index.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇬🇧</span>
+                  <span>English</span>
+                </a>
+                <a href="../fy/index.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <img src="../lovable-uploads/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2">
+                  <span>Frysk</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-only">
+              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden mobile-only">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Home</a>
+          <a href="meetings.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Meetings</a>
+          <a href="map.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Bitcoin Map</a>
+          <a href="links.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Links</a>
+          <a href="consumers.html" class="block px-3 py-2 text-friesland-blue font-medium">Consumers</a>
+          <a href="business.html" class="block px-3 py-2 text-bitcoin-orange font-medium">Business</a>
+        </div>
+      </div>
+    </nav>
+  
+    
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden">
+      <div class="bg-gradient-to-br from-white to-gray-50 pt-10 pb-16 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
+              <div>
+                <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl">
+                  <span class="block text-friesland-blue">Bitcoin in</span>
+                  <span class="block text-bitcoin-orange mt-1 sm:mt-3">Friesland</span>
+                </h1>
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                  Join our community to learn about Bitcoin and promote its adoption in Friesland.
+                </p>
+                <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3 sm:gap-4">
+                  <a href="meetings.html" class="w-full sm:w-auto">
+                    <button class="w-full bg-friesland-blue hover:bg-friesland-blue/90 text-white shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 text-sm sm:text-base px-6 py-3 rounded-lg font-medium">
+                      Meetings →
+                    </button>
+                  </a>
+                  <a href="consumers.html" class="w-full sm:w-auto">
+                    <button class="w-full bg-bitcoin-orange hover:bg-bitcoin-orange/90 text-white shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 text-sm sm:text-base px-6 py-3 rounded-lg font-medium">
+                      Get Started →
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-10 sm:mt-12 relative sm:mx-auto lg:mt-0 lg:col-span-6 lg:flex lg:items-center">
+              <div class="relative mx-auto w-full max-w-sm lg:max-w-md">
+                <div class="relative block w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="w-full p-6 sm:p-8">
+                  <div class="absolute inset-0 bg-gradient-to-r from-friesland-blue/10 to-bitcoin-orange/10 mix-blend-multiply"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer">
+        <svg class="text-friesland-blue h-6 w-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Waarom Aansluiten Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Why Join Us
+          </h2>
+          <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+            Connect with fellow Bitcoin enthusiasts
+          </p>
+        </div>
+        
+        <div class="mt-16">
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Community Card -->
+            <div class="relative group flex h-full">
+              <div class="absolute -inset-1 bg-gradient-to-r from-friesland-blue to-bitcoin-orange rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div class="relative bg-white shadow-lg rounded-xl border-0 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col w-full">
+                <div class="h-16 bg-gradient-to-r from-friesland-blue to-bitcoin-orange flex items-center justify-center">
+                  <div class="bg-white rounded-full p-3 shadow-md">
+                    <svg class="h-6 w-6 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="p-6 pb-2">
+                  <h3 class="text-xl font-bold">Community</h3>
+                  <p class="text-gray-500">Connect with fellow Bitcoin enthusiasts</p>
+                </div>
+                <div class="p-6 pt-0 flex flex-col flex-grow">
+                  <p class="text-gray-600 flex-grow">
+                    Meet like-minded people, share ideas and work together on Bitcoin initiatives in Friesland.</p>
+                  <a href="https://t.me/bitcoinfriesland" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 text-friesland-blue font-medium hover:text-bitcoin-orange transition-colors">
+                    Telegram →
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Meetings Card -->
+            <div class="relative group flex h-full">
+              <div class="absolute -inset-1 bg-gradient-to-r from-friesland-red to-bitcoin-orange rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div class="relative bg-white shadow-lg rounded-xl border-0 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col w-full">
+                <div class="h-16 bg-gradient-to-r from-friesland-red to-bitcoin-orange flex items-center justify-center">
+                  <div class="bg-white rounded-full p-3 shadow-md">
+                    <svg class="h-6 w-6 text-friesland-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="p-6 pb-2">
+                  <h3 class="text-xl font-bold">Regular Meetings</h3>
+                  <p class="text-gray-500">Attend our Bitcoin events and meetups</p>
+                </div>
+                <div class="p-6 pt-0 flex flex-col flex-grow">
+                  <p class="text-gray-600 flex-grow">
+                    We organize regular meetings to discuss Bitcoin, blockchain technology and digital sovereignty.</p>
+                  <a href="meetings.html" class="inline-flex items-center mt-4 text-friesland-red font-medium hover:text-bitcoin-orange transition-colors">
+                    X →
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- BTC Map Card -->
+            <div class="relative group flex h-full">
+              <div class="absolute -inset-1 bg-gradient-to-r from-bitcoin-orange to-yellow-400 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div class="relative bg-white shadow-lg rounded-xl border-0 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col w-full">
+                <div class="h-16 bg-gradient-to-r from-bitcoin-orange to-yellow-400 flex items-center justify-center">
+                  <div class="bg-white rounded-full p-3 shadow-md">
+                    <svg class="h-6 w-6 text-bitcoin-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="p-6 pb-2">
+                  <h3 class="text-xl font-bold">Bitcoin Map</h3>
+                  <p class="text-gray-500">Find Bitcoin-friendly places</p>
+                </div>
+                <div class="p-6 pt-0 flex flex-col flex-grow">
+                  <p class="text-gray-600 flex-grow">
+                    Discover businesses and locations that accept Bitcoin payments in Friesland.
+                  </p>
+                  <a href="map.html" class="inline-flex items-center mt-4 text-bitcoin-orange font-medium hover:text-friesland-blue transition-colors">
+                    Nostr →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Educational Section -->
+        <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">What is Bitcoin?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>Bitcoin is a decentralized digital currency created in 2009 by an unknown person under the pseudonym Satoshi Nakamoto. It operates without a central authority or bank, and the network collectively maintains transaction records in a public ledger called the blockchain. Bitcoin can be sent directly from user to user without intermediaries, giving people complete control over their money.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">Is Bitcoin sustainable?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>Bitcoin mining uses energy, but much of this energy comes from renewable sources. The Bitcoin network encourages innovation in sustainable energy and helps stabilize energy grids by using excess energy.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">How do I keep track of my Bitcoin for accounting purposes?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>For accounting purposes, you must track all Bitcoin transactions, including date, amount, counterparty, and purpose. Use specialized cryptocurrency accounting software or consult an accountant experienced with digital currencies.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">How do I convert Bitcoin to Euros?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>You can convert Bitcoin to Euros via cryptocurrency exchanges like Bitvavo, Coinbase, or Kraken. You can also use Bitcoin ATMs or peer-to-peer platforms. Pay attention to exchange rates and transaction fees.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">Do I need to register with authorities to use Bitcoin?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>In the Netherlands, you don't need to register with authorities to use Bitcoin for personal purposes. However, you must declare Bitcoin profits to the tax authorities. Different rules may apply for commercial activities.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">How are Bitcoin profits taxed in the Netherlands?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>In the Netherlands, Bitcoin profits are taxed as capital gains (box 3) or as income (box 1) if you trade as an entrepreneur. It depends on your situation and trading frequency. Consult a tax advisor for specific advice.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">Isn't Bitcoin too volatile to use as money?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>Bitcoin is indeed volatile in the short term, but in the long term it has retained value and grown. Many people use Bitcoin as a store of value (digital gold) rather than a daily payment method.</p>
+              </div>
+            </div>
+          
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-semibold text-gray-900">How do I get started with Bitcoin in Friesland?</h3>
+                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="px-6 pb-6 text-gray-600" style="display: none;">
+                <p>Start by downloading a Bitcoin wallet, buy small amounts of Bitcoin via a Dutch exchange like Bitvavo, and join our local Bitcoin community. Participate in our meetups and learn from experienced users.</p>
+              </div>
+            </div>
+        </div>
+        
+        <p class="text-center text-gray-500 text-sm mt-8 italic">Note: This information is for educational purposes only and does not constitute financial advice.</p>
+      </div>
+    </section>
+  
+    
+        <footer class="bg-gray-50 py-12 border-t border-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Fryslân</span>
+              </span>
+            </div>
+            <p class="text-gray-600 mb-4">Promoting Bitcoin adoption and education in Friesland. Join the Bitcoin movement in Friesland</p>
+            <a href="consumers.html" class="inline-flex items-center text-friesland-blue hover:text-friesland-blue/80 font-medium">
+              Get Started →
+            </a>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">NAVIGATION</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Home</a></li>
+              <li><a href="meetings.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Meetings</a></li>
+              <li><a href="map.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Bitcoin Map</a></li>
+              <li><a href="links.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Links</a></li>
+              <li><a href="about.html" class="text-gray-600 hover:text-friesland-blue transition-colors">About</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">CONNECT</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://t.me/bitcoinfriesland" target="_blank" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                  </svg>
+                  Telegram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  X
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  Nostr
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@bitcoinfriesland.com" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p class="text-gray-500 text-sm">© 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors.</p>
+        </div>
+      </div>
+    </footer>
+  
+  </div>
+    <script>
+      // Force show desktop menu on desktop
+      function updateMenuVisibility() {
+        const desktopMenu = document.querySelector('.nav-menu');
+        if (desktopMenu && window.innerWidth >= 768) {
+          desktopMenu.style.display = 'flex';
+        }
+      }
+      
+      // Run on load and resize
+      window.addEventListener('load', updateMenuVisibility);
+      window.addEventListener('resize', updateMenuVisibility);
+      
+      
+      // Language dropdown toggle
+      function toggleLanguageDropdown() {
+        const dropdown = document.getElementById('language-dropdown');
+        if (dropdown) {
+          dropdown.classList.toggle('hidden');
+        }
+      }
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('language-dropdown');
+        const trigger = event.target.closest('[onclick="toggleLanguageDropdown()"]');
+        
+        if (!trigger && dropdown && !dropdown.contains(event.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
+      
+
+      // Language switcher - now handled by direct links
+      
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (menu) {
+          menu.classList.toggle('hidden');
+        }
+      }
+      
+      // FAQ toggle functionality
+      function toggleFAQ(element) {
+        const content = element.nextElementSibling;
+        const arrow = element.querySelector('svg');
+        
+        if (content.style.display === 'none' || content.style.display === '') {
+          content.style.display = 'block';
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          content.style.display = 'none';
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      }
+      
+      // Scroll shadow for header
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('nav');
+        if (window.scrollY > 0) {
+          header.classList.add('shadow-md');
+        } else {
+          header.classList.remove('shadow-md');
+        }
+      });
+    </script>
+  </body>
+</html>
