@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fy">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Bitcoin Fryslân - Oer ús</title>
+    <meta name="description" content="It befoarderjen fan Bitcoin-adopsjefermogen en edukaasje yn Fryslân." >
+    <link rel="stylesheet" crossorigin href="../assets/styles.css">
+    <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" >
+    
+</head>
+  <body>
+    <div id="root">
+          
+    <nav class="sticky top-0 z-50 transition-all duration-300 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="../assets/images/bitcoin-friesland-logo.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Friesland</span>
+              </span>
+            </a>
+          </div>
+          
+          <!-- Desktop menu - FORCE HIDDEN ON MOBILE -->
+          <div class="nav-menu desktop-only">
+            <div class="flex items-center space-x-8">
+              <a href="index.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Home</a>
+              <a href="meetings.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Gearkomsten</a>
+              <a href="map.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Bitcoin Kaart</a>
+              <a href="links.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Links</a>
+              
+              <div class="flex items-center space-x-3 ml-4">
+                <a href="consumers.html" class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Konsuminten
+                  </a>
+                <a href="business.html" class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Bedriuwen
+                  </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile: Only Language selector + Hamburger -->
+          <div class="flex items-center space-x-2">
+            <!-- Language selector -->
+            <div class="relative">
+              <div class="flex items-center border border-gray-300 rounded-lg px-2 py-1 cursor-pointer" onclick="toggleLanguageDropdown()">
+                <img src="../assets/images/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-1">
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+              </div>
+              
+              <!-- Language dropdown -->
+              <div id="language-dropdown" class="hidden absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 min-w-[140px]">
+                <a href="../nl/about.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇳🇱</span>
+                  <span>Nederlands</span>
+                </a>
+                <a href="../en/about.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇬🇧</span>
+                  <span>English</span>
+                </a>
+                <a href="../fy/about.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <img src="../assets/images/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2">
+                  <span>Frysk</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-only">
+              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden mobile-only">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Home</a>
+          <a href="meetings.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Gearkomsten</a>
+          <a href="map.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Bitcoin Kaart</a>
+          <a href="links.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Links</a>
+          <a href="consumers.html" class="block px-3 py-2 text-friesland-blue font-medium">Konsuminten</a>
+          <a href="business.html" class="block px-3 py-2 text-bitcoin-orange font-medium">Bedriuwen</a>
+        </div>
+      </div>
+    </nav>
+  
+          <main class="flex-grow py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h1 class="text-4xl font-bold text-center mb-8 text-friesland-blue">About</h1>
+              <p class="text-xl text-gray-600 text-center">Deze pagina is in ontwikkeling.</p>
+            </div>
+          </main>
+          
+        <footer class="bg-gray-50 py-12 border-t border-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <img src="../assets/images/bitcoin-friesland-logo.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Fryslân</span>
+              </span>
+            </div>
+            <p class="text-gray-600 mb-4">It befoarderjen fan Bitcoin-adopsy en edûkaasje yn Fryslân. Wurde diel fan de Bitcoin-beweging yn Fryslân</p>
+            <a href="consumers.html" class="inline-flex items-center text-friesland-blue hover:text-friesland-blue/80 font-medium">
+              Oan de slach →
+            </a>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">NAVIGAASJE</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Thús</a></li>
+              <li><a href="meetings.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Gearkomsten</a></li>
+              <li><a href="map.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Bitcoin Kaart</a></li>
+              <li><a href="links.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Keppelings</a></li>
+              <li><a href="about.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Oer ús</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">FERBINE</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://t.me/bitcoinfriesland" target="_blank" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                  </svg>
+                  Telegram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  X
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  Nostr
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@bitcoinfriesland.com" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+                <!-- Risk Warning Footer -->
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
+          <h3 class="text-lg font-semibold text-red-800 mb-3">Risikowierskôging</h3>
+          <p class="text-red-700 text-sm leading-relaxed">
+            Bitcoin-koersen kinne sterk skomelje. Sûnder eigen behear of by ferlies fan kaaien kinne jo de folsleine wearde kwytreitsje. Bitcoin falt net ûnder in Europeesk depositgarânsjestelsel. Dizze side is útsluutend ynformatyf en foarmet gjin finansjeel advys.
+          </p>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p class="text-gray-500 text-sm">© 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen.</p>
+        </div>
+      </div>
+    </footer>
+  
+        </div>  <script src="../assets/main.js"></script>
+  </body>
+</html>

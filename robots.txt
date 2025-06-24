@@ -1,0 +1,27 @@
+
+# www.robotstxt.org
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://bitcoinfriesland.com/sitemap.xml
+
+# Disallow certain paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*/noindex/
+Disallow: /*?q=*
+
+# Crawl delay to avoid overloading the server
+Crawl-delay: 10
+
+# Allow specific bots with different rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5

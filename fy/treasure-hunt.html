@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fy">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Bitcoin Friesland - Speurtocht</title>
+    <meta name="description" content="It befoarderjen fan Bitcoin-adopsjefermogen en edukaasje yn Fryslân." >
+    <link rel="stylesheet" crossorigin href="../assets/styles.css">
+    <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" >
+    
+</head>
+  <body>
+    <div id="root">
+          
+    <nav class="sticky top-0 z-50 transition-all duration-300 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="../assets/images/bitcoin-friesland-logo.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Friesland</span>
+              </span>
+            </a>
+          </div>
+          
+          <!-- Desktop menu - FORCE HIDDEN ON MOBILE -->
+          <div class="nav-menu desktop-only">
+            <div class="flex items-center space-x-8">
+              <a href="index.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Home</a>
+              <a href="meetings.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Gearkomsten</a>
+              <a href="map.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Bitcoin Kaart</a>
+              <a href="links.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Links</a>
+              
+              <div class="flex items-center space-x-3 ml-4">
+                <a href="consumers.html" class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Konsuminten
+                  </a>
+                <a href="business.html" class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Bedriuwen
+                  </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile: Only Language selector + Hamburger -->
+          <div class="flex items-center space-x-2">
+            <!-- Language selector -->
+            <div class="relative">
+              <div class="flex items-center border border-gray-300 rounded-lg px-2 py-1 cursor-pointer" onclick="toggleLanguageDropdown()">
+                <img src="../assets/images/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-1">
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+              </div>
+              
+              <!-- Language dropdown -->
+              <div id="language-dropdown" class="hidden absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 min-w-[140px]">
+                <a href="../nl/treasure-hunt.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇳🇱</span>
+                  <span>Nederlands</span>
+                </a>
+                <a href="../en/treasure-hunt.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <span class="text-lg mr-2">🇬🇧</span>
+                  <span>English</span>
+                </a>
+                <a href="../fy/treasure-hunt.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
+                  <img src="../assets/images/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2">
+                  <span>Frysk</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-only">
+              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden mobile-only">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Home</a>
+          <a href="meetings.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Gearkomsten</a>
+          <a href="map.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Bitcoin Kaart</a>
+          <a href="links.html" class="block px-3 py-2 text-gray-700 hover:text-friesland-blue">Links</a>
+          <a href="consumers.html" class="block px-3 py-2 text-friesland-blue font-medium">Konsuminten</a>
+          <a href="treasure-hunt.html" class="block px-3 py-2 text-bitcoin-orange font-medium">Bedriuwen</a>
+        </div>
+      </div>
+    </nav>
+  
+          
+          
+          <main class="flex-grow bg-gray-50">
+            <!-- Hero Section -->
+            <section class="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 md:py-28">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center">
+                  <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl mb-8">
+                    Speurtocht
+                  </h1>
+                  <div class="prose prose-lg text-gray-600 mx-auto">
+                    <p class="text-lg leading-relaxed mb-6">
+                      Op de digitale kaart fan Snits binne in oantal satoshis ferstopt. Satoshis (sats) binne in diel fan in Bitcoin, krekt as senten. Speurje jo mei? Dan kinne jo as jo sats yn Snits fûn hawwe miskien wol in lekker iisje of wat boadskippen dermei ôfrekkenje.
+                    </p>
+                  </div>
+                  <div class="mt-10 flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#start-hunting" class="bg-friesland-blue hover:bg-friesland-blue/90 text-white text-lg px-8 py-6 h-auto rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 inline-flex items-center justify-center">
+                      Direkt speuren
+                    </a>
+                    <a href="#meet-hunters" class="text-friesland-blue hover:text-friesland-blue/80 hover:underline transition-colors inline-flex items-center text-lg font-medium mt-2">
+                      Moetsje oare speurders
+                      <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m0 0l7-7m0 7H3"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Decorative elements -->
+              <div class="absolute top-1/4 right-0 w-64 h-64 bg-bitcoin-orange/5 rounded-full transform -translate-x-1/2 hidden md:block"></div>
+              <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-friesland-blue/5 rounded-full transform translate-x-1/2 hidden md:block"></div>
+            </section>
+
+            <!-- Why Bitcoin Hunting Section -->
+            <section class="py-20 bg-white">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">
+                  Wêrom Bitcoin Speuren?!
+                </h2>
+                
+                <div class="max-w-3xl mx-auto">
+                  <ul class="space-y-6 list-none">
+                    <li class="flex items-start p-6 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm">
+                      <span class="mr-4 text-friesland-blue bg-friesland-blue/10 p-2 rounded-full">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 class="font-semibold text-lg mb-1">
+                          Learzaam
+                        </h3>
+                        <p class="text-gray-700">
+                          Lit jo meizûgje yn de rabbit hole: by elke fraach oer skiernis, kryptografy of 'not your keys, not your coins' ûntdekke jo in nije digitale lokaasje én stekke jo wat by oer hoe it Bitcoin-ekosysteem wurket. Goede antwurden unlocke hints sadat jo ûnderweis echte sats, dielen fan in Bitcoin, kinne claimen. Sa kombinearje jo puzzelplezier mei in mini-kursus Bitcoin.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="flex items-start p-6 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm">
+                      <span class="mr-4 text-friesland-blue bg-friesland-blue/10 p-2 rounded-full">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 class="font-semibold text-lg mb-1">
+                          Stypje Bitcoin ûndernimmers fan Snits
+                        </h3>
+                        <p class="text-gray-700">
+                          De digitale kaart fan Snits fiert jo lâns winkels en restaurants dy't Bitcoin akseptearje; de sats dy't jo ûnderweis score kinne jo dêr útjaan, wylst de ûndernimmers profitearje fan goedkopere betellingen sûnder kaartkosten.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="flex items-start p-6 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm">
+                      <span class="mr-4 text-friesland-blue bg-friesland-blue/10 p-2 rounded-full">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 class="font-semibold text-lg mb-1">
+                          Leuk
+                        </h3>
+                        <p class="text-gray-700">
+                          Bitcoin fielt as digitaal goud. Elke sat dy't jo score hat echte wearde en leart jo spielenderwize wat oer jild, technology en frijheid. De Bitcoin-Speurtocht makket dat noch leuker mei in moderne skattenjacht: puzzels krake, hints fine, nije minsken moetsje en ferstopte hoekjes fan Snits ûntdekke wylst jo jo bút by lokale ûndernimmers útjaan.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <!-- Start Hunting Section -->
+            <section id="start-hunting" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">
+                  Begjin mei Speuren
+                </h2>
+                
+                <div class="prose prose-lg max-w-4xl mx-auto">
+                  <p class="text-gray-700 text-lg text-center mb-12 leading-relaxed">
+                    Prik tiisdei 1 july 16 oere yn jo aginda: dan start de Bitcoin-Speurtocht! Sjoch no alris de ynteraktive Snits-kaart om te sjen hokker restaurants, winkels en salons jo sats akseptearje, en waarmje jo skills op mei in dosis kennis fia de <a href="https://bitcoinschool.nl/podcast/les-1-waarom-deze-podcast/" target="_blank" class="text-friesland-blue hover:underline">Bitcoin School-podcast</a>, <a href="https://bitcoinwiki.nl/" target="_blank" class="text-friesland-blue hover:underline">de Bitcoin Wiki</a>, <a href="https://t.me/BitcoinFriesland" target="_blank" class="text-friesland-blue hover:underline">in Telegram-fraach</a> of <a href="https://savingsatoshi.com/nl" target="_blank" class="text-friesland-blue hover:underline">in fluch online spul</a>. Hoe better jo taret binne, hoe rapper jo straks hints krake, ferstopte hoekjes ûntdekke en jo bút by lokale ûndernimmers fersilvere. De speurtocht start op tiisdei 1 july om 16 oere en einiget op snein 6 july om 12 oere smiddeis.
+                  </p>
+                  
+                  <div class="bg-gradient-to-br from-bitcoin-orange/10 to-friesland-blue/10 p-8 rounded-2xl mt-12 border border-gray-200">
+                    <div class="text-center">
+                      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        🗓️ Bewarje de Datum
+                      </h3>
+                      <div class="bg-white p-6 rounded-xl shadow-md inline-block">
+                        <p class="text-lg font-semibold text-friesland-blue mb-2">
+                          Bitcoin Speurtocht Snits
+                        </p>
+                        <p class="text-gray-700 text-lg">
+                          Tiisdei 1 july, 16:00
+                        </p>
+                        <p class="text-gray-700">
+                          Oant snein 6 july, 12:00
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mt-12 text-center">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-900">
+                      Meitsje jo klear mei dizze boarnen:
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <a href="https://bitcoinschool.nl/podcast/les-1-waarom-deze-podcast/" target="_blank" class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 group">
+                        <div class="flex items-center mb-3">
+                          <svg class="h-8 w-8 text-friesland-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M8.464 8.464a5 5 0 000 7.072M5.636 5.636a9 9 0 000 12.728"></path>
+                          </svg>
+                          <h4 class="font-semibold text-lg group-hover:text-friesland-blue transition-colors">
+                            Bitcoin School Podcast
+                          </h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                          Learje de basis fan Bitcoin
+                        </p>
+                      </a>
+                      
+                      <a href="https://bitcoinwiki.nl/" target="_blank" class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 group">
+                        <div class="flex items-center mb-3">
+                          <svg class="h-8 w-8 text-friesland-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                          </svg>
+                          <h4 class="font-semibold text-lg group-hover:text-friesland-blue transition-colors">
+                            Bitcoin Wiki
+                          </h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                          Wiidweidige Bitcoin kennis
+                        </p>
+                      </a>
+                      
+                      <a href="https://t.me/BitcoinFriesland" target="_blank" class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 group">
+                        <div class="flex items-center mb-3">
+                          <svg class="h-8 w-8 text-friesland-blue mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                          </svg>
+                          <h4 class="font-semibold text-lg group-hover:text-friesland-blue transition-colors">
+                            Telegram Groep
+                          </h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                          Stel fragen oan de mienskip
+                        </p>
+                      </a>
+                      
+                      <a href="https://savingsatoshi.com/nl" target="_blank" class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 group">
+                        <div class="flex items-center mb-3">
+                          <svg class="h-8 w-8 text-friesland-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          <h4 class="font-semibold text-lg group-hover:text-friesland-blue transition-colors">
+                            Saving Satoshi Spul
+                          </h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                          Learje Bitcoin troch gaming
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Meet Other Hunters Section -->
+            <section id="meet-hunters" class="py-20 bg-gradient-to-br from-friesland-blue to-friesland-blue/90">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                  <h2 class="text-3xl font-bold text-white mb-6">
+                    Untdek oare speurders op Telegram
+                  </h2>
+                  <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                    Untdek alris de Bitcoin Friesland Telegram groep om yn kontakt te kommen mei de mienskip en oare speurders te moetsjen. Yn de groep lêze jo ekstra hints en miskien fine jo dêr wol ekstra sats.
+                  </p>
+                  <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a 
+                      href="https://t.me/bitcoinfriesland" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="bg-white text-friesland-blue hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg flex items-center gap-3"
+                    >
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                      </svg>
+                      Doch mei oan Telegram Groep
+                    </a>
+                    <div class="flex items-center gap-2 text-white/80">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm">
+                        100+ Bitcoin entûsjasten
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                      <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                      </div>
+                      <h3 class="font-semibold text-lg mb-2">
+                        Ekstra Hints
+                      </h3>
+                      <p class="text-white/80 text-sm">
+                        Krij eksklusive oanwizings en tips fan de mienskip
+                      </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                      <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                      </div>
+                      <h3 class="font-semibold text-lg mb-2">
+                        Ferstopte Sats
+                      </h3>
+                      <p class="text-white/80 text-sm">
+                        Fyn bonus satoshis dy't eksklúsyf yn de groep dield wurde
+                      </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white">
+                      <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                      </div>
+                      <h3 class="font-semibold text-lg mb-2">
+                        Team Op
+                      </h3>
+                      <p class="text-white/80 text-sm">
+                        Ferbyn mei oare speurders en foarmje skatten-jacht teams
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+          
+        <footer class="bg-gray-50 py-12 border-t border-gray-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <img src="../assets/images/bitcoin-friesland-logo.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <span class="ml-2 text-xl font-bold">
+                <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Fryslân</span>
+              </span>
+            </div>
+            <p class="text-gray-600 mb-4">It befoarderjen fan Bitcoin-adopsy en edûkaasje yn Fryslân. Wurde diel fan de Bitcoin-beweging yn Fryslân</p>
+            <a href="consumers.html" class="inline-flex items-center text-friesland-blue hover:text-friesland-blue/80 font-medium">
+              Oan de slach →
+            </a>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">NAVIGAASJE</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Thús</a></li>
+              <li><a href="meetings.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Gearkomsten</a></li>
+              <li><a href="map.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Bitcoin Kaart</a></li>
+              <li><a href="links.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Keppelings</a></li>
+              <li><a href="about.html" class="text-gray-600 hover:text-friesland-blue transition-colors">Oer ús</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-900">FERBINE</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://t.me/bitcoinfriesland" target="_blank" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6L2 15.5l5.5 2.5L9 22l3-3 4 2 5.5-15z"/>
+                  </svg>
+                  Telegram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  X
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  Nostr
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@bitcoinfriesland.com" class="flex items-center text-gray-600 hover:text-friesland-blue transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+                <!-- Risk Warning Footer -->
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
+          <h3 class="text-lg font-semibold text-red-800 mb-3">Risikowierskôging</h3>
+          <p class="text-red-700 text-sm leading-relaxed">
+            Bitcoin-koersen kinne sterk skomelje. Sûnder eigen behear of by ferlies fan kaaien kinne jo de folsleine wearde kwytreitsje. Bitcoin falt net ûnder in Europeesk depositgarânsjestelsel. Dizze side is útsluutend ynformatyf en foarmet gjin finansjeel advys.
+          </p>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p class="text-gray-500 text-sm">© 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen.</p>
+        </div>
+      </div>
+    </footer>
+  
+        </div>  <script src="../assets/main.js"></script>
+  </body>
+</html>
