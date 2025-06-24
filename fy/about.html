@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html lang="fy">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Bitcoin Fryslân - Oer ús</title>
-    <meta name="description" content="It befoarderjen fan Bitcoin-adopsjefermogen en edukaasje yn Fryslân." />
-    <link rel="stylesheet" crossorigin href="../assets/index-jmfc5gRD.css">
-    <link rel="icon" href="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" />
-    <style>
-    /* Force hide desktop menu on mobile */
-    @media (max-width: 767px) {
-      .nav-menu {
-        display: none !important;
-      }
-      .desktop-only {
-        display: none !important;
-      }
-    }
+    <meta name="description" content="It befoarderjen fan Bitcoin-adopsjefermogen en edukaasje yn Fryslân." >
+    <link rel="stylesheet" crossorigin href="../assets/styles.css">
+    <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" >
     
-    /* Show desktop menu only on desktop */
-    @media (min-width: 768px) {
-      .mobile-only {
-        display: none !important;
-      }
-    }
-  </style>
 </head>
   <body>
     <div id="root">
@@ -35,7 +18,10 @@
           <!-- Logo -->
           <div class="flex items-center">
             <a href="index.html" class="flex items-center">
-              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <picture>
+        <source srcset="../assets/images/bitcoin-friesland-logo-small.webp" type="image/webp">
+        <img src="../assets/images/bitcoin-friesland-logo-small.png" alt="Bitcoin Friesland Logo" class="h-8 w-8" width="32" height="32" style="width: 32px; height: 32px;" width="32" height="32">
+      </picture>
               <span class="ml-2 text-xl font-bold">
                 <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Friesland</span>
               </span>
@@ -51,22 +37,18 @@
               <a href="links.html" class="text-gray-700 hover:text-friesland-blue font-medium transition-colors">Links</a>
               
               <div class="flex items-center space-x-3 ml-4">
-                <a href="consumers.html">
-                  <button class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                <a href="consumers.html" class="border border-friesland-blue text-friesland-blue hover:bg-friesland-blue hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                     Konsuminten
-                  </button>
-                </a>
-                <a href="business.html">
-                  <button class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                  </a>
+                <a href="business.html" class="border border-bitcoin-orange text-bitcoin-orange hover:bg-bitcoin-orange hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors inline-flex items-center">
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                     </svg>
                     Bedriuwen
-                  </button>
-                </a>
+                  </a>
               </div>
             </div>
           </div>
@@ -76,7 +58,7 @@
             <!-- Language selector -->
             <div class="relative">
               <div class="flex items-center border border-gray-300 rounded-lg px-2 py-1 cursor-pointer" onclick="toggleLanguageDropdown()">
-                <img src="../lovable-uploads/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-1">
+                <img src="../assets/images/frisian-flag-small.png" width="100" height="100" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-1">
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                 </svg>
@@ -93,7 +75,7 @@
                   <span>English</span>
                 </a>
                 <a href="../fy/about.html" class="flex items-center px-3 py-2 hover:bg-gray-50 text-sm">
-                  <img src="../lovable-uploads/frisian-flag.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2">
+                  <img src="../assets/images/frisian-flag-small.png" alt="Frysk" class="w-6 h-4 object-cover rounded-sm mr-2" width="24" height="16">
                   <span>Frysk</span>
                 </a>
               </div>
@@ -101,7 +83,7 @@
             
             <!-- Mobile hamburger menu -->
             <div class="mobile-only">
-              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors">
+              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Menu iepenje">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -136,7 +118,10 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="md:col-span-2">
             <div class="flex items-center mb-4">
-              <img src="../lovable-uploads/fb955cbf-72d9-4fb3-ad54-0d6e6e593f86.png" alt="Bitcoin Friesland Logo" class="h-8 w-8">
+              <picture>
+        <source srcset="../assets/images/bitcoin-friesland-logo-small.webp" type="image/webp">
+        <img src="../assets/images/bitcoin-friesland-logo-small.png" alt="Bitcoin Friesland Logo" class="h-8 w-8" width="32" height="32" style="width: 32px; height: 32px;" width="32" height="32">
+      </picture>
               <span class="ml-2 text-xl font-bold">
                 <span class="text-friesland-blue">Bitcoin</span><span class="text-bitcoin-orange">Fryslân</span>
               </span>
@@ -197,79 +182,20 @@
           </div>
         </div>
         
+                <!-- Risk Warning Footer -->
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
+          <h3 class="text-lg font-semibold text-red-800 mb-3">Risikowierskôging</h3>
+          <p class="text-red-700 text-sm leading-relaxed">
+            Bitcoin-koersen kinne sterk skomelje. Sûnder eigen behear of by ferlies fan kaaien kinne jo de folsleine wearde kwytreitsje. Bitcoin falt net ûnder in Europeesk depositgarânsjestelsel. Dizze side is útsluutend ynformatyf en foarmet gjin finansjeel advys.
+          </p>
+        </div>
+        
         <div class="border-t border-gray-200 mt-8 pt-8 text-center">
           <p class="text-gray-500 text-sm">© 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen.</p>
         </div>
       </div>
     </footer>
   
-        </div>
-    <script>
-      // Force show desktop menu on desktop
-      function updateMenuVisibility() {
-        const desktopMenu = document.querySelector('.nav-menu');
-        if (desktopMenu && window.innerWidth >= 768) {
-          desktopMenu.style.display = 'flex';
-        }
-      }
-      
-      // Run on load and resize
-      window.addEventListener('load', updateMenuVisibility);
-      window.addEventListener('resize', updateMenuVisibility);
-      
-      
-      // Language dropdown toggle
-      function toggleLanguageDropdown() {
-        const dropdown = document.getElementById('language-dropdown');
-        if (dropdown) {
-          dropdown.classList.toggle('hidden');
-        }
-      }
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(event) {
-        const dropdown = document.getElementById('language-dropdown');
-        const trigger = event.target.closest('[onclick="toggleLanguageDropdown()"]');
-        
-        if (!trigger && dropdown && !dropdown.contains(event.target)) {
-          dropdown.classList.add('hidden');
-        }
-      });
-      
-
-      // Language switcher - now handled by direct links
-      
-      // Mobile menu toggle
-      function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        if (menu) {
-          menu.classList.toggle('hidden');
-        }
-      }
-      
-      // FAQ toggle functionality
-      function toggleFAQ(element) {
-        const content = element.nextElementSibling;
-        const arrow = element.querySelector('svg');
-        
-        if (content.style.display === 'none' || content.style.display === '') {
-          content.style.display = 'block';
-          arrow.style.transform = 'rotate(180deg)';
-        } else {
-          content.style.display = 'none';
-          arrow.style.transform = 'rotate(0deg)';
-        }
-      }
-      
-      // Scroll shadow for header
-      window.addEventListener('scroll', function() {
-        const header = document.querySelector('nav');
-        if (window.scrollY > 0) {
-          header.classList.add('shadow-md');
-        } else {
-          header.classList.remove('shadow-md');
-        }
-      });
-    </script>
+        </div>  <script src="../assets/main.js"></script>
   </body>
 </html>
