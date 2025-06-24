@@ -122,10 +122,144 @@ static-site-final-perfect/
 ## Performance Considerations
 
 ### Optimization
-- **Images**: Optimized file sizes
-- **CSS**: Minimal custom styles
+- **Images**: Optimized file sizes with responsive variants
+- **CSS**: Minimal custom styles with image size constraints
 - **JavaScript**: Lightweight, no dependencies
 - **Loading**: Fast static file serving
+
+### **CRITICAL: Image Optimization Standards**
+**ALL new images MUST follow these optimization guidelines:**
+
+#### Size Guidelines by Usage:
+- **Navigation logos**: 32x32px, <2KB (use `-small` variants)
+- **Language flags**: 24x16px, <2KB (frisian-flag-small.png)
+- **Bitcoin icons**: 24x24px, <2KB
+- **Hero section**: 256x256px max, <10KB
+- **Content images**: 800x600px max, <50KB
+
+#### Implementation Requirements:
+- **Create optimized variants**: Use ffmpeg to create `-small`, `-medium`, `-large` versions
+- **Update HTML references**: Point to appropriately sized variants
+- **Add CSS constraints**: Force explicit sizing with `!important` rules
+- **Add explicit dimensions**: Include `width` and `height` attributes on all `<img>` tags
+- **Test PageSpeed**: Verify "Properly size images" and CLS warnings are resolved
+
+#### Optimization Commands:
+```bash
+# Create small version (24x24 or 32x32)
+ffmpeg -i input.png -vf scale=32:32 -y output-small.png
+
+# Create medium version (64x64 or 128x128)  
+ffmpeg -i input.png -vf scale=128:128 -y output-medium.png
+
+# Create large version (256x256)
+ffmpeg -i input.png -vf scale=256:256 -y output-large.png
+```
+
+#### CSS Template for New Images:
+```css
+/* Force appropriate sizing for new image types */
+img[src*="new-image-name"] {
+  width: [TARGET_WIDTH]px !important;
+  height: [TARGET_HEIGHT]px !important;
+  max-width: [TARGET_WIDTH]px !important;
+  max-height: [TARGET_HEIGHT]px !important;
+  object-fit: cover;
+}
+```
+
+#### Current Optimized Images:
+- `frisian-flag-small.png`: 1.5KB (was 94KB - 98.4% reduction)
+- `bitcoin-friesland-logo-small.png`: 1.5KB (was 161KB - 97.4% reduction)
+- All navigation and flag references updated to use small variants
+
+#### **WebP Next-Gen Format Implementation:**
+- `frisian-flag-small.webp`: 0.8KB (44.4% smaller than PNG)
+- `bitcoin-friesland-logo-small.webp`: 1.1KB (29.2% smaller than PNG)
+- `bitcoin-friesland-logo-large.webp`: 7.9KB (73.4% smaller than PNG)
+- **Progressive enhancement**: `<picture>` tags with WebP + PNG fallback
+- **51 HTML implementations** across all pages and languages
+- **Total additional savings**: 22.7KB from WebP conversion
+
+#### **WebP Implementation Pattern:**
+```html
+<picture>
+  <source srcset="../assets/images/image-name.webp" type="image/webp">
+  <img src="../assets/images/image-name.png" alt="Description" width="32" height="32">
+</picture>
+```
+
+#### **WebP Creation Commands:**
+```bash
+# Convert PNG to WebP with quality setting
+cwebp -q 90 input-small.png -o output-small.webp
+cwebp -q 85 input-large.png -o output-large.webp
+```
+
+#### **Comprehensive Image Optimization Results:**
+**Major file size reductions achieved:**
+- `de94ca07-7ee7-434c-87a4-ebd316738659.png`: 2.1MB → 73KB WebP (96.5% reduction)
+- `bitcoin-meeting-heerenveen.jpg`: 262KB → 110KB (58% reduction)
+- `63bd8854-f912-4a28-87f7-83262ecebc1d.png`: 255KB → 31KB WebP (88% reduction)
+- `b8247402-8397-4c36-bb52-ec3cb4444872.png`: 93KB → 9KB WebP (90% reduction)
+- `12232760-ecc6-491a-8e75-866eb9c50cb9.png`: 82KB → 9KB WebP (89% reduction)
+
+**Total optimization savings: 1.583MB**
+
+#### **Responsive Image Variants System:**
+**Complete variant system implemented:**
+- **Small variants (64x64)**: For thumbnails, icons, list items
+- **Medium variants (128x128)**: For content cards, feature sections  
+- **Large variants (256x256)**: For hero sections, detailed views
+- **WebP versions**: Created for all variants with 25-35% additional compression
+- **Progressive enhancement**: `<picture>` tags with WebP + PNG fallback
+
+**Naming convention:**
+- `image-name-small.png` / `image-name-small.webp`
+- `image-name-medium.png` / `image-name-medium.webp`
+- `image-name-large.png` / `image-name-large.webp`
+
+#### **Available Optimization Tools:**
+- `ffmpeg`: Image resizing and format conversion
+- `cwebp`: WebP conversion with quality control
+- `pngquant`: Advanced PNG compression (65-80% quality)
+- `identify`: Image dimension analysis
+
+#### **SEO-Friendly Image Naming:**
+**ALL images MUST use descriptive, keyword-rich filenames:**
+- **Format**: `bitcoin-[purpose]-[type].png` (lowercase, hyphens)
+- **Examples**: `bitcoin-education-infographic.png`, `bitcoin-merchant-acceptance.png`
+- **Avoid**: UUID strings, generic names like `image1.png`
+- **Keywords**: Include relevant terms (bitcoin, friesland, community, education, etc.)
+
+#### **Optimization Workflow for New Images:**
+```bash
+# 1. Choose SEO-friendly name
+# Good: bitcoin-education-guide.png
+# Bad: a1b2c3d4-e5f6-7890.png
+
+# 2. Resize large images
+ffmpeg -i bitcoin-education-guide.png -vf scale=800:600 bitcoin-education-guide-resized.png
+
+# 3. Compress PNG with pngquant
+pngquant --quality=65-80 --output bitcoin-education-guide-compressed.png --force bitcoin-education-guide-resized.png
+
+# 4. Create responsive variants
+ffmpeg -i bitcoin-education-guide-compressed.png -vf scale=64:64 bitcoin-education-guide-small.png
+ffmpeg -i bitcoin-education-guide-compressed.png -vf scale=128:128 bitcoin-education-guide-medium.png
+ffmpeg -i bitcoin-education-guide-compressed.png -vf scale=256:256 bitcoin-education-guide-large.png
+
+# 5. Create WebP versions
+cwebp -q 90 bitcoin-education-guide-small.png -o bitcoin-education-guide-small.webp
+cwebp -q 85 bitcoin-education-guide-medium.png -o bitcoin-education-guide-medium.webp
+cwebp -q 80 bitcoin-education-guide-large.png -o bitcoin-education-guide-large.webp
+
+# 6. Implement in HTML with progressive enhancement
+<picture>
+  <source srcset="../assets/images/bitcoin-education-guide-medium.webp" type="image/webp">
+  <img src="../assets/images/bitcoin-education-guide-medium.png" alt="Bitcoin Education Guide" width="128" height="128">
+</picture>
+```
 
 ### Browser Support
 - **Modern Browsers**: Chrome, Firefox, Safari, Edge

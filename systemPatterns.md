@@ -359,9 +359,60 @@ Object.keys(mapData).forEach(lang => {
 
 ### Asset Optimization
 - **Minimal JavaScript** dependencies
-- **Optimized images** with appropriate formats
+- **Optimized images** with appropriate formats and responsive variants
 - **CSS minification** for production
 - **Static file** serving optimization
+
+### **CRITICAL: Image Optimization Workflow**
+**MANDATORY for ALL new images to maintain PageSpeed >90:**
+
+#### **Pre-Upload Checklist**:
+1. **Determine usage context** (navigation, hero, content, icons)
+2. **Check size requirements** from techContext.md guidelines
+3. **Create optimized variants** using ffmpeg commands
+4. **Test file sizes** (<2KB for icons, <10KB for hero, <50KB for content)
+
+#### **Implementation Pattern**:
+```javascript
+// 1. Create optimized variants
+ffmpeg -i original.png -vf scale=32:32 -y image-small.png
+ffmpeg -i original.png -vf scale=128:128 -y image-medium.png
+ffmpeg -i original.png -vf scale=256:256 -y image-large.png
+
+// 2. Update HTML with appropriate variant + explicit dimensions
+<img src="../assets/images/image-small.png" 
+     alt="Description" 
+     class="h-8 w-8" 
+     style="width: 32px; height: 32px;"
+     width="32" 
+     height="32">
+
+// 3. Add CSS constraints
+img[src*="image-name"] {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  object-fit: cover;
+}
+```
+
+#### **Naming Convention**:
+- `image-name-small.png` - For navigation, icons (24-32px)
+- `image-name-medium.png` - For cards, features (64-128px)  
+- `image-name-large.png` - For hero sections (256px max)
+- `image-name.png` - Original (only if needed for large displays)
+
+#### **Success Metrics**:
+- **File size reduction**: >90% for small variants
+- **PageSpeed score**: Maintain >90 on mobile/desktop
+- **"Properly size images"**: Zero warnings in PageSpeed Insights
+- **Visual quality**: No noticeable degradation at target size
+
+#### **Current Optimized Examples**:
+- `frisian-flag-small.png`: 94KB → 1.5KB (98.4% reduction)
+- `bitcoin-friesland-logo-small.png`: 161KB → 1.5KB (97.4% reduction)
+- All navigation references updated to use small variants
 
 ### Loading Patterns
 - **Critical CSS** inline for above-fold content

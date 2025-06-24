@@ -361,3 +361,74 @@
   }
 }
 
+
+
+/* ========================================= */
+/* IMAGE OPTIMIZATION FOR PAGESPEED */
+/* ========================================= */
+
+/* Force proper image sizing to prevent large downloads */
+img[src*="bitcoin-friesland-logo.png"] {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation and footer logos - force small size */
+.h-8.w-8 img,
+img.h-8.w-8 {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+}
+
+/* Bitcoin icons - force small size */
+.h-6.w-6 img,
+img.h-6.w-6 {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+}
+
+/* Hero section logos - limit maximum size */
+.w-full img {
+  max-width: 256px !important;
+  height: auto !important;
+}
+
+/* General image optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Responsive image loading */
+@media (max-width: 768px) {
+  .w-full img {
+    max-width: 200px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .w-full img {
+    max-width: 150px !important;
+  }
+}
+
+
+/* Frisian flag optimization - force small size */
+img[src*="frisian-flag.png"] {
+  width: 24px !important;
+  height: 16px !important;
+  max-width: 24px !important;
+  max-height: 16px !important;
+  object-fit: cover;
+}
+
+/* Language selector flag sizing */
+.language-dropdown img {
+  width: 24px !important;
+  height: 16px !important;
+  object-fit: cover;
+}
