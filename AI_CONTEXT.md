@@ -1,4 +1,5 @@
 # Bitcoin Friesland – AI Context
+# Language note: keep documentation and comments in English unless a user explicitly requests otherwise.
 
 ## Quick facts
 - Static multilingual site for Bitcoin Friesland; no build step required (serve HTML/CSS/JS directly). Root `index.html` redirects to Dutch `nl/`.
@@ -17,8 +18,8 @@
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.
 - Footer must include the risk warning block (NL/EN/FY translations) and the GitHub “Fork” link. Avoid page-specific footer edits—update all pages together.
 - Images:
-  - Logos/flags/icons: PNG ok (single size) + explicit width/height; wrap in `<picture>` only if WebP available.
-  - Foto’s/illustraties: maak breedte-varianten 320/480/640/960/1280 in zowel WebP als JPEG, naam `...-<width>.webp|jpg`. Gebruik `<picture>` met WebP `srcset` + JPEG `srcset` en `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`; fallback `src` kan de 640‑variant zijn. Altijd dimensies op `<img>`.
+  - Logos/flags/icons: PNG is fine (single size) with explicit width/height; wrap in `<picture>` only if WebP is available.
+  - Photos/illustrations: generate width variants 320/480/640/960/1280 in both WebP and JPEG, named `...-<width>.webp|jpg`. Use `<picture>` with WebP `srcset` + JPEG `srcset` and `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`. Fallback `src` can be the 640 variant. Always set dimensions on `<img>`.
 - Navigation: desktop `.nav-menu` (hidden on mobile), mobile hamburger with `#mobile-menu`, and a flag-based language dropdown.
 
 ## Maintenance scripts (Node, no deps required)
