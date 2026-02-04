@@ -33,7 +33,6 @@
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
-- (Historic references `systemPatterns.md` and `techContext.md` were removed; keep AI guidance here.)
 
 ## How to work on the site
 - No build pipeline needed; edit HTML/CSS/JS directly in language folders and `assets/`.
