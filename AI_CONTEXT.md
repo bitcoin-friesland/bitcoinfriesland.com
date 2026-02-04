@@ -16,7 +16,9 @@
 ## Content rules and patterns
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.
 - Footer must include the risk warning block (NL/EN/FY translations) and the GitHub “Fork” link. Avoid page-specific footer edits—update all pages together.
-- Images must stay optimized (small/logo variants for nav/flags; WebP preferred). Maintain explicit dimensions on `<img>` and keep using `<picture>` wrappers for WebP + PNG.
+- Images:
+  - Logos/flags/icons: PNG ok (single size) + explicit width/height; wrap in `<picture>` only if WebP available.
+  - Foto’s/illustraties: maak breedte-varianten 320/480/640/960/1280 in zowel WebP als JPEG, naam `...-<width>.webp|jpg`. Gebruik `<picture>` met WebP `srcset` + JPEG `srcset` en `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`; fallback `src` kan de 640‑variant zijn. Altijd dimensies op `<img>`.
 - Navigation: desktop `.nav-menu` (hidden on mobile), mobile hamburger with `#mobile-menu`, and a flag-based language dropdown.
 
 ## Maintenance scripts (Node, no deps required)
