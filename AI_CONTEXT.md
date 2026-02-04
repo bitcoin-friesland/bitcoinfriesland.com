@@ -28,7 +28,6 @@
 
 ## Source layout notes
 - `assets/index-*.js` and `assets/index-*.css` are generated/minified bundles referenced by some pages; `assets/styles.css` is the primary stylesheet linked throughout.
-- `lovable-uploads/` holds raw uploads; prefer optimized counterparts in `assets/images/` when referencing in HTML.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
 - `systemPatterns.md` and `techContext.md` capture historical patterns and image guidelines (three-language rule, image sizing/optimization commands). Keep new changes consistent with those expectations.
 

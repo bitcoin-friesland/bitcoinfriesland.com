@@ -11,8 +11,7 @@ static-site-final-perfect/
 ├── nl/en/fy/          # Language-specific HTML files
 ├── css/               # Styling (Tailwind-based)
 ├── js/                # JavaScript functionality
-├── assets/            # Static assets
-└── lovable-uploads/   # Image uploads
+└── assets/            # Static assets (optimized images, icons, JS/CSS)
 ```
 
 ### Pages Structure

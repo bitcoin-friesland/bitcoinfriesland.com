@@ -32,7 +32,7 @@
   <title>Bitcoin Friesland - [Page Title]</title>
   <meta name="description" content="[Page Description]" />
   <link rel="stylesheet" href="../assets/index-[hash].css">
-  <link rel="icon" href="../lovable-uploads/[logo-hash].png" />
+  <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" />
 </head>
 <body>
   <div id="root">
