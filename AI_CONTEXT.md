@@ -29,7 +29,7 @@
 ## Source layout notes
 - `assets/index-*.js` and `assets/index-*.css` are generated/minified bundles referenced by some pages; `assets/styles.css` is the primary stylesheet linked throughout.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
-- `systemPatterns.md` and `techContext.md` capture historical patterns and image guidelines (three-language rule, image sizing/optimization commands). Keep new changes consistent with those expectations.
+- (Historische referenties `systemPatterns.md` en `techContext.md` zijn verwijderd; bewaar AI instructies hier.)
 
 ## How to work on the site
 - No build pipeline needed; edit HTML/CSS/JS directly in language folders and `assets/`.
