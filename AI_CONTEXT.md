@@ -30,9 +30,10 @@
 - `data-businesses.js`: Structured list of Bitcoin-accepting businesses (name, URL, type, address, city, btcmap/onchain/lightning flags); currently used as reference data for the map tables.
 
 ## Source layout notes
-- `assets/index-*.js` and `assets/index-*.css` are generated/minified bundles referenced by some pages; `assets/styles.css` is the primary stylesheet linked throughout.
+- CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
+- JS: `assets/main.js` holds runtime behavior; no other bundles are used.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
-- (Historische referenties `systemPatterns.md` en `techContext.md` zijn verwijderd; bewaar AI instructies hier.)
+- (Historic references `systemPatterns.md` and `techContext.md` were removed; keep AI guidance here.)
 
 ## How to work on the site
 - No build pipeline needed; edit HTML/CSS/JS directly in language folders and `assets/`.
