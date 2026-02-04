@@ -14,7 +14,7 @@ Bitcoin Friesland is a community promoting Bitcoin adoption and education in Fri
 - **Contributing**: fork/branch/PR against `main`. Keep all three languages in sync and follow the guidelines in `AI_CONTEXT.md`.
 - **AI support**: `AI_CONTEXT.md` holds instructions for LLM assistance. Default helper: OpenAI Codex/ChatGPT-style.
 
-## 🇫🇷 Frysk
+## 🏳️‍🌈 Frysk
 Bitcoin Friesland is in mienskip dy’t Bitcoin-adopsje en -edukaasje yn Fryslân befoarderet. De site is statysk (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/`, `fy`. Elkenien mei bydrage mei in pull request.
 
 - **Struktuer**: taalmapkes (`nl/`, `en/`, `fy/`), assets yn `assets/` (`styles.css`, `main.js`, ôfbylden). Gjin build-stap nedich.
