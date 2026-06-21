@@ -15,7 +15,7 @@ Disallow: /*/noindex/
 Disallow: /*?q=*
 
 # Crawl delay to avoid overloading the server
-Crawl-delay: 10
+Crawl-delay: 1
 
 # Allow specific bots with different rules
 User-agent: Googlebot

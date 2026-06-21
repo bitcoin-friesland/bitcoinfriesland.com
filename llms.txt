@@ -1,0 +1,34 @@
+# Bitcoin Friesland
+
+> Bitcoin Friesland (Frisian: Bitcoin Fryslân) is a volunteer community that
+> promotes Bitcoin adoption and education in the province of Friesland, the
+> Netherlands. The site is informational only and does not give financial advice.
+
+## About
+- Name: Bitcoin Friesland / Bitcoin Fryslân
+- Region: Friesland (Fryslân), Netherlands
+- Languages: Dutch (nl), English (en), Frisian (fy)
+- Contact: info@bitcoinfriesland.com
+- Community chat: https://t.me/bitcoinfriesland
+
+## Main pages (Dutch)
+- Home: https://bitcoinfriesland.com/nl/
+- Meetups and events: https://bitcoinfriesland.com/nl/meetings.html
+- Bitcoin map (where to pay with Bitcoin): https://bitcoinfriesland.com/nl/map.html
+- For consumers (getting started): https://bitcoinfriesland.com/nl/consumers.html
+- For business (accepting Bitcoin): https://bitcoinfriesland.com/nl/business.html
+- Resources and links: https://bitcoinfriesland.com/nl/links.html
+- About us: https://bitcoinfriesland.com/nl/about.html
+- Treasure hunt: https://bitcoinfriesland.com/nl/treasure-hunt.html
+
+## English pages
+- Home: https://bitcoinfriesland.com/en/
+- All English pages live under https://bitcoinfriesland.com/en/
+
+## Frisian pages
+- Home: https://bitcoinfriesland.com/fy/
+- All Frisian pages live under https://bitcoinfriesland.com/fy/
+
+## Notes
+- Every page is available in Dutch, English and Frisian and is linked with hreflang.
+- Bitcoin prices can be volatile. This site is educational and is not financial advice.

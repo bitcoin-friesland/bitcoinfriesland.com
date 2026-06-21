@@ -17,6 +17,10 @@ function toggleLanguageDropdown() {
   const dropdown = document.getElementById('language-dropdown');
   if (dropdown) {
     dropdown.classList.toggle('hidden');
+    const trigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', dropdown.classList.contains('hidden') ? 'false' : 'true');
+    }
   }
 }
 
@@ -46,11 +50,40 @@ function toggleFAQ(element) {
   if (content.style.display === 'none' || content.style.display === '') {
     content.style.display = 'block';
     arrow.style.transform = 'rotate(180deg)';
+    element.setAttribute('aria-expanded', 'true');
   } else {
     content.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
+    element.setAttribute('aria-expanded', 'false');
   }
 }
+
+// Keyboard accessibility: make click-only controls operable with Enter/Space
+document.addEventListener('DOMContentLoaded', function() {
+  function makeAccessible(el, expandable) {
+    if (!el) return;
+    if (!el.getAttribute('role')) el.setAttribute('role', 'button');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    if (expandable && !el.hasAttribute('aria-expanded')) el.setAttribute('aria-expanded', 'false');
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  }
+  // Language selector trigger
+  const langTrigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
+  if (langTrigger) {
+    langTrigger.setAttribute('aria-haspopup', 'true');
+    langTrigger.setAttribute('aria-label', 'Select language');
+    makeAccessible(langTrigger, true);
+  }
+  // FAQ question headers
+  document.querySelectorAll('[onclick="toggleFAQ(this)"]').forEach(function(el) {
+    makeAccessible(el, true);
+  });
+});
 
 // Scroll shadow for header
 window.addEventListener('scroll', function() {
