@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Bitcoin Friesland Nieuws</title>
+    <link>https://bitcoinfriesland.com/nl/blog/</link>
+    <description>Nieuws, gidsen en verhalen over Bitcoin in Friesland.</description>
+    <language>nl</language>
+    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0200</lastBuildDate>
+
+    <item>
+      <title>Beginnen met Bitcoin in Friesland: een praktische gids</title>
+      <link>https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland.html</link>
+      <guid>https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland.html</guid>
+      <pubDate>Mon, 22 Jun 2026 09:00:00 +0200</pubDate>
+      <description>Stap voor stap beginnen met Bitcoin in Friesland: je eerste wallet, bitcoin kopen via een Nederlandse exchange, veilig bewaren en betalen bij lokale ondernemers.</description>
+    </item>
+
+  </channel>
+</rss>

@@ -101,14 +101,90 @@ small clean-ups.
   the past events list and adding the next meetup date when known. (I did not
   change event text, only added the conference data.)
 
+## Round 4 (news/blog section)
+
+19. **Added a Nieuws (news/blog) section.** A new Dutch blog lives at
+    `/nl/blog/`. It has a landing page that lists posts and one ready-to-read
+    starter article, "Beginnen met Bitcoin in Friesland". Fresh posts like this
+    are the best long-term way to bring new visitors from Google.
+
+20. **Put the blog in the menu everywhere.** Every page now links to it in the
+    top menu, the mobile menu and the footer (Nieuws in Dutch, News in English,
+    Nijs in Frisian).
+
+21. **Made future posts easy.** There is a plain-language guide,
+    `nl/blog/HOW-TO-ADD-A-POST.md`, that explains how to add a new article by
+    copying one file and changing the text. No coding needed.
+
+22. **Added an RSS feed and search data.** The blog has an RSS feed (handy for
+    the Nostr and Bitcoin crowd) and each post carries article data so Google
+    can show it nicely. Blog pages were added to the sitemap.
+
+## Round 5 (business listings)
+
+23. **Added two businesses to the Bitcoin map list.** StudioFab (Webdesign,
+    Goutum) and Sloopkamer (Rage Room, Dokkum) were added to the
+    "Bitcoin-vriendelijke Bedrijven in Friesland" table on all three map pages,
+    placed in the middle of the list, with links and all three payment columns
+    ticked. Both businesses show a "Bitcoin accepted" badge on their own sites.
+
+## Round 6 (visual refresh)
+
+24. **Modern typeface.** The whole site now uses Inter, a clean professional
+    font, instead of the browser default. This alone makes it look more current.
+
+25. **Glass navigation bar.** The top menu is now slightly see-through with a
+    soft blur, a thin border and a refined shadow when you scroll. Menu links
+    get a subtle blue-to-orange underline on hover.
+
+26. **Richer hero.** The top section of the homepage now has a soft, on-brand
+    blue-and-orange glow instead of a flat grey gradient. Same colours, more
+    depth.
+
+27. **Premium buttons.** All buttons share one polished style now: rounder
+    corners, a soft coloured shadow, and a gentle lift when you hover. The
+    Telegram band uses the real Friesland blue instead of a generic blue.
+
+28. **Softer, modern cards and shadows.** Shadows across the site were made
+    softer and more expensive-looking, the heavy glow behind the homepage cards
+    was toned down, and corners are a touch rounder.
+
+29. **Clear focus rings.** Keyboard users now see a clean blue ring on buttons
+    and links, which also looks more polished.
+
+    How it works: all of the above lives in ONE new file,
+    `assets/enhancements.css`, layered on top of the existing styles. It changes
+    how things look, not the page content or layout. To undo any of it, that one
+    file (and its link) can be removed. Note: the Inter font loads from Google
+    Fonts, which is a new outside connection.
+
+## Round 7 (more visual touches)
+
+30. **Brand accent line on the footer.** A thin blue-to-orange line now sits at
+    the top of the footer on every page. Small, but it ties the look together.
+
+31. **Photos gently zoom on the blog cards** when you hover them. Subtle and
+    modern. The long article pages are left alone.
+
+32. **Nicer business table.** The Bitcoin map list now has soft striped rows and
+    a light blue hover, so it is easier to read down a long list.
+
+33. **Small tactile details.** Buttons press in slightly when clicked, the FAQ
+    boxes and the links-page cards lift on hover, blog text links got readable
+    underlines, the phone "tap flash" is gone, and the scrollbar is now a slim
+    on-brand blue. All of this is still in the one `enhancements.css` file.
+
 ## Files changed
-- All 24 language pages in `nl/`, `en/` and `fy/`
+- All 24 language pages in `nl/`, `en/` and `fy/` (added the Nieuws menu link)
+- `nl/map.html`, `en/map.html`, `fy/map.html` (two new businesses)
 - `index.html` (the front-door redirect page, now with language links)
 - `404.html` (new, friendly page-not-found)
 - `assets/main.js` (keyboard accessibility)
 - `sitemap.xml` (rebuilt)
 - `robots.txt` (faster crawl setting)
 - `llms.txt` (new, summary for AI tools)
+- `nl/blog/` (new: landing page, starter post, RSS feed, how-to guide)
+- `assets/enhancements.css` (new: the visual polish layer) + linked on every page
 
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
