@@ -23,7 +23,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/meetings.html</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/meetings.html"/>
@@ -103,7 +103,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/en/meetings.html</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/meetings.html"/>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/fy/meetings.html</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/meetings.html"/>
@@ -262,5 +262,11 @@
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

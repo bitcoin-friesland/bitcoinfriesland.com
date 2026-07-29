@@ -174,6 +174,38 @@ small clean-ups.
     underlines, the phone "tap flash" is gone, and the scrollbar is now a slim
     on-brand blue. All of this is still in the one `enhancements.css` file.
 
+## Round 8 (new event)
+
+34. **Added the "Meat the Resistance" BBQ event.** Friday 14 August 2026 from
+    19:00 at Vliegveld Drachten, shown as the first upcoming event on the
+    meetings page (Dutch, English and Frisian), reusing the earlier Drachten BBQ
+    photo, with a "Get your ticket" button to meat-the-resistance.info and event
+    data for Google (ticket € 25, paid in sats).
+
+## Round 9 (event findability + backlink)
+
+35. **Moved the 29 May meetup to past events** on all three pages (dimmed, grey
+    header, like the other past events).
+
+36. **Fixed missing image descriptions.** Nine past-event photos had empty alt
+    text; they now describe the image (accessibility + image search).
+
+37. **Dedicated event page for the BBQ.** New page
+    `/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html` with a
+    keyword-rich title, a clear facts block (date, place, price, tickets), a
+    ticket button, and Event + FAQ + breadcrumb data. This is what helps people
+    find it when they Google the event, and what an AI assistant reads when
+    someone asks about Bitcoin meetups in Friesland. Linked from the meetings
+    card, added to the sitemap, and listed in `llms.txt` (the file AI crawlers
+    read) with date, location and ticket info.
+
+38. **Stronger studiofab.nl backlink, done the clean way.** Moved the credit
+    from a small footer line into the About page's main text as one contextual,
+    followed link with a descriptive anchor ("StudioFab — webdesign uit
+    Friesland"). It stays on the About page only (not site-wide, which Google
+    discounts) and is visible to people (no hidden-text tricks, which would risk
+    studiofab.nl).
+
 ## Files changed
 - All 24 language pages in `nl/`, `en/` and `fy/` (added the Nieuws menu link)
 - `nl/map.html`, `en/map.html`, `fy/map.html` (two new businesses)
@@ -184,6 +216,9 @@ small clean-ups.
 - `robots.txt` (faster crawl setting)
 - `llms.txt` (new, summary for AI tools)
 - `nl/blog/` (new: landing page, starter post, RSS feed, how-to guide)
+- `nl/evenementen/` (new: dedicated BBQ event page)
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (BBQ event, 29 May moved to past, alt text, event-page link)
+- `nl/about.html`, `en/about.html`, `fy/about.html` (studiofab.nl credit moved into content)
 - `assets/enhancements.css` (new: the visual polish layer) + linked on every page
 
 ## Good to know
