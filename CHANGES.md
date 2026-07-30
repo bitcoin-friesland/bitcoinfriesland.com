@@ -206,6 +206,43 @@ small clean-ups.
     discounts) and is visible to people (no hidden-text tricks, which would risk
     studiofab.nl).
 
+## Round 10 (optics sweep, from looking at the live site)
+
+39. **Fixed the blank boxes on the meetings page.** The upcoming event photos
+    (top of the page) now load immediately instead of showing an empty white
+    box. Older events lower down still load as you scroll, to keep the page
+    light.
+
+40. **Fixed an image that jumped while loading.** The BBQ photo was told the
+    wrong shape (wide instead of tall), which made the page jump as it loaded.
+    Corrected on the meetings cards and the event page.
+
+41. **Filled the empty gaps in the homepage "Bronnen & Links" cards.** Two of
+    the three cards had no image and left a big blank space. They now have a
+    matching photo, so all three cards look even and finished.
+
+## Round 11 (site-wide design polish)
+
+42. **One consistent hero look.** The inner pages used three different flat grey
+    backgrounds; they now all share the same warm blue-and-orange glow as the
+    homepage, so every page feels part of one site.
+
+43. **A brand signature line.** A thin blue-to-orange line now sits under the
+    menu on every page (matching the one on the footer), tying the whole site
+    to the brand colours.
+
+44. **Buttons have depth.** The flat buttons now have a subtle gradient, so they
+    look designed rather than plain.
+
+45. **Consistent hover effects.** Event cards and the links on the Links page now
+    lift gently and gain a soft shadow when you move the mouse over them, with
+    photos zooming slightly inside cards. Same feel everywhere.
+
+46. **Careful detail work.** Softer, more even shadows, tighter headings, and
+    tidy focus outlines throughout. All of this is still in the one
+    `enhancements.css` file, and I previewed it on the live pages to check it
+    looks right.
+
 ## Files changed
 - All 24 language pages in `nl/`, `en/` and `fy/` (added the Nieuws menu link)
 - `nl/map.html`, `en/map.html`, `fy/map.html` (two new businesses)
