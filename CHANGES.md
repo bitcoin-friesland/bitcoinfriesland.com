@@ -292,6 +292,28 @@ small clean-ups.
 - `llms.txt` (conference URL + discount code)
 - `README.md` (rebuilt), `CONTRIBUTING.md` (new), `CHANGES.md` (this entry)
 
+## Round 13 (Noderunners promo restyle)
+
+50. **The Noderunners promo band went from dark to light.** The heavy dark
+    promo band under the homepage hero clashed with the light sections around
+    it. It now uses the same soft blue-and-orange brand glow as the hero, with
+    the signature blue-to-orange line on top, and the text flipped to
+    dark-on-light. This is done with style overrides appended to
+    `assets/enhancements.css` (same class names, later in the file, so they
+    win); the original dark block is untouched, so reverting is one delete.
+
+51. **The meetings cards now sell the discount.** On the meetings pages in all
+    three languages, the Noderunners Conference card got a "10% off" discount
+    tag under the date, an exclusive BITCOINFRIESLAND code box, and a primary
+    orange ticket button that links straight to
+    conf2026.noderunners.network/BITCOINFRIESLAND (the code is applied
+    automatically). The old outline "view program" button is replaced by this
+    ticket button.
+
+## Round 13 files
+- `assets/enhancements.css` (v3 restyle block appended)
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (discount tag, code box, ticket CTA)
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

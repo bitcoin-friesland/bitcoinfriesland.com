@@ -438,3 +438,106 @@ nav.sticky::after {
   box-shadow: 0 18px 34px -14px rgba(249,115,22,.6);
 }
 .nr-promo-cta svg { width: 1.1rem; height: 1.1rem; }
+
+/* ============================================================
+   v3 — Noderunners promo restyle (light, on-brand gradient)
+   The original dark band clashed with the site's light sections;
+   these overrides (same selectors, later in file = they win)
+   restyle it as a light brand-mesh band, and add the promo bits
+   used on the meetings event cards.
+   ============================================================ */
+
+/* --- Light brand-mesh background, same language as the hero --- */
+.nr-promo {
+  background:
+    radial-gradient(900px 420px at 85% -15%, rgba(249,115,22,.10), transparent 60%),
+    radial-gradient(820px 400px at -5% 110%, rgba(0,102,204,.10), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%);
+  border-top: 1px solid rgba(15,23,42,.06);
+  border-bottom: 1px solid rgba(15,23,42,.06);
+}
+/* thin signature blue-to-orange rule on top, like the nav/footer accent */
+.nr-promo::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bf-blue), var(--bf-orange));
+}
+
+/* --- dark-on-light text flips --- */
+.nr-promo-title { color: var(--bf-ink); }
+.nr-promo-desc { color: #4b5563; }
+.nr-promo-code-label { color: #64748b; }
+.nr-promo-valid { color: #94a3b8; }
+
+.nr-promo-chip {
+  background: #ffffff;
+  border-color: rgba(15,23,42,.08);
+  color: #475569;
+  box-shadow: 0 1px 3px rgba(2,6,23,.06);
+}
+
+.nr-promo-code-box {
+  background: #ffffff;
+  box-shadow: 0 6px 18px -8px rgba(249,115,22,.25);
+}
+
+.nr-promo-copy {
+  background: rgba(15,23,42,.04);
+  border-color: rgba(15,23,42,.12);
+  color: #334155;
+}
+.nr-promo-copy:hover { background: rgba(249,115,22,.10); border-color: rgba(249,115,22,.45); }
+
+/* --- Meetings event card: discount tag + mini code box + primary CTA --- */
+.nr-discount-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .6rem;
+  padding: .3rem .75rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--bf-orange), var(--bf-red));
+  color: #ffffff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 14px -6px rgba(249,115,22,.55);
+  white-space: nowrap;
+}
+.nr-code-mini {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem .75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: .7rem .9rem;
+  border-radius: .7rem;
+  border: 1.5px dashed rgba(249,115,22,.5);
+  background: rgba(249,115,22,.05);
+}
+.nr-code-mini-label {
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #b45309;
+}
+.nr-code-mini-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--bf-orange);
+  user-select: all;
+}
+.nr-card-cta { padding-top: .8rem; padding-bottom: .8rem; }
+.nr-code-mini-note {
+  font-size: .75rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: .55rem;
+}
