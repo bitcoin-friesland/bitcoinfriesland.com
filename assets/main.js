@@ -58,6 +58,30 @@ function toggleFAQ(element) {
   }
 }
 
+// Noderunners promo: copy discount code to clipboard
+function copyPromoCode(button) {
+  var code = 'BITCOINFRIESLAND';
+  var label = button.querySelector('span');
+  function markCopied() {
+    button.classList.add('nr-copied');
+    if (label) label.textContent = button.getAttribute('data-copied-text');
+    setTimeout(function() {
+      button.classList.remove('nr-copied');
+      if (label) label.textContent = button.getAttribute('data-copy-text');
+    }, 2000);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(markCopied).catch(function() {});
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = code;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); markCopied(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+}
+
 // Keyboard accessibility: make click-only controls operable with Enter/Space
 document.addEventListener('DOMContentLoaded', function() {
   function makeAccessible(el, expandable) {
