@@ -1,14 +1,15 @@
 # Contributing to bitcoinfriesland.com
 
-Thanks for helping build the Bitcoin Friesland website. This repo is worked on by **multiple humans and AI assistants**, and `main` publishes the live site — so we keep a strict but simple workflow.
+Thanks for helping build the Bitcoin Friesland website. This repo is worked on by **3 humans and several AI coding agents**, and `main` publishes the live site — so we keep a strict but simple workflow.
 
-> 🤖 AI assistants: follow [AI_CONTEXT.md](AI_CONTEXT.md) — it contains machine-oriented rules and site internals.
+> 🤖 AI assistants: follow [AGENTS.md](AGENTS.md) + [AI_CONTEXT.md](AI_CONTEXT.md) instead — they contain machine-oriented rules and site internals.
 
 ## The golden rules
 
 1. **Every change lands in all three languages** (`nl/`, `en/`, `fy/`) with identical structure.
 2. **`main` is live.** All changes go through a branch + pull request.
 3. **The footer is sacred**: it must keep the risk warning block (all three languages) and the GitHub link, and is always updated across all pages together (use `node maintain-footer.cjs all`).
+4. **Log your work**: add a short, plain-language entry to [CHANGES.md](CHANGES.md) under the latest round (or start a new one).
 
 ## Workflow
 
@@ -26,7 +27,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
    - a clear title
    - what changed, on which pages, in which languages
    - screenshots for visual changes
-5. Add a short, plain-language entry to [CHANGES.md](CHANGES.md) as a new numbered point under the latest round (or start a new round).
+5. Wait for review. With several contributors (human and AI) active, keep PRs small and focused, and check open PRs before starting something big.
 
 ## Checklist for content changes
 
@@ -34,6 +35,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 - [ ] Translations are real translations — no Dutch or English left in the Frisian pages
 - [ ] Links work (relative links between language pages, absolute for external)
 - [ ] New public pages added to `sitemap.xml` and `llms.txt`
+- [ ] Entry added to `CHANGES.md`
 
 ## Checklist for visual/structural changes
 
