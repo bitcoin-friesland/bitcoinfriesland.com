@@ -541,3 +541,61 @@ nav.sticky::after {
   text-align: center;
   margin-top: .55rem;
 }
+
+/* ============================================================
+   v4 — smoothness pass, ported from the Lovable/React project
+   (bitcoin-friesland/bitcoin-friesland). Same brand palette,
+   same motion feel (framer-motion items -> pure CSS). Additive.
+   ============================================================ */
+
+/* --- Shared motion keyframes (old repo: float + fadeIn) --- */
+@keyframes bf-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bf-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* --- Hero: staggered entrance, like the old React hero
+       (staggerChildren 0.2s, items fade+rise 20px). The
+       lg:grid-cols-12 hero grid only exists on homepages. --- */
+.lg\:grid-cols-12 > div {
+  animation: bf-rise .6s cubic-bezier(.2,.8,.2,1) both;
+}
+.lg\:grid-cols-12 > div:nth-child(2) { animation-delay: .18s; }
+.lg\:grid-cols-12 h1 > span {
+  animation: bf-rise .55s cubic-bezier(.2,.8,.2,1) both;
+}
+.lg\:grid-cols-12 h1 > span:nth-child(2) { animation-delay: .12s; }
+.lg\:grid-cols-12 p {
+  animation: bf-rise .55s cubic-bezier(.2,.8,.2,1) .24s both;
+}
+.lg\:grid-cols-12 .mt-6 {
+  animation: bf-rise .55s cubic-bezier(.2,.8,.2,1) .36s both;
+}
+
+/* --- Hero logo card: gentle 6s float (old repo: animate y 0/-10/0) --- */
+.lg\:grid-cols-12 > div:nth-child(2) .rounded-lg {
+  animation: bf-float 6s ease-in-out 1s infinite;
+}
+
+/* --- Outline buttons: fill with brand colour on hover
+       (old MeetingCard: hover:bg-friesland-blue hover:text-white) --- */
+a.border-blue-500:hover {
+  background-color: var(--bf-blue);
+  border-color: var(--bf-blue);
+  color: #ffffff;
+}
+a.border-friesland-blue:hover { background-color: var(--bf-blue); color: #ffffff; }
+a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffffff; }
+
+/* --- Scroll reveal for cards (activated from main.js; without JS
+       the .bf-reveal class is never added, so nothing is hidden) --- */
+.bf-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1);
+}
+.bf-reveal.in { opacity: 1; transform: none; }
