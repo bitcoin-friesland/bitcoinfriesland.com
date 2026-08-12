@@ -243,6 +243,33 @@ small clean-ups.
     `enhancements.css` file, and I previewed it on the live pages to check it
     looks right.
 
+## Round 12 (conference promo + repo documentation)
+
+47. **Noderunners Conference 2026 promo on the homepage.** A dark, on-brand
+    promo band directly under the hero on all three homepages (NL/EN/FY):
+    an "exclusive for Bitcoin Friesland" badge, date and venue chips
+    (19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem), a copyable 10%
+    discount code (BITCOINFRIESLAND, valid until the conference) and a ticket
+    button to conf2026.noderunners.network/BITCOINFRIESLAND (the link applies
+    the code). Styling lives in a self-contained block at the end of
+    `assets/enhancements.css` (prefixed `.nr-promo-*` classes, so it does not
+    depend on the compiled Tailwind file); the copy button uses a small
+    `copyPromoCode()` helper added to `assets/main.js`.
+
+48. **Updated llms.txt for the promo.** The NodeRunners entry now points to the
+    current conference site (conf2026.noderunners.network) and mentions the
+    exclusive BITCOINFRIESLAND discount code, so AI assistants can relay it
+    when people ask about the conference.
+
+49. **Proper repository documentation.** The README was rebuilt into real
+    documentation: repository layout, how to run and edit locally, the
+    three-language rule, the styling system (never edit the compiled
+    styles.css; custom work goes in enhancements.css), the SEO/LLM assets to
+    keep alive, the maintenance scripts, and how publishing works. A new
+    CONTRIBUTING.md gives human contributors the branch/PR workflow and
+    checklists. AI_CONTEXT.md stays the guide for AI assistants and is now
+    linked from both.
+
 ## Files changed
 - All 24 language pages in `nl/`, `en/` and `fy/` (added the Nieuws menu link)
 - `nl/map.html`, `en/map.html`, `fy/map.html` (two new businesses)
@@ -257,6 +284,13 @@ small clean-ups.
 - `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (BBQ event, 29 May moved to past, alt text, event-page link)
 - `nl/about.html`, `en/about.html`, `fy/about.html` (studiofab.nl credit moved into content)
 - `assets/enhancements.css` (new: the visual polish layer) + linked on every page
+
+## Round 12 files
+- `nl/index.html`, `en/index.html`, `fy/index.html` (promo section under hero)
+- `assets/enhancements.css` (promo styling block appended)
+- `assets/main.js` (copyPromoCode helper)
+- `llms.txt` (conference URL + discount code)
+- `README.md` (rebuilt), `CONTRIBUTING.md` (new), `CHANGES.md` (this entry)
 
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
