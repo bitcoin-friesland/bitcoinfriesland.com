@@ -363,6 +363,19 @@ small clean-ups.
   `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html` (compact footer + inline chat buttons)
 - `CHANGES.md` (this entry)
 
+## Round 16 (nav underline fix)
+
+57. **The active menu underline is now short and straight.** The line under
+    the current page in the navigation ran the full width of the menu item
+    and looked bent at the ends. It is now a crisp, centered bar at 55% of
+    the text width with clean square ends, in the brand blue-to-orange
+    gradient. It grows slightly on hover. Pure CSS in the v6 block of
+    `assets/enhancements.css`; the inline styles in the HTML are untouched.
+
+## Round 16 files
+- `assets/enhancements.css` (v6 nav underline block)
+- `CHANGES.md` (this entry)
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

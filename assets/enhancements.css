@@ -668,3 +668,28 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
   background: transparent;
 }
 .bf-btn-ghost-white:hover { background: rgba(255, 255, 255, .12); }
+
+/* ============================================================
+   v6 — active nav underline: short, straight, centered
+   The active menu item carries an inline border-bottom that
+   runs the full text width with rounded-looking ends. Replaced
+   by a crisp centered bar (55% width, square ends), CSS-only.
+   ============================================================ */
+.nav-menu a[style*="border-bottom"] { border-bottom: none !important; }
+.nav-menu a[href][style*="border-bottom"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: 0;
+  width: 55%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--bf-blue), var(--bf-orange));
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: width .25s ease;
+}
+.nav-menu a[href][style*="border-bottom"]:hover::after {
+  width: 75%;
+  transform: translateX(-50%);
+}
