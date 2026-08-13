@@ -599,3 +599,72 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
   transition: opacity .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1);
 }
 .bf-reveal.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   v5 — hero upgrade + Signal integration styles
+   Bigger, richer homepage hero (brand palette only) and the
+   ghost-white button used for Signal on dark CTA bands.
+   ============================================================ */
+
+/* --- Hero: more presence — bigger type, more air --- */
+.bg-gradient-to-br.from-white.to-gray-50 {
+  position: relative;
+  padding-top: 4.5rem;
+  padding-bottom: 7rem;
+}
+.lg\:grid-cols-12 h1 {
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  line-height: 1.04;
+}
+
+/* --- Hero: gradient headline accent (orange -> red, brand ramp) --- */
+.lg\:grid-cols-12 h1 .text-bitcoin-orange {
+  background: linear-gradient(90deg, var(--bf-orange), var(--bf-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Hero: ambient brand blobs behind the content (clipped by the
+       hero's overflow-hidden wrapper) --- */
+.bg-gradient-to-br.from-white.to-gray-50::before,
+.bg-gradient-to-br.from-white.to-gray-50::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-gradient-to-br.from-white.to-gray-50::before {
+  width: 420px; height: 420px;
+  top: -12%; left: -8%;
+  background: rgba(0, 102, 204, .16);
+}
+.bg-gradient-to-br.from-white.to-gray-50::after {
+  width: 380px; height: 380px;
+  bottom: -18%; right: -6%;
+  background: rgba(249, 115, 22, .15);
+}
+.bg-gradient-to-br.from-white.to-gray-50 > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Hero: larger logo card with a soft brand glow --- */
+.lg\:grid-cols-12 picture img { max-width: 320px !important; }
+.lg\:grid-cols-12 > div:nth-child(2) .rounded-lg {
+  border: 1px solid rgba(0, 102, 204, .08);
+  box-shadow:
+    0 30px 70px -24px rgba(0, 102, 204, .35),
+    0 10px 28px -14px rgba(249, 115, 22, .28) !important;
+}
+
+/* --- Ghost-white button (Signal) for dark CTA bands --- */
+.bf-btn-ghost-white {
+  border: 2px solid rgba(255, 255, 255, .85);
+  color: #ffffff;
+  background: transparent;
+}
+.bf-btn-ghost-white:hover { background: rgba(255, 255, 255, .12); }
