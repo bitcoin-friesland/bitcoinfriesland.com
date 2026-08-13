@@ -336,6 +336,46 @@ small clean-ups.
 - `assets/main.js` (scroll-reveal module appended)
 - `CHANGES.md` (this entry)
 
+## Round 15 (hero upgrade + Signal)
+
+55. **The homepage hero got more presence.** Bigger headline with a
+    blue-to-orange gradient accent, a larger floating logo card with a soft
+    brand glow, subtle blue and orange light blobs behind the content, and
+    more breathing room. All in the existing brand colours, pure CSS in the
+    v5 block of `assets/enhancements.css`.
+
+56. **Signal is now everywhere Telegram is.** The community has a Signal
+    group next to Telegram. Added in all three languages: the footer
+    (every page), the community card and the chat section on the homepage,
+    the links page, the consumers page buttons, the signup line on the
+    meetings page, and the treasure hunt page. Signal uses a speech-bubble
+    icon and, on dark bands, a white outline button (`.bf-btn-ghost-white`).
+
+## Round 15 files
+- `assets/enhancements.css` (v5 hero + Signal button styles)
+- all `nl/`, `en/`, `fy/` pages (footer Signal link)
+- `nl/index.html`, `en/index.html`, `fy/index.html` (community card + NL chat section)
+- `nl/links.html`, `en/links.html`, `fy/links.html` (Signal community link)
+- `nl/consumers.html`, `en/consumers.html`, `fy/consumers.html` (Signal button)
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (signup line)
+- `nl/treasure-hunt.html`, `en/treasure-hunt.html`, `fy/treasure-hunt.html` (Signal button)
+- `nl/blog/index.html`, `nl/blog/beginnen-met-bitcoin-in-friesland.html`,
+  `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html` (compact footer + inline chat buttons)
+- `CHANGES.md` (this entry)
+
+## Round 16 (nav underline fix)
+
+57. **The active menu underline is now short and straight.** The line under
+    the current page in the navigation ran the full width of the menu item
+    and looked bent at the ends. It is now a crisp, centered bar at 55% of
+    the text width with clean square ends, in the brand blue-to-orange
+    gradient. It grows slightly on hover. Pure CSS in the v6 block of
+    `assets/enhancements.css`; the inline styles in the HTML are untouched.
+
+## Round 16 files
+- `assets/enhancements.css` (v6 nav underline block)
+- `CHANGES.md` (this entry)
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
