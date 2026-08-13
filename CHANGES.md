@@ -314,6 +314,28 @@ small clean-ups.
 - `assets/enhancements.css` (v3 restyle block appended)
 - `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (discount tag, code box, ticket CTA)
 
+## Round 14 (smoothness pass from the old React site)
+
+52. **The hero now enters in steps.** The old React site faded each hero
+    element in one after another (title lines, intro text, buttons). The
+    homepage hero now does the same with pure CSS — a soft 20px rise with a
+    small stagger — and the logo card gently floats up and down, exactly like
+    the old `animate-float`.
+
+53. **Cards fade in while scrolling.** Meeting cards, blog cards and link
+    categories rise into view as you scroll, via a small IntersectionObserver
+    in `assets/main.js`. Without JavaScript nothing is hidden, and visitors
+    who prefer reduced motion are skipped automatically.
+
+54. **Outline buttons fill on hover.** The outline buttons on cards (like
+    "Meer info & tickets") now fill with the Friesland blue and turn their
+    text white on hover, just like the buttons on the old site.
+
+## Round 14 files
+- `assets/enhancements.css` (v4 smoothness block appended)
+- `assets/main.js` (scroll-reveal module appended)
+- `CHANGES.md` (this entry)
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

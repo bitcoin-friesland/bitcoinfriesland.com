@@ -177,3 +177,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Scroll reveal (v4): gentle fade+rise for cards as they enter the viewport.
+// Mirrors the staggered entrances of the old React site. No-JS = fully visible.
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll('.max-w-md.rounded-2xl, article[class*="border"], .link-category');
+  if (!targets.length) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      observer.unobserve(el);
+      el.classList.add('in');
+      // after the reveal finishes, hand the element back to its CSS hover transitions
+      setTimeout(function() {
+        el.classList.remove('bf-reveal', 'in');
+        el.style.transitionDelay = '';
+      }, 750);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
+  targets.forEach(function(el, i) {
+    el.classList.add('bf-reveal');
+    el.style.transitionDelay = (i % 3) * 70 + 'ms'; // small stagger within rows
+    observer.observe(el);
+  });
+});
