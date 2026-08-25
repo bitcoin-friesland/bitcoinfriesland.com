@@ -437,6 +437,18 @@ small clean-ups.
 - `nl/support.html`, `en/support.html`, `fy/support.html`
 - `CHANGES.md`
 
+## Round 20 (confirmed supporter benefits)
+
+66. **The supporter benefits are now specific.** A yearly supporter receives
+    21 Bitcoin Friesland stickers, discount codes for events, and a visible
+    supporter tag in the Telegram and Signal groups. The same promise appears
+    in Dutch, English and Frisian.
+
+## Round 20 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `CHANGES.md`
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
