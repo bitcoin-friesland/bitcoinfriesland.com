@@ -3,8 +3,8 @@
 // Force show desktop menu on desktop
 function updateMenuVisibility() {
   const desktopMenu = document.querySelector('.nav-menu');
-  if (desktopMenu && window.innerWidth >= 768) {
-    desktopMenu.style.display = 'flex';
+  if (desktopMenu) {
+    desktopMenu.style.display = window.innerWidth >= 1200 ? 'flex' : '';
   }
 }
 

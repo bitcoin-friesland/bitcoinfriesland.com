@@ -300,3 +300,30 @@ nav.sticky::after {
     scroll-behavior: auto !important;
   }
 }
+
+/* The complete multilingual navigation needs more room than a tablet offers. */
+@media (max-width: 1199px) {
+  .nav-menu,
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only:not(.hidden) {
+    display: block !important;
+  }
+
+  #mobile-menu.hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-menu,
+  .desktop-only {
+    display: flex !important;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+}

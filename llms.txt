@@ -19,6 +19,7 @@
 - For business (accepting Bitcoin): https://bitcoinfriesland.com/nl/business.html
 - Resources and links: https://bitcoinfriesland.com/nl/links.html
 - About us: https://bitcoinfriesland.com/nl/about.html
+- Supporters, business support and donations: https://bitcoinfriesland.com/nl/support.html
 - Treasure hunt: https://bitcoinfriesland.com/nl/treasure-hunt.html
 - Event page (Bitcoin BBQ, 14 Aug 2026, Drachten): https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
 

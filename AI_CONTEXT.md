@@ -3,7 +3,7 @@
 
 ## Quick facts
 - Static multilingual site for Bitcoin Friesland; no build step required (serve HTML/CSS/JS directly). Root `index.html` redirects to Dutch `nl/`.
-- Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `treasure-hunt.html`.
+- Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `support.html`, `treasure-hunt.html`.
 - Brand assets and optimized images live in `assets/images/`; logos/flags use `<picture>` with WebP + PNG fallbacks and explicit width/height.
 - `assets/styles.css` is a minified Tailwind output plus a few custom blocks (links page, telegram CTA, etc.). `assets/main.js` holds all runtime behavior.
 
@@ -31,6 +31,7 @@
 
 ## Source layout notes
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
+- Supporter page styling: `assets/support.css` is linked only by the three `support.html` pages.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
 

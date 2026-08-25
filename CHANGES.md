@@ -1,5 +1,31 @@
 # What changed and why (June 2026)
 
+## Supporter programme foundation (August 2026)
+
+35. **Added a complete support page in Dutch, English and Frisian.**
+    Visitors can now read how the EUR 21 yearly supporter contribution,
+    business support and donations work. The page makes clear that the
+    community and Telegram group remain free.
+
+36. **Added honest contact flows while payment details are still open.**
+    Supporter, business, donation and sticker buttons open a prepared email.
+    The site does not show a fake checkout, stale Lightning invoice or
+    unconfirmed donation address.
+
+37. **Made independence and promotion rules explicit.**
+    The pages state that support cannot buy influence or an endorsement.
+    Bitcoin-related promotion requires prior approval and must be honest,
+    clear and free of spam or dubious investments.
+
+38. **Prepared the webshop without pretending it is live.**
+    The shop section explains that stickers and other items are being
+    prepared, that margin goes to the community fund, and that ordering is
+    handled personally for now.
+
+39. **Added support links throughout the site.**
+    Desktop navigation, mobile navigation and footers now link to the new
+    page. The sitemap and `llms.txt` also describe it.
+
 A plain-language list of the improvements made to the website. Nothing was
 removed that visitors need. The look and layout of the pages stayed the same.
 The changes are mostly things search engines and AI tools read, plus a few

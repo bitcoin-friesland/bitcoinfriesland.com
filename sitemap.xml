@@ -252,6 +252,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/treasure-hunt.html"/>
   </url>
   <url>
+    <loc>https://bitcoinfriesland.com/nl/support.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/support.html"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/en/support.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/support.html"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/fy/support.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/support.html"/>
+  </url>
+  <url>
     <loc>https://bitcoinfriesland.com/nl/blog/</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
