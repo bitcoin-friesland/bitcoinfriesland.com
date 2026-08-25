@@ -1235,3 +1235,157 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
     transition: none;
   }
 }
+
+.support-form-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(249,115,22,.13), transparent 30%),
+    linear-gradient(145deg, #f7fbff, #fff9f5);
+}
+
+.support-form-card {
+  scroll-margin-top: 5rem;
+}
+
+.support-form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.support-form-intro {
+  position: sticky;
+  top: 6rem;
+}
+
+.support-form-intro > p:not(.support-kicker) {
+  color: var(--support-muted);
+  line-height: 1.75;
+}
+
+.support-form-contact {
+  margin-top: 1.5rem;
+}
+
+.support-form-contact a {
+  color: var(--support-blue-dark);
+  font-weight: 750;
+  text-underline-offset: 3px;
+}
+
+.support-form {
+  display: grid;
+  gap: 1.15rem;
+  padding: clamp(1.4rem, 4vw, 2.35rem);
+  border: 1px solid rgba(0, 102, 204, .16);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .1);
+}
+
+.support-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.support-form label {
+  display: grid;
+  gap: .45rem;
+  color: var(--support-ink);
+  font-size: .92rem;
+  font-weight: 750;
+}
+
+.support-form label > span {
+  color: var(--support-muted);
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.support-form input,
+.support-form select,
+.support-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: .75rem .85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  color: var(--support-ink);
+  background: #fff;
+  font: inherit;
+  font-weight: 500;
+}
+
+.support-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.support-form input:focus,
+.support-form select:focus,
+.support-form textarea:focus {
+  border-color: var(--support-blue);
+  outline: 3px solid rgba(0, 102, 204, .16);
+  outline-offset: 1px;
+}
+
+.support-form .support-button {
+  border: 0;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.support-form-privacy {
+  margin: -.25rem 0 0;
+  color: var(--support-muted);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.support-form-success {
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #86cda2;
+  border-radius: 14px;
+  color: #14532d;
+  background: #f0fdf4;
+}
+
+.support-form-success[hidden] {
+  display: none;
+}
+
+.support-form-success p {
+  margin: .2rem 0 0;
+}
+
+.support-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  .support-form-layout,
+  .support-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-form-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .support-form {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .support-form .support-button {
+    width: 100%;
+  }
+}

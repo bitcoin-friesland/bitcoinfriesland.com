@@ -122,7 +122,7 @@ This is the most important convention in the repo:
 
 ## Runtime behavior (JS)
 
-All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, and copy-to-clipboard helpers. Keep new behavior here, dependency-free.
+All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, copy-to-clipboard helpers, and supporter-form feedback. Keep new behavior here, dependency-free.
 
 ## SEO, social & LLM assets
 

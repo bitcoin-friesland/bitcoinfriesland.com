@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20260825c">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20260825d">
     <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" >
     
     <meta name="theme-color" content="#0066cc">
@@ -199,7 +199,7 @@
 <li><span aria-hidden="true">✓</span><span>Possible discount on the annual barbecue or other activities.</span></li>
 <li><span aria-hidden="true">✓</span><span>After consultation, share something Bitcoin-related in the group.</span></li>
               </ul>
-              <a class="support-button support-button-primary" href="mailto:info@bitcoinfriesland.com?subject=I%20want%20to%20become%20a%20supporter&amp;body=Hello%20Bitcoin%20Friesland%2C%0D%0A%0D%0AI%20would%20like%20to%20become%20a%20supporter%20for%20%E2%82%AC21%20per%20year.%20Could%20you%20send%20me%20the%20payment%20details%3F%0D%0A%0D%0AKind%20regards%2C">I want to become a supporter</a>
+              <a class="support-button support-button-primary" href="#support-form" data-support-choice="supporter">I want to become a supporter</a>
               <p class="support-fine">We arrange payment and sticker delivery personally.</p>
             </article>
 
@@ -217,7 +217,7 @@
 <li><span aria-hidden="true">✓</span><span>After consultation, share a Bitcoin-related product, service or event.</span></li>
 <li><span aria-hidden="true">✓</span><span>Possibly host a meetup at the provided venue.</span></li>
               </ul>
-              <a class="support-button support-button-secondary" href="mailto:info@bitcoinfriesland.com?subject=Bitcoin%20Friesland%20business%20supporter&amp;body=Hello%20Bitcoin%20Friesland%2C%0D%0A%0D%0AWe%20would%20like%20to%20discuss%20how%20we%20can%20support%20Bitcoin%20Friesland%20as%20a%20business.%0D%0A%0D%0ACompany%3A%0D%0AContribution%20idea%3A%0D%0A%0D%0AKind%20regards%2C">Discuss a contribution</a>
+              <a class="support-button support-button-secondary" href="#support-form" data-support-choice="business">Discuss a contribution</a>
               <p class="support-fine">What we offer in return is agreed in advance. There are no main or exclusive sponsors.</p>
             </article>
           </div>
@@ -231,7 +231,7 @@
             <h2>Donate sats without anything in return</h2>
             <p>A regular donation does not automatically include promotion or a mention. Want to send sats? Ask us for the current payment details.</p>
             <div class="support-actions">
-              <a class="support-button support-button-primary" href="mailto:info@bitcoinfriesland.com?subject=I%20want%20to%20donate%20sats&amp;body=Hello%20Bitcoin%20Friesland%2C%0D%0A%0D%0AI%20would%20like%20to%20donate%20sats.%20Could%20you%20send%20me%20the%20current%20payment%20details%3F%0D%0A%0D%0AKind%20regards%2C">Ask for payment details</a>
+              <a class="support-button support-button-primary" href="#support-form" data-support-choice="donation">Ask for payment details</a>
               <a class="support-text-link" href="https://t.me/bitcoinfriesland" target="_blank" rel="noopener noreferrer">Ask in Telegram <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -244,8 +244,8 @@
             </div>
             <div class="support-shop-status">
               <span>Shop in preparation</span>
-              <p>There is no online checkout yet. Until then, you can request stickers by email.</p>
-              <a class="support-text-link" href="mailto:info@bitcoinfriesland.com?subject=Bitcoin%20Friesland%20stickers&amp;body=Hello%20Bitcoin%20Friesland%2C%0D%0A%0D%0AI%20am%20interested%20in%20Bitcoin%20Friesland%20stickers.%20Could%20you%20tell%20me%20what%20is%20available%3F%0D%0A%0D%0AKind%20regards%2C">Ask about stickers <span aria-hidden="true">→</span></a>
+              <p>There is no online checkout yet. Until then, you can request stickers through the form.</p>
+              <a class="support-text-link" href="#support-form" data-support-choice="stickers">Ask about stickers <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -278,6 +278,47 @@
         </div>
       </section>
 
+      <section class="support-section support-form-section">
+        <div class="support-shell support-form-layout">
+          <div class="support-form-intro">
+            <p class="support-kicker">Register your interest</p>
+            <h2>Tell us how you would like to help</h2>
+            <p>Complete the short form. We will contact you personally about the next step, payment, or stickers.</p>
+            <p class="support-form-contact">Prefer email? <a href="mailto:info@bitcoinfriesland.com">info@bitcoinfriesland.com</a></p>
+          </div>
+          <div class="support-form-card" id="support-form">
+            <div class="support-form-success" data-support-success hidden tabindex="-1" role="status" aria-live="polite">
+              <strong>Thank you for your interest.</strong>
+              <p>We will contact you personally as soon as possible.</p>
+            </div>
+            <form class="support-form" name="support-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/en/support?submitted=true#support-form">
+              <input type="hidden" name="form-name" value="support-interest">
+              <input type="hidden" name="language" value="en">
+              <input type="hidden" name="subject" value="New support request via bitcoinfriesland.com">
+              <p class="support-honeypot"><label>Leave this field empty: <input name="bot-field"></label></p>
+              <div class="support-form-grid">
+                <label>Name <input type="text" name="name" autocomplete="name" required></label>
+                <label>Email address <input type="email" name="email" autocomplete="email" required></label>
+                <label>Type of support
+                  <select id="support-interest-type" name="interest" required>
+                    <option value="">Choose an option</option>
+                    <option value="supporter">Supporter for €21 per year</option>
+                    <option value="business">Business supporter</option>
+                    <option value="donation">Donation in sats</option>
+                    <option value="stickers">Stickers / shop</option>
+                    <option value="other">Something else</option>
+                  </select>
+                </label>
+                <label>Company <span>(optional)</span><input type="text" name="company" autocomplete="organization"></label>
+              </div>
+              <label>Message <span>(optional)</span><textarea name="message" rows="4"></textarea></label>
+              <button class="support-button support-button-primary" type="submit">Send my request</button>
+              <p class="support-form-privacy">We only use your details to contact you about this request.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <section class="support-section support-section-soft">
         <div class="support-shell support-faq">
           <h2>Good to know</h2>
@@ -294,7 +335,7 @@
           <p class="support-kicker">Voluntary support, free community</p>
           <h2>Would you like to help?</h2>
           <p>Choose the form that suits you. We will send you the next step personally.</p>
-          <a class="support-button support-button-primary" href="mailto:info@bitcoinfriesland.com">Get in touch</a>
+          <a class="support-button support-button-primary" href="#support-form">Get in touch</a>
         </div>
       </section>
     </main>
@@ -376,6 +417,6 @@
       </div>
     </footer>
   
-        </div>  <script src="../assets/main.js"></script>
+        </div>  <script src="../assets/main.js?v=20260825b"></script>
   </body>
 </html>

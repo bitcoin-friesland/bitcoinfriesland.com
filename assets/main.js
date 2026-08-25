@@ -204,3 +204,22 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 });
+
+// Support page: preselect the chosen contribution type and show form confirmation.
+document.addEventListener('DOMContentLoaded', function() {
+  var interestSelect = document.getElementById('support-interest-type');
+
+  document.querySelectorAll('[data-support-choice]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (!interestSelect) return;
+      interestSelect.value = link.getAttribute('data-support-choice') || '';
+    });
+  });
+
+  var submitted = new URLSearchParams(window.location.search).get('submitted') === 'true';
+  var confirmation = document.querySelector('[data-support-success]');
+  if (submitted && confirmation) {
+    confirmation.hidden = false;
+    confirmation.focus();
+  }
+});

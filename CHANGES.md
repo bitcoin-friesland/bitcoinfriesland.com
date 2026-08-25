@@ -409,6 +409,23 @@ small clean-ups.
 - Navigation and footer links across all language pages
 - `sitemap.xml`, `llms.txt`, `README.md`, `AI_CONTEXT.md`
 
+## Round 18 (supporter interest form)
+
+63. **Visitors can now register their interest without opening an email app.**
+    The supporter, business, donation and sticker actions lead to one short
+    form on the page. The selected support type is filled in automatically.
+
+64. **The form is ready for Netlify Forms.** It has matching fields in Dutch,
+    English and Frisian, a spam honeypot, a language marker and a clear
+    confirmation message. Payment and sticker fulfilment still happen
+    personally, so the form does not pretend there is an online checkout.
+
+## Round 18 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `README.md`, `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

@@ -31,7 +31,7 @@
 
 ## Source layout notes
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
-- Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`.
+- Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
 
