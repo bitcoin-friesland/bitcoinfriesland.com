@@ -426,6 +426,17 @@ small clean-ups.
 - `assets/enhancements.css`, `assets/main.js`
 - `README.md`, `AI_CONTEXT.md`, `CHANGES.md`
 
+## Round 19 (simpler supporter coin)
+
+65. **The orange supporter coin is now simpler.** The reference to Bitcoin's
+    21 million supply and the yearly label were removed from the hero graphic.
+    It now says only `€21` and `in sats` in all three languages.
+
+## Round 19 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `CHANGES.md`
+
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
