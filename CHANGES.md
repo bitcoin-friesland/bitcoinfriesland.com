@@ -1,31 +1,5 @@
 # What changed and why (June 2026)
 
-## Supporter programme foundation (August 2026)
-
-35. **Added a complete support page in Dutch, English and Frisian.**
-    Visitors can now read how the EUR 21 yearly supporter contribution,
-    business support and donations work. The page makes clear that the
-    community and Telegram group remain free.
-
-36. **Added honest contact flows while payment details are still open.**
-    Supporter, business, donation and sticker buttons open a prepared email.
-    The site does not show a fake checkout, stale Lightning invoice or
-    unconfirmed donation address.
-
-37. **Made independence and promotion rules explicit.**
-    The pages state that support cannot buy influence or an endorsement.
-    Bitcoin-related promotion requires prior approval and must be honest,
-    clear and free of spam or dubious investments.
-
-38. **Prepared the webshop without pretending it is live.**
-    The shop section explains that stickers and other items are being
-    prepared, that margin goes to the community fund, and that ordering is
-    handled personally for now.
-
-39. **Added support links throughout the site.**
-    Desktop navigation, mobile navigation and footers now link to the new
-    page. The sitemap and `llms.txt` also describe it.
-
 A plain-language list of the improvements made to the website. Nothing was
 removed that visitors need. The look and layout of the pages stayed the same.
 The changes are mostly things search engines and AI tools read, plus a few
@@ -269,6 +243,33 @@ small clean-ups.
     `enhancements.css` file, and I previewed it on the live pages to check it
     looks right.
 
+## Round 12 (conference promo + repo documentation)
+
+47. **Noderunners Conference 2026 promo on the homepage.** A dark, on-brand
+    promo band directly under the hero on all three homepages (NL/EN/FY):
+    an "exclusive for Bitcoin Friesland" badge, date and venue chips
+    (19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem), a copyable 10%
+    discount code (BITCOINFRIESLAND, valid until the conference) and a ticket
+    button to conf2026.noderunners.network/BITCOINFRIESLAND (the link applies
+    the code). Styling lives in a self-contained block at the end of
+    `assets/enhancements.css` (prefixed `.nr-promo-*` classes, so it does not
+    depend on the compiled Tailwind file); the copy button uses a small
+    `copyPromoCode()` helper added to `assets/main.js`.
+
+48. **Updated llms.txt for the promo.** The NodeRunners entry now points to the
+    current conference site (conf2026.noderunners.network) and mentions the
+    exclusive BITCOINFRIESLAND discount code, so AI assistants can relay it
+    when people ask about the conference.
+
+49. **Proper repository documentation.** The README was rebuilt into real
+    documentation: repository layout, how to run and edit locally, the
+    three-language rule, the styling system (never edit the compiled
+    styles.css; custom work goes in enhancements.css), the SEO/LLM assets to
+    keep alive, the maintenance scripts, and how publishing works. A new
+    CONTRIBUTING.md gives human contributors the branch/PR workflow and
+    checklists. AI_CONTEXT.md stays the guide for AI assistants and is now
+    linked from both.
+
 ## Files changed
 - All 24 language pages in `nl/`, `en/` and `fy/` (added the Nieuws menu link)
 - `nl/map.html`, `en/map.html`, `fy/map.html` (two new businesses)
@@ -283,6 +284,130 @@ small clean-ups.
 - `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (BBQ event, 29 May moved to past, alt text, event-page link)
 - `nl/about.html`, `en/about.html`, `fy/about.html` (studiofab.nl credit moved into content)
 - `assets/enhancements.css` (new: the visual polish layer) + linked on every page
+
+## Round 12 files
+- `nl/index.html`, `en/index.html`, `fy/index.html` (promo section under hero)
+- `assets/enhancements.css` (promo styling block appended)
+- `assets/main.js` (copyPromoCode helper)
+- `llms.txt` (conference URL + discount code)
+- `README.md` (rebuilt), `CONTRIBUTING.md` (new), `CHANGES.md` (this entry)
+
+## Round 13 (Noderunners promo restyle)
+
+50. **The Noderunners promo band went from dark to light.** The heavy dark
+    promo band under the homepage hero clashed with the light sections around
+    it. It now uses the same soft blue-and-orange brand glow as the hero, with
+    the signature blue-to-orange line on top, and the text flipped to
+    dark-on-light. This is done with style overrides appended to
+    `assets/enhancements.css` (same class names, later in the file, so they
+    win); the original dark block is untouched, so reverting is one delete.
+
+51. **The meetings cards now sell the discount.** On the meetings pages in all
+    three languages, the Noderunners Conference card got a "10% off" discount
+    tag under the date, an exclusive BITCOINFRIESLAND code box, and a primary
+    orange ticket button that links straight to
+    conf2026.noderunners.network/BITCOINFRIESLAND (the code is applied
+    automatically). The old outline "view program" button is replaced by this
+    ticket button.
+
+## Round 13 files
+- `assets/enhancements.css` (v3 restyle block appended)
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (discount tag, code box, ticket CTA)
+
+## Round 14 (smoothness pass from the old React site)
+
+52. **The hero now enters in steps.** The old React site faded each hero
+    element in one after another (title lines, intro text, buttons). The
+    homepage hero now does the same with pure CSS — a soft 20px rise with a
+    small stagger — and the logo card gently floats up and down, exactly like
+    the old `animate-float`.
+
+53. **Cards fade in while scrolling.** Meeting cards, blog cards and link
+    categories rise into view as you scroll, via a small IntersectionObserver
+    in `assets/main.js`. Without JavaScript nothing is hidden, and visitors
+    who prefer reduced motion are skipped automatically.
+
+54. **Outline buttons fill on hover.** The outline buttons on cards (like
+    "Meer info & tickets") now fill with the Friesland blue and turn their
+    text white on hover, just like the buttons on the old site.
+
+## Round 14 files
+- `assets/enhancements.css` (v4 smoothness block appended)
+- `assets/main.js` (scroll-reveal module appended)
+- `CHANGES.md` (this entry)
+
+## Round 15 (hero upgrade + Signal)
+
+55. **The homepage hero got more presence.** Bigger headline with a
+    blue-to-orange gradient accent, a larger floating logo card with a soft
+    brand glow, subtle blue and orange light blobs behind the content, and
+    more breathing room. All in the existing brand colours, pure CSS in the
+    v5 block of `assets/enhancements.css`.
+
+56. **Signal is now everywhere Telegram is.** The community has a Signal
+    group next to Telegram. Added in all three languages: the footer
+    (every page), the community card and the chat section on the homepage,
+    the links page, the consumers page buttons, the signup line on the
+    meetings page, and the treasure hunt page. Signal uses a speech-bubble
+    icon and, on dark bands, a white outline button (`.bf-btn-ghost-white`).
+
+## Round 15 files
+- `assets/enhancements.css` (v5 hero + Signal button styles)
+- all `nl/`, `en/`, `fy/` pages (footer Signal link)
+- `nl/index.html`, `en/index.html`, `fy/index.html` (community card + NL chat section)
+- `nl/links.html`, `en/links.html`, `fy/links.html` (Signal community link)
+- `nl/consumers.html`, `en/consumers.html`, `fy/consumers.html` (Signal button)
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html` (signup line)
+- `nl/treasure-hunt.html`, `en/treasure-hunt.html`, `fy/treasure-hunt.html` (Signal button)
+- `nl/blog/index.html`, `nl/blog/beginnen-met-bitcoin-in-friesland.html`,
+  `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html` (compact footer + inline chat buttons)
+- `CHANGES.md` (this entry)
+
+## Round 16 (nav underline fix)
+
+57. **The active menu underline is now short and straight.** The line under
+    the current page in the navigation ran the full width of the menu item
+    and looked bent at the ends. It is now a crisp, centered bar at 55% of
+    the text width with clean square ends, in the brand blue-to-orange
+    gradient. It grows slightly on hover. Pure CSS in the v6 block of
+    `assets/enhancements.css`; the inline styles in the HTML are untouched.
+
+## Round 16 files
+- `assets/enhancements.css` (v6 nav underline block)
+- `CHANGES.md` (this entry)
+
+## Round 17 (supporter programme foundation)
+
+58. **Added a complete support page in Dutch, English and Frisian.**
+    Visitors can now read how the EUR 21 yearly supporter contribution,
+    business support and donations work. The page makes clear that the
+    community and Telegram group remain free.
+
+59. **Added honest contact flows while payment details are still open.**
+    Supporter, business, donation and sticker buttons open a prepared email.
+    The site does not show a fake checkout, stale Lightning invoice or
+    unconfirmed donation address.
+
+60. **Made independence and promotion rules explicit.**
+    The pages state that support cannot buy influence or an endorsement.
+    Bitcoin-related promotion requires prior approval and must be honest,
+    clear and free of spam or dubious investments.
+
+61. **Prepared the webshop without pretending it is live.**
+    The shop section explains that stickers and other items are being
+    prepared, that margin goes to the community fund, and that ordering is
+    handled personally for now.
+
+62. **Added support links throughout the site.**
+    Desktop navigation, mobile navigation and footers now link to the new
+    page. The sitemap and `llms.txt` also describe it.
+
+## Round 17 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- Navigation and footer links across all language pages
+- `sitemap.xml`, `llms.txt`, `README.md`, `AI_CONTEXT.md`
 
 ## Good to know
 - No page design, colours, text content or navigation changed for visitors.

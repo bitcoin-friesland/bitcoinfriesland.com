@@ -25,7 +25,8 @@
 
 ## Upcoming events
 - Bitcoin Friesland BBQ - Meat the Resistance: Friday 14 August 2026, from 19:00, at Vliegveld Drachten (De Knobben 100A, Drachten, Friesland). Ticket EUR 25, payable in sats (Bitcoin). Details: https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html Tickets: https://meat-the-resistance.info/
-- NodeRunners Conference 2026: Saturday 19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem. https://noderunners.network/nl/conference
+- NodeRunners Conference 2026: Saturday 19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem. https://conf2026.noderunners.network/
+- Discount: code BITCOINFRIESLAND gives 10% off NodeRunners Conference 2026 tickets. The code is exclusive for the Bitcoin Friesland community and valid until the conference. Ticket link with the code applied: https://conf2026.noderunners.network/BITCOINFRIESLAND
 
 ## English pages
 - Home: https://bitcoinfriesland.com/en/

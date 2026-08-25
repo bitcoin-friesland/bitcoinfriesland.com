@@ -31,7 +31,7 @@
 
 ## Source layout notes
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
-- Supporter page styling: `assets/support.css` is linked only by the three `support.html` pages.
+- Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
 
