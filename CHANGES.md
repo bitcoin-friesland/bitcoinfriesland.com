@@ -474,6 +474,19 @@ small clean-ups.
 - `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html`
 - `llms.txt`, `CHANGES.md`
 
+## Round 23 (subtle risk warning)
+
+69. **The footer risk warning is now visually quieter.** The warning text stays
+    unchanged, but the strong red box has become a compact neutral note with a
+    thin muted-blue accent, smaller heading and softer text. The treatment is
+    consistent across every Dutch, English and Frisian page.
+
+## Round 23 files
+
+- `assets/enhancements.css`, `maintain-footer.cjs`
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

@@ -74,34 +74,44 @@ function addRiskWarningToAllPages() {
     }
   };
 
-  // Get all HTML files in each language directory
+  function getHtmlFiles(directory) {
+    return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+      const filePath = `${directory}/${entry.name}`;
+      if (entry.isDirectory()) return getHtmlFiles(filePath);
+      return entry.isFile() && entry.name.endsWith('.html') ? [filePath] : [];
+    });
+  }
+
+  // Get every HTML file, including nested blog and event pages.
   const languages = ['nl', 'en', 'fy'];
-  const pages = ['index.html', 'business.html', 'consumers.html', 'meetings.html', 'map.html', 'links.html', 'about.html', 'treasure-hunt.html'];
 
   languages.forEach(lang => {
     console.log(`\n📝 Processing ${lang.toUpperCase()} pages...`);
-    
-    pages.forEach(page => {
-      const filePath = `${lang}/${page}`;
-      
-      if (!fs.existsSync(filePath)) {
-        console.log(`  ⚠️  ${page} not found, skipping...`);
-        return;
-      }
-      
+
+    getHtmlFiles(lang).forEach(filePath => {
       let content = fs.readFileSync(filePath, 'utf8');
-      
+
       // Check if risk warning already exists
       if (content.includes('Risicowaarschuwing') || content.includes('Risk Warning') || content.includes('Risikowierskôging')) {
-        console.log(`  ✅ ${page} already has risk warning`);
+        const updatedContent = content.replace(
+          /<div class="(?!bf-risk-note )(bg-red-50 border border-red-200 rounded-lg p-6 mt-8)">(?=\s*<h3[^>]*>(?:Risicowaarschuwing|Risk Warning|Risikowierskôging)<\/h3>)/g,
+          '<div class="bf-risk-note $1">'
+        );
+
+        if (updatedContent !== content) {
+          fs.writeFileSync(filePath, updatedContent, 'utf8');
+          console.log(`  ✅ ${filePath} risk warning restyled`);
+        } else {
+          console.log(`  ✅ ${filePath} already has the current risk warning`);
+        }
         return;
       }
-      
+
       const warning = riskWarnings[lang];
-      
+
       // Add risk warning before the copyright footer
       const riskWarningHtml = `        <!-- Risk Warning Footer -->
-        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
+        <div class="bf-risk-note bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
           <h3 class="text-lg font-semibold text-red-800 mb-3">${warning.title}</h3>
           <p class="text-red-700 text-sm leading-relaxed">
             ${warning.text}
@@ -115,9 +125,9 @@ function addRiskWarningToAllPages() {
         /(<div class="border-t border-gray-200 mt-8 pt-8 text-center">)/,
         riskWarningHtml + '$1'
       );
-      
+
       fs.writeFileSync(filePath, content, 'utf8');
-      console.log(`  ✅ ${page} updated with risk warning`);
+      console.log(`  ✅ ${filePath} updated with risk warning`);
     });
   });
 

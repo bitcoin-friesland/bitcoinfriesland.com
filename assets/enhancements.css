@@ -1389,3 +1389,36 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
     width: 100%;
   }
 }
+
+/* v7: Quiet footer risk note */
+.bf-risk-note {
+  margin-top: 2rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid #e2e8f0;
+  border-left: 2px solid rgba(0, 102, 204, .28);
+  border-radius: 10px;
+  background: rgba(248, 250, 252, .76);
+  box-shadow: none;
+}
+
+.bf-risk-note h3 {
+  margin: 0 0 .35rem;
+  color: #475569;
+  font-size: .82rem;
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+
+.bf-risk-note p {
+  margin: 0;
+  color: #64748b;
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .bf-risk-note {
+    padding: .9rem 1rem;
+    border-radius: 8px;
+  }
+}
