@@ -223,3 +223,208 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmation.focus();
   }
 });
+
+// Supporter signup: accessible three-step preference flow.
+document.addEventListener('DOMContentLoaded', function() {
+  var dialog = document.getElementById('supporter-flow');
+  if (!dialog) return;
+
+  var form = dialog.querySelector('form[name="supporter-signup"]');
+  var success = dialog.querySelector('[data-supporter-flow-success]');
+  var error = dialog.querySelector('[data-supporter-error]');
+  var currentStep = 1;
+
+  function openDialog() {
+    if (typeof dialog.showModal === 'function') {
+      if (!dialog.open) dialog.showModal();
+    } else {
+      dialog.setAttribute('open', '');
+    }
+    document.documentElement.classList.add('supporter-flow-open');
+  }
+
+  function closeDialog() {
+    if (typeof dialog.close === 'function' && dialog.open) dialog.close();
+    else dialog.removeAttribute('open');
+    document.documentElement.classList.remove('supporter-flow-open');
+  }
+
+  function showError(message, focusTarget) {
+    error.textContent = message;
+    error.hidden = false;
+    if (focusTarget) focusTarget.focus();
+  }
+
+  function clearError() {
+    error.hidden = true;
+    error.textContent = '';
+  }
+
+  function setStep(step, shouldFocus) {
+    currentStep = Math.max(1, Math.min(3, step));
+    dialog.querySelectorAll('[data-supporter-step]').forEach(function(panel) {
+      panel.hidden = Number(panel.getAttribute('data-supporter-step')) !== currentStep;
+    });
+    dialog.querySelectorAll('[data-supporter-step-indicator]').forEach(function(item) {
+      if (Number(item.getAttribute('data-supporter-step-indicator')) === currentStep) item.setAttribute('aria-current', 'step');
+      else item.removeAttribute('aria-current');
+    });
+    clearError();
+    dialog.querySelector('.supporter-flow-card').scrollTop = 0;
+    if (shouldFocus) {
+      var heading = dialog.querySelector('[data-supporter-step="' + currentStep + '"] h3');
+      if (heading) {
+        heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
+    }
+  }
+
+  function validateDetails() {
+    var name = form.elements.name;
+    var email = form.elements.email;
+    if (!name.checkValidity()) { name.reportValidity(); return false; }
+    if (!email.checkValidity()) { email.reportValidity(); return false; }
+    if (!form.elements.telegram_username.value.trim() && !form.elements.signal_username.value.trim()) {
+      showError(dialog.getAttribute('data-contact-error'), form.elements.telegram_username);
+      return false;
+    }
+    return true;
+  }
+
+  function checkedValue(name) {
+    return form.querySelector('input[name="' + name + '"]:checked');
+  }
+
+  function validatePreferences() {
+    var groups = ['payment_currency', 'payment_timing', 'sticker_delivery'];
+    for (var i = 0; i < groups.length; i += 1) {
+      if (!checkedValue(groups[i])) {
+        showError(dialog.getAttribute('data-choice-error'), form.querySelector('input[name="' + groups[i] + '"]'));
+        return false;
+      }
+    }
+    if (checkedValue('sticker_delivery').value === 'mail') {
+      var addressFields = form.querySelectorAll('[data-address-required]');
+      for (var j = 0; j < addressFields.length; j += 1) {
+        if (!addressFields[j].checkValidity()) {
+          addressFields[j].reportValidity();
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function selectedLabel(name) {
+    var selected = checkedValue(name);
+    if (!selected) return dialog.getAttribute('data-not-provided');
+    var label = selected.closest('.supporter-choice');
+    var strong = label ? label.querySelector('strong') : null;
+    return strong ? strong.textContent.trim() : selected.value;
+  }
+
+  function setReview(key, value) {
+    var target = dialog.querySelector('[data-review="' + key + '"]');
+    if (target) target.textContent = value || dialog.getAttribute('data-not-provided');
+  }
+
+  function updateReview() {
+    setReview('name', form.elements.name.value.trim());
+    setReview('email', form.elements.email.value.trim());
+    setReview('telegram_username', form.elements.telegram_username.value.trim());
+    setReview('signal_username', form.elements.signal_username.value.trim());
+    setReview('payment_currency', selectedLabel('payment_currency'));
+    setReview('payment_timing', selectedLabel('payment_timing'));
+    setReview('sticker_delivery', selectedLabel('sticker_delivery'));
+
+    var addressRow = dialog.querySelector('[data-review-address-row]');
+    var mailSelected = checkedValue('sticker_delivery') && checkedValue('sticker_delivery').value === 'mail';
+    addressRow.hidden = !mailSelected;
+    if (mailSelected) {
+      setReview('address', [form.elements.address_line1.value, form.elements.postal_code.value, form.elements.city.value, form.elements.country.value].filter(Boolean).join(', '));
+    }
+  }
+
+  function updateAddressFields() {
+    var selected = checkedValue('sticker_delivery');
+    var showAddress = selected && selected.value === 'mail';
+    var address = dialog.querySelector('[data-supporter-address]');
+    address.hidden = !showAddress;
+    address.querySelectorAll('[data-address-required]').forEach(function(field) {
+      field.required = Boolean(showAddress);
+    });
+  }
+
+  document.querySelectorAll('[data-supporter-open]').forEach(function(trigger) {
+    trigger.addEventListener('click', function(event) {
+      event.preventDefault();
+      if (!success || success.hidden) setStep(1, false);
+      openDialog();
+      window.setTimeout(function() {
+        var firstField = dialog.querySelector('[data-supporter-step="1"] input');
+        if (firstField && (!success || success.hidden)) firstField.focus();
+      }, 50);
+    });
+  });
+
+  dialog.querySelectorAll('[data-supporter-close]').forEach(function(button) {
+    button.addEventListener('click', closeDialog);
+  });
+
+  dialog.addEventListener('close', function() {
+    document.documentElement.classList.remove('supporter-flow-open');
+  });
+
+  dialog.addEventListener('click', function(event) {
+    if (event.target === dialog) closeDialog();
+  });
+
+  dialog.querySelectorAll('[data-supporter-next]').forEach(function(button) {
+    button.addEventListener('click', function() {
+      if (currentStep === 1 && !validateDetails()) return;
+      if (currentStep === 2 && !validatePreferences()) return;
+      if (currentStep === 2) updateReview();
+      setStep(currentStep + 1, true);
+    });
+  });
+
+  dialog.querySelectorAll('[data-supporter-back]').forEach(function(button) {
+    button.addEventListener('click', function() { setStep(currentStep - 1, true); });
+  });
+
+  form.querySelectorAll('input').forEach(function(input) {
+    input.addEventListener('input', clearError);
+  });
+
+  form.querySelectorAll('input[name="sticker_delivery"]').forEach(function(input) {
+    input.addEventListener('change', updateAddressFields);
+  });
+
+  form.addEventListener('submit', function(event) {
+    if (currentStep < 3) {
+      event.preventDefault();
+      if (currentStep === 1 && validateDetails()) setStep(2, true);
+      else if (currentStep === 2 && validatePreferences()) { updateReview(); setStep(3, true); }
+      return;
+    }
+    if (!validateDetails() || !validatePreferences()) {
+      event.preventDefault();
+      return;
+    }
+    form.elements.submitted_at.value = new Date().toISOString();
+    var submitButton = form.querySelector('[data-supporter-submit]');
+    if (submitButton) submitButton.disabled = true;
+  });
+
+  updateAddressFields();
+  setStep(1, false);
+
+  var supporterSubmitted = new URLSearchParams(window.location.search).get('supporter-submitted') === 'true';
+  if (supporterSubmitted && success) {
+    form.hidden = true;
+    success.hidden = false;
+    openDialog();
+    success.focus();
+  }
+});

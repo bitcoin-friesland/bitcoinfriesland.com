@@ -487,6 +487,25 @@ small clean-ups.
 - All HTML pages in `nl/`, `en/` and `fy/`
 - `CHANGES.md`
 
+## Round 24 (supporter signup popup)
+
+70. **The supporter buttons now open a three-step signup popup.** Supporters
+    provide a required name and email, plus at least a Telegram or Signal
+    username. They choose sats or EUR, online or meetup payment, and postal or
+    meetup delivery for their 21 stickers. Postal delivery reveals address
+    fields. A final review step makes clear that submitting is not yet payment.
+
+71. **Supporter requests have their own Netlify form.** The new
+    `supporter-signup` form records the request as new and keeps payment status
+    separate from form submission. Dutch, English and Frisian use identical
+    field names so future administration can process them consistently.
+
+## Round 24 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

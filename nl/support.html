@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20260826a">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20260826b">
     <link rel="icon" href="../assets/images/bitcoin-friesland-logo.png" >
     
     <meta name="theme-color" content="#0066cc">
@@ -156,7 +156,7 @@
             <h1>Help Bitcoin Friesland onafhankelijk groeien</h1>
             <p class="support-lead">De community en onze Telegramgroep blijven voor iedereen gratis. Wie wil, kan bijdragen aan de website, stickers, materialen en activiteiten.</p>
             <div class="support-actions">
-              <a class="support-button support-button-primary" href="#supporter">Word supporter</a>
+              <a class="support-button support-button-primary" href="#support-form" data-supporter-open>Word supporter</a>
               <a class="support-button support-button-secondary" href="#business-supporter">Zakelijk bijdragen</a>
             </div>
             <p class="support-note">Geen lidmaatschap nodig. Geen invloed te koop.</p>
@@ -196,7 +196,7 @@
 <li><span aria-hidden="true">✓</span><span>Kortingscodes voor evenementen.</span></li>
 <li><span aria-hidden="true">✓</span><span>Na overleg iets Bitcoin-gerelateerds delen in de groep.</span></li>
               </ul>
-              <a class="support-button support-button-primary" href="#support-form" data-support-choice="supporter">Ik wil supporter worden</a>
+              <a class="support-button support-button-primary" href="#support-form" data-supporter-open>Ik wil supporter worden</a>
               <p class="support-fine">We stemmen de betaling en stickerverzending persoonlijk af.</p>
             </article>
 
@@ -336,6 +336,135 @@
         </div>
       </section>
     </main>
+
+    <dialog class="supporter-flow" id="supporter-flow" aria-labelledby="supporter-flow-title" data-contact-error="Vul je Telegram- of Signal-gebruikersnaam in." data-choice-error="Maak eerst een keuze." data-not-provided="Niet ingevuld">
+      <div class="supporter-flow-card">
+        <button class="supporter-flow-close" type="button" data-supporter-close aria-label="Sluiten">×</button>
+        <form class="supporter-flow-form" name="supporter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/nl/support?supporter-submitted=true">
+          <input type="hidden" name="form-name" value="supporter-signup">
+          <input type="hidden" name="language" value="nl">
+          <input type="hidden" name="subject" value="Nieuwe supporter-aanvraag via bitcoinfriesland.com">
+          <input type="hidden" name="interest" value="supporter">
+          <input type="hidden" name="support_status" value="new_request">
+          <input type="hidden" name="source" value="supporter_popup">
+          <input type="hidden" name="submitted_at" value="">
+          <p class="support-honeypot"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
+
+          <header class="supporter-flow-head">
+            <p class="support-kicker">€21 per jaar</p>
+            <h2 id="supporter-flow-title">Word supporter van Bitcoin Friesland</h2>
+            <p>In drie korte stappen verzamelen we wat nodig is voor je betaling, stickers en supporter-tag.</p>
+          </header>
+
+          <ol class="supporter-flow-progress" aria-label="Voortgang">
+            <li data-supporter-step-indicator="1" aria-current="step"><span>1</span>Gegevens</li>
+            <li data-supporter-step-indicator="2"><span>2</span>Voorkeuren</li>
+            <li data-supporter-step-indicator="3"><span>3</span>Controleren</li>
+          </ol>
+
+          <div class="supporter-flow-error" data-supporter-error hidden role="alert"></div>
+
+          <section class="supporter-flow-step" data-supporter-step="1">
+            <div class="supporter-flow-step-head">
+              <p class="support-kicker">Stap 1</p>
+              <h3>Wie ben je?</h3>
+              <p>Je e-mailadres is verplicht. Vul daarnaast minimaal je Telegram- of Signal-gebruikersnaam in.</p>
+            </div>
+            <div class="supporter-flow-grid">
+              <label>Naam<input type="text" name="name" autocomplete="name" required></label>
+              <label>E-mailadres<input type="email" name="email" autocomplete="email" required></label>
+              <label>Telegram-gebruikersnaam <span>(optioneel)</span><input type="text" name="telegram_username" placeholder="@gebruikersnaam" autocomplete="off"></label>
+              <label>Signal-gebruikersnaam <span>(optioneel)</span><input type="text" name="signal_username" placeholder="gebruikersnaam.00" autocomplete="off"></label>
+            </div>
+            <div class="supporter-flow-actions supporter-flow-actions-end">
+              <button class="support-button support-button-primary" type="button" data-supporter-next>Verder naar voorkeuren</button>
+            </div>
+          </section>
+
+          <section class="supporter-flow-step" data-supporter-step="2" hidden>
+            <div class="supporter-flow-step-head">
+              <p class="support-kicker">Stap 2</p>
+              <h3>Hoe wil je betalen en je stickers ontvangen?</h3>
+              <p>Dit is je voorkeur. Je betaalt in deze stap nog niets.</p>
+            </div>
+
+            <fieldset class="supporter-choice-group">
+              <legend>Betaalvaluta</legend>
+              <div class="supporter-choice-grid">
+                <label class="supporter-choice"><input type="radio" name="payment_currency" value="sats" required><span><strong>Sats</strong><small>Onze voorkeur</small></span></label>
+                <label class="supporter-choice"><input type="radio" name="payment_currency" value="eur" required><span><strong>EUR</strong><small>Eurobetaling</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="supporter-choice-group">
+              <legend>Betaalmoment</legend>
+              <div class="supporter-choice-grid">
+                <label class="supporter-choice"><input type="radio" name="payment_timing" value="online" required><span><strong>Online</strong><small>Je ontvangt persoonlijk de betaalstap</small></span></label>
+                <label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Volgende meetup</strong><small>Betalen bij de eerstvolgende bijeenkomst</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="supporter-choice-group">
+              <legend>21 stickers ontvangen</legend>
+              <div class="supporter-choice-grid">
+                <label class="supporter-choice"><input type="radio" name="sticker_delivery" value="mail" required><span><strong>Per post</strong><small>We sturen de stickers naar je op</small></span></label>
+                <label class="supporter-choice"><input type="radio" name="sticker_delivery" value="pickup" required><span><strong>Ophalen</strong><small>Bij de volgende meetup</small></span></label>
+              </div>
+            </fieldset>
+
+            <div class="supporter-address" data-supporter-address hidden>
+              <p class="supporter-address-title">Postadres</p>
+              <div class="supporter-flow-grid">
+                <label class="supporter-flow-wide">Straat en huisnummer<input type="text" name="address_line1" autocomplete="street-address" data-address-required></label>
+                <label>Postcode<input type="text" name="postal_code" autocomplete="postal-code" data-address-required></label>
+                <label>Plaats<input type="text" name="city" autocomplete="address-level2" data-address-required></label>
+                <label class="supporter-flow-wide">Land<input type="text" name="country" autocomplete="country-name" value="Nederland" data-address-required></label>
+              </div>
+            </div>
+
+            <div class="supporter-flow-actions">
+              <button class="support-button supporter-button-quiet" type="button" data-supporter-back>Terug</button>
+              <button class="support-button support-button-primary" type="button" data-supporter-next>Controleer mijn keuzes</button>
+            </div>
+          </section>
+
+          <section class="supporter-flow-step" data-supporter-step="3" hidden>
+            <div class="supporter-flow-step-head">
+              <p class="support-kicker">Stap 3</p>
+              <h3>Controleer je aanvraag</h3>
+              <p>Na verzenden nemen we persoonlijk contact op met de juiste betaalstap.</p>
+            </div>
+
+            <dl class="supporter-review">
+              <div><dt>Naam</dt><dd data-review="name"></dd></div>
+              <div><dt>E-mail</dt><dd data-review="email"></dd></div>
+              <div><dt>Telegram</dt><dd data-review="telegram_username"></dd></div>
+              <div><dt>Signal</dt><dd data-review="signal_username"></dd></div>
+              <div><dt>Betaalvaluta</dt><dd data-review="payment_currency"></dd></div>
+              <div><dt>Betaalmoment</dt><dd data-review="payment_timing"></dd></div>
+              <div><dt>Stickers</dt><dd data-review="sticker_delivery"></dd></div>
+              <div data-review-address-row hidden><dt>Postadres</dt><dd data-review="address"></dd></div>
+            </dl>
+
+            <p class="supporter-flow-honesty"><strong>Goed om te weten:</strong> dit is een aanvraag, geen betaling. Je supporterschap wordt pas actief nadat de betaling echt is ontvangen.</p>
+
+            <div class="supporter-flow-actions">
+              <button class="support-button supporter-button-quiet" type="button" data-supporter-back>Terug</button>
+              <button class="support-button support-button-primary" type="submit" data-supporter-submit>Verstuur mijn aanvraag</button>
+            </div>
+            <p class="support-form-privacy">We gebruiken deze gegevens alleen voor je supporter-aanvraag, betaling, stickers en communityvoordelen.</p>
+          </section>
+        </form>
+
+        <div class="supporter-flow-success" data-supporter-flow-success hidden tabindex="-1" role="status" aria-live="polite">
+          <span class="supporter-flow-success-mark" aria-hidden="true">✓</span>
+          <p class="support-kicker">Aanvraag ontvangen</p>
+          <h2>Bedankt, je volgende stap komt per e-mail</h2>
+          <p>We controleren je voorkeuren en sturen je persoonlijk de juiste betaalinformatie. Je hebt nu nog niets betaald.</p>
+          <button class="support-button support-button-primary" type="button" data-supporter-close>Sluiten</button>
+        </div>
+      </div>
+    </dialog>
           
     <footer class="bg-gray-50 py-12 border-t border-gray-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -414,6 +543,6 @@
       </div>
     </footer>
   
-        </div>  <script src="../assets/main.js?v=20260825b"></script>
+        </div>  <script src="../assets/main.js?v=20260826a"></script>
   </body>
 </html>
