@@ -461,6 +461,19 @@ small clean-ups.
 - All HTML pages in `nl/`, `en/` and `fy/`
 - `CHANGES.md`
 
+## Round 22 (BBQ moved to past events)
+
+68. **The Bitcoin Friesland BBQ of 14 August 2026 is now marked as past.**
+    The card moved from upcoming to past events in Dutch, English and Frisian.
+    Stale ticket buttons and `InStock` event data were removed, while the
+    Dutch event information page remains available as a historical page.
+
+## Round 22 files
+
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html`
+- `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html`
+- `llms.txt`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
