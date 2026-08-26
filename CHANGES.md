@@ -449,8 +449,20 @@ small clean-ups.
 - `nl/support.html`, `en/support.html`, `fy/support.html`
 - `CHANGES.md`
 
+## Round 21 (simpler top navigation)
+
+67. **Removed the redundant Home link from the top navigation.** The Bitcoin
+    Friesland logo remains the clear route back to the homepage. The link was
+    removed from both desktop and mobile menus on every Dutch, English and
+    Frisian page.
+
+## Round 21 files
+
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `CHANGES.md`
+
 ## Good to know
-- No page design, colours, text content or navigation changed for visitors.
+- No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
   have the real account addresses.
 - After this goes live, it helps to open Google Search Console and ask Google
