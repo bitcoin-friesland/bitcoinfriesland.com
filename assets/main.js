@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function validatePreferences() {
-    var groups = ['payment_currency', 'payment_timing', 'sticker_delivery'];
+    var groups = ['payment_timing', 'sticker_delivery'];
     for (var i = 0; i < groups.length; i += 1) {
       if (!checkedValue(groups[i])) {
         showError(dialog.getAttribute('data-choice-error'), form.querySelector('input[name="' + groups[i] + '"]'));
@@ -334,7 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setReview('email', form.elements.email.value.trim());
     setReview('telegram_username', form.elements.telegram_username.value.trim());
     setReview('signal_username', form.elements.signal_username.value.trim());
-    setReview('payment_currency', selectedLabel('payment_currency'));
     setReview('payment_timing', selectedLabel('payment_timing'));
     setReview('sticker_delivery', selectedLabel('sticker_delivery'));
 

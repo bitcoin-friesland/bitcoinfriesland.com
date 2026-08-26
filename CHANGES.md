@@ -506,6 +506,19 @@ small clean-ups.
 - `assets/enhancements.css`, `assets/main.js`
 - `CHANGES.md`
 
+## Round 25 (sats-only supporter contribution)
+
+72. **The supporter contribution can only be paid in sats.** The EUR payment
+    option has been removed from the Dutch, English and Frisian signup flows.
+    The fixed contribution is now stated as the current satoshi value of €21,
+    while supporters can still choose online payment or payment at a meetup.
+
+## Round 25 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/main.js`
+- `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

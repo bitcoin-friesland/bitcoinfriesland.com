@@ -347,11 +347,12 @@
           <input type="hidden" name="interest" value="supporter">
           <input type="hidden" name="support_status" value="new_request">
           <input type="hidden" name="source" value="supporter_popup">
+          <input type="hidden" name="payment_currency" value="sats">
           <input type="hidden" name="submitted_at" value="">
           <p class="support-honeypot"><label>Leave this field empty: <input name="bot-field"></label></p>
 
           <header class="supporter-flow-head">
-            <p class="support-kicker">€21 per year</p>
+            <p class="support-kicker">€21 in sats per year</p>
             <h2 id="supporter-flow-title">Become a Bitcoin Friesland supporter</h2>
             <p>Three short steps give us what we need for your payment, stickers and supporter tag.</p>
           </header>
@@ -376,14 +377,10 @@
           </section>
 
           <section class="supporter-flow-step" data-supporter-step="2" hidden>
-            <div class="supporter-flow-step-head"><p class="support-kicker">Step 2</p><h3>How would you like to pay and receive your stickers?</h3><p>These are your preferences. You do not pay anything in this step.</p></div>
-            <fieldset class="supporter-choice-group"><legend>Payment currency</legend><div class="supporter-choice-grid">
-              <label class="supporter-choice"><input type="radio" name="payment_currency" value="sats" required><span><strong>Sats</strong><small>Our preference</small></span></label>
-              <label class="supporter-choice"><input type="radio" name="payment_currency" value="eur" required><span><strong>EUR</strong><small>Euro payment</small></span></label>
-            </div></fieldset>
+            <div class="supporter-flow-step-head"><p class="support-kicker">Step 2</p><h3>When would you like to pay and how should you receive your stickers?</h3><p>The contribution is the current value of €21 in sats. You do not pay anything in this step.</p></div>
             <fieldset class="supporter-choice-group"><legend>Payment timing</legend><div class="supporter-choice-grid">
               <label class="supporter-choice"><input type="radio" name="payment_timing" value="online" required><span><strong>Online</strong><small>You receive the payment step personally</small></span></label>
-              <label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Next meetup</strong><small>Pay at the next gathering</small></span></label>
+              <label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Next meetup</strong><small>Pay in sats at the next gathering</small></span></label>
             </div></fieldset>
             <fieldset class="supporter-choice-group"><legend>Receive 21 stickers</legend><div class="supporter-choice-grid">
               <label class="supporter-choice"><input type="radio" name="sticker_delivery" value="mail" required><span><strong>By mail</strong><small>We send the stickers to you</small></span></label>
@@ -403,7 +400,7 @@
             <dl class="supporter-review">
               <div><dt>Name</dt><dd data-review="name"></dd></div><div><dt>Email</dt><dd data-review="email"></dd></div>
               <div><dt>Telegram</dt><dd data-review="telegram_username"></dd></div><div><dt>Signal</dt><dd data-review="signal_username"></dd></div>
-              <div><dt>Payment currency</dt><dd data-review="payment_currency"></dd></div><div><dt>Payment timing</dt><dd data-review="payment_timing"></dd></div>
+              <div><dt>Contribution</dt><dd>€21 in sats</dd></div><div><dt>Payment timing</dt><dd data-review="payment_timing"></dd></div>
               <div><dt>Stickers</dt><dd data-review="sticker_delivery"></dd></div><div data-review-address-row hidden><dt>Postal address</dt><dd data-review="address"></dd></div>
             </dl>
             <p class="supporter-flow-honesty"><strong>Good to know:</strong> this is a request, not a payment. Your supporter year starts only after payment has actually been received.</p>

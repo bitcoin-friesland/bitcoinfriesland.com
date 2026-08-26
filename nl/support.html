@@ -347,11 +347,12 @@
           <input type="hidden" name="interest" value="supporter">
           <input type="hidden" name="support_status" value="new_request">
           <input type="hidden" name="source" value="supporter_popup">
+          <input type="hidden" name="payment_currency" value="sats">
           <input type="hidden" name="submitted_at" value="">
           <p class="support-honeypot"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
 
           <header class="supporter-flow-head">
-            <p class="support-kicker">€21 per jaar</p>
+            <p class="support-kicker">€21 in sats per jaar</p>
             <h2 id="supporter-flow-title">Word supporter van Bitcoin Friesland</h2>
             <p>In drie korte stappen verzamelen we wat nodig is voor je betaling, stickers en supporter-tag.</p>
           </header>
@@ -384,23 +385,15 @@
           <section class="supporter-flow-step" data-supporter-step="2" hidden>
             <div class="supporter-flow-step-head">
               <p class="support-kicker">Stap 2</p>
-              <h3>Hoe wil je betalen en je stickers ontvangen?</h3>
-              <p>Dit is je voorkeur. Je betaalt in deze stap nog niets.</p>
+              <h3>Wanneer wil je betalen en hoe wil je je stickers ontvangen?</h3>
+              <p>De bijdrage is de actuele waarde van €21 in sats. Je betaalt in deze stap nog niets.</p>
             </div>
-
-            <fieldset class="supporter-choice-group">
-              <legend>Betaalvaluta</legend>
-              <div class="supporter-choice-grid">
-                <label class="supporter-choice"><input type="radio" name="payment_currency" value="sats" required><span><strong>Sats</strong><small>Onze voorkeur</small></span></label>
-                <label class="supporter-choice"><input type="radio" name="payment_currency" value="eur" required><span><strong>EUR</strong><small>Eurobetaling</small></span></label>
-              </div>
-            </fieldset>
 
             <fieldset class="supporter-choice-group">
               <legend>Betaalmoment</legend>
               <div class="supporter-choice-grid">
                 <label class="supporter-choice"><input type="radio" name="payment_timing" value="online" required><span><strong>Online</strong><small>Je ontvangt persoonlijk de betaalstap</small></span></label>
-                <label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Volgende meetup</strong><small>Betalen bij de eerstvolgende bijeenkomst</small></span></label>
+                <label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Volgende meetup</strong><small>In sats betalen bij de eerstvolgende bijeenkomst</small></span></label>
               </div>
             </fieldset>
 
@@ -440,7 +433,7 @@
               <div><dt>E-mail</dt><dd data-review="email"></dd></div>
               <div><dt>Telegram</dt><dd data-review="telegram_username"></dd></div>
               <div><dt>Signal</dt><dd data-review="signal_username"></dd></div>
-              <div><dt>Betaalvaluta</dt><dd data-review="payment_currency"></dd></div>
+              <div><dt>Bijdrage</dt><dd>€21 in sats</dd></div>
               <div><dt>Betaalmoment</dt><dd data-review="payment_timing"></dd></div>
               <div><dt>Stickers</dt><dd data-review="sticker_delivery"></dd></div>
               <div data-review-address-row hidden><dt>Postadres</dt><dd data-review="address"></dd></div>
