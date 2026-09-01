@@ -124,7 +124,7 @@
             
             <!-- Mobile hamburger menu -->
             <div class="mobile-only">
-              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Open menu">
+              <button type="button" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Open menu">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -157,7 +157,7 @@
               <div class="email-invitation">
                 <h3>Want to add a link?</h3>
                 <p>Send us an email with your suggestion for useful Bitcoin resources</p>
-                <button onclick="window.location.href='mailto:info@bitcoinfriesland.com?subject=Link suggestie'">
+                <button type="button" onclick="window.location.href='mailto:info@bitcoinfriesland.com?subject=Link suggestie'">
                   Send an email
                 </button>
               </div>

@@ -52,16 +52,13 @@ function toggleMobileMenu() {
 function toggleFAQ(element) {
   const content = element.nextElementSibling;
   const arrow = element.querySelector('svg');
-  
-  if (content.style.display === 'none' || content.style.display === '') {
-    content.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
-    element.setAttribute('aria-expanded', 'true');
-  } else {
-    content.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
-    element.setAttribute('aria-expanded', 'false');
-  }
+  if (!content) return;
+
+  const shouldOpen = content.hidden;
+  content.hidden = !shouldOpen;
+  content.style.display = shouldOpen ? 'block' : 'none';
+  if (arrow) arrow.style.transform = shouldOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+  element.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
 }
 
 // Noderunners promo: copy discount code to clipboard
@@ -105,8 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Language selector trigger
   const langTrigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
   if (langTrigger) {
-    langTrigger.setAttribute('aria-haspopup', 'true');
-    langTrigger.setAttribute('aria-label', 'Select language');
+    var languageLabels = { nl: 'Taal kiezen', en: 'Select language', fy: 'Taal kieze' };
+    var pageLanguage = document.documentElement.lang || 'en';
+    langTrigger.setAttribute('aria-haspopup', 'menu');
+    langTrigger.setAttribute('aria-controls', 'language-dropdown');
+    if (!langTrigger.hasAttribute('aria-label')) {
+      langTrigger.setAttribute('aria-label', languageLabels[pageLanguage] || languageLabels.en);
+    }
     makeAccessible(langTrigger, true);
   }
   // Mobile navigation trigger
@@ -116,7 +118,16 @@ document.addEventListener('DOMContentLoaded', function() {
     makeAccessible(mobileTrigger, true);
   }
   // FAQ question headers
-  document.querySelectorAll('[onclick="toggleFAQ(this)"]').forEach(function(el) {
+  document.querySelectorAll('[onclick="toggleFAQ(this)"]').forEach(function(el, index) {
+    var content = el.nextElementSibling;
+    if (el.tagName === 'BUTTON' && !el.hasAttribute('type')) el.setAttribute('type', 'button');
+    if (content) {
+      var contentId = content.id || 'faq-answer-' + (index + 1);
+      content.id = contentId;
+      content.hidden = true;
+      content.style.display = 'none';
+      el.setAttribute('aria-controls', contentId);
+    }
     makeAccessible(el, true);
   });
 

@@ -124,7 +124,7 @@
             
             <!-- Mobile hamburger menu -->
             <div class="mobile-only">
-              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Open menu">
+              <button type="button" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Open menu">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -402,19 +402,19 @@
                 <div class="max-w-4xl mx-auto">
                   <div class="space-y-4">
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         Is Bitcoin sustainable?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                       </button>
                       <div class="text-gray-600 pb-5" style="display: none;">
-                        Bitcoin mining is increasingly powered by renewable energy. According to the Bitcoin Mining Council, over 59% of global mining operations now use sustainable power sources. Many mining operations specifically seek out locations with excess renewable energy that would otherwise be wasted.
+                        The energy impact of Bitcoin mining depends heavily on the electricity source. Mining can use renewable energy and surplus electricity that would otherwise be difficult to use. It is therefore useful to consider the energy source, not only total consumption.
                       </div>
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         How do I account for Bitcoin?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -426,19 +426,19 @@
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         How do I use it at my register?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                       </button>
                       <div class="text-gray-600 pb-5" style="display: none;">
-                        Most businesses use a simple mobile app for Bitcoin payments. Solutions like <a href="https://coinos.io/" target="_blank" class="text-friesland-blue hover:underline" rel="noopener noreferrer">Coinos</a>, BT Pay, or Wallet of Satoshi let you generate a QR code that customers scan. These transactions happen in seconds and are verified immediately on the Lightning Network.
+                        Most businesses use a simple mobile app for Bitcoin payments. Solutions like <a href="https://coinos.io/" target="_blank" class="text-friesland-blue hover:underline" rel="noopener noreferrer">Coinos</a>, BTCPay Server, or Wallet of Satoshi let you generate a QR code that customers scan. These transactions happen in seconds and are verified immediately on the Lightning Network.
                       </div>
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         How do I start accepting Bitcoin?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>

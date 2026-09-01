@@ -9,8 +9,8 @@
 
 ## Runtime behavior (assets/main.js)
 - Forces the desktop nav menu visible on widths >= 768px.
-- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state accessible, and closes open menus with Escape.
-- Adds FAQ accordion toggling (show/hide content + arrow rotation) where used.
+- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state and controls accessible in the page language, and closes open menus with Escape.
+- Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
 - Adds header shadow on scroll.
 - Makes tables sortable by clicking headers or using Enter/Space (adds `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending).
 - Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.

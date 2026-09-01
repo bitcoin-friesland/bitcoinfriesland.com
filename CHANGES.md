@@ -541,6 +541,28 @@ small clean-ups.
 - `assets/enhancements.css`, `assets/main.js`
 - `AI_CONTEXT.md`, `CHANGES.md`
 
+## Round 27 (site-wide accessibility and content quick wins)
+
+76. **Mobile menus and FAQ controls now have safer defaults.** Every HTML
+    button has an explicit type, mobile menu buttons expose their initial
+    collapsed state before JavaScript runs, and business FAQ questions are
+    linked to their answers for assistive technology.
+
+77. **The language picker now speaks the page language.** Its accessible label
+    is Dutch, English or Frisian to match the current page, while the menu and
+    Escape-key behaviour remain unchanged.
+
+78. **Removed two brittle content claims.** The business FAQ no longer shows
+    an undated 59% mining-energy statistic, `BT Pay` is corrected to
+    `BTCPay Server`, and the treasure hunt no longer promises an unverified
+    `100+` community count.
+
+## Round 27 files
+
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

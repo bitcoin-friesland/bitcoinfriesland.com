@@ -124,7 +124,7 @@
             
             <!-- Mobile hamburger menu -->
             <div class="mobile-only">
-              <button onclick="toggleMobileMenu()" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Menu openen">
+              <button type="button" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" class="relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-friesland-blue hover:bg-gray-100 transition-colors" aria-label="Menu openen">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -405,19 +405,19 @@
                 <div class="max-w-4xl mx-auto">
                   <div class="space-y-4">
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         Is Bitcoin duurzaam?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                       </button>
                       <div class="text-gray-600 pb-5" style="display: none;">
-                        Bitcoin mining wordt steeds meer aangedreven door hernieuwbare energie. Volgens de Bitcoin Mining Council maakt nu meer dan 59% van de wereldwijde mining-operaties gebruik van duurzame energiebronnen. Veel mining-operaties zoeken specifiek locaties met een overschot aan hernieuwbare energie die anders verspild zou worden.
+                        De energie-impact van Bitcoin mining hangt sterk af van de gebruikte stroombron. Mining kan gebruikmaken van hernieuwbare energie en van stroomoverschotten die anders moeilijk benut worden. Kijk daarom kritisch naar de energiebron in plaats van alleen naar het totale verbruik.
                       </div>
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         Hoe verwerk ik Bitcoin in mijn boekhouding?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -429,7 +429,7 @@
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         Hoe gebruik ik het aan mijn kassa?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -441,7 +441,7 @@
                     </div>
                     
                     <div class="bg-white rounded-xl border border-gray-200 px-6">
-                      <button onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
+                      <button type="button" onclick="toggleFAQ(this)" class="w-full text-left font-semibold py-5 text-lg flex justify-between items-center">
                         Hoe begin ik met het accepteren van Bitcoin?
                         <svg class="h-5 w-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
