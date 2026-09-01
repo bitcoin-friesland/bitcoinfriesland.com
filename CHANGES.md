@@ -620,6 +620,36 @@ small clean-ups.
 - All HTML asset references, `assets/main.js`
 - `sitemap.xml`, `llms.txt`, `AI_CONTEXT.md`, `CHANGES.md`
 
+## Round 30 (SEO and LLM discoverability)
+
+88. **Search crawlers now receive one consistent rule set.** Unsupported crawl
+    delays and separate Google/Bing groups were removed, so the intended path
+    exclusions apply to every matching crawler.
+
+89. **The sitemap now contains canonical pages only.** The root redirect was
+    removed because its canonical destination is the Dutch homepage.
+
+90. **AI agents get clean, structured content.** `llms.txt` now follows the v2
+    proposal with descriptive Markdown links. The home, meetings, map and
+    supporter pages have concise Markdown counterparts in Dutch, English and
+    Frisian, and the HTML advertises those versions directly.
+
+91. **Search and social previews are more explicit.** Public pages allow large
+    image previews, expose `llms.txt`, identify alternate Open Graph locales and
+    provide image descriptions for Open Graph and Twitter cards.
+
+92. **SEO regressions can be caught with one command.** The dependency-free
+    `node audit-site.cjs` check covers metadata, structured data, images, local
+    links, translations, canonical sitemap URLs, shared asset versions and LLM
+    files.
+
+## Round 30 files
+
+- All public HTML pages in `nl/`, `en/`, `fy/`
+- Core `*.html.md` files in `nl/`, `en/`, `fy/`
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `audit-site.cjs`
+- `README.md`, `CONTRIBUTING.md`, `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

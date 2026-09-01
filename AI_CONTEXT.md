@@ -30,12 +30,14 @@
 - `maintain-footer.cjs`: `node maintain-footer.cjs text|warning|all` updates footer copyright/GitHub link and injects risk warnings into every page.
 - `translations-restore.cjs`: Restores EN/FY translations for `map.html` strings and business type labels.
 - `translations-frisian.cjs`: Applies additional Frisian translations to `fy/map.html`.
+- `audit-site.cjs`: Read-only audit for SEO/social metadata, JSON-LD syntax, image dimensions and alt text, local references, language parity, canonical sitemap URLs, shared asset versions and LLM discovery files.
 
 ## Source layout notes
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.
-- `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
+- `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages. Keep only canonical, indexable URLs in the sitemap.
+- `llms.txt` follows the v2 proposal and links to concise `.html.md` counterparts for core pages. Core HTML pages expose them with `rel="alternate" type="text/markdown"`; all public HTML pages expose `/llms.txt` with `rel="describedby"`.
 
 ## How to work on the site
 - No build pipeline needed; edit HTML/CSS/JS directly in language folders and `assets/`.

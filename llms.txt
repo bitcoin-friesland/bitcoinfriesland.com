@@ -1,48 +1,54 @@
 # Bitcoin Friesland
 
-> Bitcoin Friesland (Frisian: Bitcoin Fryslân) is a volunteer community that
-> promotes Bitcoin adoption and education in the province of Friesland, the
-> Netherlands. The site is informational only and does not give financial advice.
+> Bitcoin Friesland (Frysk: Bitcoin Fryslân) is a volunteer community for Bitcoin education, adoption and meetups in the Dutch province of Friesland. Participation in the community and its Telegram and Signal groups is free. The site is informational and does not provide financial advice.
 
-## About
-- Name: Bitcoin Friesland / Bitcoin Fryslân
-- Region: Friesland (Fryslân), Netherlands
-- Languages: Dutch (nl), English (en), Frisian (fy)
-- Contact: info@bitcoinfriesland.com
-- Community chat: https://t.me/bitcoinfriesland
+The site is available in Dutch (`nl`), English (`en`) and Frisian (`fy`). Dutch is the default language. Last reviewed: 2 September 2026.
 
-## Main pages (Dutch)
-- Home: https://bitcoinfriesland.com/nl/
-- Meetups and events: https://bitcoinfriesland.com/nl/meetings.html
-- Bitcoin map (where to pay with Bitcoin): https://bitcoinfriesland.com/nl/map.html
-- For consumers (getting started): https://bitcoinfriesland.com/nl/consumers.html
-- For business (accepting Bitcoin): https://bitcoinfriesland.com/nl/business.html
-- Resources and links: https://bitcoinfriesland.com/nl/links.html
-- About us: https://bitcoinfriesland.com/nl/about.html
-- Supporters, business support and donations: https://bitcoinfriesland.com/nl/support.html
-- Treasure hunt: https://bitcoinfriesland.com/nl/treasure-hunt.html
-- Event page (Bitcoin BBQ, 14 Aug 2026, Drachten): https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
+Important facts:
 
-## Events
-- NodeRunners Conference 2026: Saturday 19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem. https://conf2026.noderunners.network/
-- Discount: code BITCOINFRIESLAND gives 10% off NodeRunners Conference 2026 tickets. The code is exclusive for the Bitcoin Friesland community and valid until the conference. Ticket link with the code applied: https://conf2026.noderunners.network/BITCOINFRIESLAND
-- Past event: Bitcoin Friesland BBQ - Meat the Resistance took place Friday 14 August 2026 at Vliegveld Drachten in Drachten. Details: https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
+- Individual supporter contribution: the current satoshi value of EUR 21 for one year, paid in sats only.
+- Supporter benefits: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
+- The supporter form is a request; it does not take payment or activate supportership automatically.
+- Financial or material support never buys influence, exclusivity, editorial control or an endorsement.
 
-## Supporter programme
-- Participation in Bitcoin Friesland and its Telegram and Signal groups remains free.
-- An individual supporter contributes the current satoshi value of EUR 21 for one year; payment is in sats only.
-- Supporter benefits: 21 Bitcoin Friesland stickers, event discount codes, and a supporter tag in Telegram and Signal.
-- The signup form records contact, payment timing and sticker delivery preferences. It is a request, not an automatic payment or active membership.
-- Support does not buy influence, editorial control, exclusivity or an endorsement by Bitcoin Friesland.
+## Dutch core pages
 
-## English pages
-- Home: https://bitcoinfriesland.com/en/
-- All English pages live under https://bitcoinfriesland.com/en/
+- [Home](https://bitcoinfriesland.com/nl/index.html.md): Community overview and main routes into the site.
+- [Meetups and events](https://bitcoinfriesland.com/nl/meetings.html.md): Upcoming and past events, including current ticket information.
+- [Bitcoin map](https://bitcoinfriesland.com/nl/map.html.md): How to find places that accept Bitcoin in Friesland.
+- [Supporter programme](https://bitcoinfriesland.com/nl/support.html.md): Contribution, benefits, payment and sticker-delivery details.
 
-## Frisian pages
-- Home: https://bitcoinfriesland.com/fy/
-- All Frisian pages live under https://bitcoinfriesland.com/fy/
+## English core pages
 
-## Notes
-- Every page is available in Dutch, English and Frisian and is linked with hreflang.
-- Bitcoin prices can be volatile. This site is educational and is not financial advice.
+- [Home](https://bitcoinfriesland.com/en/index.html.md): English community overview and main routes into the site.
+- [Meetups and events](https://bitcoinfriesland.com/en/meetings.html.md): Upcoming and past events, including current ticket information.
+- [Bitcoin map](https://bitcoinfriesland.com/en/map.html.md): How to find places that accept Bitcoin in Friesland.
+- [Supporter programme](https://bitcoinfriesland.com/en/support.html.md): Contribution, benefits, payment and sticker-delivery details.
+
+## Frisian core pages
+
+- [Thusside](https://bitcoinfriesland.com/fy/index.html.md): Frysk oersjoch fan de mienskip en de wichtichste siden.
+- [Gearkomsten en eveneminten](https://bitcoinfriesland.com/fy/meetings.html.md): Takomstige en ôfrune eveneminten mei aktuele ticketynformaasje.
+- [Bitcoinkaart](https://bitcoinfriesland.com/fy/map.html.md): Plakken fine dêr'tst yn Fryslân mei Bitcoin betelje kinst.
+- [Stiperprogramma](https://bitcoinfriesland.com/fy/support.html.md): Bydrage, foardielen, betelling en ferstjoeren of opheljen fan stickers.
+
+## News and feeds
+
+- [Dutch Bitcoin Friesland news](https://bitcoinfriesland.com/nl/blog/): Guides, news and community stories.
+- [Dutch RSS feed](https://bitcoinfriesland.com/nl/blog/rss.xml): Machine-readable feed for new articles.
+- [Getting started with Bitcoin in Friesland](https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland.html): Practical Dutch beginner guide.
+
+## Other useful pages
+
+- [For consumers](https://bitcoinfriesland.com/nl/consumers.html): Wallets, safety and first steps.
+- [For businesses](https://bitcoinfriesland.com/nl/business.html): Accepting Bitcoin and Lightning payments.
+- [About Bitcoin Friesland](https://bitcoinfriesland.com/nl/about.html): Mission, independence and contact routes.
+- [Resources and links](https://bitcoinfriesland.com/nl/links.html): Curated Bitcoin tools and learning resources.
+- [Treasure hunt](https://bitcoinfriesland.com/nl/treasure-hunt.html): Community treasure-hunt information.
+- [Past Bitcoin BBQ](https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html): Archived event page for 14 August 2026.
+
+## Contact and optional sources
+
+- [Telegram community](https://t.me/bitcoinfriesland): Public community chat.
+- [Signal community](https://signal.group/#CjQKIMHGk9c3UuW1ZsczaSyn-XLnddKtrkukX6aHgaJWcrhwEhAxTON9X1wySW_5CH54Q7ZT): Public Signal group invitation.
+- [Source repository](https://github.com/bitcoin-friesland/bitcoinfriesland.com): Public source and contribution history.

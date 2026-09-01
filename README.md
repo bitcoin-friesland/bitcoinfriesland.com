@@ -30,7 +30,7 @@ Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin buil
 | `AI_CONTEXT.md` | AI assistants | Deep site internals: runtime behavior, content patterns, scripts |
 | `.github/copilot-instructions.md` | GitHub Copilot | Auto-loaded Copilot context (short version of AGENTS.md) |
 | `CHANGES.md` | Everyone | Plain-language changelog of every improvement round |
-| `llms.txt` | LLM crawlers | Plain-language site summary (keep updated!) |
+| `llms.txt` | LLM agents | v2-compatible site guide with links to clean Markdown content |
 
 ---
 
@@ -82,7 +82,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
-├── llms.txt                  # Plain-language site summary for AI assistants
+├── llms.txt                  # LLM guide; core pages also have .html.md versions
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
 ├── CONTRIBUTING.md           # Contribution guide for humans
@@ -128,12 +128,15 @@ All behavior lives in `assets/main.js`: mobile menu, language dropdown (with out
 
 Already in place — keep them working when adding pages:
 
-- `hreflang` links between the three language versions of every page
-- Canonical URL, Open Graph + Twitter cards, geo tags, and JSON-LD (`Organization`, `FAQPage`, `Event`) per page
+- `hreflang` links between the three language versions of every translated page
+- Canonical URL, Open Graph + Twitter cards, crawler preview controls, and page-appropriate JSON-LD (`Organization`, `BlogPosting`, `FAQPage`, `Event`)
 - `sitemap.xml` — update when adding/removing public pages
-- `robots.txt` — crawl directives
-- `llms.txt` — plain-language summary that AI assistants read; update it when events, offers or key pages change
+- `robots.txt` — shared crawl directives that apply consistently to search crawlers
+- `llms.txt` — v2-compatible guide that AI agents can use to discover the clean Markdown versions of core pages
+- `*.html.md` — concise, navigation-free Markdown counterparts for the most important NL/EN/FY pages
 - `404.html` — branded not-found page
+
+Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.
 
 ## Maintenance scripts
 
@@ -141,6 +144,7 @@ Node scripts, no dependencies:
 
 | Script | Purpose |
 |---|---|
+| `node audit-site.cjs` | Read-only SEO, social metadata, sitemap and LLM discoverability audit |
 | `node maintain-pages.cjs consumer\|business\|all` | Tweaks consumer/business pages (terminology, links, phrasing) |
 | `node maintain-footer.cjs text\|warning\|all` | Updates footer copyright/GitHub link and risk warnings on every page |
 | `node translations-restore.cjs` | Restores EN/FY translations for map strings |

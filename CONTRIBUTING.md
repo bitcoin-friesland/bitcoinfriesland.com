@@ -21,6 +21,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 3. Test locally — no build step needed:
    ```sh
    npx serve .
+   node audit-site.cjs
    ```
    Click through the pages you touched, in **all three languages**, on desktop and a narrow (mobile) viewport.
 4. Open a pull request with:
@@ -35,6 +36,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 - [ ] Translations are real translations — no Dutch or English left in the Frisian pages
 - [ ] Links work (relative links between language pages, absolute for external)
 - [ ] New public pages added to `sitemap.xml` and `llms.txt`
+- [ ] Key pages have a concise `.html.md` counterpart and a Markdown alternate link
 - [ ] Entry added to `CHANGES.md`
 
 ## Checklist for visual/structural changes
