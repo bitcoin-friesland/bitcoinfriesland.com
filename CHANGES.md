@@ -563,6 +563,37 @@ small clean-ups.
 - `assets/main.js`
 - `AI_CONTEXT.md`, `CHANGES.md`
 
+## Round 28 (native controls and menu polish)
+
+79. **The language selector is now a real HTML button.** All 29 language
+    selectors can be understood and operated correctly even before JavaScript
+    adds enhancements. Their Dutch, English and Frisian labels are included
+    directly in the page.
+
+80. **Keyboard controls no longer risk firing twice.** Native buttons now use
+    their built-in Enter and Space behaviour; the JavaScript keyboard fallback
+    is reserved for older non-button controls.
+
+81. **Navigation menus no longer overlap.** Opening the language selector
+    closes the mobile menu and vice versa. Clicking outside closes either menu,
+    and resizing to desktop resets an open mobile menu.
+
+82. **Map sorting is clearer and more natural.** Sortable table columns now
+    announce `Sort by`, `Sorteer op` or `Sortearje op`, and compare text using
+    the current page language with natural number handling.
+
+83. **Browsers reliably receive the latest assets.** References to the shared
+    JavaScript and enhancement stylesheet now use one current cache-busting
+    version across the site instead of a mix of old versions and unversioned
+    URLs.
+
+## Round 28 files
+
+- All pages containing the language selector in `nl/`, `en/` and `fy/`
+- All HTML pages referencing shared assets, including `404.html`
+- `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

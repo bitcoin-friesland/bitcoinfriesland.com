@@ -9,10 +9,10 @@
 
 ## Runtime behavior (assets/main.js)
 - Forces the desktop nav menu visible on widths >= 768px.
-- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state and controls accessible in the page language, and closes open menus with Escape.
+- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state and controls accessible in the page language, prevents the two menus from overlapping, and closes them with outside clicks or Escape.
 - Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
 - Adds header shadow on scroll.
-- Makes tables sortable by clicking headers or using Enter/Space (adds `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending).
+- Makes tables sortable by clicking headers or using Enter/Space (adds localized accessible labels, `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending and respects the page language).
 - Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.
 
 ## Content rules and patterns
@@ -33,7 +33,7 @@
 ## Source layout notes
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
-- JS: `assets/main.js` holds runtime behavior; no other bundles are used.
+- JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages.
 
 ## How to work on the site

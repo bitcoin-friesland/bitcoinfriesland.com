@@ -6,6 +6,12 @@ function updateMenuVisibility() {
   if (desktopMenu) {
     desktopMenu.style.display = window.innerWidth >= 1200 ? 'flex' : '';
   }
+  if (window.innerWidth >= 1200) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
+    if (mobileMenu) mobileMenu.classList.add('hidden');
+    if (mobileTrigger) mobileTrigger.setAttribute('aria-expanded', 'false');
+  }
 }
 
 // Run on load and resize
@@ -16,10 +22,17 @@ window.addEventListener('resize', updateMenuVisibility);
 function toggleLanguageDropdown() {
   const dropdown = document.getElementById('language-dropdown');
   if (dropdown) {
+    const willOpen = dropdown.classList.contains('hidden');
     dropdown.classList.toggle('hidden');
     const trigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
     if (trigger) {
       trigger.setAttribute('aria-expanded', dropdown.classList.contains('hidden') ? 'false' : 'true');
+    }
+    if (willOpen) {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+      if (mobileTrigger) mobileTrigger.setAttribute('aria-expanded', 'false');
     }
   }
 }
@@ -28,11 +41,18 @@ function toggleLanguageDropdown() {
 document.addEventListener('click', function(event) {
   const dropdown = document.getElementById('language-dropdown');
   const trigger = event.target.closest('[onclick="toggleLanguageDropdown()"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileTrigger = event.target.closest('[onclick="toggleMobileMenu()"]');
   
   if (!trigger && dropdown && !dropdown.contains(event.target)) {
     dropdown.classList.add('hidden');
     const languageTrigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
     if (languageTrigger) languageTrigger.setAttribute('aria-expanded', 'false');
+  }
+  if (!mobileTrigger && mobileMenu && !mobileMenu.contains(event.target)) {
+    mobileMenu.classList.add('hidden');
+    const menuTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
+    if (menuTrigger) menuTrigger.setAttribute('aria-expanded', 'false');
   }
 });
 
@@ -40,10 +60,17 @@ document.addEventListener('click', function(event) {
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   if (menu) {
+    const willOpen = menu.classList.contains('hidden');
     menu.classList.toggle('hidden');
     const trigger = document.querySelector('[onclick="toggleMobileMenu()"]');
     if (trigger) {
       trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+    }
+    if (willOpen) {
+      const languageDropdown = document.getElementById('language-dropdown');
+      const languageTrigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
+      if (languageDropdown) languageDropdown.classList.add('hidden');
+      if (languageTrigger) languageTrigger.setAttribute('aria-expanded', 'false');
     }
   }
 }
@@ -89,22 +116,25 @@ function copyPromoCode(button) {
 document.addEventListener('DOMContentLoaded', function() {
   function makeAccessible(el, expandable) {
     if (!el) return;
-    if (!el.getAttribute('role')) el.setAttribute('role', 'button');
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    var isNativeControl = el.matches('button, a[href], input, select, textarea, summary');
+    if (!isNativeControl && !el.getAttribute('role')) el.setAttribute('role', 'button');
+    if (!isNativeControl && !el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
     if (expandable && !el.hasAttribute('aria-expanded')) el.setAttribute('aria-expanded', 'false');
-    el.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        el.click();
-      }
-    });
+    if (!isNativeControl) {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    }
   }
   // Language selector trigger
   const langTrigger = document.querySelector('[onclick="toggleLanguageDropdown()"]');
   if (langTrigger) {
     var languageLabels = { nl: 'Taal kiezen', en: 'Select language', fy: 'Taal kieze' };
     var pageLanguage = document.documentElement.lang || 'en';
-    langTrigger.setAttribute('aria-haspopup', 'menu');
+    langTrigger.setAttribute('aria-haspopup', 'true');
     langTrigger.setAttribute('aria-controls', 'language-dropdown');
     if (!langTrigger.hasAttribute('aria-label')) {
       langTrigger.setAttribute('aria-label', languageLabels[pageLanguage] || languageLabels.en);
@@ -156,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Scroll shadow for header
 window.addEventListener('scroll', function() {
   const header = document.querySelector('nav');
+  if (!header) return;
   if (window.scrollY > 0) {
     header.classList.add('shadow-md');
   } else {
@@ -183,11 +214,9 @@ function sortTable(columnIndex, tableId = 'businessTable') {
     const aText = a.cells[columnIndex].textContent.trim();
     const bText = b.cells[columnIndex].textContent.trim();
     
-    if (newDirection === 'asc') {
-      return aText.localeCompare(bText);
-    } else {
-      return bText.localeCompare(aText);
-    }
+    var locale = document.documentElement.lang || undefined;
+    var comparison = aText.localeCompare(bText, locale, { numeric: true, sensitivity: 'base' });
+    return newDirection === 'asc' ? comparison : -comparison;
   });
   
   // Clear tbody and append sorted rows
@@ -216,12 +245,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const tables = document.querySelectorAll('table');
   tables.forEach(table => {
     const headers = table.querySelectorAll('th');
+    var sortLabels = { nl: 'Sorteer op', en: 'Sort by', fy: 'Sortearje op' };
+    var pageLanguage = document.documentElement.lang || 'en';
     headers.forEach((header, index) => {
       if (header.textContent.trim() && !header.querySelector('.sort-indicator')) {
+        var headerText = header.textContent.trim();
         header.style.cursor = 'pointer';
         header.innerHTML += '<span class="sort-indicator"></span>';
         header.setAttribute('tabindex', '0');
         header.setAttribute('aria-sort', 'none');
+        header.setAttribute('aria-label', (sortLabels[pageLanguage] || sortLabels.en) + ' ' + headerText);
         header.addEventListener('click', () => sortTable(index, table.id));
         header.addEventListener('keydown', function(event) {
           if (event.key === 'Enter' || event.key === ' ') {
