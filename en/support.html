@@ -173,7 +173,7 @@
       <section class="support-trust" aria-label="Good to know">
         <div class="support-shell support-trust-grid">
           <article><h2>Free for everyone</h2><p>The community and Telegram group remain open to all.</p></article>
-<article><h2>Sats preferred</h2><p>We agree the payment method with you personally.</p></article>
+<article><h2>Payment in sats only</h2><p>The contribution is the current value of €21, paid in sats.</p></article>
 <article><h2>Open about the funds</h2><p>We keep a simple record of income and community spending.</p></article>
         </div>
       </section>
@@ -185,7 +185,7 @@
               <div class="support-option-head">
                 <div>
                   <p class="support-kicker">Supporter</p>
-                  <h2>€21 per year</h2>
+                  <h2>€21 in sats per year</h2>
                 </div>
                 <span class="support-badge">21</span>
               </div>
@@ -294,21 +294,21 @@
               <input type="hidden" name="subject" value="New support request via bitcoinfriesland.com">
               <p class="support-honeypot"><label>Leave this field empty: <input name="bot-field"></label></p>
               <div class="support-form-grid">
-                <label>Name <input type="text" name="name" autocomplete="name" required></label>
-                <label>Email address <input type="email" name="email" autocomplete="email" required></label>
+                <label>Name <input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+                <label>Email address <input type="email" name="email" autocomplete="email" maxlength="254" required></label>
                 <label>Type of support
                   <select id="support-interest-type" name="interest" required>
                     <option value="">Choose an option</option>
-                    <option value="supporter">Supporter for €21 per year</option>
+                    <option value="supporter">Supporter for €21 in sats per year</option>
                     <option value="business">Business supporter</option>
                     <option value="donation">Donation in sats</option>
                     <option value="stickers">Stickers / shop</option>
                     <option value="other">Something else</option>
                   </select>
                 </label>
-                <label>Company <span>(optional)</span><input type="text" name="company" autocomplete="organization"></label>
+                <label>Company <span>(optional)</span><input type="text" name="company" autocomplete="organization" maxlength="120"></label>
               </div>
-              <label>Message <span>(optional)</span><textarea name="message" rows="4"></textarea></label>
+              <label>Message <span>(optional)</span><textarea name="message" rows="4" maxlength="1500"></textarea></label>
               <button class="support-button support-button-primary" type="submit">Send my request</button>
               <p class="support-form-privacy">We only use your details to contact you about this request.</p>
             </form>
@@ -366,12 +366,12 @@
           <div class="supporter-flow-error" data-supporter-error hidden role="alert"></div>
 
           <section class="supporter-flow-step" data-supporter-step="1">
-            <div class="supporter-flow-step-head"><p class="support-kicker">Step 1</p><h3>Who are you?</h3><p>Your email is required. Also enter at least your Telegram or Signal username.</p></div>
+            <div class="supporter-flow-step-head"><p class="support-kicker">Step 1</p><h3>Who are you?</h3><p id="supporter-contact-help">Your email is required. Also enter at least your Telegram or Signal username.</p></div>
             <div class="supporter-flow-grid">
-              <label>Name<input type="text" name="name" autocomplete="name" required></label>
-              <label>Email address<input type="email" name="email" autocomplete="email" required></label>
-              <label>Telegram username <span>(optional)</span><input type="text" name="telegram_username" placeholder="@username" autocomplete="off"></label>
-              <label>Signal username <span>(optional)</span><input type="text" name="signal_username" placeholder="username.00" autocomplete="off"></label>
+              <label>Name<input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+              <label>Email address<input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+              <label>Telegram username <span>(optional)</span><input type="text" name="telegram_username" placeholder="@username" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label>
+              <label>Signal username <span>(optional)</span><input type="text" name="signal_username" placeholder="username.00" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label>
             </div>
             <div class="supporter-flow-actions supporter-flow-actions-end"><button class="support-button support-button-primary" type="button" data-supporter-next>Continue to preferences</button></div>
           </section>
@@ -387,10 +387,10 @@
               <label class="supporter-choice"><input type="radio" name="sticker_delivery" value="pickup" required><span><strong>Pickup</strong><small>At the next meetup</small></span></label>
             </div></fieldset>
             <div class="supporter-address" data-supporter-address hidden><p class="supporter-address-title">Postal address</p><div class="supporter-flow-grid">
-              <label class="supporter-flow-wide">Street and house number<input type="text" name="address_line1" autocomplete="street-address" data-address-required></label>
-              <label>Postal code<input type="text" name="postal_code" autocomplete="postal-code" data-address-required></label>
-              <label>City<input type="text" name="city" autocomplete="address-level2" data-address-required></label>
-              <label class="supporter-flow-wide">Country<input type="text" name="country" autocomplete="country-name" value="Netherlands" data-address-required></label>
+              <label class="supporter-flow-wide">Street and house number<input type="text" name="address_line1" autocomplete="street-address" maxlength="150" data-address-required></label>
+              <label>Postal code<input type="text" name="postal_code" autocomplete="postal-code" maxlength="20" data-address-required></label>
+              <label>City<input type="text" name="city" autocomplete="address-level2" maxlength="100" data-address-required></label>
+              <label class="supporter-flow-wide">Country<input type="text" name="country" autocomplete="country-name" value="Netherlands" maxlength="100" data-address-required></label>
             </div></div>
             <div class="supporter-flow-actions"><button class="support-button supporter-button-quiet" type="button" data-supporter-back>Back</button><button class="support-button support-button-primary" type="button" data-supporter-next>Review my choices</button></div>
           </section>

@@ -1458,8 +1458,8 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
   z-index: 2;
   top: 1rem;
   right: 1rem;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1px solid #e2e8f0;
   border-radius: 50%;
   color: #475569;

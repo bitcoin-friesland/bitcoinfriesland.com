@@ -519,6 +519,28 @@ small clean-ups.
 - `assets/main.js`
 - `CHANGES.md`
 
+## Round 26 (supporter flow quick wins)
+
+73. **The sats-only contribution is now consistent everywhere.** The trust
+    block, supporter card and general support form now all say that the yearly
+    contribution is the satoshi value of €21, rather than describing sats as a
+    preference.
+
+74. **The short contact form no longer creates incomplete supporter requests.**
+    Choosing supporter in that form now opens the full supporter flow, which
+    collects the required contact, payment timing and sticker delivery details.
+
+75. **Forms and navigation are more robust.** Text fields now have sensible
+    length limits, username fields are easier to enter on mobile, menu states
+    are exposed to assistive technology, Escape closes open menus, and sortable
+    table headers work with a keyboard and sort ascending on their first use.
+
+## Round 26 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

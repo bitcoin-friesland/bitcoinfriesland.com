@@ -9,10 +9,11 @@
 
 ## Runtime behavior (assets/main.js)
 - Forces the desktop nav menu visible on widths >= 768px.
-- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`); closes dropdown on outside click.
+- Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state accessible, and closes open menus with Escape.
 - Adds FAQ accordion toggling (show/hide content + arrow rotation) where used.
 - Adds header shadow on scroll.
-- Makes tables sortable by clicking headers (adds `.sort-indicator` spans on DOMContentLoaded; defaults to toggling asc/desc).
+- Makes tables sortable by clicking headers or using Enter/Space (adds `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending).
+- Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.
 
 ## Content rules and patterns
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.

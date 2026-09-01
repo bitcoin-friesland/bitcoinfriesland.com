@@ -173,7 +173,7 @@
       <section class="support-trust" aria-label="Goed om te weten">
         <div class="support-shell support-trust-grid">
           <article><h2>Gratis voor iedereen</h2><p>De community en Telegramgroep blijven vrij toegankelijk.</p></article>
-<article><h2>Sats hebben de voorkeur</h2><p>We spreken de betaalwijze persoonlijk met je af.</p></article>
+<article><h2>Alleen betalen in sats</h2><p>De bijdrage is de actuele waarde van €21, betaald in sats.</p></article>
 <article><h2>Open over de pot</h2><p>We houden eenvoudig bij wat binnenkomt en waaraan we het besteden.</p></article>
         </div>
       </section>
@@ -185,7 +185,7 @@
               <div class="support-option-head">
                 <div>
                   <p class="support-kicker">Supporter</p>
-                  <h2>€21 per jaar</h2>
+                  <h2>€21 in sats per jaar</h2>
                 </div>
                 <span class="support-badge">21</span>
               </div>
@@ -294,21 +294,21 @@
               <input type="hidden" name="subject" value="Nieuwe ondersteuningsaanvraag via bitcoinfriesland.com">
               <p class="support-honeypot"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
               <div class="support-form-grid">
-                <label>Naam <input type="text" name="name" autocomplete="name" required></label>
-                <label>E-mailadres <input type="email" name="email" autocomplete="email" required></label>
+                <label>Naam <input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+                <label>E-mailadres <input type="email" name="email" autocomplete="email" maxlength="254" required></label>
                 <label>Vorm van steun
                   <select id="support-interest-type" name="interest" required>
                     <option value="">Kies een optie</option>
-                    <option value="supporter">Supporter voor €21 per jaar</option>
+                    <option value="supporter">Supporter voor €21 in sats per jaar</option>
                     <option value="business">Zakelijke supporter</option>
                     <option value="donation">Donatie in sats</option>
                     <option value="stickers">Stickers / webshop</option>
                     <option value="other">Iets anders</option>
                   </select>
                 </label>
-                <label>Bedrijf <span>(optioneel)</span><input type="text" name="company" autocomplete="organization"></label>
+                <label>Bedrijf <span>(optioneel)</span><input type="text" name="company" autocomplete="organization" maxlength="120"></label>
               </div>
-              <label>Bericht <span>(optioneel)</span><textarea name="message" rows="4"></textarea></label>
+              <label>Bericht <span>(optioneel)</span><textarea name="message" rows="4" maxlength="1500"></textarea></label>
               <button class="support-button support-button-primary" type="submit">Verstuur mijn aanvraag</button>
               <p class="support-form-privacy">We gebruiken je gegevens alleen om contact op te nemen over deze aanvraag.</p>
             </form>
@@ -369,13 +369,13 @@
             <div class="supporter-flow-step-head">
               <p class="support-kicker">Stap 1</p>
               <h3>Wie ben je?</h3>
-              <p>Je e-mailadres is verplicht. Vul daarnaast minimaal je Telegram- of Signal-gebruikersnaam in.</p>
+              <p id="supporter-contact-help">Je e-mailadres is verplicht. Vul daarnaast minimaal je Telegram- of Signal-gebruikersnaam in.</p>
             </div>
             <div class="supporter-flow-grid">
-              <label>Naam<input type="text" name="name" autocomplete="name" required></label>
-              <label>E-mailadres<input type="email" name="email" autocomplete="email" required></label>
-              <label>Telegram-gebruikersnaam <span>(optioneel)</span><input type="text" name="telegram_username" placeholder="@gebruikersnaam" autocomplete="off"></label>
-              <label>Signal-gebruikersnaam <span>(optioneel)</span><input type="text" name="signal_username" placeholder="gebruikersnaam.00" autocomplete="off"></label>
+              <label>Naam<input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+              <label>E-mailadres<input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+              <label>Telegram-gebruikersnaam <span>(optioneel)</span><input type="text" name="telegram_username" placeholder="@gebruikersnaam" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label>
+              <label>Signal-gebruikersnaam <span>(optioneel)</span><input type="text" name="signal_username" placeholder="gebruikersnaam.00" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label>
             </div>
             <div class="supporter-flow-actions supporter-flow-actions-end">
               <button class="support-button support-button-primary" type="button" data-supporter-next>Verder naar voorkeuren</button>
@@ -408,10 +408,10 @@
             <div class="supporter-address" data-supporter-address hidden>
               <p class="supporter-address-title">Postadres</p>
               <div class="supporter-flow-grid">
-                <label class="supporter-flow-wide">Straat en huisnummer<input type="text" name="address_line1" autocomplete="street-address" data-address-required></label>
-                <label>Postcode<input type="text" name="postal_code" autocomplete="postal-code" data-address-required></label>
-                <label>Plaats<input type="text" name="city" autocomplete="address-level2" data-address-required></label>
-                <label class="supporter-flow-wide">Land<input type="text" name="country" autocomplete="country-name" value="Nederland" data-address-required></label>
+                <label class="supporter-flow-wide">Straat en huisnummer<input type="text" name="address_line1" autocomplete="street-address" maxlength="150" data-address-required></label>
+                <label>Postcode<input type="text" name="postal_code" autocomplete="postal-code" maxlength="20" data-address-required></label>
+                <label>Plaats<input type="text" name="city" autocomplete="address-level2" maxlength="100" data-address-required></label>
+                <label class="supporter-flow-wide">Land<input type="text" name="country" autocomplete="country-name" value="Nederland" maxlength="100" data-address-required></label>
               </div>
             </div>
 

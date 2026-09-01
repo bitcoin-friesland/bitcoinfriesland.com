@@ -173,7 +173,7 @@
       <section class="support-trust" aria-label="Goed om te witten">
         <div class="support-shell support-trust-grid">
           <article><h2>Fergees foar elkenien</h2><p>De mienskip en Telegramgroep bliuwe frij tagonklik.</p></article>
-<article><h2>Leafst yn sats</h2><p>Wy prate de betelwize persoanlik mei dy ôf.</p></article>
+<article><h2>Allinnich betelje yn sats</h2><p>De bydrage is de aktuele wearde fan €21, betelle yn sats.</p></article>
 <article><h2>Iepen oer de pot</h2><p>Wy hâlde ienfâldich by wat deryn komt en wêr't wy it oan besteegje.</p></article>
         </div>
       </section>
@@ -185,7 +185,7 @@
               <div class="support-option-head">
                 <div>
                   <p class="support-kicker">Stiper</p>
-                  <h2>€21 it jier</h2>
+                  <h2>€21 yn sats it jier</h2>
                 </div>
                 <span class="support-badge">21</span>
               </div>
@@ -294,21 +294,21 @@
               <input type="hidden" name="subject" value="Nije stipe-oanfraach fia bitcoinfriesland.com">
               <p class="support-honeypot"><label>Lit dit fjild leech: <input name="bot-field"></label></p>
               <div class="support-form-grid">
-                <label>Namme <input type="text" name="name" autocomplete="name" required></label>
-                <label>E-mailadres <input type="email" name="email" autocomplete="email" required></label>
+                <label>Namme <input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+                <label>E-mailadres <input type="email" name="email" autocomplete="email" maxlength="254" required></label>
                 <label>Foarm fan stipe
                   <select id="support-interest-type" name="interest" required>
                     <option value="">Kies in opsje</option>
-                    <option value="supporter">Stiper foar €21 it jier</option>
+                    <option value="supporter">Stiper foar €21 yn sats it jier</option>
                     <option value="business">Saaklike stiper</option>
                     <option value="donation">Donaasje yn sats</option>
                     <option value="stickers">Stickers / webwinkel</option>
                     <option value="other">Wat oars</option>
                   </select>
                 </label>
-                <label>Bedriuw <span>(opsjoneel)</span><input type="text" name="company" autocomplete="organization"></label>
+                <label>Bedriuw <span>(opsjoneel)</span><input type="text" name="company" autocomplete="organization" maxlength="120"></label>
               </div>
-              <label>Berjocht <span>(opsjoneel)</span><textarea name="message" rows="4"></textarea></label>
+              <label>Berjocht <span>(opsjoneel)</span><textarea name="message" rows="4" maxlength="1500"></textarea></label>
               <button class="support-button support-button-primary" type="submit">Ferstjoer myn oanfraach</button>
               <p class="support-form-privacy">Wy brûke dyn gegevens allinnich om kontakt op te nimmen oer dizze oanfraach.</p>
             </form>
@@ -347,15 +347,15 @@
           <ol class="supporter-flow-progress" aria-label="Fuortgong"><li data-supporter-step-indicator="1" aria-current="step"><span>1</span>Gegevens</li><li data-supporter-step-indicator="2"><span>2</span>Foarkarren</li><li data-supporter-step-indicator="3"><span>3</span>Kontrolearje</li></ol>
           <div class="supporter-flow-error" data-supporter-error hidden role="alert"></div>
           <section class="supporter-flow-step" data-supporter-step="1">
-            <div class="supporter-flow-step-head"><p class="support-kicker">Stap 1</p><h3>Wa bisto?</h3><p>Dyn e-mailadres is ferplichte. Folje dêrneist op syn minst dyn Telegram- of Signal-brûkersnamme yn.</p></div>
-            <div class="supporter-flow-grid"><label>Namme<input type="text" name="name" autocomplete="name" required></label><label>E-mailadres<input type="email" name="email" autocomplete="email" required></label><label>Telegram-brûkersnamme <span>(opsjoneel)</span><input type="text" name="telegram_username" placeholder="@brûkersnamme" autocomplete="off"></label><label>Signal-brûkersnamme <span>(opsjoneel)</span><input type="text" name="signal_username" placeholder="brûkersnamme.00" autocomplete="off"></label></div>
+            <div class="supporter-flow-step-head"><p class="support-kicker">Stap 1</p><h3>Wa bisto?</h3><p id="supporter-contact-help">Dyn e-mailadres is ferplichte. Folje dêrneist op syn minst dyn Telegram- of Signal-brûkersnamme yn.</p></div>
+            <div class="supporter-flow-grid"><label>Namme<input type="text" name="name" autocomplete="name" maxlength="100" required></label><label>E-mailadres<input type="email" name="email" autocomplete="email" maxlength="254" required></label><label>Telegram-brûkersnamme <span>(opsjoneel)</span><input type="text" name="telegram_username" placeholder="@brûkersnamme" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label><label>Signal-brûkersnamme <span>(opsjoneel)</span><input type="text" name="signal_username" placeholder="brûkersnamme.00" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="64" aria-describedby="supporter-contact-help"></label></div>
             <div class="supporter-flow-actions supporter-flow-actions-end"><button class="support-button support-button-primary" type="button" data-supporter-next>Fierder nei foarkarren</button></div>
           </section>
           <section class="supporter-flow-step" data-supporter-step="2" hidden>
             <div class="supporter-flow-step-head"><p class="support-kicker">Stap 2</p><h3>Wannear wolst betelje en hoe wolst dyn stickers ûntfange?</h3><p>De bydrage is de aktuele wearde fan €21 yn sats. Do betellest yn dizze stap noch neat.</p></div>
             <fieldset class="supporter-choice-group"><legend>Betelmomint</legend><div class="supporter-choice-grid"><label class="supporter-choice"><input type="radio" name="payment_timing" value="online" required><span><strong>Online</strong><small>Do krijst persoanlik de betelstap</small></span></label><label class="supporter-choice"><input type="radio" name="payment_timing" value="next_meetup" required><span><strong>Folgjende meetup</strong><small>Yn sats betelje by de folgjende gearkomste</small></span></label></div></fieldset>
             <fieldset class="supporter-choice-group"><legend>21 stickers ûntfange</legend><div class="supporter-choice-grid"><label class="supporter-choice"><input type="radio" name="sticker_delivery" value="mail" required><span><strong>Mei de post</strong><small>Wy stjoere de stickers nei dy ta</small></span></label><label class="supporter-choice"><input type="radio" name="sticker_delivery" value="pickup" required><span><strong>Ophelje</strong><small>By de folgjende meetup</small></span></label></div></fieldset>
-            <div class="supporter-address" data-supporter-address hidden><p class="supporter-address-title">Postadres</p><div class="supporter-flow-grid"><label class="supporter-flow-wide">Strjitte en húsnûmer<input type="text" name="address_line1" autocomplete="street-address" data-address-required></label><label>Postkoade<input type="text" name="postal_code" autocomplete="postal-code" data-address-required></label><label>Plak<input type="text" name="city" autocomplete="address-level2" data-address-required></label><label class="supporter-flow-wide">Lân<input type="text" name="country" autocomplete="country-name" value="Nederlân" data-address-required></label></div></div>
+            <div class="supporter-address" data-supporter-address hidden><p class="supporter-address-title">Postadres</p><div class="supporter-flow-grid"><label class="supporter-flow-wide">Strjitte en húsnûmer<input type="text" name="address_line1" autocomplete="street-address" maxlength="150" data-address-required></label><label>Postkoade<input type="text" name="postal_code" autocomplete="postal-code" maxlength="20" data-address-required></label><label>Plak<input type="text" name="city" autocomplete="address-level2" maxlength="100" data-address-required></label><label class="supporter-flow-wide">Lân<input type="text" name="country" autocomplete="country-name" value="Nederlân" maxlength="100" data-address-required></label></div></div>
             <div class="supporter-flow-actions"><button class="support-button supporter-button-quiet" type="button" data-supporter-back>Werom</button><button class="support-button support-button-primary" type="button" data-supporter-next>Kontrolearje myn karren</button></div>
           </section>
           <section class="supporter-flow-step" data-supporter-step="3" hidden>
