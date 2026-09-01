@@ -161,6 +161,20 @@ document.addEventListener('DOMContentLoaded', function() {
     makeAccessible(el, true);
   });
 
+  // Mark the current navigation destination, including clean Netlify URLs.
+  function normalizedPath(pathname) {
+    return pathname.replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  }
+  var currentPath = normalizedPath(window.location.pathname);
+  document.querySelectorAll('nav a[href]').forEach(function(link) {
+    var destination = new URL(link.href, window.location.href);
+    if (destination.origin !== window.location.origin) return;
+    var destinationPath = normalizedPath(destination.pathname);
+    var isCurrent = destinationPath === currentPath;
+    var isBlogSection = destinationPath.endsWith('/blog') && currentPath.indexOf(destinationPath + '/') === 0;
+    if (isCurrent || isBlogSection) link.setAttribute('aria-current', 'page');
+  });
+
   // Escape closes open navigation menus and returns focus to their trigger.
   document.addEventListener('keydown', function(e) {
     if (e.key !== 'Escape') return;
@@ -297,6 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Support page: preselect the chosen contribution type and show form confirmation.
 document.addEventListener('DOMContentLoaded', function() {
   var interestSelect = document.getElementById('support-interest-type');
+  var supportForm = document.querySelector('form[name="support-interest"]');
 
   document.querySelectorAll('[data-support-choice]').forEach(function(link) {
     link.addEventListener('click', function() {
@@ -312,6 +327,18 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!supporterTrigger) return;
       interestSelect.value = '';
       supporterTrigger.click();
+    });
+  }
+
+  if (supportForm) {
+    supportForm.addEventListener('submit', function() {
+      var submitButton = supportForm.querySelector('[type="submit"]');
+      if (!submitButton) return;
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+      if (submitButton.getAttribute('data-submitting-text')) {
+        submitButton.textContent = submitButton.getAttribute('data-submitting-text');
+      }
     });
   }
 
@@ -512,7 +539,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     form.elements.submitted_at.value = new Date().toISOString();
     var submitButton = form.querySelector('[data-supporter-submit]');
-    if (submitButton) submitButton.disabled = true;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+      if (submitButton.getAttribute('data-submitting-text')) {
+        submitButton.textContent = submitButton.getAttribute('data-submitting-text');
+      }
+    }
   });
 
   updateAddressFields();

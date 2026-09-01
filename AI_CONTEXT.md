@@ -14,6 +14,7 @@
 - Adds header shadow on scroll.
 - Makes tables sortable by clicking headers or using Enter/Space (adds localized accessible labels, `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending and respects the page language).
 - Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.
+- Marks matching navigation links as the current page and shows an accessible busy state while support forms are being submitted.
 
 ## Content rules and patterns
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.

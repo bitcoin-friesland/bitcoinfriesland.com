@@ -23,10 +23,17 @@
 - Treasure hunt: https://bitcoinfriesland.com/nl/treasure-hunt.html
 - Event page (Bitcoin BBQ, 14 Aug 2026, Drachten): https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
 
-## Upcoming events
-- Past event: Bitcoin Friesland BBQ - Meat the Resistance took place Friday 14 August 2026 at Vliegveld Drachten in Drachten. Details: https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
+## Events
 - NodeRunners Conference 2026: Saturday 19 September 2026, 11:00-18:00, Koepelgevangenis Arnhem. https://conf2026.noderunners.network/
 - Discount: code BITCOINFRIESLAND gives 10% off NodeRunners Conference 2026 tickets. The code is exclusive for the Bitcoin Friesland community and valid until the conference. Ticket link with the code applied: https://conf2026.noderunners.network/BITCOINFRIESLAND
+- Past event: Bitcoin Friesland BBQ - Meat the Resistance took place Friday 14 August 2026 at Vliegveld Drachten in Drachten. Details: https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html
+
+## Supporter programme
+- Participation in Bitcoin Friesland and its Telegram and Signal groups remains free.
+- An individual supporter contributes the current satoshi value of EUR 21 for one year; payment is in sats only.
+- Supporter benefits: 21 Bitcoin Friesland stickers, event discount codes, and a supporter tag in Telegram and Signal.
+- The signup form records contact, payment timing and sticker delivery preferences. It is a request, not an automatic payment or active membership.
+- Support does not buy influence, editorial control, exclusivity or an endorsement by Bitcoin Friesland.
 
 ## English pages
 - Home: https://bitcoinfriesland.com/en/

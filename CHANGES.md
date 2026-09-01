@@ -594,6 +594,32 @@ small clean-ups.
 - `assets/main.js`
 - `AI_CONTEXT.md`, `CHANGES.md`
 
+## Round 29 (supporter transparency and metadata)
+
+84. **The required email address now has a clear purpose.** The supporter flow
+    explains in Dutch, English and Frisian that contact details are used for
+    the request, payment, stickers, discount codes, invitations and community
+    benefits.
+
+85. **Forms show that submission is in progress.** Both support forms disable
+    their submit button, expose an accessible busy state and show localized
+    sending text after a valid submission, reducing accidental duplicates.
+
+86. **Screen readers can identify the active navigation page.** Navigation
+    links now receive `aria-current` after clean Netlify URLs and `.html` URLs
+    are normalized. Dutch blog articles keep News marked as their section.
+
+87. **Search and AI metadata match the current site.** Sitemap dates now
+    reflect the pages changed on 1 September 2026, while `llms.txt` lists the
+    upcoming event before the past BBQ and accurately summarizes the supporter
+    programme.
+
+## Round 29 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- All HTML asset references, `assets/main.js`
+- `sitemap.xml`, `llms.txt`, `AI_CONTEXT.md`, `CHANGES.md`
+
 ## Good to know
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
