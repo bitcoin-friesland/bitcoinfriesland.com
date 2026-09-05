@@ -8,10 +8,10 @@
 - `assets/styles.css` is a minified Tailwind output plus a few custom blocks (links page, telegram CTA, etc.). `assets/main.js` holds all runtime behavior.
 
 ## Runtime behavior (assets/main.js)
-- Forces the desktop nav menu visible on widths >= 768px.
+- Initializes desktop navigation at DOMContentLoaded and updates only when crossing the 1200px desktop breakpoint (not on every resize event).
 - Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state and controls accessible in the page language, prevents the two menus from overlapping, and closes them with outside clicks or Escape.
 - Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
-- Adds header shadow on scroll.
+- Caches the header and updates its shadow only when crossing the top-of-page boundary, using a passive scroll listener.
 - Makes tables sortable by clicking headers or using Enter/Space (adds localized accessible labels, `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending and respects the page language).
 - Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.
 - Marks matching navigation links as the current page and shows an accessible busy state while support forms are being submitted.
@@ -39,6 +39,7 @@
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.
+- Load main.js with `defer` in the head: it downloads early and runs after parsing, before DOMContentLoaded. Do not use `async`; initialization depends on the DOM. Map iframes use native lazy loading; the first visible meeting poster uses high fetch priority and eager loading.
 - `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages. Keep only canonical, indexable URLs in the sitemap.
 - `llms.txt` follows the v2 proposal and links to concise `.html.md` counterparts for core pages. Core HTML pages expose them with `rel="alternate" type="text/markdown"`; all public HTML pages expose `/llms.txt` with `rel="describedby"`.
 

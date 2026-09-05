@@ -14,9 +14,9 @@ function updateMenuVisibility() {
   }
 }
 
-// Run on load and resize
-window.addEventListener('load', updateMenuVisibility);
-window.addEventListener('resize', updateMenuVisibility);
+// Initialize without waiting for images/embeds, then update only at the breakpoint.
+document.addEventListener('DOMContentLoaded', updateMenuVisibility);
+window.matchMedia('(min-width: 1200px)').addEventListener('change', updateMenuVisibility);
 
 // Language dropdown toggle
 function toggleLanguageDropdown() {
@@ -197,15 +197,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Scroll shadow for header
-window.addEventListener('scroll', function() {
+// Cache the header and only change its class when the shadow state changes.
+document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('nav');
   if (!header) return;
-  if (window.scrollY > 0) {
-    header.classList.add('shadow-md');
-  } else {
-    header.classList.remove('shadow-md');
+  let hasShadow;
+  function updateHeaderShadow() {
+    const shouldHaveShadow = window.scrollY > 0;
+    if (hasShadow === shouldHaveShadow) return;
+    header.classList.toggle('shadow-md', shouldHaveShadow);
+    hasShadow = shouldHaveShadow;
   }
+  updateHeaderShadow();
+  window.addEventListener('scroll', updateHeaderShadow, { passive: true });
 });
 
 // Sortable table functionality for map pages

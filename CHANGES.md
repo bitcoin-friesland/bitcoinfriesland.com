@@ -691,6 +691,20 @@ small clean-ups.
 - Documented evidence-based GEO maintenance and measurement; no ranking or
   citation increase is claimed. No deployment was performed in this round.
 
+## Round 34 (earlier loading and less runtime work)
+
+- Moved shared JavaScript into the head with defer across all 30 language pages,
+  bringing download discovery earlier without blocking HTML parsing.
+- Prioritized the first event poster and enabled native lazy loading for map
+  embeds in NL/EN/FY. Kept the existing visual design and image assets.
+- Reduced header scroll work and initialized navigation before images/embeds
+  finish loading. Resize updates now run only at the desktop breakpoint.
+- Bumped shared asset versions, added a defer regression test and documented
+  the remaining protected-stylesheet font bottleneck. Eight tests pass.
+- Local Chromium checks cover mobile/desktop navigation, scroll state and
+  supporter-dialog opening in all languages. Real-world timings were not
+  established, and no production or preview deployment was performed.
+
 ## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

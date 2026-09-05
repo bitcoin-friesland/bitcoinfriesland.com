@@ -53,6 +53,16 @@ For visitor-facing changes, serve the root with `python3 -m http.server 8000`. O
 
 Use the actual filenames above, even though some legacy help messages show older names. These scripts write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
 
+## Loading and runtime performance
+
+The shared script is deferred in the head on all 30 language pages. This lets the browser discover it early without blocking HTML parsing. Keep initialization on DOMContentLoaded; do not change it to `async`. The audit checks this loading convention.
+
+Only the first visible meeting poster has high fetch priority. Keep below-the-fold photos lazy; do not preload every image. Map iframes use native lazy loading, which browsers may still load immediately when near the viewport. Header shadow updates avoid repeated DOM queries/class changes; navigation updates on breakpoint transitions rather than every resize event.
+
+Verification for this change: local Chromium tests at 390px and 1300px passed for NL/EN/FY navigation, scroll state and supporter-dialog opening. A burst of 100 same-state scroll events caused zero header class mutations. The shared-script tag moved from byte 52,910 to 7,457 on the Dutch homepage and from byte 126,791 to 3,734 on the Dutch map page. These are discovery/work reductions, not measured real-world load-time improvements. Font requests were stubbed for deterministic interaction checks; external map behavior and live Core Web Vitals were not tested.
+
+Remaining font bottleneck: HTML loads Inter from Google Fonts, and compiled `assets/styles.css` also imports a different Inter weight set. The compiled file is protected by repository rules. Removing that import or regenerating the stylesheet needs an explicitly approved workflow; do not silently edit the compiled file or drop the 800 weight used by headings. [Font-loading guidance](https://web.dev/articles/font-best-practices) explains the tradeoffs. Compare cold-cache mobile runs and field data after deployment before claiming a timing or score improvement.
+
 ## Search and AI visibility
 
 Use `https://bitcoinfriesland.com/#organization` for every structured-data reference to the community, including article authors/publishers and event organizers. The organization homepage is `https://bitcoinfriesland.com/`; individual page canonicals remain language-specific. Do not attach this identity to external event organizers. Organization descriptions should describe the community, not the page's subject. The site audit guards the shared identifier and homepage.

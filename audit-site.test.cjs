@@ -85,3 +85,11 @@ test('community identity cannot diverge between language pages', (t) => {
   assert.equal(result.status, 1);
   assert.match(result.output, /fy\/about.html: community Organization must use the shared @id/);
 });
+
+test('shared script must not block HTML parsing', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', (html) => html.replace('<script defer src=', '<script src='));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /main.js must be deferred in the head/);
+});

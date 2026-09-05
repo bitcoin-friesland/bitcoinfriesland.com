@@ -146,6 +146,10 @@ for (const file of pages) {
 
   const enhancementVersion = source.match(/assets\/enhancements\.css\?v=([0-9a-z]+)/i)?.[1];
   const scriptVersion = source.match(/assets\/main\.js\?v=([0-9a-z]+)/i)?.[1];
+  const head = source.split(/<\/head>/i)[0];
+  if (!/<script\s+defer\s+src="[^"]*assets\/main\.js\?v=[^"]+"><\/script>/i.test(head)) {
+    report(file, 'main.js must be deferred in the head for early, non-blocking download');
+  }
   if (enhancementVersion) enhancementVersions.add(enhancementVersion);
   else report(file, 'missing versioned enhancements.css reference');
   if (scriptVersion) scriptVersions.add(scriptVersion);
