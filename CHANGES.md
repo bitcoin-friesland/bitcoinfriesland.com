@@ -663,6 +663,19 @@ small clean-ups.
 - Files: nl/about.html, en/about.html, fy/about.html, llms.txt, sitemap.xml,
   AI_CONTEXT.md and CHANGES.md.
 
+## Round 32 (code quality and maintainer documentation)
+
+- Hardened the read-only site audit: missing translations no longer silently
+  bypass checks, empty folders are not valid page links, malformed URLs report
+  useful errors, and missing asset versions and duplicate sitemap URLs fail.
+- Added six dependency-free regression tests using isolated temporary copies.
+- Added MAINTENANCE.md with sources of truth, verification steps, audit limits,
+  legacy-script cautions and safe handoff guidance.
+- Corrected local-server instructions, footer-script scope and a reference to
+  a nonexistent map data file. No visitor-facing pages or styling changed.
+- Files: audit-site.cjs, audit-site.test.cjs, MAINTENANCE.md, README.md,
+  CONTRIBUTING.md, AI_CONTEXT.md and CHANGES.md.
+
 ## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

@@ -8,7 +8,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 
 1. **Every change lands in all three languages** (`nl/`, `en/`, `fy/`) with identical structure.
 2. **`main` is live.** All changes go through a branch + pull request.
-3. **The footer is sacred**: it must keep the risk warning block (all three languages) and the GitHub link, and is always updated across all pages together (use `node maintain-footer.cjs all`).
+3. **The footer is sacred**: keep the risk warning block and GitHub link across all languages and pages. Review the [maintenance script limitations](MAINTENANCE.md#legacy-editing-scripts) before running bulk updates.
 4. **Log your work**: add a short, plain-language entry to [CHANGES.md](CHANGES.md) under the latest round (or start a new one).
 
 ## Workflow
@@ -20,10 +20,11 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 2. Make your changes (see checklists below).
 3. Test locally — no build step needed:
    ```sh
-   npx serve .
    node audit-site.cjs
+   node --test audit-site.test.cjs
+   python3 -m http.server 8000
    ```
-   Click through the pages you touched, in **all three languages**, on desktop and a narrow (mobile) viewport.
+   Open `http://localhost:8000/nl/`. The server runs until you press Ctrl+C; use a second terminal for further commands. Click through the pages you touched, in **all three languages**, on desktop and a narrow (mobile) viewport. Node.js 20+ is required for the checks; Python 3 is only used for this local server.
 4. Open a pull request with:
    - a clear title
    - what changed, on which pages, in which languages

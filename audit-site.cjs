@@ -8,6 +8,17 @@ const languages = ['nl', 'en', 'fy'];
 const openGraphLocales = { nl: 'nl_NL', en: 'en_GB', fy: 'fy_NL' };
 const siteOrigin = 'https://bitcoinfriesland.com/';
 const errors = [];
+// These existing editorial pages intentionally have no EN/FY counterpart.
+// Keep this explicit: a missing translation elsewhere must fail the audit.
+const untranslatedPages = new Set([
+  'nl/blog/index.html',
+  'nl/blog/beginnen-met-bitcoin-in-friesland.html',
+  'nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html',
+]);
+
+function isFile(file) {
+  return fs.existsSync(file) && fs.statSync(file).isFile();
+}
 
 function walkHtml(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -69,12 +80,18 @@ for (const file of pages) {
     if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
     const cleanValue = value.split('#')[0].split('?')[0];
     if (!cleanValue) continue;
-    const decoded = decodeURIComponent(cleanValue);
+    let decoded;
+    try {
+      decoded = decodeURIComponent(cleanValue);
+    } catch {
+      report(file, `malformed local reference: ${value}`);
+      continue;
+    }
     const target = decoded.startsWith('/')
       ? path.join(root, decoded.slice(1))
       : path.resolve(path.dirname(file), decoded);
     const candidates = [target, `${target}.html`, path.join(target, 'index.html')];
-    if (!candidates.some((candidate) => fs.existsSync(candidate))) report(file, `broken local reference: ${value}`);
+    if (!candidates.some(isFile)) report(file, `broken local reference: ${value}`);
   }
 
   const jsonLdBlocks = [...source.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
@@ -94,9 +111,9 @@ for (const file of pages) {
 
   const pagePath = relative(file);
   const localPath = pagePath.split('/').slice(1).join('/');
-  const translated = languages.every((language) => fs.existsSync(path.join(root, language, localPath)));
-  if (translated) {
+  if (!untranslatedPages.has(pagePath)) {
     for (const language of languages) {
+      if (!isFile(path.join(root, language, localPath))) report(file, `missing ${language} translation: ${language}/${localPath}`);
       if (!source.includes(`hreflang="${language}"`)) report(file, `missing ${language} hreflang`);
     }
     if (!source.includes('hreflang="x-default"')) report(file, 'missing x-default hreflang');
@@ -121,14 +138,18 @@ for (const file of pages) {
   const enhancementVersion = source.match(/assets\/enhancements\.css\?v=([0-9a-z]+)/i)?.[1];
   const scriptVersion = source.match(/assets\/main\.js\?v=([0-9a-z]+)/i)?.[1];
   if (enhancementVersion) enhancementVersions.add(enhancementVersion);
+  else report(file, 'missing versioned enhancements.css reference');
   if (scriptVersion) scriptVersions.add(scriptVersion);
+  else report(file, 'missing versioned main.js reference');
 }
 
 if (enhancementVersions.size !== 1) errors.push(`HTML pages use multiple enhancements.css versions: ${[...enhancementVersions].join(', ')}`);
 if (scriptVersions.size !== 1) errors.push(`HTML pages use multiple main.js versions: ${[...scriptVersions].join(', ')}`);
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
-const sitemapUrls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
+const sitemapEntries = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapUrls = new Set(sitemapEntries);
+if (sitemapUrls.size !== sitemapEntries.length) errors.push('sitemap.xml: duplicate URL entries');
 const canonicalUrls = new Set(canonicalToFile.keys());
 for (const url of canonicalUrls) if (!sitemapUrls.has(url)) errors.push(`sitemap.xml: missing canonical ${url}`);
 for (const url of sitemapUrls) if (!canonicalUrls.has(url)) errors.push(`sitemap.xml: non-canonical or unknown URL ${url}`);

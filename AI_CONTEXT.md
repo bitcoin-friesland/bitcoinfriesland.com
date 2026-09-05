@@ -27,10 +27,11 @@
 
 ## Maintenance scripts (Node, no deps required)
 - `maintain-pages.cjs`: `node maintain-pages.cjs consumer|business|all` tweaks consumer/business pages (terminology, Coinos links, translation phrasing).
-- `maintain-footer.cjs`: `node maintain-footer.cjs text|warning|all` updates footer copyright/GitHub link and injects risk warnings into every page.
+- `maintain-footer.cjs`: `text` replaces old strings in map pages only; `warning` scans all language HTML using markup-specific replacements. See MAINTENANCE.md before running legacy editing scripts.
 - `translations-restore.cjs`: Restores EN/FY translations for `map.html` strings and business type labels.
 - `translations-frisian.cjs`: Applies additional Frisian translations to `fy/map.html`.
 - `audit-site.cjs`: Read-only audit for SEO/social metadata, JSON-LD syntax, image dimensions and alt text, local references, language parity, canonical sitemap URLs, shared asset versions and LLM discovery files.
+- `node --test audit-site.test.cjs`: Regression tests for the audit using temporary site copies (Node.js 20+). See MAINTENANCE.md for coverage and limitations.
 
 ## Source layout notes
 - The three about pages contain the community introduction, joining information and contact links. Their Organization and AboutPage JSON-LD nodes share a stable organization identifier across languages.
@@ -43,5 +44,5 @@
 ## How to work on the site
 - No build pipeline needed; edit HTML/CSS/JS directly in language folders and `assets/`.
 - When adding sections or pages, copy an existing page as a template to preserve nav/footer/risk warning and then translate content for NL/EN/FY.
-- Keep tables and CTA blocks consistent across languages; if adding data-driven sections (e.g., map listings), prefer generating HTML from structured data (see `data-businesses.js`) and apply translation scripts afterward.
-- Test by opening the HTML files in a browser; verify language dropdown, mobile nav, table sorting, and `<picture>` fallbacks.
+- Keep tables and CTA blocks consistent across languages. Current map listings are maintained in HTML; there is no `data-businesses.js` source in this repository.
+- Test by serving the repository root over HTTP; verify language dropdown, mobile nav, table sorting, and `<picture>` fallbacks.

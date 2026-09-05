@@ -26,6 +26,7 @@ Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin buil
 |---|---|---|
 | `README.md` | Everyone | You are here — overview, structure, how to run and edit |
 | `CONTRIBUTING.md` | **Humans** | Branch/PR workflow, checklists, image & styling rules |
+| `MAINTENANCE.md` | Maintainers | Sources of truth, verification, script limitations and safe handoff |
 | `AGENTS.md` | **AI assistants** | Canonical rules for AI coding agents (read first) |
 | `AI_CONTEXT.md` | AI assistants | Deep site internals: runtime behavior, content patterns, scripts |
 | `.github/copilot-instructions.md` | GitHub Copilot | Auto-loaded Copilot context (short version of AGENTS.md) |
@@ -94,13 +95,13 @@ Deliberately boring — no build step, no framework, no dependencies:
 
 ## Running & editing locally
 
-No build step. Either open the HTML files directly in a browser, or serve the folder for correct relative paths:
+No build step. Serve the repository root so root-relative links work correctly:
 
 ```sh
-npx serve .        # or: python3 -m http.server
+python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:3000/nl/` (or `/en/`, `/fy/`).
+Then visit `http://localhost:8000/nl/` (or `/en/`, `/fy/`). Stop the server with Ctrl+C. Alternatively, use `npx serve .` and open the address printed by that server. Node.js 20+ is needed for the audit and regression tests, not for serving the site.
 
 When adding a page, **copy an existing page as a template** so the nav, footer and risk warning stay intact, then translate the content.
 
@@ -110,7 +111,7 @@ This is the most important convention in the repo:
 
 1. Every content change lands in **all three languages** — `nl/`, `en/`, `fy/` — with identical structure.
 2. Navigation, hero blocks, CTA buttons and footers must stay structurally identical across languages.
-3. The footer must always include the **risk warning block** (NL/EN/FY) and the GitHub link. Never edit the footer on one page only — update all pages together (`maintain-footer.cjs` exists for this).
+3. The footer must always include the **risk warning block** (NL/EN/FY) and the GitHub link. Never edit the footer on one page only — update all pages together. See [maintenance limitations](MAINTENANCE.md#legacy-editing-scripts) before using the legacy footer script.
 4. Documentation and code comments are written in **English**, unless a user explicitly asks otherwise.
 
 ## Styling system
@@ -138,6 +139,8 @@ Already in place — keep them working when adding pages:
 
 Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.
 
+Run `node --test audit-site.test.cjs` to verify the audit itself. See [MAINTENANCE.md](MAINTENANCE.md) for coverage and limitations; neither command replaces browser testing.
+
 ## Maintenance scripts
 
 Node scripts, no dependencies:
@@ -146,9 +149,11 @@ Node scripts, no dependencies:
 |---|---|
 | `node audit-site.cjs` | Read-only SEO, social metadata, sitemap and LLM discoverability audit |
 | `node maintain-pages.cjs consumer\|business\|all` | Tweaks consumer/business pages (terminology, links, phrasing) |
-| `node maintain-footer.cjs text\|warning\|all` | Updates footer copyright/GitHub link and risk warnings on every page |
+| `node maintain-footer.cjs text\|warning\|all` | Legacy footer replacements: text targets map pages; warning scans all language HTML |
 | `node translations-restore.cjs` | Restores EN/FY translations for map strings |
 | `node translations-frisian.cjs` | Applies extra Frisian translations to `fy/map.html` |
+
+Editing scripts are historical text replacements, not a build pipeline. Run them from the repository root, only for a relevant change, and inspect the diff. Details: [MAINTENANCE.md](MAINTENANCE.md).
 
 ## Deployment
 
