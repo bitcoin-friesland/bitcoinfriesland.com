@@ -676,6 +676,21 @@ small clean-ups.
 - Files: audit-site.cjs, audit-site.test.cjs, MAINTENANCE.md, README.md,
   CONTRIBUTING.md, AI_CONTEXT.md and CHANGES.md.
 
+## Round 33 (consistent identity and trustworthy information)
+
+- Connected community structured data across all 30 language pages with one
+  organization identifier and homepage, including article and event references.
+  External organizers remain separate. Community descriptions now describe the
+  organization consistently rather than borrowing unrelated page descriptions.
+- Added information-checking and correction guidance to all three About pages.
+- Clarified that the LLM guide links to summaries, while HTML and the linked
+  organizers/businesses provide the primary information. Removed the stale
+  guide-wide review date rather than implying every linked fact was rechecked.
+- Added an identity regression test; all seven tests and the site audit pass.
+  Checked the new content in the local browser for NL, EN and FY.
+- Documented evidence-based GEO maintenance and measurement; no ranking or
+  citation increase is claimed. No deployment was performed in this round.
+
 ## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

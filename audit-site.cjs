@@ -20,6 +20,15 @@ function isFile(file) {
   return fs.existsSync(file) && fs.statSync(file).isFile();
 }
 
+function checkCommunityIdentity(node, file) {
+  if (!node || typeof node !== 'object') return;
+  if (node['@type'] === 'Organization' && ['Bitcoin Friesland', 'Bitcoin Fryslân'].includes(node.name)) {
+    if (node['@id'] !== `${siteOrigin}#organization`) report(file, 'community Organization must use the shared @id');
+    if (node.url !== siteOrigin) report(file, 'community Organization must use the shared homepage URL');
+  }
+  for (const child of Object.values(node)) checkCommunityIdentity(child, file);
+}
+
 function walkHtml(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const absolute = path.join(directory, entry.name);
@@ -98,7 +107,7 @@ for (const file of pages) {
   if (!jsonLdBlocks.length) report(file, 'missing JSON-LD');
   for (const block of jsonLdBlocks) {
     try {
-      JSON.parse(block[1]);
+      checkCommunityIdentity(JSON.parse(block[1]), file);
     } catch (error) {
       report(file, `invalid JSON-LD (${error.message})`);
     }

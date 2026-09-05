@@ -77,3 +77,11 @@ test('duplicate sitemap entries are rejected', (t) => {
   assert.equal(result.status, 1);
   assert.match(result.output, /sitemap.xml: duplicate URL entries/);
 });
+
+test('community identity cannot diverge between language pages', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'fy/about.html', (html) => html.replace('https://bitcoinfriesland.com/#organization', 'https://bitcoinfriesland.com/fy/#organization'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /fy\/about.html: community Organization must use the shared @id/);
+});

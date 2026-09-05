@@ -35,6 +35,7 @@
 
 ## Source layout notes
 - The three about pages contain the community introduction, joining information and contact links. Their Organization and AboutPage JSON-LD nodes share a stable organization identifier across languages.
+- Every community Organization node, including nested article authors/publishers and event organizers, uses `https://bitcoinfriesland.com/#organization` and the root homepage URL. Keep external organizers separate. About pages explain how to check changing information and report corrections; MAINTENANCE.md records the GEO maintenance and measurement approach.
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.

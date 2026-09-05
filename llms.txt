@@ -2,7 +2,9 @@
 
 > Bitcoin Friesland (Frysk: Bitcoin Fryslân) is a volunteer community for Bitcoin education, adoption and meetups in the Dutch province of Friesland. Participation in the community and its Telegram and Signal groups is free. The site is informational and does not provide financial advice.
 
-The site is available in Dutch (`nl`), English (`en`) and Frisian (`fy`). Dutch is the default language. Last reviewed: 2 September 2026.
+The site is available in Dutch (`nl`), English (`en`) and Frisian (`fy`). Dutch is the default language.
+
+The linked HTML pages are the primary source; Markdown counterparts are summaries. For changing event details and business payment options, check the organizer or business linked from the relevant page. Community contributors maintain this website; corrections can be sent to info@bitcoinfriesland.com with the page URL and a supporting source. A listing is not an endorsement.
 
 Important facts:
 

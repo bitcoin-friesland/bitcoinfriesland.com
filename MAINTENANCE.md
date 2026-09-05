@@ -53,6 +53,14 @@ For visitor-facing changes, serve the root with `python3 -m http.server 8000`. O
 
 Use the actual filenames above, even though some legacy help messages show older names. These scripts write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
 
-## Safe handoff
+## Search and AI visibility
+
+Use `https://bitcoinfriesland.com/#organization` for every structured-data reference to the community, including article authors/publishers and event organizers. The organization homepage is `https://bitcoinfriesland.com/`; individual page canonicals remain language-specific. Do not attach this identity to external event organizers. Organization descriptions should describe the community, not the page's subject. The site audit guards the shared identifier and homepage.
+
+Prioritize useful, verifiable local information: actual meetup reports, organizer links, accurate business listings and clear contact/correction routes. Never fabricate reviews, authors, verification dates or first-hand experience. Keep Markdown summaries subordinate to the visible HTML and update both when facts change. `llms.txt` is an optional discovery aid, not a ranking promise; [Google explicitly says it does not use it for Search visibility](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+After a human approves and publishes changes, a verified site owner can inspect indexing in Search Console and review URL citations in [Bing Webmaster Tools AI Performance](https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview). Record a baseline and compare the same date ranges, URLs and queries over time. Track citations and useful visits separately; audit passes do not demonstrate increased AI visibility. Account verification, reporting access and real-world business/event facts require the maintainers; this repository cannot establish them automatically.
+
+## Branch and deployment handoff
 
 Work on a feature branch; `main` publishes the live site. Include changed pages/languages, checks performed and anything unverified in the PR. A preview is separate from production: never assume a local edit or pushed branch has deployed. Record the actual preview URL only after a successful deployment. Never put supporter personal data, credentials or payment records in this public repository.
