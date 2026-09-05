@@ -79,9 +79,28 @@ for (const file of pages) {
   const h1Count = (source.match(/<h1\b/gi) || []).length;
   if (h1Count !== 1) report(file, `expected one h1, found ${h1Count}`);
 
+  const ids = new Set();
+  for (const match of source.matchAll(/\bid="([^"]+)"/g)) {
+    if (ids.has(match[1])) report(file, `duplicate id: ${match[1]}`);
+    ids.add(match[1]);
+  }
+  for (const match of source.matchAll(/\bhref="#([^"]+)"/g)) {
+    try {
+      if (!ids.has(decodeURIComponent(match[1]))) report(file, `broken same-page link: #${match[1]}`);
+    } catch {
+      report(file, `malformed same-page link: #${match[1]}`);
+    }
+  }
+
   for (const image of source.match(/<img\b[^>]*>/gis) || []) {
     if (!/\balt="[^"]*"/i.test(image)) report(file, 'image without alt attribute');
     if (!/\bwidth="\d+"/i.test(image) || !/\bheight="\d+"/i.test(image)) report(file, 'image without explicit dimensions');
+  }
+
+  for (const link of source.match(/<a\b[^>]*>/gi) || []) {
+    if (/target="_blank"/i.test(link) && !/rel="[^"]*\bnoopener\b/i.test(link)) {
+      report(file, 'new-tab link must include rel="noopener"');
+    }
   }
 
   for (const attribute of source.matchAll(/\b(?:href|src)="([^"]+)"/gi)) {

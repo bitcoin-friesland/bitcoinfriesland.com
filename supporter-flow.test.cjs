@@ -14,8 +14,8 @@ before(async () => {
 });
 after(async () => { if (browser) await browser.close(); });
 
-async function openFlow(t, language) {
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+async function openPage(t, pathname, javaScriptEnabled = true) {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, javaScriptEnabled });
   page.setDefaultTimeout(5000);
   t.after(() => page.close());
   // All requests stay in this fixture. No personal data reaches a live service.
@@ -26,7 +26,12 @@ async function openFlow(t, language) {
     if (!file.startsWith(__dirname + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return route.abort();
     await route.fulfill({ path: file });
   });
-  await page.goto(`https://fixture.test/${language}/support.html`);
+  await page.goto(`https://fixture.test/${pathname}`);
+  return page;
+}
+
+async function openFlow(t, language) {
+  const page = await openPage(t, `${language}/support.html`);
   await page.locator('[data-supporter-open]').first().click();
   const form = page.locator('form[name="supporter-signup"]');
   await form.locator('[name="name"]').fill('Test Supporter');
@@ -36,6 +41,41 @@ async function openFlow(t, language) {
 }
 
 for (const language of ['nl', 'en', 'fy']) {
+  test(`${language}: keyboard skip link reaches the homepage content`, async (t) => {
+    const page = await openPage(t, `${language}/index.html`);
+    await page.keyboard.press('Tab');
+    assert.equal(await page.locator('.bf-skip-link').evaluate(el => el === document.activeElement), true);
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('#main-content').evaluate(el => el === document.activeElement), true);
+  });
+
+  test(`${language}: business search filters, survives sorting, clears and reports no matches`, async (t) => {
+    const page = await openPage(t, `${language}/map.html`);
+    const rows = page.locator('#businessTable tbody tr');
+    const total = await rows.count();
+    assert.ok(total > 0);
+    const town = (await rows.first().locator('td').nth(3).textContent()).trim();
+    const search = page.locator('[data-business-search]');
+    await search.fill(town.toUpperCase());
+    const visible = page.locator('#businessTable tbody tr:not([hidden])');
+    const count = await visible.count();
+    assert.ok(count > 0 && count <= total);
+    await page.locator('#businessTable th').first().click();
+    assert.equal(await visible.count(), count);
+    await search.fill('zz-no-such-business-zz');
+    assert.equal(await visible.count(), 0);
+    assert.equal(await page.locator('[data-business-search-empty]').isVisible(), true);
+    await search.fill('');
+    assert.equal(await visible.count(), total);
+    assert.equal(await page.locator('[data-business-search-empty]').isVisible(), false);
+  });
+
+  test(`${language}: business listings remain visible without JavaScript`, async (t) => {
+    const page = await openPage(t, `${language}/map.html`, false);
+    assert.equal(await page.locator('[data-business-search-controls]').isVisible(), false);
+    assert.ok(await page.locator('#businessTable tbody tr:not([hidden])').count() > 0);
+  });
+
   test(`${language}: generic form uses the shared localized busy state`, async (t) => {
     const { page } = await openFlow(t, language);
     await page.locator('[data-supporter-close]').first().click();
@@ -45,11 +85,16 @@ for (const language of ['nl', 'en', 'fy']) {
     await form.locator('[name="interest"]').selectOption('other');
     await form.evaluate(f => f.addEventListener('submit', event => event.preventDefault()));
     const button = form.locator('[type="submit"]');
+    const originalText = await button.textContent();
     const busyText = await button.getAttribute('data-submitting-text');
     await button.click();
     assert.equal(await button.isDisabled(), true);
     assert.equal(await button.getAttribute('aria-busy'), 'true');
     assert.equal(await button.textContent(), busyText);
+    await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
+    assert.equal(await button.isEnabled(), true);
+    assert.equal(await button.textContent(), originalText);
+    assert.equal(await button.getAttribute('aria-busy'), null);
   });
 
   test(`${language}: Enter and buttons share mail review and back navigation`, async (t) => {

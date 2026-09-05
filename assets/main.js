@@ -316,10 +316,52 @@ document.addEventListener('DOMContentLoaded', function() {
 function markFormSubmitting(form) {
   const button = form.querySelector('[type="submit"]');
   if (!button) return;
+  if (!pendingFormButtons.has(button)) {
+    pendingFormButtons.set(button, { text: button.textContent, disabled: button.disabled });
+  }
   button.disabled = true;
   button.setAttribute('aria-busy', 'true');
   if (button.dataset.submittingText) button.textContent = button.dataset.submittingText;
 }
+
+// Back/forward cache restores the DOM, including a previously disabled button.
+const pendingFormButtons = new Map();
+window.addEventListener('pageshow', function() {
+  pendingFormButtons.forEach(function(original, button) {
+    button.disabled = original.disabled;
+    button.textContent = original.text;
+    button.removeAttribute('aria-busy');
+  });
+  pendingFormButtons.clear();
+});
+
+// Filter the existing HTML table; all listings remain available without JS.
+document.addEventListener('DOMContentLoaded', function() {
+  const search = document.querySelector('[data-business-search]');
+  const table = document.getElementById('businessTable');
+  const status = document.querySelector('[data-business-search-status]');
+  const controls = document.querySelector('[data-business-search-controls]');
+  if (!search || !table || !status || !controls) return;
+  const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase();
+  const rows = Array.from(table.tBodies[0].rows).map(row => ({
+    element: row,
+    text: normalize(Array.from(row.cells).slice(0, 4).map(cell => cell.textContent).join(' ')),
+  }));
+  function filterBusinesses() {
+    const terms = normalize(search.value.trim()).split(/\s+/).filter(Boolean);
+    let visible = 0;
+    rows.forEach(function(row) {
+      row.element.hidden = !terms.every(term => row.text.includes(term));
+      if (!row.element.hidden) visible += 1;
+    });
+    status.textContent = status.dataset.countText.replace('{count}', visible).replace('{total}', rows.length);
+    const empty = document.querySelector('[data-business-search-empty]');
+    if (empty) empty.hidden = visible !== 0;
+  }
+  controls.hidden = false;
+  search.addEventListener('input', filterBusinesses);
+  filterBusinesses();
+});
 
 // Support page: preselect the chosen contribution type and show form confirmation.
 document.addEventListener('DOMContentLoaded', function() {

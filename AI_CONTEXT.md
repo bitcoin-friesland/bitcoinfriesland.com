@@ -17,6 +17,7 @@
 - Supporter validation is step-aware: JS sets noValidate, then explicitly validates details/preferences and reveals invalid steps before focusing fields. Trim required names/addresses. Postal fields are disabled for pickup so FormData excludes them, but values remain available if mail is reselected.
 - Keep form logic centralized: `advanceStep` handles both Enter and next buttons, `validateFields` handles normalization/native validity/focus, and `markFormSubmitting` supplies both forms' localized busy state. Named step constants and cached static panels/address fields live inside the supporter initializer.
 - Marks matching navigation links as the current page and shows an accessible busy state while support forms are being submitted.
+- A pageshow handler restores pending submit buttons after Back/forward navigation. A localized, diacritic-insensitive search filters the first four columns of the existing business table; all rows remain visible without JavaScript. Static skip links target main-content on every language page.
 
 ## Content rules and patterns
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.
@@ -34,6 +35,8 @@
 - `translations-frisian.cjs`: Applies additional Frisian translations to `fy/map.html`.
 - `audit-site.cjs`: Read-only audit for SEO/social metadata, JSON-LD syntax, image dimensions and alt text, local references, language parity, canonical sitemap URLs, shared asset versions and LLM discovery files.
 - `node --test audit-site.test.cjs`: Regression tests for the audit using temporary site copies (Node.js 20+). See MAINTENANCE.md for coverage and limitations.
+- `node --test maintenance.test.cjs`: CLI safety and preview staging checks. The Site quality GitHub workflow runs these with the audit tests on PRs and pushes to the working branch/main.
+- `node prepare-preview.cjs`: Creates a fresh temporary public-file staging directory with preview-only noindex headers. Deploy that directory to the existing preview site; never deploy it to production.
 
 ## Source layout notes
 - The three about pages contain the community introduction, joining information and contact links. Their Organization and AboutPage JSON-LD nodes share a stable organization identifier across languages.

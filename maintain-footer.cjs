@@ -14,15 +14,15 @@ function updateFooterText() {
   const footerTranslations = {
     nl: {
       old: '© 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork mij op Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork mij op Github</a>'
     },
     en: {
       old: '© 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork me on Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork me on Github</a>'
     },
     fy: {
       old: '© 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork my op Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork my op Github</a>'
     }
   };
 
@@ -141,15 +141,20 @@ function addRiskWarningToAllPages() {
 function main() {
   const args = process.argv.slice(2);
   
-  if (args.length === 0) {
+  if (args.length === 0 || (args.length === 1 && args[0] === '--help')) {
     console.log('\n📋 Available commands:');
-    console.log('  node footer-maintenance.cjs text     - Update footer text (copyright, github)');
-    console.log('  node footer-maintenance.cjs warning  - Add risk warnings to all pages');
-    console.log('  node footer-maintenance.cjs all      - Update all footer elements');
+    console.log('  node maintain-footer.cjs text     - Update matching map footer text');
+    console.log('  node maintain-footer.cjs warning  - Add risk warnings to all pages');
+    console.log('  node maintain-footer.cjs all      - Run both footer replacements');
     return;
   }
   
   const command = args[0].toLowerCase();
+  if (args.length !== 1 || !['text', 'warning', 'all'].includes(command)) {
+    console.error('Unknown command. Use: text, warning, or all');
+    process.exitCode = 1;
+    return;
+  }
   
   switch (command) {
     case 'text':

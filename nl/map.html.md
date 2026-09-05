@@ -4,6 +4,8 @@ De Bitcoin Kaart helpt bezoekers locaties in Friesland te vinden waar Bitcoin of
 
 ## Gebruik
 
+- Zoek in de bedrijvenlijst op naam, plaats of type. Wis de zoekopdracht om alle bedrijven weer te zien.
+
 - Controleer op de kaart of in de tabel welke betaalmethode een locatie ondersteunt.
 - Vraag bij twijfel vooraf aan de ondernemer of Bitcoinbetaling op dat moment mogelijk is.
 - Vermeld een ontbrekende of verouderde locatie bij Bitcoin Friesland zodat de lijst kan worden bijgewerkt.

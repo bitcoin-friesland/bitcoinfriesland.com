@@ -6,6 +6,8 @@ The site is available in Dutch (`nl`), English (`en`) and Frisian (`fy`). Dutch 
 
 The linked HTML pages are the primary source; Markdown counterparts are summaries. For changing event details and business payment options, check the organizer or business linked from the relevant page. Community contributors maintain this website; corrections can be sent to info@bitcoinfriesland.com with the page URL and a supporting source. A listing is not an endorsement.
 
+The map pages include a searchable business list by name, town or type. All listings remain readable without JavaScript; search only filters the existing list and does not verify a business's current payment options.
+
 Important facts:
 
 - Individual supporter contribution: the current satoshi value of EUR 21 for one year, paid in sats only.

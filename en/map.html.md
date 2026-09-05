@@ -4,6 +4,8 @@ The Bitcoin Map helps visitors find places in Friesland where Bitcoin or Lightni
 
 ## How to use it
 
+- Search the business list by name, town or type. Clear the search to show every business again.
+
 - Check the map or table to see which payment method a location supports.
 - When in doubt, ask the business in advance whether Bitcoin payment is currently available.
 - Tell Bitcoin Friesland about a missing or outdated location so the directory can be corrected.

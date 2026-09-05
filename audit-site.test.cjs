@@ -93,3 +93,20 @@ test('shared script must not block HTML parsing', (t) => {
   assert.equal(result.status, 1);
   assert.match(result.output, /main.js must be deferred in the head/);
 });
+
+test('duplicate IDs and broken fragment links are reported', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html.replace('</body>', '<div id="main-content"></div><a href="#missing-section">Missing</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /duplicate id: main-content/);
+  assert.match(result.output, /broken same-page link: #missing-section/);
+});
+
+test('new-tab links retain opener protection', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html.replace('</body>', '<a href="https://example.com" target="_blank">External</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /new-tab link must include/);
+});

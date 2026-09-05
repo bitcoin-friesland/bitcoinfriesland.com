@@ -51,7 +51,7 @@ For visitor-facing changes, serve the root with `python3 -m http.server 8000`. O
 - `maintain-pages.cjs` applies terminology and link substitutions. Do not repeatedly run it as a routine check: regex replacements can interact with existing markup.
 - Translation scripts replace known strings; they do not translate new content or verify language quality.
 
-Use the actual filenames above, even though some legacy help messages show older names. These scripts write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
+Both maintenance helpers support `--help` and reject unknown or extra arguments with exit code 1. Their generated new-tab links include opener protection. Valid editing commands still write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
 
 ## Supporter flow regression tests
 
@@ -80,5 +80,9 @@ Prioritize useful, verifiable local information: actual meetup reports, organize
 After a human approves and publishes changes, a verified site owner can inspect indexing in Search Console and review URL citations in [Bing Webmaster Tools AI Performance](https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview). Record a baseline and compare the same date ranges, URLs and queries over time. Track citations and useful visits separately; audit passes do not demonstrate increased AI visibility. Account verification, reporting access and real-world business/event facts require the maintainers; this repository cannot establish them automatically.
 
 ## Branch and deployment handoff
+
+The `Site quality` GitHub Actions workflow runs the site audit, dependency-free regression tests and runtime syntax check on pull requests, pushes to main/the current working branch, and manual dispatch. It uses pinned action commits and read-only repository permissions. It does not deploy or test external services. Making its status a required merge check is a repository-owner setting.
+
+For preview deployment, run `node prepare-preview.cjs` after the checks. It prints a new temporary directory containing only public site assets and pages, excluding repository metadata, scripts and contributor documentation. Deploy that directory to the existing `bitcoinfriesland-preview` site. Its `_headers` sets `X-Robots-Tag: noindex, nofollow` on every response; verify the deployed header with an HTTP request. The repository's production robots and metadata remain unchanged. Noindex prevents indexing, not access: never put secrets or personal data in a preview. This staging command is preview-only, not a production build requirement.
 
 Work on a feature branch; `main` publishes the live site. Include changed pages/languages, checks performed and anything unverified in the PR. A preview is separate from production: never assume a local edit or pushed branch has deployed. Record the actual preview URL only after a successful deployment. Never put supporter personal data, credentials or payment records in this public repository.
