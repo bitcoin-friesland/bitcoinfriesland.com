@@ -650,7 +650,20 @@ small clean-ups.
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `audit-site.cjs`
 - `README.md`, `CONTRIBUTING.md`, `AI_CONTEXT.md`, `CHANGES.md`
 
-## Good to know
+## Round 31 (community identity for search and AI answers)
+
+- Replaced the empty About pages with genuine Dutch, English and Frisian
+  introductions, answers about free participation, independence and contact.
+- Added descriptive links to meetups, the map, beginner and business information,
+  and the supporter programme.
+- Linked AboutPage and Organization structured data with one shared organization
+  identifier across languages. The data describes the visible content.
+- Expanded the LLM guide with all three About pages and corrected contradictory
+  deployment instructions in AI_CONTEXT.md.
+- Files: nl/about.html, en/about.html, fy/about.html, llms.txt, sitemap.xml,
+  AI_CONTEXT.md and CHANGES.md.
+
+## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
   have the real account addresses.

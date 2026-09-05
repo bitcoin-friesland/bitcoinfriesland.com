@@ -23,7 +23,7 @@
   - Logos/flags/icons: PNG is fine (single size) with explicit width/height; wrap in `<picture>` only if WebP is available.
   - Photos/illustrations: generate width variants 320/480/640/960/1280 in both WebP and JPEG, named `...-<width>.webp|jpg`. Use `<picture>` with WebP `srcset` + JPEG `srcset` and `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`. Fallback `src` can be the 640 variant. Always set dimensions on `<img>`.
 - Navigation: desktop `.nav-menu` (hidden on mobile), mobile hamburger with `#mobile-menu`, and a flag-based language dropdown.
-- Workflow expectation: if the user asks to “commit to GitHub” (or similar), perform the commit and push to `origin/main` so it goes live; if push isn’t possible (e.g., network blocked), ask/notify immediately.
+- Workflow: commit and push to the working feature branch, then open a pull request. Never push directly to main; AGENTS.md is the authoritative workflow.
 
 ## Maintenance scripts (Node, no deps required)
 - `maintain-pages.cjs`: `node maintain-pages.cjs consumer|business|all` tweaks consumer/business pages (terminology, Coinos links, translation phrasing).
@@ -33,6 +33,7 @@
 - `audit-site.cjs`: Read-only audit for SEO/social metadata, JSON-LD syntax, image dimensions and alt text, local references, language parity, canonical sitemap URLs, shared asset versions and LLM discovery files.
 
 ## Source layout notes
+- The three about pages contain the community introduction, joining information and contact links. Their Organization and AboutPage JSON-LD nodes share a stable organization identifier across languages.
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same spam-protected Netlify Form named `support-interest`, with a hidden language field and localized feedback.
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.

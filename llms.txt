@@ -42,7 +42,9 @@ Important facts:
 
 - [For consumers](https://bitcoinfriesland.com/nl/consumers.html): Wallets, safety and first steps.
 - [For businesses](https://bitcoinfriesland.com/nl/business.html): Accepting Bitcoin and Lightning payments.
-- [About Bitcoin Friesland](https://bitcoinfriesland.com/nl/about.html): Mission, independence and contact routes.
+- [About Bitcoin Friesland](https://bitcoinfriesland.com/nl/about.html): What the community does, free participation, first steps, independence and contact.
+- [About Bitcoin Friesland in English](https://bitcoinfriesland.com/en/about.html): Community introduction, joining and contact in English.
+- [Oer Bitcoin Fryslân](https://bitcoinfriesland.com/fy/about.html): Wat de mienskip docht, fergees meidwaan, unôfhinklikens en kontakt.
 - [Resources and links](https://bitcoinfriesland.com/nl/links.html): Curated Bitcoin tools and learning resources.
 - [Treasure hunt](https://bitcoinfriesland.com/nl/treasure-hunt.html): Community treasure-hunt information.
 - [Past Bitcoin BBQ](https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html): Archived event page for 14 August 2026.

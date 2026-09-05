@@ -39,18 +39,38 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bitcoin Fryslân",
-  "url": "https://bitcoinfriesland.com/fy/",
-  "logo": "https://bitcoinfriesland.com/assets/images/bitcoin-friesland-logo.png",
-  "email": "info@bitcoinfriesland.com",
-  "description": "Bitcoin Fryslân is de mienskip foar Bitcoin yn Fryslân. Ûntdek gearkomsten, in Bitcoinkaart, edukaasje en hoe't jo begjinne mei Bitcoin.",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Friesland, Netherlands"
-  },
-  "sameAs": [
-    "https://t.me/bitcoinfriesland"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Bitcoin Fryslân",
+      "url": "https://bitcoinfriesland.com/nl/",
+      "logo": "https://bitcoinfriesland.com/assets/images/bitcoin-friesland-logo.png",
+      "email": "info@bitcoinfriesland.com",
+      "description": "Bitcoin Fryslân is in unôfhinklike frijwilligersmienskip foar Bitcoin-edukaasje, akseptaasje en gearkomsten yn Fryslân. Begjinners, betûfte brûkers en ûndernimmers kinne tegearre leare en ûnderfiningen diele.",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Friesland, Netherlands"
+      },
+      "sameAs": [
+        "https://t.me/bitcoinfriesland"
+      ],
+      "@id": "https://bitcoinfriesland.com/#organization",
+      "alternateName": "Bitcoin Fryslân"
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://bitcoinfriesland.com/fy/about.html#webpage",
+      "url": "https://bitcoinfriesland.com/fy/about.html",
+      "name": "Oer Bitcoin Fryslân",
+      "description": "Bitcoin Fryslân is in unôfhinklike frijwilligersmienskip foar Bitcoin-edukaasje, akseptaasje en gearkomsten yn Fryslân. Begjinners, betûfte brûkers en ûndernimmers kinne tegearre leare en ûnderfiningen diele.",
+      "inLanguage": "fy",
+      "about": {
+        "@id": "https://bitcoinfriesland.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://bitcoinfriesland.com/#organization"
+      }
+    }
   ]
 }
     </script>
@@ -156,8 +176,30 @@
   
           <main class="flex-grow py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 class="text-4xl font-bold text-center mb-8 text-friesland-blue">About</h1>
-              <p class="text-xl text-gray-600 text-center">Deze pagina is in ontwikkeling.</p>
+              <h1 class="text-4xl font-bold text-center mb-8 text-friesland-blue">Oer Bitcoin Fryslân</h1>
+              <p class="text-xl text-gray-600 text-center">Bitcoin Fryslân is in unôfhinklike frijwilligersmienskip foar Bitcoin-edukaasje, akseptaasje en gearkomsten yn Fryslân. Begjinners, betûfte brûkers en ûndernimmers kinne tegearre leare en ûnderfiningen diele.</p>
+              <div class="max-w-4xl mx-auto mt-10">
+                <section class="mb-8" aria-labelledby="about-answer-0">
+                  <h2 id="about-answer-0" class="text-2xl font-bold mb-4 text-friesland-blue">Wat docht Bitcoin Fryslân?</h2>
+                  <p class="text-gray-600">Wy bringe minsken byinoar by <a href="meetings.html" class="text-friesland-blue underline">Bitcoin-gearkomsten en eveneminten</a>, diele praktyske kennis en helpe besikers <a href="map.html" class="text-friesland-blue underline">plakken te finen dêr’t se mei Bitcoin betelje kinne</a>.</p>
+                </section>
+                <section class="mb-8" aria-labelledby="about-answer-1">
+                  <h2 id="about-answer-1" class="text-2xl font-bold mb-4 text-friesland-blue">Kin ik fergees meidwaan?</h2>
+                  <p class="text-gray-600">Ja. Meidwaan oan de mienskip en ús Telegram- en Signalgroepen is fergees. Do hoechst gjin stiper te wurden. Sjoch by elk evenemint nei de ynformaasje oer eventuele ticketkosten.</p>
+                </section>
+                <section class="mb-8" aria-labelledby="about-answer-2">
+                  <h2 id="about-answer-2" class="text-2xl font-bold mb-4 text-friesland-blue">Hoe begjin ik?</h2>
+                  <p class="text-gray-600">Lês ús <a href="consumers.html" class="text-friesland-blue underline">ynformaasje foar begjinners</a> of doch mei yn de <a href="https://t.me/bitcoinfriesland" class="text-friesland-blue underline">Telegramgroep</a>. Undernimmers fine praktyske útlis oer <a href="business.html" class="text-friesland-blue underline">Bitcoin akseptearje yn harren bedriuw</a>.</p>
+                </section>
+                <section class="mb-8" aria-labelledby="about-answer-3">
+                  <h2 id="about-answer-3" class="text-2xl font-bold mb-4 text-friesland-blue">Hoe bliuwt de mienskip unôfhinklik?</h2>
+                  <p class="text-gray-600">Frijwillige bydragen helpe mei de webside, stickers, materialen en aktiviteiten. In bydrage jout gjin ynfloed op ús ynhâld, stânpunten, sprekkers of aktiviteiten. Lês de <a href="support.html" class="text-friesland-blue underline">ôfspraken foar stipers en saaklike bydragen</a>.</p>
+                </section>
+                <section class="mb-8" aria-labelledby="about-answer-4">
+                  <h2 id="about-answer-4" class="text-2xl font-bold mb-4 text-friesland-blue">Kontakt en bydragen</h2>
+                  <p class="text-gray-600">Hast in fraach, in idee foar in gearkomste of in korreksje foar de webside? Mail <a href="mailto:info@bitcoinfriesland.com" class="text-friesland-blue underline">info@bitcoinfriesland.com</a>. De <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" class="text-friesland-blue underline">boarnekoade fan dizze webside</a> is iepenbier.</p>
+                </section>
+              </div>
               <p class="text-sm text-gray-500 text-center mt-10">Dizze webside is ûntwurpen en boud troch <a href="https://studiofab.nl/" class="text-friesland-blue hover:text-bitcoin-orange">StudioFab — webdesign út Fryslân</a>.</p>
             </div>
           </main>
