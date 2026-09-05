@@ -360,6 +360,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!dialog) return;
 
   var form = dialog.querySelector('form[name="supporter-signup"]');
+  if (!form) return;
+  // Validate the active step ourselves: native whole-form validation tries to
+  // focus required controls in hidden steps before the submit handler runs.
+  form.noValidate = true;
   var success = dialog.querySelector('[data-supporter-flow-success]');
   var error = dialog.querySelector('[data-supporter-error]');
   var currentStep = 1;
@@ -413,9 +417,12 @@ document.addEventListener('DOMContentLoaded', function() {
   function validateDetails() {
     var name = form.elements.name;
     var email = form.elements.email;
-    if (!name.checkValidity()) { name.reportValidity(); return false; }
-    if (!email.checkValidity()) { email.reportValidity(); return false; }
+    name.value = name.value.trim();
+    email.value = email.value.trim();
+    if (!name.checkValidity()) { setStep(1, false); name.reportValidity(); return false; }
+    if (!email.checkValidity()) { setStep(1, false); email.reportValidity(); return false; }
     if (!form.elements.telegram_username.value.trim() && !form.elements.signal_username.value.trim()) {
+      setStep(1, false);
       showError(dialog.getAttribute('data-contact-error'), form.elements.telegram_username);
       return false;
     }
@@ -430,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var groups = ['payment_timing', 'sticker_delivery'];
     for (var i = 0; i < groups.length; i += 1) {
       if (!checkedValue(groups[i])) {
+        setStep(2, false);
         showError(dialog.getAttribute('data-choice-error'), form.querySelector('input[name="' + groups[i] + '"]'));
         return false;
       }
@@ -437,7 +445,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (checkedValue('sticker_delivery').value === 'mail') {
       var addressFields = form.querySelectorAll('[data-address-required]');
       for (var j = 0; j < addressFields.length; j += 1) {
+        addressFields[j].value = addressFields[j].value.trim();
         if (!addressFields[j].checkValidity()) {
+          setStep(2, false);
           addressFields[j].reportValidity();
           return false;
         }
@@ -482,6 +492,9 @@ document.addEventListener('DOMContentLoaded', function() {
     address.hidden = !showAddress;
     address.querySelectorAll('[data-address-required]').forEach(function(field) {
       field.required = Boolean(showAddress);
+      // Preserve edits if the user switches back to mail, but do not submit
+      // unnecessary personal address data when pickup is selected.
+      field.disabled = !showAddress;
     });
   }
 
@@ -490,10 +503,8 @@ document.addEventListener('DOMContentLoaded', function() {
       event.preventDefault();
       if (!success || success.hidden) setStep(1, false);
       openDialog();
-      window.setTimeout(function() {
-        var firstField = dialog.querySelector('[data-supporter-step="1"] input');
-        if (firstField && (!success || success.hidden)) firstField.focus();
-      }, 50);
+      var firstField = dialog.querySelector('[data-supporter-step="1"] input');
+      if (firstField && (!success || success.hidden)) firstField.focus();
     });
   });
 

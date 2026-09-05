@@ -705,6 +705,18 @@ small clean-ups.
   supporter-dialog opening in all languages. Real-world timings were not
   established, and no production or preview deployment was performed.
 
+## Round 35 (supporter form bug fixes)
+
+- Reproduced and fixed three bugs in all languages: Enter was blocked by hidden
+  required fields, whitespace-only names passed validation, and switching from
+  post to pickup still included the old postal address in the submission.
+- Validation now reveals the correct step before reporting an invalid field,
+  rejects whitespace-only addresses, and preserves postal edits without sending
+  them for pickup. Removed delayed opening focus that could interrupt typing.
+- Added 12 isolated Playwright browser checks, preserving Netlify form names,
+  honeypot and field declarations. No real submissions or payments were made.
+- Updated shared asset versions and maintainer guidance. No deployment this round.
+
 ## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you

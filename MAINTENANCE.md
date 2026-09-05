@@ -53,6 +53,12 @@ For visitor-facing changes, serve the root with `python3 -m http.server 8000`. O
 
 Use the actual filenames above, even though some legacy help messages show older names. These scripts write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
 
+## Supporter flow regression tests
+
+`supporter-flow.test.cjs` is an optional Playwright browser suite; Playwright is a development tool only, not a site dependency. With Playwright and its Chromium browser available in your development environment, run `node --test supporter-flow.test.cjs`. You can point `BROWSER_EXECUTABLE` at an installed Chrome/Chromium executable instead. The dependency-free audit tests remain separate.
+
+The suite intercepts all network requests, serves local fixture files and prevents real submissions. It tests Enter navigation, required email and chat contact, whitespace-only names/addresses, missing preferences, switching delivery methods and pickup payloads in all three languages. It does not prove Netlify delivery, payment success or backend activation. Keep the static form names, honeypot and declared inputs intact for Netlify detection.
+
 ## Loading and runtime performance
 
 The shared script is deferred in the head on all 30 language pages. This lets the browser discover it early without blocking HTML parsing. Keep initialization on DOMContentLoaded; do not change it to `async`. The audit checks this loading convention.
