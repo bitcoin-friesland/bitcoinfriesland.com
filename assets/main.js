@@ -312,6 +312,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Shared submission presentation. Validation remains the responsibility of each form.
+function markFormSubmitting(form) {
+  const button = form.querySelector('[type="submit"]');
+  if (!button) return;
+  button.disabled = true;
+  button.setAttribute('aria-busy', 'true');
+  if (button.dataset.submittingText) button.textContent = button.dataset.submittingText;
+}
+
 // Support page: preselect the chosen contribution type and show form confirmation.
 document.addEventListener('DOMContentLoaded', function() {
   var interestSelect = document.getElementById('support-interest-type');
@@ -336,13 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (supportForm) {
     supportForm.addEventListener('submit', function() {
-      var submitButton = supportForm.querySelector('[type="submit"]');
-      if (!submitButton) return;
-      submitButton.disabled = true;
-      submitButton.setAttribute('aria-busy', 'true');
-      if (submitButton.getAttribute('data-submitting-text')) {
-        submitButton.textContent = submitButton.getAttribute('data-submitting-text');
-      }
+      markFormSubmitting(supportForm);
     });
   }
 
@@ -366,7 +369,11 @@ document.addEventListener('DOMContentLoaded', function() {
   form.noValidate = true;
   var success = dialog.querySelector('[data-supporter-flow-success]');
   var error = dialog.querySelector('[data-supporter-error]');
-  var currentStep = 1;
+  const steps = { details: 1, preferences: 2, review: 3 };
+  let currentStep = steps.details;
+  const panels = dialog.querySelectorAll('[data-supporter-step]');
+  const indicators = dialog.querySelectorAll('[data-supporter-step-indicator]');
+  const addressFields = Array.from(form.querySelectorAll('[data-address-required]'));
 
   function openDialog() {
     if (typeof dialog.showModal === 'function') {
@@ -395,11 +402,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function setStep(step, shouldFocus) {
-    currentStep = Math.max(1, Math.min(3, step));
-    dialog.querySelectorAll('[data-supporter-step]').forEach(function(panel) {
+    currentStep = Math.max(steps.details, Math.min(steps.review, step));
+    panels.forEach(function(panel) {
       panel.hidden = Number(panel.getAttribute('data-supporter-step')) !== currentStep;
     });
-    dialog.querySelectorAll('[data-supporter-step-indicator]').forEach(function(item) {
+    indicators.forEach(function(item) {
       if (Number(item.getAttribute('data-supporter-step-indicator')) === currentStep) item.setAttribute('aria-current', 'step');
       else item.removeAttribute('aria-current');
     });
@@ -414,15 +421,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  function validateFields(fields, step) {
+    fields.forEach(function(field) { field.value = field.value.trim(); });
+    const invalid = fields.find(function(field) { return !field.checkValidity(); });
+    if (!invalid) return true;
+    setStep(step, false);
+    invalid.reportValidity();
+    return false;
+  }
+
   function validateDetails() {
-    var name = form.elements.name;
-    var email = form.elements.email;
-    name.value = name.value.trim();
-    email.value = email.value.trim();
-    if (!name.checkValidity()) { setStep(1, false); name.reportValidity(); return false; }
-    if (!email.checkValidity()) { setStep(1, false); email.reportValidity(); return false; }
+    if (!validateFields([form.elements.name, form.elements.email], steps.details)) return false;
     if (!form.elements.telegram_username.value.trim() && !form.elements.signal_username.value.trim()) {
-      setStep(1, false);
+      setStep(steps.details, false);
       showError(dialog.getAttribute('data-contact-error'), form.elements.telegram_username);
       return false;
     }
@@ -437,21 +448,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var groups = ['payment_timing', 'sticker_delivery'];
     for (var i = 0; i < groups.length; i += 1) {
       if (!checkedValue(groups[i])) {
-        setStep(2, false);
+        setStep(steps.preferences, false);
         showError(dialog.getAttribute('data-choice-error'), form.querySelector('input[name="' + groups[i] + '"]'));
         return false;
       }
     }
     if (checkedValue('sticker_delivery').value === 'mail') {
-      var addressFields = form.querySelectorAll('[data-address-required]');
-      for (var j = 0; j < addressFields.length; j += 1) {
-        addressFields[j].value = addressFields[j].value.trim();
-        if (!addressFields[j].checkValidity()) {
-          setStep(2, false);
-          addressFields[j].reportValidity();
-          return false;
-        }
-      }
+      return validateFields(addressFields, steps.preferences);
     }
     return true;
   }
@@ -490,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var showAddress = selected && selected.value === 'mail';
     var address = dialog.querySelector('[data-supporter-address]');
     address.hidden = !showAddress;
-    address.querySelectorAll('[data-address-required]').forEach(function(field) {
+    addressFields.forEach(function(field) {
       field.required = Boolean(showAddress);
       // Preserve edits if the user switches back to mail, but do not submit
       // unnecessary personal address data when pickup is selected.
@@ -501,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('[data-supporter-open]').forEach(function(trigger) {
     trigger.addEventListener('click', function(event) {
       event.preventDefault();
-      if (!success || success.hidden) setStep(1, false);
+      if (!success || success.hidden) setStep(steps.details, false);
       openDialog();
       var firstField = dialog.querySelector('[data-supporter-step="1"] input');
       if (firstField && (!success || success.hidden)) firstField.focus();
@@ -520,13 +523,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event.target === dialog) closeDialog();
   });
 
+  // Buttons and Enter use the same transition and validation rules.
+  function advanceStep() {
+    if (currentStep === steps.details) {
+      if (validateDetails()) setStep(steps.preferences, true);
+    } else if (currentStep === steps.preferences && validatePreferences()) {
+      updateReview();
+      setStep(steps.review, true);
+    }
+  }
+
   dialog.querySelectorAll('[data-supporter-next]').forEach(function(button) {
-    button.addEventListener('click', function() {
-      if (currentStep === 1 && !validateDetails()) return;
-      if (currentStep === 2 && !validatePreferences()) return;
-      if (currentStep === 2) updateReview();
-      setStep(currentStep + 1, true);
-    });
+    button.addEventListener('click', advanceStep);
   });
 
   dialog.querySelectorAll('[data-supporter-back]').forEach(function(button) {
@@ -542,10 +550,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   form.addEventListener('submit', function(event) {
-    if (currentStep < 3) {
+    if (currentStep !== steps.review) {
       event.preventDefault();
-      if (currentStep === 1 && validateDetails()) setStep(2, true);
-      else if (currentStep === 2 && validatePreferences()) { updateReview(); setStep(3, true); }
+      advanceStep();
       return;
     }
     if (!validateDetails() || !validatePreferences()) {
@@ -553,18 +560,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     form.elements.submitted_at.value = new Date().toISOString();
-    var submitButton = form.querySelector('[data-supporter-submit]');
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.setAttribute('aria-busy', 'true');
-      if (submitButton.getAttribute('data-submitting-text')) {
-        submitButton.textContent = submitButton.getAttribute('data-submitting-text');
-      }
-    }
+    markFormSubmitting(form);
   });
 
   updateAddressFields();
-  setStep(1, false);
+  setStep(steps.details, false);
 
   var supporterSubmitted = new URLSearchParams(window.location.search).get('supporter-submitted') === 'true';
   if (supporterSubmitted && success) {

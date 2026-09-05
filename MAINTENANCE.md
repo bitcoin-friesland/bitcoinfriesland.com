@@ -59,6 +59,8 @@ Use the actual filenames above, even though some legacy help messages show older
 
 The suite intercepts all network requests, serves local fixture files and prevents real submissions. It tests Enter navigation, required email and chat contact, whitespace-only names/addresses, missing preferences, switching delivery methods and pickup payloads in all three languages. It does not prove Netlify delivery, payment success or backend activation. Keep the static form names, honeypot and declared inputs intact for Netlify detection.
 
+It also covers successful postal submissions, back-and-edit review updates and localized busy states for both forms. When changing the flow, keep `advanceStep` as the single next-step path for buttons and Enter. Required-field normalization and focus belong in `validateFields`; submission presentation belongs in `markFormSubmitting`. Business validation stays in the individual form handlers. No framework, build pipeline or production dependency is needed for this separation.
+
 ## Loading and runtime performance
 
 The shared script is deferred in the head on all 30 language pages. This lets the browser discover it early without blocking HTML parsing. Keep initialization on DOMContentLoaded; do not change it to `async`. The audit checks this loading convention.

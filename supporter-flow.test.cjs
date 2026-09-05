@@ -36,6 +36,53 @@ async function openFlow(t, language) {
 }
 
 for (const language of ['nl', 'en', 'fy']) {
+  test(`${language}: generic form uses the shared localized busy state`, async (t) => {
+    const { page } = await openFlow(t, language);
+    await page.locator('[data-supporter-close]').first().click();
+    const form = page.locator('form[name="support-interest"]');
+    await form.locator('[name="name"]').fill('Test Supporter');
+    await form.locator('[name="email"]').fill('supporter@example.invalid');
+    await form.locator('[name="interest"]').selectOption('other');
+    await form.evaluate(f => f.addEventListener('submit', event => event.preventDefault()));
+    const button = form.locator('[type="submit"]');
+    const busyText = await button.getAttribute('data-submitting-text');
+    await button.click();
+    assert.equal(await button.isDisabled(), true);
+    assert.equal(await button.getAttribute('aria-busy'), 'true');
+    assert.equal(await button.textContent(), busyText);
+  });
+
+  test(`${language}: Enter and buttons share mail review and back navigation`, async (t) => {
+    const { page, form } = await openFlow(t, language);
+    await form.locator('[name="email"]').press('Enter');
+    await form.locator('label:has([name="payment_timing"][value="next_meetup"])').click();
+    await form.locator('label:has([name="sticker_delivery"][value="mail"])').click();
+    for (const [name, value] of Object.entries({ address_line1: 'Teststraat 1', postal_code: '1234 AB', city: 'Teststad' })) {
+      await form.locator(`[name="${name}"]`).fill(value);
+    }
+    await form.locator('[name="city"]').press('Enter');
+    assert.equal(await page.locator('[data-supporter-step="3"]').isVisible(), true);
+    assert.match(await page.locator('[data-review="address"]').textContent(), /Teststraat 1/);
+    await page.locator('[data-supporter-step="3"] [data-supporter-back]').click();
+    await form.locator('[name="city"]').fill('Andere stad');
+    await page.locator('[data-supporter-step="2"] [data-supporter-next]').click();
+    assert.match(await page.locator('[data-review="address"]').textContent(), /Andere stad/);
+    await form.evaluate(f => f.addEventListener('submit', event => {
+      event.preventDefault();
+      window.testSubmission = Object.fromEntries(new FormData(f));
+    }));
+    const button = page.locator('[data-supporter-submit]');
+    const busyText = await button.getAttribute('data-submitting-text');
+    await button.click();
+    const payload = await page.evaluate(() => window.testSubmission);
+    assert.equal(payload.address_line1, 'Teststraat 1');
+    assert.equal(payload.city, 'Andere stad');
+    assert.equal(payload.payment_timing, 'next_meetup');
+    assert.equal(await button.isDisabled(), true);
+    assert.equal(await button.getAttribute('aria-busy'), 'true');
+    assert.equal(await button.textContent(), busyText);
+  });
+
   test(`${language}: invalid details and missing preferences still block progress`, async (t) => {
     const { page, form } = await openFlow(t, language);
     const next = page.locator('[data-supporter-step="1"] [data-supporter-next]');

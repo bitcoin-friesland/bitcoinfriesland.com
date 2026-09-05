@@ -717,6 +717,17 @@ small clean-ups.
   honeypot and field declarations. No real submissions or payments were made.
 - Updated shared asset versions and maintainer guidance. No deployment this round.
 
+## Round 36 (shared form logic refactor)
+
+- Consolidated button and Enter navigation into one supporter step transition.
+- Extracted shared required-field validation and localized submission-button
+  presentation; replaced step magic numbers with named constants and cached
+  static panel/address references within the flow.
+- Expanded browser coverage for successful postal submissions, back-and-edit
+  review updates and both forms' busy states. Preserved Netlify form contracts,
+  existing design and the dependency-free website runtime.
+- Updated maintainer guidance and shared asset versions. No deployment this round.
+
 ## Maintenance notes
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
