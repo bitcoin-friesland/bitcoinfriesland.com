@@ -1855,3 +1855,115 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
 .bf-business-search input:focus-visible { outline: 3px solid var(--bf-blue); outline-offset: 2px; }
 .bf-business-search p { margin-top: .5rem; color: #475569; }
 #businessTable tr[hidden] { display: none; }
+
+/* ============================================================
+   Round 13 - design system consolidation (September 2026)
+
+   Three problems, in order of impact:
+
+   1. styles.css is a committed Tailwind build that has drifted behind
+      the HTML. 21 utility classes are used in the markup but were never
+      compiled, so they do nothing: pt-6 (40x), space-x-8 (30x),
+      hover:bg-blue-50 (44x), md:grid-cols-3, h-32 and others. That is
+      the main reason spacing and alignment look uneven - the intent is
+      in the markup, the rules are simply absent. Backfilled below so no
+      build step is needed.
+   2. No shared scale. One page carried 9 button styles, 11 radii and
+      10 shadows. Collapsed to a small set here.
+   3. Cards in block layout let their CTA float, so it lands at a
+      different height in each column. Fixed with flex + margin-top:auto,
+      the same pattern the aligned grids on this site already use.
+
+   Additive only, same as the rest of this file.
+   ============================================================ */
+
+/* ---------- 1. Backfill: utilities used in HTML, missing from styles.css ----------
+   Deliberately NOT backfilled: bg-red-50, border-red-200, text-red-700,
+   text-red-800. Those belong to the old red risk-warning box. .bf-risk-note
+   replaced it with the neutral note, and reviving them would undo that. */
+
+.pt-6 { padding-top: 1.5rem; }
+.pb-1 { padding-bottom: 0.25rem; }
+.h-32 { height: 8rem; }
+.h-56 { height: 14rem; }
+.rounded-none { border-radius: 0; }
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.5rem; }
+.space-x-8 > :not([hidden]) ~ :not([hidden]) { margin-left: 2rem; }
+
+.bg-blue-50 { background-color: #eff6ff; }
+.hover\:bg-blue-50:hover { background-color: #eff6ff; }
+.border-blue-400 { border-color: #60a5fa; }
+.text-blue-700 { color: #1d4ed8; }
+.text-blue-100 { color: #dbeafe; }
+.text-white\/80 { color: rgba(255, 255, 255, .8); }
+.bg-white\/10 { background-color: rgba(255, 255, 255, .1); }
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* gradient stops (Tailwind v3 custom-property form) */
+.from-blue-500 {
+  --tw-gradient-from: #3b82f6 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(59 130 246 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-bitcoin-orange\/15 {
+  --tw-gradient-to: rgb(249 115 22 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(249 115 22 / .15) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.to-friesland-blue\/90 { --tw-gradient-to: rgb(0 102 204 / .9) var(--tw-gradient-to-position); }
+.to-friesland-blue\/10 { --tw-gradient-to: rgb(0 102 204 / .1) var(--tw-gradient-to-position); }
+
+/* ---------- 2. One radius scale ----------
+   Was 11 distinct values on the homepage alone (4, 6, 8, 9.6, 11.2,
+   12.8, 14, 14.4, 16, 9999px). Four tokens now carry everything. */
+
+:root {
+  --bf-r-sm: 0.5rem;   /* chips, inputs, small controls */
+  --bf-r-md: 0.75rem;  /* buttons */
+  --bf-r-lg: 1rem;     /* cards, panels */
+  --bf-r-pill: 9999px; /* badges, avatars */
+}
+
+.rounded, .rounded-md { border-radius: var(--bf-r-sm); }
+.rounded-lg { border-radius: var(--bf-r-md); }
+.rounded-xl, .rounded-2xl { border-radius: var(--bf-r-lg); }
+.rounded-full { border-radius: var(--bf-r-pill); }
+
+/* buttons all sit on the same radius (this overrides the earlier
+   0.8rem rule in the Button system section above) */
+a[class*="rounded-lg"][class*="font-medium"],
+button[class*="rounded-lg"][class*="font-medium"],
+a.bg-gray-800 {
+  border-radius: var(--bf-r-md) !important;
+}
+
+.bf-risk-note { border-radius: var(--bf-r-md); }
+
+/* ---------- 3. Equal-height cards keep their CTA on one baseline ----------
+   The "Leer over Bitcoin" cards are display:block, so each CTA sat
+   wherever its paragraph ended - a 72px stagger across three columns
+   that are all exactly the same height. The card grids that already
+   look right on this site use flex + margin-top:auto; same fix here. */
+
+.grid > .bg-white.p-8.rounded-xl {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid > .bg-white.p-8.rounded-xl > a:last-child {
+  margin-top: auto;
+  align-self: flex-start;
+  padding-top: 0.75rem;
+}
+
+/* ---------- 4. Outline buttons share one border weight ----------
+   Border widths ran 1px / 1.5px / 2px across otherwise identical
+   controls. One value, so a row of buttons reads as a set. */
+
+a[class*="border-"][class*="rounded"],
+button[class*="border-"][class*="rounded"] {
+  border-width: 1.5px;
+}
