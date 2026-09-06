@@ -1967,3 +1967,78 @@ a[class*="border-"][class*="rounded"],
 button[class*="border-"][class*="rounded"] {
   border-width: 1.5px;
 }
+
+/* ---------- 5. Hero: balance the two columns ----------
+   The copy column is 587px and the logo card 322px, but both sit in
+   half-width grid columns, so the art hugged the inner edge and left a
+   hole on the right. Centring the card in its own column and centring
+   the columns against each other closes it. The 112px bottom padding
+   also left 120px of dead space under the buttons. */
+
+.lg\:grid-cols-12 { align-items: center; }
+
+.lg\:grid-cols-12 > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.bg-gradient-to-br.from-white.to-gray-50 { padding-bottom: 5rem; }
+
+/* a comfortable measure for the hero sentence (~52 characters) */
+.lg\:grid-cols-12 h1 + p { max-width: 34rem; }
+
+/* ---------- 6. One primary action per view ----------
+   The hero offered two saturated solid buttons competing as equals.
+   The first stays solid; the second becomes an outline in the same
+   brand orange, so the eye gets an order without losing the colour. */
+
+.lg\:grid-cols-12 a.bg-bitcoin-orange {
+  background: transparent !important;
+  background-image: none !important;
+  border: 1.5px solid var(--bf-orange);
+  color: var(--bf-orange);
+  box-shadow: none !important;
+}
+.lg\:grid-cols-12 a.bg-bitcoin-orange:hover {
+  background: rgba(249, 115, 22, .08) !important;
+  box-shadow: none !important;
+}
+
+/* ---------- 7. Card headers use one brand ramp ----------
+   The three "Waarom Aansluiten" headers ran blue->orange, red->orange
+   and orange->yellow-400. The last is not even a brand colour. One
+   ramp makes them read as a set instead of three unrelated cards. */
+
+.grid > .relative.group .h-16[class*="bg-gradient-to-r"],
+.grid > .relative.group > .blur[class*="bg-gradient-to-r"] {
+  background-image: linear-gradient(90deg, var(--bf-blue), var(--bf-orange)) !important;
+}
+
+/* ---------- 8. Section rhythm ----------
+   Five sections sit at 64px; only the Noderunners promo band ran 80px.
+   Bringing that one into line is less disruptive than pushing the
+   other five up, and gives the page a steady beat either way. */
+
+section.nr-promo { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* The promo band alone carried three off-scale radii (9.6 / 12.8 /
+   14.4px). Same component, three values - put it on the scale. */
+.nr-promo-cta { border-radius: var(--bf-r-md) !important; }
+.nr-promo-copy { border-radius: var(--bf-r-sm) !important; }
+.nr-promo-code-box { border-radius: var(--bf-r-md) !important; }
+
+/* language dropdown was a one-off 14px */
+.lang-dropdown, nav .absolute.top-full { border-radius: var(--bf-r-md); }
+
+@media (max-width: 640px) {
+  .bg-gradient-to-br.from-white.to-gray-50 { padding-bottom: 3.5rem; }
+}
+
+/* last two off-scale radii on the homepage: the language dropdown
+   (was 14px, set in the nav section above) and the nav link hover
+   surface (was 6px). */
+#language-dropdown { border-radius: var(--bf-r-md); }
+.nav-menu a[href] { border-radius: var(--bf-r-sm); }
+
+/* The 4px on the flag thumbnail is intentional and stays: a token-scale
+   radius looks wrong on a 24x16 image. */
