@@ -21,7 +21,7 @@
   - Logos/flags/icons: PNG is fine (single size) with explicit width/height; wrap in `<picture>` only if WebP is available.
   - Photos/illustrations: generate width variants 320/480/640/960/1280 in both WebP and JPEG, named `...-<width>.webp|jpg`. Use `<picture>` with WebP `srcset` + JPEG `srcset` and `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`. Fallback `src` can be the 640 variant. Always set dimensions on `<img>`.
 - Navigation: desktop `.nav-menu` (hidden on mobile), mobile hamburger with `#mobile-menu`, and a flag-based language dropdown.
-- Workflow expectation: if the user asks to “commit to GitHub” (or similar), perform the commit and push to `origin/main` so it goes live; if push isn’t possible (e.g., network blocked), ask/notify immediately.
+- Workflow expectation: follow `AGENTS.md`: commit and push the scoped branch, then open a pull request for human review. A request to commit to GitHub does not authorize pushing to `main` or deploying. Never merge a PR yourself; report access failures without bypassing the branch workflow.
 
 ## Maintenance scripts (Node, no deps required)
 - `maintain-pages.cjs`: `node maintain-pages.cjs consumer|business|all` tweaks consumer/business pages (terminology, Coinos links, translation phrasing).

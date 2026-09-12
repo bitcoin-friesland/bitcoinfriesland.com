@@ -51,3 +51,7 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 ## 6. When unsure
 
 Stop and ask the human. A small, correct PR beats an ambitious wrong one.
+
+## Portable onboarding and handoff
+
+Start with [the contributor and agent guide](docs/AGENT-START.md) for source-linked commands, task routing and evidence boundaries. Use the [handoff template](docs/HANDOFF-TEMPLATE.md) when transferring work. These guides complement the project rules above; they do not grant new merge, deployment or data authority.
