@@ -1,14 +1,32 @@
 // Essential JavaScript functions for Bitcoin Friesland website
 
+// CSS can hide and blur a navigation link before the breakpoint callback runs.
+let lastNavigationFocus = null;
+document.addEventListener('focusin', function(event) {
+  lastNavigationFocus = event.target.closest('nav') ? event.target : null;
+});
+
 // Force show desktop menu on desktop
 function updateMenuVisibility() {
   const desktopMenu = document.querySelector('.nav-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
+  const focused = document.activeElement === document.body && lastNavigationFocus && !lastNavigationFocus.getClientRects().length
+    ? lastNavigationFocus : document.activeElement;
+  const isDesktop = window.innerWidth >= 1200;
+  // Move focus before the currently focused navigation becomes hidden.
+  if (isDesktop && desktopMenu && (mobileMenu?.contains(focused) || focused === mobileTrigger)) {
+    const destination = Array.from(desktopMenu.querySelectorAll('a[href]'))
+      .find(link => link.href === focused.href) || desktopMenu.querySelector('a[href]');
+    desktopMenu.style.display = 'flex';
+    if (destination) destination.focus();
+  } else if (!isDesktop && desktopMenu?.contains(focused) && mobileTrigger) {
+    mobileTrigger.focus();
+  }
   if (desktopMenu) {
     desktopMenu.style.display = window.innerWidth >= 1200 ? 'flex' : '';
   }
   if (window.innerWidth >= 1200) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
     if (mobileMenu) mobileMenu.classList.add('hidden');
     if (mobileTrigger) mobileTrigger.setAttribute('aria-expanded', 'false');
   }
@@ -53,6 +71,18 @@ document.addEventListener('click', function(event) {
     mobileMenu.classList.add('hidden');
     const menuTrigger = document.querySelector('[onclick="toggleMobileMenu()"]');
     if (menuTrigger) menuTrigger.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Keyboard focus leaving a disclosure should dismiss it just like an outside click.
+document.addEventListener('focusin', function(event) {
+  for (const [id, handler] of [['language-dropdown', 'toggleLanguageDropdown()'], ['mobile-menu', 'toggleMobileMenu()']]) {
+    const menu = document.getElementById(id);
+    const trigger = document.querySelector('[onclick="' + handler + '"]');
+    if (menu && !menu.contains(event.target) && !trigger?.contains(event.target)) {
+      menu.classList.add('hidden');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    }
   }
 });
 

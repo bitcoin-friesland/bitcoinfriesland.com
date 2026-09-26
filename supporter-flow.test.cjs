@@ -41,6 +41,40 @@ async function openFlow(t, language) {
 }
 
 for (const language of ['nl', 'en', 'fy']) {
+  test(`${language}: hero scroll control works with keyboard`, async (t) => {
+    const page = await openPage(t, `${language}/index.html`);
+    const arrow = page.locator('a[href="#why-join"]');
+    assert.equal(await arrow.count(), 1);
+    assert.ok(await arrow.getAttribute('aria-label'));
+    await arrow.focus();
+    await page.keyboard.press('Enter');
+    assert.equal(new URL(page.url()).hash, '#why-join');
+    assert.equal(await page.locator('#why-join').evaluate(el => el === document.activeElement), true);
+  });
+
+  test(`${language}: resizing preserves visible navigation focus`, async (t) => {
+    const page = await openPage(t, `${language}/index.html`);
+    await page.locator('[onclick="toggleMobileMenu()"]').click();
+    await page.locator('#mobile-menu a').first().focus();
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.waitForTimeout(100);
+    assert.equal(await page.locator('.nav-menu a').first().evaluate(el => el === document.activeElement), true);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.waitForTimeout(100);
+    assert.equal(await page.locator('[onclick="toggleMobileMenu()"]').evaluate(el => el === document.activeElement), true);
+  });
+
+  test(`${language}: navigation dropdowns close when keyboard focus leaves`, async (t) => {
+    const page = await openPage(t, `${language}/index.html`);
+    for (const [trigger, menu] of [['toggleLanguageDropdown()', '#language-dropdown'], ['toggleMobileMenu()', '#mobile-menu']]) {
+      await page.locator(`[onclick="${trigger}"]`).click();
+      await page.locator(`${menu} a`).last().focus();
+      await page.keyboard.press('Tab');
+      assert.equal(await page.locator(menu).isVisible(), false);
+      assert.equal(await page.locator(`[onclick="${trigger}"]`).getAttribute('aria-expanded'), 'false');
+    }
+  });
+
   test(`${language}: keyboard skip link reaches the homepage content`, async (t) => {
     const page = await openPage(t, `${language}/index.html`);
     await page.keyboard.press('Tab');

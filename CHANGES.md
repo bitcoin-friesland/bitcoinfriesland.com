@@ -751,6 +751,12 @@ This release includes previously undeployed work from rounds 32–36; the live
 site and main branch remain unchanged. Deployment results are recorded separately.
 
 ## Maintenance notes
+### Keyboard navigation fixes — 26 September 2026
+- Fixed the inactive homepage down arrow in all three languages; it now scrolls and moves keyboard focus to the introduction.
+- Fixed lost keyboard focus when switching between mobile and desktop navigation.
+- Close language and mobile dropdowns when keyboard users tab out, keeping expanded-state announcements synchronized.
+- Added nine browser regressions (three per language) and refreshed shared asset versions.
+
 ### Event archive correction — 26 September 2026
 - Moved the 19 September NodeRunners conference into past events in Dutch, English and Frisian, with an explicit past label and archival description.
 - Removed expired homepage ticket promotions and conference discount controls.

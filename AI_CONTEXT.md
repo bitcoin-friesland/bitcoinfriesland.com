@@ -9,6 +9,7 @@
 - `assets/styles.css` is a minified Tailwind output plus a few custom blocks (links page, telegram CTA, etc.). `assets/main.js` holds all runtime behavior.
 
 ## Runtime behavior (assets/main.js)
+- Keyboard navigation closes dropdowns when focus leaves and preserves visible focus across the desktop/mobile breakpoint, including browsers that blur hidden links before the media-query callback. Homepage down arrows are native localized links to the focusable `why-join` section.
 - Initializes desktop navigation at DOMContentLoaded and updates only when crossing the 1200px desktop breakpoint (not on every resize event).
 - Toggles language dropdown (`#language-dropdown`) and mobile menu (`#mobile-menu`), keeps their expanded state and controls accessible in the page language, prevents the two menus from overlapping, and closes them with outside clicks or Escape.
 - Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
