@@ -751,6 +751,11 @@ This release includes previously undeployed work from rounds 32–36; the live
 site and main branch remain unchanged. Deployment results are recorded separately.
 
 ## Maintenance notes
+### Repository hygiene — 26 September 2026
+- Aligned contributor and maintenance checks with the actual CI workflow, including its trigger and browser-test limitations.
+- Corrected footer-helper and fragment-audit guidance; documented local-only serving, stacked branches and preview/production boundaries.
+- Added editor defaults and ignore rules for local credentials, dependencies and browser reports. No runtime, content, compiled CSS or deployment changes.
+
 ### Keyboard navigation fixes — 26 September 2026
 - Fixed the inactive homepage down arrow in all three languages; it now scrolls and moves keyboard focus to the introduction.
 - Fixed lost keyboard focus when switching between mobile and desktop navigation.

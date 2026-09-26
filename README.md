@@ -98,7 +98,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 No build step. Serve the repository root so root-relative links work correctly:
 
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 Then visit `http://localhost:8000/nl/` (or `/en/`, `/fy/`). Stop the server with Ctrl+C. Alternatively, use `npx serve .` and open the address printed by that server. Node.js 20+ is needed for the audit and regression tests, not for serving the site.
@@ -139,7 +139,7 @@ Already in place — keep them working when adding pages:
 
 Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.
 
-Run `node --test audit-site.test.cjs` to verify the audit itself. See [MAINTENANCE.md](MAINTENANCE.md) for coverage and limitations; neither command replaces browser testing.
+Run `node --test audit-site.test.cjs maintenance.test.cjs` for the dependency-free regression suite. See [MAINTENANCE.md](MAINTENANCE.md#verification) for the full checks and optional browser tests; these checks do not replace browser testing.
 
 ## Maintenance scripts
 
@@ -158,6 +158,8 @@ Editing scripts are historical text replacements, not a build pipeline. Run them
 ## Deployment
 
 The site is static and served as-is. **Pushing to `main` publishes the site.** Because of that, all changes go through a branch + pull request (see [CONTRIBUTING.md](CONTRIBUTING.md)); `main` is live.
+
+The Netlify preview is separate from production. Follow the [preview handoff instructions](MAINTENANCE.md#branch-and-deployment-handoff); a pushed branch is not proof of deployment. Preview staging adds `noindex` headers and must never be used for the production site.
 
 ## Contributing
 

@@ -37,7 +37,7 @@
 - `translations-frisian.cjs`: Applies additional Frisian translations to `fy/map.html`.
 - `audit-site.cjs`: Read-only audit for SEO/social metadata, JSON-LD syntax, image dimensions and alt text, local references, language parity, canonical sitemap URLs, shared asset versions and LLM discovery files.
 - `node --test audit-site.test.cjs`: Regression tests for the audit using temporary site copies (Node.js 20+). See MAINTENANCE.md for coverage and limitations.
-- `node --test maintenance.test.cjs`: CLI safety and preview staging checks. The Site quality GitHub workflow runs these with the audit tests on PRs and pushes to the working branch/main.
+- `node --test maintenance.test.cjs`: CLI safety, event archive and preview staging checks. The Site quality GitHub workflow runs these with the audit tests on PRs, pushes to `main`, and manual dispatch; feature-branch pushes alone do not trigger it.
 - `node prepare-preview.cjs`: Creates a fresh temporary public-file staging directory with preview-only noindex headers. Deploy that directory to the existing preview site; never deploy it to production.
 
 ## Source layout notes

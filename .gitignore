@@ -1,1 +1,14 @@
 .netlify/
+
+# Local credentials and environment settings (examples may be committed).
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Developer dependencies, browser reports and operating-system metadata.
+node_modules/
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db

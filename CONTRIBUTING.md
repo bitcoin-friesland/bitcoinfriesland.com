@@ -13,7 +13,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 
 ## Workflow
 
-1. Create a branch from `main`:
+1. Inspect existing branches and open PRs before starting. Normally create a branch from `main`; if continuing unmerged work, explicitly identify the parent branch and use it as the PR base so unrelated changes do not enter the review:
    - `feature/<short-description>` for new content/sections
    - `fix/<short-description>` for fixes
    - `docs/<short-description>` for documentation
@@ -21,14 +21,17 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 3. Test locally — no build step needed:
    ```sh
    node audit-site.cjs
-   node --test audit-site.test.cjs
-   python3 -m http.server 8000
+   node --test audit-site.test.cjs maintenance.test.cjs
+   node --check assets/main.js
+   git diff --check
+   python3 -m http.server 8000 --bind 127.0.0.1
    ```
    Open `http://localhost:8000/nl/`. The server runs until you press Ctrl+C; use a second terminal for further commands. Click through the pages you touched, in **all three languages**, on desktop and a narrow (mobile) viewport. Node.js 20+ is required for the checks; Python 3 is only used for this local server.
 4. Open a pull request with:
    - a clear title
    - what changed, on which pages, in which languages
    - screenshots for visual changes
+   - checks performed and what remains unverified (especially hosted forms or deployment)
 5. Wait for review. With several contributors (human and AI) active, keep PRs small and focused, and check open PRs before starting something big.
 
 ## Checklist for content changes
@@ -52,6 +55,14 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 
 - Logos/flags/icons: PNG with explicit width/height; wrap in `<picture>` only if WebP exists
 - Photos: width variants 320/480/640/960/1280 in WebP **and** JPEG, named `...-<width>.webp|jpg`, with `srcset` + `sizes`; fallback `src` = the 640 variant
+
+## Repository hygiene
+
+- Follow `.editorconfig` for new edits; do not reformat unrelated files or the compiled stylesheet.
+- Keep credentials, `.env` files, supporter records and browser reports out of Git. `.gitignore` is a convenience, not a security boundary; review `git diff --cached` before committing.
+- Use placeholder values only in committed `.env.example` files. Ignoring a file does not untrack it or remove it from history.
+- Keep changes focused and preserve other contributors' uncommitted work. Documentation-only edits do not need asset version or sitemap date changes.
+- Use the [optional browser suite](MAINTENANCE.md#supporter-flow-regression-tests) for interaction changes. CI currently runs the dependency-free checks, not Playwright.
 
 ## Questions?
 

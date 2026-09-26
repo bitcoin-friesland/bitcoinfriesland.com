@@ -23,7 +23,7 @@ Use Node.js 20 or newer. No dependency installation is necessary:
 
 ```sh
 node audit-site.cjs
-node --test audit-site.test.cjs
+node --test audit-site.test.cjs maintenance.test.cjs
 node --check assets/main.js
 git diff --check
 ```
@@ -35,12 +35,12 @@ The regression tests copy relevant site files into temporary directories and int
 ### What the audit does not prove
 
 - It uses targeted patterns for this site's HTML conventions, not a full HTML/XML parser. Metadata attribute order and double quotes matter to some checks.
-- It does not validate external URLs, fragment targets, `srcset` candidates, or the meaning of structured data.
+- It validates same-page fragment targets and duplicate IDs, but not fragment targets on other pages, external URLs, `srcset` candidates, or the meaning of structured data.
 - It does not exercise JavaScript, verify translation accuracy, or measure accessibility, performance or search ranking.
 - Root redirect and 404 pages are outside its language-page checks.
 - It does not verify deployed redirects, form delivery, payment status or any backend service.
 
-For visitor-facing changes, serve the root with `python3 -m http.server 8000`. Open the changed NL/EN/FY pages on desktop and mobile. Check navigation, language switching, keyboard focus and affected interactions. Local static serving does not reproduce hosted form processing.
+For visitor-facing changes, serve the root with `python3 -m http.server 8000 --bind 127.0.0.1`. Open the changed NL/EN/FY pages on desktop and mobile. Check navigation, language switching, keyboard focus and affected interactions. Local static serving does not reproduce hosted form processing. The server exposes repository files, so keep it bound to localhost and never use it as a public preview.
 
 ## Legacy editing scripts
 
@@ -54,6 +54,8 @@ For visitor-facing changes, serve the root with `python3 -m http.server 8000`. O
 Both maintenance helpers support `--help` and reject unknown or extra arguments with exit code 1. Their generated new-tab links include opener protection. Valid editing commands still write files and have no dry-run mode. Run the read-only audit after any use, then inspect the affected pages in a browser.
 
 ## Supporter flow regression tests
+
+Despite its original name, this suite also covers homepage scroll/skip links, responsive navigation focus, dropdown dismissal and business search. Keep this coverage when changing shared JavaScript.
 
 `supporter-flow.test.cjs` is an optional Playwright browser suite; Playwright is a development tool only, not a site dependency. With Playwright and its Chromium browser available in your development environment, run `node --test supporter-flow.test.cjs`. You can point `BROWSER_EXECUTABLE` at an installed Chrome/Chromium executable instead. The dependency-free audit tests remain separate.
 
@@ -81,7 +83,7 @@ After a human approves and publishes changes, a verified site owner can inspect 
 
 ## Branch and deployment handoff
 
-The `Site quality` GitHub Actions workflow runs the site audit, dependency-free regression tests and runtime syntax check on pull requests, pushes to main/the current working branch, and manual dispatch. It uses pinned action commits and read-only repository permissions. It does not deploy or test external services. Making its status a required merge check is a repository-owner setting.
+The [`Site quality` workflow](.github/workflows/site-quality.yml) runs the site audit, dependency-free regression tests and runtime syntax check on pull requests, pushes to `main`, and manual dispatch. Feature-branch pushes alone do not trigger it. It uses pinned action commits and read-only repository permissions. It does not run the optional Playwright suite, deploy or test external services. Making its status a required merge check is a repository-owner setting.
 
 For preview deployment, run `node prepare-preview.cjs` after the checks. It prints a new temporary directory containing only public site assets and pages, excluding repository metadata, scripts and contributor documentation. Deploy that directory to the existing `bitcoinfriesland-preview` site. Its `_headers` sets `X-Robots-Tag: noindex, nofollow` on every response; verify the deployed header with an HTTP request. The repository's production robots and metadata remain unchanged. Noindex prevents indexing, not access: never put secrets or personal data in a preview. This staging command is preview-only, not a production build requirement.
 
