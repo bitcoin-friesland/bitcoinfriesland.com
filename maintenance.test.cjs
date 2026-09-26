@@ -5,6 +5,21 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { preparePreview } = require('./prepare-preview.cjs');
 
+for (const locale of ['nl', 'en', 'fy']) {
+  test(`${locale}: finished conference is archived without expired ticket promotions`, () => {
+    const read = file => fs.readFileSync(path.join(__dirname, locale, file), 'utf8');
+    const meetings = read('meetings.html');
+    const upcoming = meetings.split('id="upcoming-events"')[1].split('id="past-events"')[0];
+    const past = meetings.split('id="past-events"')[1];
+    assert.doesNotMatch(upcoming, /Noderunners Conference|<h3/);
+    assert.match(past, /data-event-end="2026-09-19T18:00:00\+02:00"/);
+    assert.match(past, /Noderunners Conference 2026/);
+    for (const file of ['index.html', 'meetings.html', 'meetings.html.md']) {
+      assert.doesNotMatch(read(file), /conf2026\.noderunners\.network\/BITCOINFRIESLAND|nr-discount-tag|nr-promo-code/);
+    }
+  });
+}
+
 for (const script of ['maintain-pages.cjs', 'maintain-footer.cjs']) {
   test(`${script}: help and invalid arguments never run updates`, () => {
     const help = spawnSync(process.execPath, [path.join(__dirname, script), '--help'], { encoding: 'utf8' });

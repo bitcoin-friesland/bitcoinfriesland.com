@@ -4,11 +4,10 @@ Bitcoin Friesland organiseert en deelt laagdrempelige bijeenkomsten waar beginne
 
 ## Aankomend
 
-NodeRunners Conference 2026 vindt plaats op zaterdag 19 september 2026 van 11:00 tot 18:00 in de Koepelgevangenis Arnhem. De conferentie gaat over Bitcoin, mining, nodes, Lightning en Nostr. Met code `BITCOINFRIESLAND` krijgt de Bitcoin Friesland-community 10% korting zolang de actie geldig is.
-
-- Actuele pagina: https://bitcoinfriesland.com/nl/meetings.html
-- Tickets: https://conf2026.noderunners.network/BITCOINFRIESLAND
+Er staan momenteel geen aankomende evenementen op deze pagina.
 
 ## Afgelopen
+
+NodeRunners Conference 2026 vond plaats op 19 september 2026 van 11:00 tot 18:00 in de Koepelgevangenis Arnhem, met talks en workshops over Bitcoin, mining, nodes en Nostr.
 
 De Bitcoin Friesland BBQ "Meat the Resistance" vond plaats op vrijdag 14 augustus 2026 op Vliegveld Drachten.

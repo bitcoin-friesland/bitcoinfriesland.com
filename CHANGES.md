@@ -751,6 +751,11 @@ This release includes previously undeployed work from rounds 32–36; the live
 site and main branch remain unchanged. Deployment results are recorded separately.
 
 ## Maintenance notes
+### Event archive correction — 26 September 2026
+- Moved the 19 September NodeRunners conference into past events in Dutch, English and Frisian, with an explicit past label and archival description.
+- Removed expired homepage ticket promotions and conference discount controls.
+- Updated AI-readable summaries, sitemap dates and regression tests. No upcoming events are currently listed.
+
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
   have the real account addresses.

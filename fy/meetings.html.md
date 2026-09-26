@@ -4,11 +4,10 @@ Bitcoin Fryslân organisearret en dielt tagonklike gearkomsten dêr't begjinners
 
 ## Oankommend
 
-NodeRunners Conference 2026 is op sneon 19 septimber 2026 fan 11.00 oant 18.00 oere yn de Koepelgevangenis yn Arnhem. De konferinsje giet oer Bitcoin, mining, nodes, Lightning en Nostr. Mei koade `BITCOINFRIESLAND` krijt de Bitcoin Fryslân-mienskip 10% koarting salang't de aksje jildich is.
-
-- Aktuele side: https://bitcoinfriesland.com/fy/meetings.html
-- Tickets: https://conf2026.noderunners.network/BITCOINFRIESLAND
+Der steane op it stuit gjin kommende eveneminten op dizze side.
 
 ## Ôfrûn
+
+NodeRunners Conference 2026 wie op 19 septimber 2026 fan 11.00 oant 18.00 oere yn de Koepelgevangenis yn Arnhem, mei lêzingen en workshops oer Bitcoin, mining, nodes en Nostr.
 
 De Bitcoin Fryslân BBQ "Meat the Resistance" wie op freed 14 augustus 2026 op Vliegveld Drachten.

@@ -2,6 +2,7 @@
 # Language note: keep documentation and comments in English unless a user explicitly requests otherwise.
 
 ## Quick facts
+- Event listings were reviewed on 26 September 2026: NodeRunners Conference (19 September) and the BBQ (14 August) are past events in all locales. No upcoming events are currently listed. Keep static HTML, homepage promotions and meetings Markdown summaries synchronized when archiving events; there is no automatic date rollover.
 - Static multilingual site for Bitcoin Friesland; no build step required (serve HTML/CSS/JS directly). Root `index.html` redirects to Dutch `nl/`.
 - Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `support.html`, `treasure-hunt.html`.
 - Brand assets and optimized images live in `assets/images/`; logos/flags use `<picture>` with WebP + PNG fallbacks and explicit width/height.
