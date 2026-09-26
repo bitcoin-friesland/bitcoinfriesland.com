@@ -1,3 +1,10 @@
+# September 2026 maintenance
+
+- Added a read-only contributor-documentation check and a documentation maintenance guide.
+- Removed the unused legacy generator heart favicon. The existing Bitcoin Friesland
+  logo references in Dutch, English and Frisian pages are unchanged. Page content,
+  navigation and the risk-warning footers were not changed.
+
 # What changed and why (June 2026)
 
 A plain-language list of the improvements made to the website. Nothing was

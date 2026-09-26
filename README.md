@@ -162,3 +162,7 @@ Questions or ideas? Reach the community on [Telegram](https://t.me/bitcoinfriesl
 ---
 
 Made with 🧡 in Friesland.
+
+## Contributor and agent onboarding
+
+Start with [AGENTS.md](AGENTS.md) and the [source-linked starting guide](docs/AGENT-START.md). For a task transfer, use the [handoff template](docs/HANDOFF-TEMPLATE.md).
