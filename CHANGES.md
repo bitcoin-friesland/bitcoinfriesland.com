@@ -750,6 +750,16 @@ Updated shared asset versions, map summaries and maintenance documentation.
 This release includes previously undeployed work from rounds 32–36; the live
 site and main branch remain unchanged. Deployment results are recorded separately.
 
+## Round 38 (search and AI visibility audit)
+
+- **Every page now advertises the address the server actually serves.** The host redirects `/nl/about.html` to `/nl/about`, but canonical tags, language links, the sitemap, `llms.txt` and internal links all pointed at the `.html` form. Google received a canonical that redirected elsewhere. All of them now use the clean address, and the site audit fails if a `.html` address is advertised again.
+- **Search snippets rewritten.** Meta descriptions on the about, business, consumers, links, map, meetings and treasure-hunt pages (all three languages) are now 130-155 characters and describe what the page really contains. The treasure-hunt titles no longer invite people to join a hunt that has ended. The blog post and BBQ page titles were shortened so Google does not cut them off.
+- **A proper share image.** All 27 main pages shared a Thai-food event poster whose text was cut off in link previews. They now use a 1200x630 card with the logo and name. Width, height and type are declared so previews render immediately.
+- **More structured data.** Every main page now describes the website, the page and its breadcrumb trail. The organisation record gained a contact point, the GitHub organisation and topics. No search box markup was added because the site has no site-wide search.
+- **More for AI assistants.** Nine new Markdown summaries (about, consumers and business in three languages), a "Quick answers" block in `llms.txt`, and a new `llms-full.txt` that joins every summary in one file. `node maintain-llms-full.cjs` regenerates it and the audit fails when it goes stale.
+- **Headers and IndexNow.** A new `_headers` file adds security headers, long caching for versioned assets and correct types for the Markdown and text files. An IndexNow key file lets Bing (which feeds ChatGPT search) be told about changed pages after a deploy.
+- No design, colours or footer content changed for visitors.
+
 ## Maintenance notes
 ### Repository hygiene — 26 September 2026
 - Aligned contributor and maintenance checks with the actual CI workflow, including its trigger and browser-test limitations.

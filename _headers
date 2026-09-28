@@ -1,0 +1,29 @@
+# Security and caching headers. The same syntax works on Cloudflare Pages and Netlify.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), payment=()
+
+# main.js and enhancements.css are referenced with ?v=..., so a new version is a new URL.
+/assets/main.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/enhancements.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# styles.css and images are not versioned, so keep their caches short enough to pick up edits.
+/assets/styles.css
+  Cache-Control: public, max-age=86400
+/assets/images/*
+  Cache-Control: public, max-age=2592000
+
+# Machine-readable files: correct type and a short cache so updates reach AI crawlers quickly.
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=3600

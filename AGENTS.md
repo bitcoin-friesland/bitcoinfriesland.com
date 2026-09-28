@@ -38,6 +38,7 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 ## 4. Housekeeping duties (part of every content PR)
 
 - New public page → add it to `sitemap.xml` and `llms.txt`.
+- Every URL you write (canonical, hreflang, sitemap, JSON-LD, links) is the clean form without `.html`; the host redirects `.html`. Edited a `.html.md` summary? Run `node maintain-llms-full.cjs`.
 - New/changed event, offer or key page → update `llms.txt` (AI assistants read it).
 - User-facing or structural change → add a plain-language entry to `CHANGES.md` under the latest round (or start a new round).
 

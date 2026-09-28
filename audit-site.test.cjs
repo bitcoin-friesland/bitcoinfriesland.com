@@ -9,7 +9,7 @@ const { test } = require('node:test');
 function fixture(t) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bf-audit-'));
   t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
-  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'index.html', '404.html']) {
+  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html']) {
     fs.cpSync(path.join(__dirname, name), path.join(directory, name), { recursive: true });
   }
   // The audit only reads assets. Avoid copying image binaries for each test.
@@ -121,4 +121,23 @@ test('advertised URLs must be the clean form the host serves', (t) => {
   assert.match(result.output, /nl\/about.html: canonical must be the clean URL without .html/);
   assert.match(result.output, /nl\/about.html: og:url must equal the canonical URL/);
   assert.match(result.output, /nl\/about.html: internal link must use the clean URL without .html: map.html/);
+});
+
+test('llms-full.txt must be regenerated when a Markdown summary changes', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html.md', (markdown) => `${markdown}\nExtra regel.\n`);
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /llms-full.txt: out of date/);
+});
+
+test('search snippets must be unique and fit their limits', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/links.html', (html) => html
+    .replace(/<title>[^<]+<\/title>/, '<title>Bitcoin Bronnen en Links - Bitcoin Friesland en nog heel veel extra woorden die niet passen</title>')
+    .replace(/(<meta name="description" content=")[^"]+(")/, '$1Te kort$2'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/links.html: title is \d+ characters/);
+  assert.match(result.output, /nl\/links.html: meta description is 7 characters/);
 });

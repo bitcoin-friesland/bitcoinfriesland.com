@@ -83,7 +83,9 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
-├── llms.txt                  # LLM guide; core pages also have .html.md versions
+├── _headers                  # Security + caching headers (Cloudflare Pages / Netlify syntax)
+├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
+├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
 ├── CONTRIBUTING.md           # Contribution guide for humans
@@ -135,6 +137,8 @@ Already in place — keep them working when adding pages:
 - `robots.txt` — shared crawl directives that apply consistently to search crawlers
 - `llms.txt` — v2-compatible guide that AI agents can use to discover the clean Markdown versions of core pages
 - `*.html.md` — concise, navigation-free Markdown counterparts for the most important NL/EN/FY pages
+- `llms-full.txt` — all Markdown summaries in one file; regenerate with `node maintain-llms-full.cjs` after editing any `.html.md`
+- `_headers` — security and caching headers; serves `llms*.txt` and `.md` with the right type
 - `404.html` — branded not-found page
 
 Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.

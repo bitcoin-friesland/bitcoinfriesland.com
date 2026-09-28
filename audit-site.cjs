@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { buildLlmsFull } = require('./maintain-llms-full.cjs');
 
 const root = __dirname;
 const languages = ['nl', 'en', 'fy'];
@@ -57,6 +58,8 @@ function matchContent(source, attribute, value) {
 
 const pages = languages.flatMap((language) => walkHtml(path.join(root, language)));
 const canonicalToFile = new Map();
+const titles = new Map();
+const descriptions = new Map();
 const enhancementVersions = new Set();
 const scriptVersions = new Set();
 
@@ -70,6 +73,22 @@ for (const file of pages) {
   if (!title) report(file, 'missing or empty title');
   if (!description) report(file, 'missing meta description');
   if (robots !== 'index, follow, max-image-preview:large') report(file, 'unexpected robots preview policy');
+  if (title && title.length > 65) report(file, `title is ${title.length} characters; keep it under 65 so it is not truncated`);
+  if (description && (description.length < 90 || description.length > 160)) {
+    report(file, `meta description is ${description.length} characters; aim for 90-160`);
+  }
+  if (title) {
+    if (titles.has(title)) report(file, `title duplicates ${relative(titles.get(title))}`);
+    titles.set(title, file);
+  }
+  if (description) {
+    if (descriptions.has(description)) report(file, `meta description duplicates ${relative(descriptions.get(description))}`);
+    descriptions.set(description, file);
+  }
+  if (!/"@type":\s*"BreadcrumbList"/.test(source)) report(file, 'missing BreadcrumbList structured data');
+  for (const advertised of source.matchAll(/https:\/\/bitcoinfriesland\.com\/[^"\s<]*\.html(?![.\w])/gi)) {
+    report(file, `advertised URL must not end in .html: ${advertised[0]}`);
+  }
   if (!canonical) report(file, 'missing canonical URL');
   // The host 308-redirects *.html to the clean URL, so every advertised URL must already be the clean form.
   if (canonical && isCleanUrlViolation(canonical)) report(file, `canonical must be the clean URL without .html: ${canonical}`);
@@ -211,6 +230,14 @@ if (firstSection < 0) {
 }
 for (const match of llms.matchAll(/\]\(https:\/\/bitcoinfriesland\.com\/([^\s)]+\.md)\)/g)) {
   if (!fs.existsSync(path.join(root, match[1]))) errors.push(`llms.txt: missing linked Markdown file ${match[1]}`);
+}
+
+if (!llms.includes('https://bitcoinfriesland.com/llms-full.txt')) errors.push('llms.txt: missing link to llms-full.txt');
+const llmsFullPath = path.join(root, 'llms-full.txt');
+if (!isFile(llmsFullPath)) {
+  errors.push('llms-full.txt: missing (run node maintain-llms-full.cjs)');
+} else if (fs.readFileSync(llmsFullPath, 'utf8') !== buildLlmsFull(root)) {
+  errors.push('llms-full.txt: out of date with the .html.md files (run node maintain-llms-full.cjs)');
 }
 
 const robotsTxt = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');

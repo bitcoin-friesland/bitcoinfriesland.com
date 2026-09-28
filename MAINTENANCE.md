@@ -83,6 +83,14 @@ Use `https://bitcoinfriesland.com/#organization` for every structured-data refer
 
 Prioritize useful, verifiable local information: actual meetup reports, organizer links, accurate business listings and clear contact/correction routes. Never fabricate reviews, authors, verification dates or first-hand experience. Keep Markdown summaries subordinate to the visible HTML and update both when facts change. `llms.txt` is an optional discovery aid, not a ranking promise; [Google explicitly says it does not use it for Search visibility](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
+Search snippets: keep titles under 65 characters and descriptions at 90-160, unique per page; the audit enforces both. Every page needs a `BreadcrumbList`. Do not add `SearchAction` markup unless the site gains a real site-wide search (the map filter only filters one list). Share cards use `assets/images/bitcoin-friesland-og-1200x630.jpg` (1200x630); pages with their own photo should keep declaring `og:image:width`/`height`.
+
+IndexNow: the key file `0655de585572012ffeb84d2c23e0bdf2.txt` in the repository root proves ownership. After a human deploys changed pages, notify Bing and other participating engines (Google ignores IndexNow) with one request listing the changed clean URLs:
+
+```bash
+curl -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d '{"host":"bitcoinfriesland.com","key":"0655de585572012ffeb84d2c23e0bdf2","keyLocation":"https://bitcoinfriesland.com/0655de585572012ffeb84d2c23e0bdf2.txt","urlList":["https://bitcoinfriesland.com/nl/","https://bitcoinfriesland.com/llms.txt"]}'
+```
+
 After a human approves and publishes changes, a verified site owner can inspect indexing in Search Console and review URL citations in [Bing Webmaster Tools AI Performance](https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview). Record a baseline and compare the same date ranges, URLs and queries over time. Track citations and useful visits separately; audit passes do not demonstrate increased AI visibility. Account verification, reporting access and real-world business/event facts require the maintainers; this repository cannot establish them automatically.
 
 ## Branch and deployment handoff
