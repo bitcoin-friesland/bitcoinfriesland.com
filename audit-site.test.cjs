@@ -110,3 +110,15 @@ test('new-tab links retain opener protection', (t) => {
   assert.equal(result.status, 1);
   assert.match(result.output, /new-tab link must include/);
 });
+
+test('advertised URLs must be the clean form the host serves', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html
+    .replace('<link rel="canonical" href="https://bitcoinfriesland.com/nl/about">', '<link rel="canonical" href="https://bitcoinfriesland.com/nl/about.html">')
+    .replace('</body>', '<a href="map.html">Map</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/about.html: canonical must be the clean URL without .html/);
+  assert.match(result.output, /nl\/about.html: og:url must equal the canonical URL/);
+  assert.match(result.output, /nl\/about.html: internal link must use the clean URL without .html: map.html/);
+});

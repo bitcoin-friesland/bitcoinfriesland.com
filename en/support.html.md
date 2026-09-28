@@ -15,5 +15,5 @@ The popup collects a name, required email address, Telegram and/or Signal userna
 
 A contribution does not buy influence, exclusivity, endorsement or editorial control.
 
-- Apply: https://bitcoinfriesland.com/en/support.html
+- Apply: https://bitcoinfriesland.com/en/support
 - Contact: info@bitcoinfriesland.com

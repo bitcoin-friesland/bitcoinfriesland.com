@@ -12,5 +12,5 @@ De Bitcoinkaart helpt besikers om plakken yn Fryslân te finen dêr't Bitcoin of
 
 In fermelding betsjut dat de lokaasje Bitcoin akseptearret of akseptearre hat; it is gjin oanbefelling fan it bedriuw of produkt.
 
-- Aktuele kaart: https://bitcoinfriesland.com/fy/map.html
+- Aktuele kaart: https://bitcoinfriesland.com/fy/map
 - Kontakt: info@bitcoinfriesland.com

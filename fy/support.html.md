@@ -15,5 +15,5 @@ De popup freget om namme, ferplicht e-mailadres, Telegram- en/of Signal-brûkers
 
 In bydrage keapet gjin ynfloed, eksklusiviteit, oanbefelling of ynhâldlike kontrôle.
 
-- Oanfreegje: https://bitcoinfriesland.com/fy/support.html
+- Oanfreegje: https://bitcoinfriesland.com/fy/support
 - Kontakt: info@bitcoinfriesland.com

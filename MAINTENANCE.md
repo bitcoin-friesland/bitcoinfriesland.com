@@ -73,6 +73,10 @@ Verification for this change: local Chromium tests at 390px and 1300px passed fo
 
 Remaining font bottleneck: HTML loads Inter from Google Fonts, and compiled `assets/styles.css` also imports a different Inter weight set. The compiled file is protected by repository rules. Removing that import or regenerating the stylesheet needs an explicitly approved workflow; do not silently edit the compiled file or drop the 800 weight used by headings. [Font-loading guidance](https://web.dev/articles/font-best-practices) explains the tradeoffs. Compare cold-cache mobile runs and field data after deployment before claiming a timing or score improvement.
 
+## URL convention
+
+The production host serves every page at its clean URL and answers `*.html` requests with a 308 redirect (`/nl/about.html` → `/nl/about`, `/nl/index.html` → `/nl/`). Files stay named `about.html`, but everything a crawler can read must use the clean form: canonical, `og:url`, `hreflang`, JSON-LD `url`/`@id`, `sitemap.xml`, `llms.txt`, Markdown summaries, the RSS feed and internal `<a href>` links. Home pages are `/nl/`, `/en/`, `/fy/` and the blog list is `/nl/blog/`. Pointing signals at a URL that redirects splits them across two addresses and sends crawlers through a redirect on every visit. `node audit-site.cjs` fails on any advertised `.html` URL. Serve locally with `npx serve .`, which resolves clean URLs; `python3 -m http.server` does not.
+
 ## Search and AI visibility
 
 Use `https://bitcoinfriesland.com/#organization` for every structured-data reference to the community, including article authors/publishers and event organizers. The organization homepage is `https://bitcoinfriesland.com/`; individual page canonicals remain language-specific. Do not attach this identity to external event organizers. Organization descriptions should describe the community, not the page's subject. The site audit guards the shared identifier and homepage.

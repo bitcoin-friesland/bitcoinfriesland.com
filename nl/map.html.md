@@ -12,5 +12,5 @@ De Bitcoin Kaart helpt bezoekers locaties in Friesland te vinden waar Bitcoin of
 
 Een vermelding betekent dat de locatie Bitcoin accepteert of heeft geaccepteerd; het is geen inhoudelijke aanbeveling van het bedrijf of product.
 
-- Actuele kaart: https://bitcoinfriesland.com/nl/map.html
+- Actuele kaart: https://bitcoinfriesland.com/nl/map
 - Contact: info@bitcoinfriesland.com

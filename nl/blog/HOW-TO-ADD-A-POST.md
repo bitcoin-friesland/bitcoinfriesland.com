@@ -14,7 +14,9 @@ Short and simple. No coding needed beyond copy, paste and edit text.
    - the `<title>` text
    - the `description` text
    - every place that has the old file name in a web address, change it to your
-     new file name (there are a few: canonical, og:url, and the data block)
+     new file name (there are a few: canonical, og:url, and the data block).
+     Web addresses never end in `.html`: the file `my-post.html` is published as
+     `https://bitcoinfriesland.com/nl/blog/my-post`
    - the date in two spots: `article:published_time` and, lower down, the
      `datePublished` and `dateModified` lines
 
@@ -25,7 +27,8 @@ Short and simple. No coding needed beyond copy, paste and edit text.
 4. **Add the post to the list page.** Open `index.html` in this folder, copy the
    block that sits between `<!-- POST CARD -->` and `<!-- END POST CARD -->`,
    paste it directly above the existing one (newest post on top), and change the
-   title, date, summary and the link to point at your new file name.
+   title, date, summary and the link to point at your new file name (without
+   `.html`).
 
 5. **Add it to the feed and the sitemap** (helps Google and RSS readers):
    - In `rss.xml` (this folder), copy one `<item>...</item>` block, paste it as

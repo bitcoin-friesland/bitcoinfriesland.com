@@ -29,6 +29,10 @@ function checkCommunityIdentity(node, file) {
   for (const child of Object.values(node)) checkCommunityIdentity(child, file);
 }
 
+function isCleanUrlViolation(url) {
+  return /\.html(?:$|[?#])/i.test(url) || /\/index(?:$|[?#])/i.test(url);
+}
+
 function walkHtml(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const absolute = path.join(directory, entry.name);
@@ -67,6 +71,12 @@ for (const file of pages) {
   if (!description) report(file, 'missing meta description');
   if (robots !== 'index, follow, max-image-preview:large') report(file, 'unexpected robots preview policy');
   if (!canonical) report(file, 'missing canonical URL');
+  // The host 308-redirects *.html to the clean URL, so every advertised URL must already be the clean form.
+  if (canonical && isCleanUrlViolation(canonical)) report(file, `canonical must be the clean URL without .html: ${canonical}`);
+  if (canonical && matchContent(source, 'property', 'og:url') !== canonical) report(file, 'og:url must equal the canonical URL');
+  for (const alternate of source.matchAll(/hreflang="[^"]+"\s+href="([^"]+)"/gi)) {
+    if (isCleanUrlViolation(alternate[1])) report(file, `hreflang must use the clean URL without .html: ${alternate[1]}`);
+  }
   if (!source.includes('rel="describedby" href="https://bitcoinfriesland.com/llms.txt"')) report(file, 'missing llms.txt discovery link');
 
   for (const property of ['og:title', 'og:description', 'og:url', 'og:image', 'og:image:alt']) {
@@ -108,6 +118,7 @@ for (const file of pages) {
     if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
     const cleanValue = value.split('#')[0].split('?')[0];
     if (!cleanValue) continue;
+    if (/\.html$/i.test(cleanValue)) report(file, `internal link must use the clean URL without .html: ${value}`);
     let decoded;
     try {
       decoded = decodeURIComponent(cleanValue);
@@ -183,6 +194,7 @@ const sitemapEntries = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)
 const sitemapUrls = new Set(sitemapEntries);
 if (sitemapUrls.size !== sitemapEntries.length) errors.push('sitemap.xml: duplicate URL entries');
 const canonicalUrls = new Set(canonicalToFile.keys());
+for (const url of sitemapUrls) if (isCleanUrlViolation(url)) errors.push(`sitemap.xml: URL must be the clean form without .html: ${url}`);
 for (const url of canonicalUrls) if (!sitemapUrls.has(url)) errors.push(`sitemap.xml: missing canonical ${url}`);
 for (const url of sitemapUrls) if (!canonicalUrls.has(url)) errors.push(`sitemap.xml: non-canonical or unknown URL ${url}`);
 

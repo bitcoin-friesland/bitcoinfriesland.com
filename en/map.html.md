@@ -12,5 +12,5 @@ The Bitcoin Map helps visitors find places in Friesland where Bitcoin or Lightni
 
 A listing means that the location accepts or has accepted Bitcoin; it is not an endorsement of the business or its products.
 
-- Current map: https://bitcoinfriesland.com/en/map.html
+- Current map: https://bitcoinfriesland.com/en/map
 - Contact: info@bitcoinfriesland.com

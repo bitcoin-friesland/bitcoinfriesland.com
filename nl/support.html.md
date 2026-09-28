@@ -15,5 +15,5 @@ De popup verzamelt naam, verplicht e-mailadres, Telegram- en/of Signal-gebruiker
 
 Een bijdrage koopt geen invloed, exclusiviteit, aanbeveling of inhoudelijke controle.
 
-- Aanvragen: https://bitcoinfriesland.com/nl/support.html
+- Aanvragen: https://bitcoinfriesland.com/nl/support
 - Contact: info@bitcoinfriesland.com
