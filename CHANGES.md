@@ -761,6 +761,11 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - No design, colours or footer content changed for visitors.
 
 ## Maintenance notes
+### Support forms on Cloudflare Pages - 28 September 2026
+- The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
+- Visitors only see "received" after Telegram accepted the message; otherwise they get an error page with the e-mail address. Spam is limited by the honeypot, a same-site check and length caps.
+- One-time setup (bot token and chat id in Cloudflare) is described in MAINTENANCE.md. Until it is done, the forms show the error page instead of a false confirmation. No visible design or copy changes.
+
 ### Repository hygiene — 26 September 2026
 - Aligned contributor and maintenance checks with the actual CI workflow, including its trigger and browser-test limitations.
 - Corrected footer-helper and fragment-audit guidance; documented local-only serving, stacked branches and preview/production boundaries.

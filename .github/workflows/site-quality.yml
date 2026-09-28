@@ -19,5 +19,5 @@ jobs:
           node-version: '22'
           package-manager-cache: false
       - run: node audit-site.cjs
-      - run: node --test audit-site.test.cjs maintenance.test.cjs
+      - run: node --test audit-site.test.cjs maintenance.test.cjs forms-function.test.cjs
       - run: node --check assets/main.js

@@ -23,7 +23,7 @@ Use Node.js 20 or newer. No dependency installation is necessary:
 
 ```sh
 node audit-site.cjs
-node --test audit-site.test.cjs maintenance.test.cjs
+node --test audit-site.test.cjs maintenance.test.cjs forms-function.test.cjs
 node --check assets/main.js
 git diff --check
 ```
@@ -62,6 +62,25 @@ Despite its original name, this suite also covers homepage scroll/skip links, re
 The suite intercepts all network requests, serves local fixture files and prevents real submissions. It tests Enter navigation, required email and chat contact, whitespace-only names/addresses, missing preferences, switching delivery methods and pickup payloads in all three languages. It does not prove Netlify delivery, payment success or backend activation. Keep the static form names, honeypot and declared inputs intact for Netlify detection.
 
 It also covers successful postal submissions, back-and-edit review updates and localized busy states for both forms. When changing the flow, keep `advanceStep` as the single next-step path for buttons and Enter. Required-field normalization and focus belong in `validateFields`; submission presentation belongs in `markFormSubmitting`. Business validation stays in the individual form handlers. No framework, build pipeline or production dependency is needed for this separation.
+
+## Support forms (Cloudflare Pages Function)
+
+The site is hosted on Cloudflare Pages, which does not process HTML forms by itself. Both support forms (`support-interest` and `supporter-signup`, in nl/en/fy) post as ordinary HTML forms to `/nl/support`, `/en/support` and `/fy/support`. The Pages Function in `functions/[lang]/support.js` validates the submission, sends it to a private Telegram chat and redirects back to the page, which shows the confirmation. Without the function those URLs answer 405 and submissions are lost.
+
+One-time setup by a maintainer (nothing is stored in this public repository):
+
+1. In Telegram, create a bot with [@BotFather](https://t.me/BotFather) and copy its token. Add the bot to a **private** chat or group that only maintainers can read; submissions contain names, e-mail addresses and sometimes postal addresses. For a forum group, note the topic id as well.
+2. In Cloudflare: Workers & Pages > `bitcoinfriesland-com` > Settings > Variables and Secrets, for **Production** and **Preview**, add `TELEGRAM_BOT_TOKEN` (type Secret) and `TELEGRAM_CHAT_ID` (for a group this is a negative number such as `-100...`). Optional: `TELEGRAM_THREAD_ID`.
+3. Redeploy, then submit both forms once on the live site and confirm two messages arrive. Repeat after changing the token, the chat or the forms.
+
+Behaviour that keeps it dependable:
+
+- A visitor only sees the confirmation after Telegram accepted the message. If the variables are missing, the token is revoked or Telegram is down, the visitor gets a clear error page with `info@bitcoinfriesland.com` instead of a false success; Cloudflare logs record `support form: ...` lines (never submitted values). Check those logs when nobody has received a request for a while.
+- Temporary Telegram failures are retried once. Bad tokens are not.
+- The hidden `bot-field` honeypot, a same-site `Origin` check, a body-size limit and per-field length caps reduce spam. If spam still reaches the chat, add a Cloudflare rate-limiting rule for POST `/*/support` or Turnstile.
+- Nothing is stored. Telegram is the only copy, so keep the chat history and do not delete the bot.
+
+`forms-function.test.cjs` covers the function and, for all three languages, checks that every form field, action and hidden `form-name` still matches what the function accepts. Rename a field or change an action in the HTML and the function together. To try it locally with the real Pages runtime: `npx wrangler pages dev . --binding TELEGRAM_BOT_TOKEN=x --binding TELEGRAM_CHAT_ID=1 --binding TELEGRAM_API_BASE=http://127.0.0.1:9999` with a mock server on port 9999 (`TELEGRAM_API_BASE` exists only for this).
 
 ## Loading and runtime performance
 

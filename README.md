@@ -83,6 +83,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
+├── functions/                # Cloudflare Pages Function that receives the support forms (Telegram)
 ├── _headers                  # Security + caching headers (Cloudflare Pages / Netlify syntax)
 ├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
 ├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
@@ -143,7 +144,7 @@ Already in place — keep them working when adding pages:
 
 Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.
 
-Run `node --test audit-site.test.cjs maintenance.test.cjs` for the dependency-free regression suite. See [MAINTENANCE.md](MAINTENANCE.md#verification) for the full checks and optional browser tests; these checks do not replace browser testing.
+Run `node --test audit-site.test.cjs maintenance.test.cjs forms-function.test.cjs` for the dependency-free regression suite. See [MAINTENANCE.md](MAINTENANCE.md#verification) for the full checks and optional browser tests; these checks do not replace browser testing.
 
 ## Maintenance scripts
 
