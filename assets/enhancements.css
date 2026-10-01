@@ -2678,3 +2678,6 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st-quote figcaption strong { background: var(--st-ink); color: #fff; border-radius: 999px; padding: 0.4rem 0.9rem; font: 700 0.95rem Inter, sans-serif; transform: rotate(-1.5deg); }
 .st-quote figcaption span { font-size: 0.95rem; color: #3f3f46; }
 .st-ctas > .st-step-label { align-self: center; }
+.st-credit { display: inline-block; margin-left: 0.35rem; }
+.st-credit a { color: var(--st-ink) !important; font-weight: 700; text-decoration: underline; text-decoration-color: var(--st-orange); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.st-credit a:hover { color: #d9480f !important; }
