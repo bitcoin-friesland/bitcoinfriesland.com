@@ -31,3 +31,6 @@
 /site.webmanifest
   Content-Type: application/manifest+json
   Cache-Control: public, max-age=86400
+
+/BingSiteAuth.xml
+  Content-Type: application/xml; charset=utf-8

@@ -895,6 +895,12 @@ at 2 a.m.
 - **Disclaimers with a wink.** Same legal message (prices swing, lose your keys and it is gone, no deposit guarantee, no financial advice), but written by humans: "soms richting de maan, soms richting de kelder" and "We zijn Friese Bitcoiners, geen beleggingsadviseurs".
 - **New favicon set.** The mascot as a proper sticker on an orange tile, with a die-cut white edge, crisp from 16 pixels up, plus home-screen icons and a web app manifest.
 
+## Round 42: Knocking on Google's and Bing's door (October 2026)
+
+- **Search engines get an invitation.** The site is registered in Google Search Console and carries the Bing Webmaster verification code (meta tag plus `BingSiteAuth.xml`). After deploys, every page is pushed to Bing and other IndexNow engines in one go.
+- **Fresh sitemap dates.** All 39 pages report 2 October 2026 as last change, so crawlers know everything is worth another look.
+- **More facts for AI assistants.** `llms.txt` now states the map numbers (43 places in 20 towns, 14 in Sneek), that listing will become paid, the Noderunners origin, the Nostr and X accounts, how often meetups happen and where the sats calculator lives. Fewer chances for a chatbot to make things up about us.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
