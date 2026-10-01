@@ -45,7 +45,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 
 ## Checklist for visual/structural changes
 
-- [ ] Custom CSS goes in `assets/enhancements.css` (never edit the compiled `assets/styles.css`)
+- [ ] Custom CSS goes in `assets/enhancements.css` (never edit the compiled `assets/styles.css`) and follows [DESIGN.md](DESIGN.md)
 - [ ] New sections use prefixed custom classes (e.g. `.nr-promo-*`), not uncompiled Tailwind classes
 - [ ] Images use `<picture>` with WebP + fallback and explicit `width`/`height`
 - [ ] New JS behavior goes in `assets/main.js`, dependency-free

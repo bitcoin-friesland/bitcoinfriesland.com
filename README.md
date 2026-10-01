@@ -30,7 +30,9 @@ Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin buil
 | `AGENTS.md` | **AI assistants** | Canonical rules for AI coding agents (read first) |
 | `AI_CONTEXT.md` | AI assistants | Deep site internals: runtime behavior, content patterns, scripts |
 | `.github/copilot-instructions.md` | GitHub Copilot | Auto-loaded Copilot context (short version of AGENTS.md) |
+| `DESIGN.md` | Everyone who touches the look | The sticker design system: tokens, components, widgets, rules |
 | `CHANGES.md` | Everyone | Plain-language changelog of every improvement round |
+| `BACKLOG.md` | Everyone | Ideas parked for later |
 | `llms.txt` | LLM agents | v2-compatible site guide with links to clean Markdown content |
 
 ---
@@ -57,8 +59,9 @@ Deliberately boring — no build step, no framework, no dependencies:
 | Markup | Hand-written HTML5, one file per page per language |
 | Styling | `assets/styles.css` (compiled Tailwind output) + `assets/enhancements.css` (custom polish layer) |
 | Behavior | `assets/main.js` (vanilla JS, no bundler) |
-| Fonts | Inter via Google Fonts |
+| Fonts | Bricolage Grotesque (headings) + Inter (body) via Google Fonts |
 | Images | `<picture>` with WebP + fallback, explicit width/height |
+| Hosting | Cloudflare Pages (clean URLs, `_headers`, one Pages Function for the forms) |
 
 ## Repository structure
 
@@ -73,7 +76,9 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── business.html         #   For businesses
 │   ├── links.html            #   Resources & links
 │   ├── about.html            #   About the community
-│   ├── support.html          #   Supporters, donations & shop preparation
+│   ├── support.html          #   Supporters (in preparation), waitlist & feedback
+│   ├── what-is-bitcoin.html  #   Beginner explanation + glossary
+│   ├── sats-calculator.html  #   Sats ↔ EUR/USD calculator
 │   └── treasure-hunt.html    #   Treasure hunt
 ├── nl/blog/                  # Dutch blog (+ HOW-TO-ADD-A-POST.md, RSS)
 ├── nl/evenementen/           # Dedicated Dutch event pages
@@ -84,13 +89,15 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
 ├── functions/                # Cloudflare Pages Function that receives the support forms (Telegram)
-├── _headers                  # Security + caching headers (Cloudflare Pages / Netlify syntax)
+├── _headers                  # Security + caching headers (Cloudflare Pages)
 ├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
 ├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
 ├── CONTRIBUTING.md           # Contribution guide for humans
+├── DESIGN.md                 # Sticker design system rulebook
 ├── CHANGES.md                # Plain-language changelog ("rounds")
+├── BACKLOG.md                # Ideas for later
 ├── .github/
 │   └── copilot-instructions.md  # Auto-loaded GitHub Copilot context
 └── maintain-*.cjs / translations-*.cjs  # Node maintenance scripts (no deps)
@@ -120,13 +127,13 @@ This is the most important convention in the repo:
 ## Styling system
 
 - **`assets/styles.css`** is compiled Tailwind output. Do not hand-edit it, and do not rely on Tailwind classes that are not already used somewhere on the site — unused classes do not exist in the compiled file.
-- **`assets/enhancements.css`** is the hand-written layer loaded after it. All custom styling goes here, at the bottom, in a commented block. It is additive only: removing the file + its `<link>` reverts the site to the base look.
-- Brand colors: `--bf-blue: #0066cc` (Frisian flag blue), `--bf-orange: #f97316` (Bitcoin orange), `--bf-red: #ea384c`.
-- New, self-contained sections should use **prefixed custom classes** (e.g. `.nr-promo-*`) in `enhancements.css` so they render identically everywhere without depending on the compiled Tailwind set.
+- **`assets/enhancements.css`** is the hand-written layer loaded after it. All custom styling goes here. The current look is the **sticker design system** (ink outlines, hard shadows, flat brand colours), a block at the bottom scoped to `body.st`.
+- **Read [DESIGN.md](DESIGN.md) before changing anything visual.** It lists the tokens (`--st-ink`, `--st-orange`, `--st-blue`, `--st-yellow`, ...), every `st-*` component, the contrast rules and the cache-busting routine.
+- No emojis on the site; use inline SVG line icons (`class="st-icon"`).
 
 ## Runtime behavior (JS)
 
-All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, copy-to-clipboard helpers, and supporter-form feedback. Keep new behavior here, dependency-free.
+All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, copy-to-clipboard helpers, form feedback, the sats calculator, the live block height in the footer, the quote of the day and the Nostr follow card. Live widgets use public APIs with a fallback and degrade silently when offline (details in [DESIGN.md](DESIGN.md#5-live-widgets-assetsmainjs)). Keep new behavior here, dependency-free.
 
 ## SEO, social & LLM assets
 
@@ -164,7 +171,9 @@ Editing scripts are historical text replacements, not a build pipeline. Run them
 
 The site is static and served as-is. **Pushing to `main` publishes the site.** Because of that, all changes go through a branch + pull request (see [CONTRIBUTING.md](CONTRIBUTING.md)); `main` is live.
 
-The Netlify preview is separate from production. Follow the [preview handoff instructions](MAINTENANCE.md#branch-and-deployment-handoff); a pushed branch is not proof of deployment. Preview staging adds `noindex` headers and must never be used for the production site.
+Hosting is **Cloudflare Pages**. Every pushed branch gets its own preview at `https://<branch-name>.bitcoinfriesland-com.pages.dev` (the branch name is shortened by Cloudflare); the link also appears as a check on the pull request. Follow the [preview handoff instructions](MAINTENANCE.md#branch-and-deployment-handoff); a pushed branch is not proof of deployment.
+
+The support forms post to a Pages Function (`functions/[lang]/support.js`) that forwards each request to a private Telegram chat. It needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in Cloudflare Pages > Settings > Variables and Secrets; until they are set, visitors get a polite error page with the e-mail address instead of a fake confirmation.
 
 ## Contributing
 

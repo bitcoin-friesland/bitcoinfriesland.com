@@ -760,31 +760,126 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Headers and IndexNow.** A new `_headers` file adds security headers, long caching for versioned assets and correct types for the Markdown and text files. An IndexNow key file lets Bing (which feeds ChatGPT search) be told about changed pages after a deploy.
 - No design, colours or footer content changed for visitors.
 
-## Round 39 (sticker design across the whole site)
+## Round 39: The Sticker Glow-Up (October 2026)
 
-- **New look on every page, in all three languages.** Thick black outlines, hard offset shadows and flat brand colours, inspired by the "Betaal hier met Bitcoin" stickers the community hands out. Headings use Bricolage Grotesque; body text stays Inter. Navigation, buttons, cards, FAQ, forms, the business table and the supporter dialog all follow the same rules. The footer is now a dark backing sheet; the risk warning and GitHub link are unchanged.
-- **Homepage hero: "Bitcoin in Friesland? Gewoon dwaan."** The slogan from the community flyer, with the mascot and stickers (Lightning, Fryslân, "Betaal hier met Bitcoin", 21 stickers for supporters).
-- **Meetings page:** a sticker wall of real meetup posters from Leeuwarden, Harlingen, Drachten and Heerenveen.
-- **Map page:** a Fryslân map with a dot for every town on the business list (OpenStreetMap coordinates, province outline from CBS/PDOK open data) and live counts (43 places, 20 towns). A test fails when the list changes and the hero is not updated.
-- **Other pages** get a matching sticker header with their existing title and introduction. Fixed the "W. Terschellng" typo in the business list.
-- **Second pass after review.** The remaining old-style buttons, soft shadows, gradient panels, tinted boxes and notes on every page now follow the sticker rules; an automated check over all 30 pages found none left. The footer is a light sticker panel that mirrors the hero, with the risk warning as a calm white card and a small warning label. Emojis are replaced by line icons.
-- **Supporter programme marked as "in preparation".** Payment and organisation are not in place yet, so the three-step signup popup is off the pages. The support page now offers a waitlist and a feedback option through the existing form (sent to Telegram), and no longer suggests anyone can pay today. `llms.txt` and the Markdown summaries say the same.
-- Removed the outdated "Speur mee in Sneek" promo from the Dutch consumer page; that treasure hunt has ended.
-- **New beginner page "Wat is Bitcoin?"** (`/nl/what-is-bitcoin`, also in English and Frisian): plain-language explanation, a glossary, a short history and next steps, with FAQ structured data. Linked from the homepage card and FAQ and from the consumer page; listed in the sitemap and `llms.txt`.
-- **Business page explains what's in it for a business:** new customers, a spot on the map with stickers, word of mouth, low fees, instant and final payments, starting small. Removed Restaurant Kreta as an example; it is no longer on the map.
-- **Readability fixes:** the Telegram bands, dark buttons and the orange wordmark now meet contrast; an automated contrast check over all pages found no unreadable text left. The blurry news image (a 128-pixel thumbnail stretched to 640) is replaced by a sharp 1600x840 cover.
-- **New favicon.** The root `favicon.ico` was still the white heart from the original site builder; browsers and Google show that file in tabs, bookmarks and results. It is now the mascot on an orange tile, with 192px and Apple touch icons, linked from every page. The heart shapes in eyebrows, the footer line and the Fryslân sticker are gone (the sticker shows the Frisian flag).
-- **Consumer page rebuilt as a 1-2-3 guide** (all three languages): pick a wallet (easy custodial start or holding your own keys), buy your first sats (Strike, wave.space, Bitonic), pay and meet; then long-term saving with hardware wallets, converting back to euros and a help band. Same facts and links as before, much easier to follow.
-- **Business page rebuilt:** a clear hero, the reasons to accept Bitcoin, "In 4 stappen" with Coinos, a comparison of Coinos, Wallet of Satoshi and BTCPay Server, a "Je bent niet de eerste" map band and the existing FAQ.
-- **Sats calculator** (`/nl/sats-calculator`, also English and Frisian): converts sats to euros or dollars and back with the live price from mempool.space (CoinGecko as fallback), quick buttons such as 21 euro, and an explanation of sats. Linked under Tools on the links page.
-- **Live block height in the footer** (mempool.space, Blockstream as fallback, checked every minute) and a "Gestart door twee Noderunners" badge with their logo and a followed link on every page; the about pages tell the same story in a short section.
-- **Quote of the day** on the homepage: a different original quote every day from Satoshi Nakamoto, Hal Finney, Eric Hughes, Tim May, Nick Szabo or Wei Dai, always with source and date.
-- **Corrections:** Wallet of Satoshi is described as self-custodial (and the easiest start); "gratis op de kaart" is gone because listing on the map will become paid. Removed the defunct Sat.trading link, fixed two outdated business links on the map and removed the dead Comfrey Computers website link.
-- **Footer credit line:** "Webdesign door StudioFab.nl" on every page (followed link). The "Fork mij op Github" link left the map-page footers; the source code stays linked from the About pages, and the contributor rules now name the credit line instead of the GitHub link.
-- **Three new guides** in the news section (now four): "Bitcoin veilig bewaren", "Betalen met Lightning" and "Bitcoin accepteren in je zaak", each with a sticker-style cover, listed in the RSS feed, sitemap and `llms.txt`.
-- **Long-term saving** on the consumer page now also lists Bitkey and Blockstream Jade next to Trezor and BitBox.
-- **Lightning Checkout** added as a fourth option for businesses (browser till app, WooCommerce plugin, daily payouts), on the business page, in the business guide and in the summaries.
-- Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
+> *In which a perfectly decent website looks in the mirror, sees a 2019
+> template with soft gradients and a heart-shaped favicon from its previous
+> owner, and decides it is time for a haircut.*
+
+The community hands out "Betaal hier met Bitcoin" stickers: thick black
+outlines, flat colours, a mascot sticking its tongue out. They are loud,
+friendly and impossible to miss. The website was none of those things. It is
+now. Every page, all three languages, one design language. The full rulebook
+lives in [DESIGN.md](DESIGN.md) so nobody has to reverse-engineer it from CSS
+at 2 a.m.
+
+### The look
+
+- **Everything got outlines and hard shadows.** Navigation, buttons, cards,
+  FAQ, forms, the business table and dialogs now look like stickers someone
+  slapped on a laptop lid. Headings use Bricolage Grotesque, body text stays
+  Inter. Soft blurry shadows were escorted out of the building.
+- **Homepage hero: "Bitcoin in Friesland? Gewoon dwaan."** The slogan from
+  the community flyer, the mascot, and a little pile of stickers (Lightning,
+  Fryslân flag, "Betaal hier met Bitcoin", 21 stickers for supporters).
+- **Meetings page:** a poster wall of real meetup posters from Leeuwarden,
+  Harlingen, Drachten and Heerenveen. Now in high resolution, because
+  pixelated posters are a crime against graphic designers.
+- **Map page:** a hand-drawn-looking map of Fryslân with a dot for every town
+  on the business list (OpenStreetMap coordinates, province outline from
+  CBS/PDOK open data) and live counts. If someone adds a business and forgets
+  the map, a test fails and tells on them.
+- **Other pages** get a matching sticker header. The "W. Terschellng" typo was
+  found and given its missing vowel back.
+- **Emojis are retired.** They were replaced by proper line icons. The emojis
+  have been informed and are taking it well.
+- **New favicon.** The browser tab still showed a white heart left behind by
+  the site builder the site was originally made with. It is now the mascot on
+  an orange tile, including 192px and Apple touch icons. The heart has moved
+  on to new opportunities.
+- **Real art instead of stock thumbnails.** The homepage cards "Ontvang
+  Bitcoin", "Bitcoin wiki" and "Bijeenkomsten en meetups" now have drawn
+  illustrations in the sticker style. The previous thumbnails have been
+  quietly composted.
+- **Readability fixes.** Telegram bands, dark buttons and the orange wordmark
+  now pass contrast checks. An automated check over every page found no
+  unreadable text left. The blurry news image (a 128-pixel thumbnail
+  stretched to 640, bravely) is now a sharp 1600x840 cover.
+- **The footer** is a light sticker panel that mirrors the hero. The risk
+  warning is a calm white card, not a red alarm. A second pass replaced every
+  remaining old-style button, soft shadow, gradient and tinted box; an
+  automated style audit over all pages found zero survivors.
+- **Business table** on the map pages: black header row, zebra stripes and
+  check marks that look like little green stickers.
+- **Tips on the consumer page** used to be pale yellow boxes with the energy
+  of a forgotten Post-it. They are now proper sticker callouts with an icon
+  and a bold heading.
+
+### New things to click
+
+- **"Wat is Bitcoin?"** (`/nl/what-is-bitcoin`, also in English and Frisian):
+  the explanation you would give your aunt at a birthday party. Plain words, a
+  glossary, a short history and next steps, with FAQ structured data.
+- **Sats calculator** (`/nl/sats-calculator`): sats to euros or dollars and
+  back, with the live price from mempool.space (CoinGecko as backup). Quick
+  buttons like "21 euro" included. Lives under Tools on the links page.
+- **Live block height in the footer.** Every page now shows the current
+  Bitcoin block, refreshed every minute from mempool.space (Blockstream as
+  backup). It is the most Bitcoin thing a footer can do.
+- **Quote of the day** on the homepage: a different original quote each day
+  from Satoshi Nakamoto, Hal Finney, Eric Hughes, Tim May, Nick Szabo or Wei
+  Dai, always with source and date. No made-up Satoshi quotes. We checked.
+- **Follow us on Nostr and X.** A homepage section with a Nostr card (copy
+  the npub, follow link, and the latest note as soon as one is published) and
+  an X card for @bitcoinfryslan. Both are also in the footer, in the
+  structured data and in `llms.txt`.
+- **Four guides** in the news section: "Beginnen met Bitcoin in Friesland",
+  "Bitcoin veilig bewaren", "Betalen met Lightning" and "Bitcoin accepteren
+  in je zaak", each with a sticker cover, in the RSS feed, the sitemap,
+  `llms.txt` and the links page.
+- **"Gestart door twee Noderunners"** badge with logo and a followed link in
+  every footer; the about pages tell the origin story.
+- **"Webdesign door StudioFab.nl"** credit in every footer (followed link).
+
+### Rebuilt pages
+
+- **Consumer page** is now a 1-2-3 guide: pick a wallet, buy your first sats
+  (Strike, wave.space, Bitonic), pay and meet. Then long-term saving with
+  hardware wallets (Trezor, BitBox, and now Bitkey and Blockstream Jade),
+  converting back to euros and a help band.
+- **Business page** explains what is in it for a business before asking
+  anything: new customers, a spot on the map, word of mouth, low fees,
+  instant and final payments. Then "In 4 stappen" and a comparison of
+  Coinos, Wallet of Satoshi, BTCPay Server and Lightning Checkout.
+- **Supporter programme is "in preparation".** Payment and organisation are
+  not ready yet, so the signup popup is gone. The support page offers a
+  waitlist and a feedback form instead, delivered to Telegram, and no longer
+  suggests anyone can pay today.
+
+### Corrections, because facts matter
+
+- Wallet of Satoshi is self-custodial these days, and still the easiest start.
+- "Gratis op de kaart" is gone: listing on the map will become paid.
+- The Sat.trading link went to a site that no longer exists. Removed.
+- Two outdated business links and a dead Comfrey Computers link fixed or
+  removed. Restaurant Kreta is no longer used as an example; it left the map.
+- The outdated "Speur mee in Sneek" promo is gone; that treasure hunt ended.
+- The Dutch menu says **Meet-ups** instead of "Bijeenkomsten".
+- "Fork mij op Github" left the footer. The source code is still linked from
+  the About pages.
+
+### Under the hood
+
+- Everything visual lives in one block at the bottom of
+  `assets/enhancements.css`, scoped to `body.st`. The compiled Tailwind file
+  was not touched and there is still no build step.
+- New behaviour (calculator, block height, quote of the day, Nostr feed,
+  copy buttons) is in `assets/main.js`, dependency-free, and degrades
+  gracefully: if an API is down, the page simply shows less, never an error.
+- Checks: site audit, 31 regression tests, a style audit for leftover
+  old-style elements and a contrast audit over every page. All green.
+- Future ideas are parked in [BACKLOG.md](BACKLOG.md), starting with a
+  Facebook page that posts once a week on autopilot.
 
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
@@ -810,12 +905,7 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 
 - No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
-  have the real account addresses.
+  have the real account addresses. (Update, October 2026: they are back, with
+  the real accounts. See Round 39.)
 - After this goes live, it helps to open Google Search Console and ask Google
   to re-check the home page so it picks up the new questions-and-answers data.
-- **Real artwork for the three homepage resource cards.** "Ontvang Bitcoin", "Bitcoin wiki" and "Bijeenkomsten en meetups" now use drawn illustrations in the sticker style instead of low-quality stock thumbnails.
-- **Business table matches the site style.** Search box, black header row, striped rows and sticker-style check marks on the map pages.
-- **Guides on the links page.** The four guides are listed under "Nieuws" in all three languages (English and Frisian pages say the guides are in Dutch).
-- **Follow us on Nostr and X.** A new homepage section with a Nostr card (copy-npub button, follow link and the latest note when one is published) and an X card for @bitcoinfryslan. Both are also in the footer "Verbinden" list on every page, in the Organization `sameAs` data and in llms.txt.
-- **Menu says "Meet-ups".** The Dutch menu, mobile menu, footer links and breadcrumbs now call the meetings page "Meet-ups" instead of "Bijeenkomsten".
-- **Consumer guide tips are stickers now.** The two pale yellow tip boxes ("begin klein" and "al bitcoin bij een andere aanbieder?") are now sticker callouts with an icon, a bold heading and the same outline and shadow as the cards.

@@ -29,7 +29,7 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 
 - **No build step.** Edit HTML/CSS/JS directly. Do not introduce frameworks, bundlers or package.json.
 - **Never edit `assets/styles.css`** (compiled Tailwind output). Only classes already used on the site exist in it — do not rely on new Tailwind classes.
-- Custom CSS goes at the bottom of **`assets/enhancements.css`** in a commented block, using **prefixed custom classes** (e.g. `.nr-promo-*`) for new sections.
+- Custom CSS goes at the bottom of **`assets/enhancements.css`** in a commented block. The site uses the **sticker design system** (`body.st`, `st-*` classes): read **[DESIGN.md](DESIGN.md)** before any visual change and reuse its components and tokens. No emojis; use inline SVG icons.
 - New JS behavior goes in **`assets/main.js`**, dependency-free.
 - Brand colors: `--bf-blue: #0066cc`, `--bf-orange: #f97316`, `--bf-red: #ea384c`.
 - Images: `<picture>` with WebP + fallback, explicit `width`/`height`; photos get 320/480/640/960/1280 variants (see CONTRIBUTING.md).
