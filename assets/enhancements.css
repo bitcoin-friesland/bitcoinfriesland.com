@@ -2207,23 +2207,6 @@ body.st { background: #fff; color: var(--st-ink); }
 .st #businessTable thead th:last-child { border-top-right-radius: 18px; }
 .st #businessTable tbody tr:hover { background: var(--st-sky); }
 
-/* ---------- Risk note stays sober and readable ---------- */
-.st .bf-risk-note { border: 2px solid var(--st-ink) !important; border-radius: var(--st-r) !important; background: #fff7ed !important; box-shadow: none !important; }
-.st .bf-risk-note h3 { font-family: var(--st-display); color: var(--st-ink) !important; }
-.st .bf-risk-note p { color: #3b3b3b !important; }
-
-/* ---------- Footer: dark backing sheet ---------- */
-.st footer { background: var(--st-ink) !important; border-top: 0 !important; color: #d4d4d8; }
-.st footer h3:not(.bf-risk-note h3) { color: #fff !important; font-size: 0.9rem !important; letter-spacing: 0.08em; }
-.st footer p:not(.bf-risk-note p), .st footer li a { color: #c8c8cf !important; }
-.st footer li a:hover { color: var(--st-orange) !important; }
-.st footer .text-xl.font-bold { font-family: var(--st-display); font-weight: 800; }
-.st footer .text-xl.font-bold .text-friesland-blue { color: #fff !important; }
-.st footer picture img { background: #fff; border-radius: 50%; padding: 2px; }
-.st footer a.text-friesland-blue { color: var(--st-orange) !important; }
-.st footer .border-t { border-color: #3f3f46 !important; }
-.st footer .text-gray-500 { color: #a1a1aa !important; }
-
 /* ============================================================
    Sticker heroes
    ============================================================ */
@@ -2358,7 +2341,6 @@ body.st { background: #fff; color: var(--st-ink); }
 
 /* ---------- Small fixes ---------- */
 .st .telegram-cta .animate-pulse svg { color: var(--st-blue) !important; }
-.st footer::before { display: none !important; }
 .st main { overflow-x: clip; }
 .st .st-hero::before, .st .st-hero::after, .st .st-hero--center *::before, .st .st-hero--center *::after { display: none !important; }
 .st .st-hero--center { padding: clamp(2.5rem, 5vw, 4rem) 1.25rem; text-align: center; }
@@ -2370,3 +2352,134 @@ body.st { background: #fff; color: var(--st-ink); }
 /* Soft blur blobs from the old hero layer do not belong on stickers */
 .st main .absolute.w-64.h-64, .st main [class*="blur-3xl"], .st main [class*="blur-2xl"] { display: none !important; }
 .st main .flex.flex-col.items-stretch::before, .st main .flex.flex-col.items-stretch::after { display: none !important; }
+
+/* ============================================================
+   Round 14b - sweep: icons, footer panel, legacy elements
+   ============================================================ */
+.st-icon { width: 1.1em; height: 1.1em; flex: none; display: inline-block; vertical-align: -0.15em; }
+.st-kicker .st-icon { color: var(--st-orange); }
+.st-sticker--bolt { display: inline-flex; align-items: center; gap: 0.35rem; }
+.st-sticker--bolt .st-icon { fill: var(--st-ink); stroke: var(--st-ink); }
+.st .link-category h3 { display: flex; align-items: center; gap: 0.55rem; }
+.st .link-category h3 .st-icon { width: 2rem; height: 2rem; padding: 0.4rem; border: 2px solid var(--st-ink); border-radius: 10px; background: var(--st-yellow); }
+.st-tick .st-icon { color: var(--st-ink); stroke-width: 3; }
+.st .support-checklist li > span.st-tick { background: var(--st-yellow) !important; border: 2px solid var(--st-ink); color: var(--st-ink) !important; }
+.st-heart .st-icon { color: var(--st-orange); fill: var(--st-orange); }
+
+/* ---------- Footer: a sticker panel that mirrors the hero ---------- */
+.st footer { background: transparent !important; border: 0 !important; padding: 0 0 1.5rem !important; color: var(--st-ink); }
+.st footer > div {
+  width: min(1360px, calc(100% - 2rem)); max-width: none !important; margin: 3.5rem auto 0;
+  background: var(--st-sky); background-image: var(--st-dots); background-size: 26px 26px;
+  border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-xl);
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) 1.5rem !important;
+}
+.st footer h3 { font-family: var(--st-display); font-weight: 800; font-size: 1rem !important; letter-spacing: 0.02em; color: var(--st-ink) !important; }
+.st footer p, .st footer li a, .st footer .text-gray-600 { color: #2f2f35 !important; }
+.st footer li a { font-weight: 600; text-decoration: none; }
+.st footer li a:hover { color: var(--st-ink) !important; text-decoration: underline; text-decoration-color: var(--st-orange); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.st footer .text-xl.font-bold { font-family: var(--st-display); font-weight: 800; letter-spacing: -0.03em; }
+.st footer .text-xl.font-bold .text-friesland-blue { color: var(--st-ink) !important; }
+.st footer picture img { background: #fff; border-radius: 50%; padding: 3px; border: 2px solid var(--st-ink); width: 40px !important; height: 40px !important; }
+.st footer .md\:col-span-2 > a {
+  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;
+  background: var(--st-orange); color: var(--st-ink) !important; font-weight: 700;
+  border: 2px solid var(--st-ink); border-radius: 12px; box-shadow: var(--st-shadow-sm); padding: 0.5rem 0.9rem;
+}
+.st footer .border-t { border-top: 2px dashed rgba(18, 18, 18, 0.25) !important; }
+.st footer .text-gray-500 { color: #52525b !important; }
+/* Risk warning: a calm white card with a small warning label */
+.st footer .bf-risk-note {
+  display: grid; grid-template-columns: auto 1fr; gap: 0.75rem 1.5rem; align-items: start;
+  background: #fff !important; border: 2px solid var(--st-ink) !important; border-radius: 18px !important;
+  box-shadow: none !important; padding: 1.1rem 1.4rem !important;
+}
+.st footer .bf-risk-note h3 {
+  display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 !important; white-space: nowrap;
+  font: 700 0.8rem/1 Inter, sans-serif !important; letter-spacing: 0.04em; text-transform: uppercase;
+  background: var(--st-yellow); border: 2px solid var(--st-ink); border-radius: 999px; padding: 0.45rem 0.8rem;
+}
+.st footer .bf-risk-note h3::before { content: ""; width: 1rem; height: 1rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E") center / contain no-repeat; }
+.st footer .bf-risk-note p { color: #3f3f46 !important; font-size: 0.875rem !important; line-height: 1.6; margin: 0; }
+@media (max-width: 640px) { .st footer .bf-risk-note { grid-template-columns: 1fr; } .st footer > div { width: calc(100% - 1.25rem); border-radius: 24px; } }
+
+/* ---------- Legacy sweep inside main ---------- */
+/* Soft shadows and gradients are the old look; stickers use hard offsets */
+.st main [class*="shadow"] { box-shadow: none !important; }
+.st main [class*="bg-gradient-to"] { background-image: none !important; }
+.st main section[class*="bg-gradient-to"] { background-color: #fff !important; }
+.st main :is(div, article)[class*="bg-gradient-to"][class*="rounded"] { background-color: #fff !important; }
+
+/* Any padded, rounded link or button in main is a sticker button */
+.st main :is(a, button)[class*="px-"][class*="py-"][class*="rounded"]:not(.link-item):not(.st-sticker),
+.st main a > div[class*="px-"][class*="rounded"] {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  border: var(--st-line) solid var(--st-ink) !important; border-radius: var(--st-r) !important;
+  box-shadow: var(--st-shadow) !important; font-weight: 700 !important;
+  background-color: #fff; color: var(--st-ink) !important; background-image: none !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+}
+.st main :is(a, button)[class*="px-"][class*="py-"][class*="rounded"]:not(.link-item):not(.st-sticker):hover,
+.st main a:hover > div[class*="px-"][class*="rounded"] { transform: translate(-2px, -2px) !important; box-shadow: 7px 7px 0 var(--st-ink) !important; }
+.st main :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-friesland-blue, .bg-blue-500, .bg-blue-600, .bg-blue-700) { background-color: var(--st-blue) !important; color: #fff !important; }
+.st main :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-bitcoin-orange, .bg-orange-500, .bg-orange-600) { background-color: var(--st-orange) !important; color: var(--st-ink) !important; }
+.st main :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-black, .bg-gray-900, .bg-gray-800) { background-color: var(--st-ink) !important; color: #fff !important; }
+.st main :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-white, [class*="border-friesland"], [class*="border-bitcoin"], [class*="border-gray"]):not(.bg-friesland-blue):not(.bg-bitcoin-orange) { background-color: #fff !important; }
+
+/* Tinted sub-panels become flat sticker panels */
+.st main div:is(.bg-gray-50, .bg-blue-50, .bg-orange-50, .bg-green-50, [class*="bg-friesland-blue/"], [class*="bg-bitcoin-orange/"]):is(.rounded, .rounded-lg, .rounded-xl, .rounded-2xl) {
+  border: 2px solid var(--st-ink) !important; border-radius: 16px !important;
+}
+.st main div:is(.bg-gray-50):is(.rounded-lg, .rounded-xl) { background-color: #f7faff !important; }
+.st main div:is(.bg-blue-50, [class*="bg-friesland-blue/"]):is(.rounded, .rounded-lg, .rounded-xl) { background-color: var(--st-sky) !important; }
+.st main div:is(.bg-orange-50, [class*="bg-bitcoin-orange/"]):is(.rounded, .rounded-lg, .rounded-xl) { background-color: #fff1e6 !important; }
+.st main div.bg-gray-50.rounded-lg.shadow-md { background-color: #fff !important; border-width: var(--st-line) !important; border-radius: var(--st-r-lg) !important; box-shadow: var(--st-shadow-lg) !important; }
+
+/* Callout notes */
+.st main .border-l-4 { border: 2px solid var(--st-ink) !important; border-radius: 14px !important; background: #fff6c2 !important; }
+.st main .border-l-4.bg-blue-50, .st main .border-l-4[class*="border-blue"] { background: var(--st-sky) !important; }
+.st main .border-l-4 :is(p, span, strong, a, li) { color: var(--st-ink) !important; }
+
+/* Icon discs and numbered steps */
+.st main .rounded-full:is(.bg-friesland-blue, .bg-bitcoin-orange):is(.w-6, .w-7, .w-8, .w-10, .w-12) {
+  background: var(--st-orange) !important; color: var(--st-ink) !important; border: 2px solid var(--st-ink); box-shadow: var(--st-shadow-sm) !important;
+  font-family: var(--st-display); font-weight: 800;
+}
+.st main .rounded-full:is([class*="bg-friesland-blue/"], [class*="bg-bitcoin-orange/"], [class*="bg-red-"], [class*="bg-blue-1"], [class*="bg-orange-1"], [class*="bg-yellow-1"], [class*="bg-green-1"]) {
+  background: var(--st-yellow) !important; border: 2px solid var(--st-ink); color: var(--st-ink) !important;
+}
+.st main .rounded-full:is([class*="bg-friesland-blue/"], [class*="bg-bitcoin-orange/"], [class*="bg-red-"], [class*="bg-blue-1"], [class*="bg-orange-1"], [class*="bg-yellow-1"], [class*="bg-green-1"]) svg { color: var(--st-ink) !important; }
+
+/* Body links: ink with an orange underline */
+.st main :is(p, li, dd) a:not([class*="px-"]):not(.st-btn):not(.support-button) {
+  color: var(--st-ink) !important; font-weight: 600; text-decoration: underline; text-decoration-color: var(--st-orange);
+  text-decoration-thickness: 2px; text-underline-offset: 3px;
+}
+/* Id-scoped overrides: older layers paint gradient meshes with !important */
+.st #main-content [class*="bg-gradient-to"]:not(.st-hero) { background-image: none !important; }
+.st #main-content section[class*="bg-gradient-to"]:not(.st-hero), .st #main-content.bg-gradient-to-br { background: #fff !important; }
+.st #main-content div[class*="bg-gradient-to"][class*="rounded"] { background: #fff !important; }
+.st #main-content div[class*="bg-gradient-to"][class*="rounded"]:is(.from-blue-500, .from-friesland-blue) {
+  background: var(--st-blue) !important; color: #fff; border: var(--st-line) solid var(--st-ink) !important;
+  border-radius: var(--st-r-lg) !important; box-shadow: var(--st-shadow-lg) !important;
+}
+.st #main-content div[class*="bg-gradient-to"][class*="rounded"]:is(.from-blue-500, .from-friesland-blue) :is(h2, h3, p) { color: #fff !important; }
+.st #main-content div[class*="bg-gradient-to"][class*="rounded"][class*="from-friesland-blue/"] {
+  background: var(--st-sky) !important; color: var(--st-ink); box-shadow: none !important; border-width: 2px !important;
+}
+.st #main-content div[class*="bg-gradient-to"][class*="rounded"][class*="from-friesland-blue/"] :is(h2, h3, p) { color: var(--st-ink) !important; }
+.st #main-content [class*="bg-white/"][class*="rounded"] { border: 2px solid rgba(255, 255, 255, 0.85) !important; border-radius: 18px !important; backdrop-filter: none; }
+.st .support-form { box-shadow: none !important; }
+body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
+.st .bf-skip-link { border: 2px solid var(--st-ink) !important; box-shadow: var(--st-shadow-sm) !important; background: var(--st-yellow) !important; color: var(--st-ink) !important; border-radius: 12px !important; font-weight: 700; }
+.st footer::before, .st footer::after { display: none !important; }
+.st .support-checklist li { align-items: flex-start; }
+.st .support-checklist li > span.st-tick { display: inline-grid !important; place-items: center; width: 1.35rem !important; height: 1.35rem !important; min-width: 1.35rem; border-radius: 6px !important; margin-top: 0.1rem; padding: 0 !important; }
+.st .support-checklist li > span.st-tick .st-icon { width: 0.85rem; height: 0.85rem; }
+.st .support-transparency { padding: clamp(1.5rem, 3vw, 2.25rem) !important; gap: 1.25rem; align-items: start; }
+.st .support-transparency-mark { position: static !important; display: grid; place-items: center; width: 3rem; height: 3rem; border: 2px solid var(--st-ink); border-radius: 50%; background: var(--st-yellow); color: var(--st-ink) !important; box-shadow: var(--st-shadow-sm); flex: none; }
+.st .support-form-intro h2 { font-size: clamp(1.9rem, 3.2vw, 2.7rem) !important; line-height: 1.05; margin: 0.5rem 0 1rem; }
+.st .support-independence { width: min(1200px, calc(100% - 2rem)); margin: 3rem auto; border-radius: var(--st-r-xl); border: var(--st-line) solid var(--st-ink); box-shadow: var(--st-shadow-lg); }
+.st .support-independence .support-rules { border-color: #fff !important; box-shadow: 8px 8px 0 var(--st-orange) !important; }
+.st main [class*="text-amber"], .st main [class*="text-yellow-7"], .st main [class*="text-yellow-8"] { color: var(--st-ink) !important; }
+.st .link-category h3 { border-bottom: 2px solid var(--st-ink) !important; padding-bottom: 0.6rem; }

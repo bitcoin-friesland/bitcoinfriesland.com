@@ -1,19 +1,18 @@
-# Supporter worden van Bitcoin Friesland
+# Supporterprogramma van Bitcoin Friesland (in voorbereiding)
 
-De community en de Telegram- en Signalgroepen blijven voor iedereen gratis. Particulieren kunnen Bitcoin Friesland vrijwillig voor een jaar ondersteunen met de actuele waarde van EUR 21, uitsluitend betaald in sats.
+De community en de Telegram- en Signalgroepen blijven voor iedereen gratis. Bitcoin Friesland werkt aan een vrijwillig supporterprogramma en een kleine webshop. Betaling en organisatie staan nog niet klaar; er kan nog niet worden betaald of besteld.
 
-## Voordelen
+## Wat we van plan zijn
 
-- 21 Bitcoin Friesland-stickers.
-- Kortingscodes voor evenementen.
-- Een supporter-tag in Telegram en Signal.
-- Na overleg een Bitcoin-gerelateerd initiatief delen zonder te spammen.
+- Een jaarlijkse bijdrage van de actuele waarde van EUR 21, betaald in sats.
+- Voor supporters: 21 Bitcoin Friesland-stickers, kortingscodes voor evenementen en een supporter-tag in Telegram en Signal.
+- Zakelijke supporters: een bijdrage in overleg, zonder hoofd- of exclusieve sponsoren.
 
-## Aanvraag en betaling
+## Wachtlijst en input
 
-De popup verzamelt naam, verplicht e-mailadres, Telegram- en/of Signal-gebruikersnaam, gewenst betaalmoment en stickerbezorging. Stickers kunnen per post worden ontvangen of bij een volgende meetup worden opgehaald. De aanvraag is nog geen betaling; het supporterjaar begint pas nadat de betaling is ontvangen.
+Via het formulier op de pagina kun je je op de wachtlijst zetten (supporter, zakelijke supporter, stickers/webshop) of een idee of feedback sturen. Wie op de wachtlijst staat, hoort als eerste wanneer het programma start. Een datum is er nog niet.
 
 Een bijdrage koopt geen invloed, exclusiviteit, aanbeveling of inhoudelijke controle.
 
-- Aanvragen: https://bitcoinfriesland.com/nl/support
+- Pagina: https://bitcoinfriesland.com/nl/support
 - Contact: info@bitcoinfriesland.com

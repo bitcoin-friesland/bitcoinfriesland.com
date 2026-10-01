@@ -1,19 +1,18 @@
-# Become a Bitcoin Friesland supporter
+# Bitcoin Friesland supporter programme (in preparation)
 
-The community and its Telegram and Signal groups remain free for everyone. Individuals can voluntarily support Bitcoin Friesland for one year with the current satoshi value of EUR 21, paid in sats only.
+The community and its Telegram and Signal groups remain free for everyone. Bitcoin Friesland is working on a voluntary supporter programme and a small shop. Payments and organisation are not ready yet; nothing can be paid or ordered yet.
 
-## Benefits
+## What we are planning
 
-- 21 Bitcoin Friesland stickers.
-- Discount codes for events.
-- A supporter tag in Telegram and Signal.
-- After agreement, sharing a Bitcoin-related initiative without spamming.
+- A yearly contribution of the current value of EUR 21, paid in sats.
+- For supporters: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
+- Business supporters: a contribution by agreement, with no main or exclusive sponsors.
 
-## Request and payment
+## Waitlist and input
 
-The popup collects a name, required email address, Telegram and/or Signal username, preferred payment timing and sticker delivery. Stickers can be mailed or collected at a future meetup. The request is not a payment; the supporter year starts only after payment has been received.
+The form on the page lets you join the waitlist (supporter, business supporter, stickers/shop) or send an idea or feedback. People on the waitlist hear first when the programme starts. There is no date yet.
 
 A contribution does not buy influence, exclusivity, endorsement or editorial control.
 
-- Apply: https://bitcoinfriesland.com/en/support
+- Page: https://bitcoinfriesland.com/en/support
 - Contact: info@bitcoinfriesland.com

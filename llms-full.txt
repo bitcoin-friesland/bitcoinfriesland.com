@@ -18,7 +18,7 @@ Bitcoin Friesland is een onafhankelijke vrijwilligerscommunity voor Bitcoin-educ
 - Een kaart met ondernemers en locaties waar je met Bitcoin kunt betalen.
 - Praktische informatie voor mensen die veilig met Bitcoin willen beginnen.
 - Uitleg voor ondernemers die Bitcoin- en Lightningbetalingen willen accepteren.
-- Een vrijwillig supporterprogramma en zakelijke bijdragen zonder invloed of exclusiviteit.
+- Een supporterprogramma in voorbereiding, met een wachtlijst; bijdragen geven geen invloed of exclusiviteit.
 
 Bitcoin Friesland verkoopt geen financieel product en geeft geen financieel advies. De community blijft onafhankelijk van supporters, bedrijven en sponsoren.
 
@@ -71,24 +71,23 @@ Een vermelding betekent dat de locatie Bitcoin accepteert of heeft geaccepteerd;
 
 Language: Dutch. Source: https://bitcoinfriesland.com/nl/support
 
-## Supporter worden van Bitcoin Friesland
+## Supporterprogramma van Bitcoin Friesland (in voorbereiding)
 
-De community en de Telegram- en Signalgroepen blijven voor iedereen gratis. Particulieren kunnen Bitcoin Friesland vrijwillig voor een jaar ondersteunen met de actuele waarde van EUR 21, uitsluitend betaald in sats.
+De community en de Telegram- en Signalgroepen blijven voor iedereen gratis. Bitcoin Friesland werkt aan een vrijwillig supporterprogramma en een kleine webshop. Betaling en organisatie staan nog niet klaar; er kan nog niet worden betaald of besteld.
 
-### Voordelen
+### Wat we van plan zijn
 
-- 21 Bitcoin Friesland-stickers.
-- Kortingscodes voor evenementen.
-- Een supporter-tag in Telegram en Signal.
-- Na overleg een Bitcoin-gerelateerd initiatief delen zonder te spammen.
+- Een jaarlijkse bijdrage van de actuele waarde van EUR 21, betaald in sats.
+- Voor supporters: 21 Bitcoin Friesland-stickers, kortingscodes voor evenementen en een supporter-tag in Telegram en Signal.
+- Zakelijke supporters: een bijdrage in overleg, zonder hoofd- of exclusieve sponsoren.
 
-### Aanvraag en betaling
+### Wachtlijst en input
 
-De popup verzamelt naam, verplicht e-mailadres, Telegram- en/of Signal-gebruikersnaam, gewenst betaalmoment en stickerbezorging. Stickers kunnen per post worden ontvangen of bij een volgende meetup worden opgehaald. De aanvraag is nog geen betaling; het supporterjaar begint pas nadat de betaling is ontvangen.
+Via het formulier op de pagina kun je je op de wachtlijst zetten (supporter, zakelijke supporter, stickers/webshop) of een idee of feedback sturen. Wie op de wachtlijst staat, hoort als eerste wanneer het programma start. Een datum is er nog niet.
 
 Een bijdrage koopt geen invloed, exclusiviteit, aanbeveling of inhoudelijke controle.
 
-- Aanvragen: https://bitcoinfriesland.com/nl/support
+- Pagina: https://bitcoinfriesland.com/nl/support
 - Contact: info@bitcoinfriesland.com
 
 ---
@@ -181,7 +180,7 @@ Bitcoin Friesland is an independent volunteer community for Bitcoin education, a
 - A map of businesses and places that accept Bitcoin.
 - Practical information for people who want to start safely with Bitcoin.
 - Guidance for businesses that want to accept Bitcoin and Lightning payments.
-- A voluntary supporter programme and business contributions without influence or exclusivity.
+- A supporter programme in preparation, with a waitlist; contributions give no influence or exclusivity.
 
 Bitcoin Friesland does not sell a financial product and does not provide financial advice. The community remains independent of supporters, companies and sponsors.
 
@@ -234,24 +233,23 @@ A listing means that the location accepts or has accepted Bitcoin; it is not an 
 
 Language: English. Source: https://bitcoinfriesland.com/en/support
 
-## Become a Bitcoin Friesland supporter
+## Bitcoin Friesland supporter programme (in preparation)
 
-The community and its Telegram and Signal groups remain free for everyone. Individuals can voluntarily support Bitcoin Friesland for one year with the current satoshi value of EUR 21, paid in sats only.
+The community and its Telegram and Signal groups remain free for everyone. Bitcoin Friesland is working on a voluntary supporter programme and a small shop. Payments and organisation are not ready yet; nothing can be paid or ordered yet.
 
-### Benefits
+### What we are planning
 
-- 21 Bitcoin Friesland stickers.
-- Discount codes for events.
-- A supporter tag in Telegram and Signal.
-- After agreement, sharing a Bitcoin-related initiative without spamming.
+- A yearly contribution of the current value of EUR 21, paid in sats.
+- For supporters: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
+- Business supporters: a contribution by agreement, with no main or exclusive sponsors.
 
-### Request and payment
+### Waitlist and input
 
-The popup collects a name, required email address, Telegram and/or Signal username, preferred payment timing and sticker delivery. Stickers can be mailed or collected at a future meetup. The request is not a payment; the supporter year starts only after payment has been received.
+The form on the page lets you join the waitlist (supporter, business supporter, stickers/shop) or send an idea or feedback. People on the waitlist hear first when the programme starts. There is no date yet.
 
 A contribution does not buy influence, exclusivity, endorsement or editorial control.
 
-- Apply: https://bitcoinfriesland.com/en/support
+- Page: https://bitcoinfriesland.com/en/support
 - Contact: info@bitcoinfriesland.com
 
 ---
@@ -344,7 +342,7 @@ Bitcoin Fryslân is in unôfhinklike frijwilligersmienskip foar Bitcoin-edukaasj
 - In kaart mei ûndernimmers en plakken dêr'tst mei Bitcoin betelje kinst.
 - Praktyske ynformaasje foar minsken dy't feilich mei Bitcoin begjinne wolle.
 - Utlis foar ûndernimmers dy't Bitcoin- en Lightningbetellingen akseptearje wolle.
-- In frijwillich stiperprogramma en saaklike bydragen sûnder ynfloed of eksklusiviteit.
+- In stiperprogramma yn tarieding, mei in wachtlist; bydragen jouwe gjin ynfloed of eksklusiviteit.
 
 Bitcoin Fryslân ferkeapet gjin finansjeel produkt en jout gjin finansjeel advys. De mienskip bliuwt unôfhinklik fan stipers, bedriuwen en sponsors.
 
@@ -397,24 +395,23 @@ In fermelding betsjut dat de lokaasje Bitcoin akseptearret of akseptearre hat; i
 
 Language: Frisian. Source: https://bitcoinfriesland.com/fy/support
 
-## Stiper wurde fan Bitcoin Fryslân
+## Stiperprogramma fan Bitcoin Fryslân (yn tarieding)
 
-De mienskip en de Telegram- en Signalgroepen bliuwe foar elkenien fergees. Partikulieren kinne Bitcoin Fryslân frijwillich in jier stypje mei de aktuele wearde fan EUR 21, allinnich betelle yn sats.
+De mienskip en de Telegram- en Signalgroepen bliuwe foar elkenien fergees. Bitcoin Fryslân wurket oan in frijwillich stiperprogramma en in lytse webwinkel. Betelling en organisaasje binne noch net klear; der kin noch net betelle of besteld wurde.
 
-### Foardielen
+### Wat wy fan plan binne
 
-- 21 Bitcoin Fryslân-stickers.
-- Koartingskoades foar eveneminten.
-- In stiper-tag yn Telegram en Signal.
-- Nei oerlis in Bitcoin-relatearre inisjatyf diele sûnder spam.
+- In jierlikse bydrage fan de aktuele wearde fan EUR 21, betelle yn sats.
+- Foar stipers: 21 Bitcoin Fryslân-stickers, koartingskoades foar eveneminten en in stiper-tag yn Telegram en Signal.
+- Saaklike stipers: in bydrage yn oerlis, sûnder haad- of eksklusive sponsors.
 
-### Oanfraach en betelling
+### Wachtlist en ynput
 
-De popup freget om namme, ferplicht e-mailadres, Telegram- en/of Signal-brûkersnamme, winske betelmomint en stickerbesoarging. Stickers kinne mei de post ferstjoerd wurde of by in folgjende meetup ophelle wurde. De oanfraach is noch gjin betelling; it stiperjier begjint pas nei ûntfangst fan de betelling.
+Fia it formulier op de side kinst dy op de wachtlist sette (stiper, saaklike stiper, stickers/webwinkel) of in idee of feedback stjoere. Wa't op de wachtlist stiet, heart as earste wannear't it programma begjint. In datum is der noch net.
 
 In bydrage keapet gjin ynfloed, eksklusiviteit, oanbefelling of ynhâldlike kontrôle.
 
-- Oanfreegje: https://bitcoinfriesland.com/fy/support
+- Side: https://bitcoinfriesland.com/fy/support
 - Kontakt: info@bitcoinfriesland.com
 
 ---

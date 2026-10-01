@@ -8,7 +8,7 @@ Bitcoin Friesland is an independent volunteer community for Bitcoin education, a
 - A map of businesses and places that accept Bitcoin.
 - Practical information for people who want to start safely with Bitcoin.
 - Guidance for businesses that want to accept Bitcoin and Lightning payments.
-- A voluntary supporter programme and business contributions without influence or exclusivity.
+- A supporter programme in preparation, with a waitlist; contributions give no influence or exclusivity.
 
 Bitcoin Friesland does not sell a financial product and does not provide financial advice. The community remains independent of supporters, companies and sponsors.
 

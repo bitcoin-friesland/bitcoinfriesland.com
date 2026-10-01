@@ -8,7 +8,7 @@ Bitcoin Fryslân is in unôfhinklike frijwilligersmienskip foar Bitcoin-edukaasj
 - In kaart mei ûndernimmers en plakken dêr'tst mei Bitcoin betelje kinst.
 - Praktyske ynformaasje foar minsken dy't feilich mei Bitcoin begjinne wolle.
 - Utlis foar ûndernimmers dy't Bitcoin- en Lightningbetellingen akseptearje wolle.
-- In frijwillich stiperprogramma en saaklike bydragen sûnder ynfloed of eksklusiviteit.
+- In stiperprogramma yn tarieding, mei in wachtlist; bydragen jouwe gjin ynfloed of eksklusiviteit.
 
 Bitcoin Fryslân ferkeapet gjin finansjeel produkt en jout gjin finansjeel advys. De mienskip bliuwt unôfhinklik fan stipers, bedriuwen en sponsors.
 

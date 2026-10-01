@@ -40,6 +40,9 @@ async function openFlow(t, language) {
   return { page, form };
 }
 
+// The supporter-signup dialog is off the pages until payment and organisation are in place.
+const PAUSED = 'supporter signup paused; waitlist form only';
+
 for (const language of ['nl', 'en', 'fy']) {
   test(`${language}: hero scroll control works with keyboard`, async (t) => {
     const page = await openPage(t, `${language}/index.html`);
@@ -111,8 +114,7 @@ for (const language of ['nl', 'en', 'fy']) {
   });
 
   test(`${language}: generic form uses the shared localized busy state`, async (t) => {
-    const { page } = await openFlow(t, language);
-    await page.locator('[data-supporter-close]').first().click();
+    const page = await openPage(t, `${language}/support.html`);
     const form = page.locator('form[name="support-interest"]');
     await form.locator('[name="name"]').fill('Test Supporter');
     await form.locator('[name="email"]').fill('supporter@example.invalid');
@@ -131,7 +133,7 @@ for (const language of ['nl', 'en', 'fy']) {
     assert.equal(await button.getAttribute('aria-busy'), null);
   });
 
-  test(`${language}: Enter and buttons share mail review and back navigation`, async (t) => {
+  test(`${language}: Enter and buttons share mail review and back navigation`, { skip: PAUSED }, async (t) => {
     const { page, form } = await openFlow(t, language);
     await form.locator('[name="email"]').press('Enter');
     await form.locator('label:has([name="payment_timing"][value="next_meetup"])').click();
@@ -162,7 +164,7 @@ for (const language of ['nl', 'en', 'fy']) {
     assert.equal(await button.textContent(), busyText);
   });
 
-  test(`${language}: invalid details and missing preferences still block progress`, async (t) => {
+  test(`${language}: invalid details and missing preferences still block progress`, { skip: PAUSED }, async (t) => {
     const { page, form } = await openFlow(t, language);
     const next = page.locator('[data-supporter-step="1"] [data-supporter-next]');
     await form.locator('[name="email"]').fill('invalid');
@@ -179,20 +181,20 @@ for (const language of ['nl', 'en', 'fy']) {
     assert.equal(await page.locator('[data-supporter-error]').isVisible(), true);
   });
 
-  test(`${language}: Enter advances details without validating hidden preferences`, async (t) => {
+  test(`${language}: Enter advances details without validating hidden preferences`, { skip: PAUSED }, async (t) => {
     const { page, form } = await openFlow(t, language);
     await form.locator('[name="email"]').press('Enter');
     assert.equal(await page.locator('[data-supporter-step="2"]').isVisible(), true);
   });
 
-  test(`${language}: whitespace-only names are rejected`, async (t) => {
+  test(`${language}: whitespace-only names are rejected`, { skip: PAUSED }, async (t) => {
     const { page, form } = await openFlow(t, language);
     await form.locator('[name="name"]').fill('   ');
     await page.locator('[data-supporter-step="1"] [data-supporter-next]').click();
     assert.equal(await page.locator('[data-supporter-step="1"]').isVisible(), true);
   });
 
-  test(`${language}: pickup excludes a previously entered postal address`, async (t) => {
+  test(`${language}: pickup excludes a previously entered postal address`, { skip: PAUSED }, async (t) => {
     const { page, form } = await openFlow(t, language);
     await page.locator('[data-supporter-step="1"] [data-supporter-next]').click();
     await form.locator('label:has([name="payment_timing"][value="online"])').click();

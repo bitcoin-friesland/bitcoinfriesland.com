@@ -31,8 +31,10 @@ export const FORMS = {
       company: 120,
       message: 1500,
     },
-    choices: { interest: ['supporter', 'business', 'donation', 'stickers', 'other'] },
+    choices: { interest: ['supporter', 'business', 'donation', 'stickers', 'feedback', 'other'] },
   },
+  // Paused: the three-step signup dialog is off the pages until payment and organisation
+  // are in place. Kept so it can return without changing the function.
   'supporter-signup': {
     title: 'Supporter-aanvraag',
     redirect: (language) => `/${language}/support?supporter-submitted=true`,

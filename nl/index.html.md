@@ -8,7 +8,7 @@ Bitcoin Friesland is een onafhankelijke vrijwilligerscommunity voor Bitcoin-educ
 - Een kaart met ondernemers en locaties waar je met Bitcoin kunt betalen.
 - Praktische informatie voor mensen die veilig met Bitcoin willen beginnen.
 - Uitleg voor ondernemers die Bitcoin- en Lightningbetalingen willen accepteren.
-- Een vrijwillig supporterprogramma en zakelijke bijdragen zonder invloed of exclusiviteit.
+- Een supporterprogramma in voorbereiding, met een wachtlijst; bijdragen geven geen invloed of exclusiviteit.
 
 Bitcoin Friesland verkoopt geen financieel product en geeft geen financieel advies. De community blijft onafhankelijk van supporters, bedrijven en sponsoren.
 

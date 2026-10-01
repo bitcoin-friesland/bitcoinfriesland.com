@@ -10,9 +10,8 @@ The map pages include a searchable business list by name, town or type. All list
 
 Important facts:
 
-- Individual supporter contribution: the current satoshi value of EUR 21 for one year, paid in sats only.
-- Supporter benefits: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
-- The supporter form is a request; it does not take payment or activate supportership automatically.
+- Supporter programme: in preparation. Payments and organisation are not in place yet, so nothing can be paid or ordered. The support page has a waitlist and feedback form; people on the waitlist hear first when it starts. No start date has been announced.
+- Planned supporter contribution: the current value of EUR 21 a year, paid in sats. Planned benefits: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
 - Financial or material support never buys influence, exclusivity, editorial control or an endorsement.
 
 ## Quick answers
@@ -36,7 +35,7 @@ Important facts:
 - [Home](https://bitcoinfriesland.com/nl/index.html.md): Community overview and main routes into the site.
 - [Meetups and events](https://bitcoinfriesland.com/nl/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
 - [Bitcoin map](https://bitcoinfriesland.com/nl/map.html.md): How to find places that accept Bitcoin in Friesland.
-- [Supporter programme](https://bitcoinfriesland.com/nl/support.html.md): Contribution, benefits, payment and sticker-delivery details.
+- [Supporter programme](https://bitcoinfriesland.com/nl/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
 - [About](https://bitcoinfriesland.com/nl/about.html.md): Wat de community doet, gratis meedoen, onafhankelijkheid en contact.
 
 ## English core pages
@@ -44,7 +43,7 @@ Important facts:
 - [Home](https://bitcoinfriesland.com/en/index.html.md): English community overview and main routes into the site.
 - [Meetups and events](https://bitcoinfriesland.com/en/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
 - [Bitcoin map](https://bitcoinfriesland.com/en/map.html.md): How to find places that accept Bitcoin in Friesland.
-- [Supporter programme](https://bitcoinfriesland.com/en/support.html.md): Contribution, benefits, payment and sticker-delivery details.
+- [Supporter programme](https://bitcoinfriesland.com/en/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
 - [About](https://bitcoinfriesland.com/en/about.html.md): What the community does, free participation, independence and contact.
 - [For consumers](https://bitcoinfriesland.com/en/consumers.html.md): First steps with wallets, buying, paying and safe storage.
 - [For businesses](https://bitcoinfriesland.com/en/business.html.md): Accepting Bitcoin and Lightning payments in your business.
@@ -54,7 +53,7 @@ Important facts:
 - [Thusside](https://bitcoinfriesland.com/fy/index.html.md): Frysk oersjoch fan de mienskip en de wichtichste siden.
 - [Gearkomsten en eveneminten](https://bitcoinfriesland.com/fy/meetings.html.md): Kommende en ôfrûne eveneminten. De konferinsje fan 19 septimber 2026 stiet yn it argyf.
 - [Bitcoinkaart](https://bitcoinfriesland.com/fy/map.html.md): Plakken fine dêr'tst yn Fryslân mei Bitcoin betelje kinst.
-- [Stiperprogramma](https://bitcoinfriesland.com/fy/support.html.md): Bydrage, foardielen, betelling en ferstjoeren of opheljen fan stickers.
+- [Stiperprogramma](https://bitcoinfriesland.com/fy/support.html.md): Stiperprogramma yn tarieding: plannen, wachtlist en ynput.
 - [Oer ús](https://bitcoinfriesland.com/fy/about.html.md): Wat de mienskip docht, fergees meidwaan, unôfhinklikens en kontakt.
 - [Foar konsuminten](https://bitcoinfriesland.com/fy/consumers.html.md): Earste stappen mei wallets, keapje, betelje en feilich bewarje.
 - [Foar bedriuwen](https://bitcoinfriesland.com/fy/business.html.md): Bitcoin- en Lightning-betellingen akseptearje yn jo bedriuw.

@@ -161,7 +161,9 @@ test('every support form matches the function contract in all languages', async 
   for (const language of ['nl', 'en', 'fy']) {
     const html = fs.readFileSync(path.join(__dirname, language, 'support.html'), 'utf8');
     const forms = [...html.matchAll(/<form\b[^>]*>[\s\S]*?<\/form>/gi)].map((match) => match[0]);
-    assert.equal(forms.length, 2, `${language}: expected two forms`);
+    // The three-step supporter-signup dialog is paused until payment is in place;
+    // the waitlist form must always be there.
+    assert.ok(forms.some((form) => /name="support-interest"/.test(form)), `${language}: waitlist form missing`);
     for (const source of forms) {
       const tag = source.match(/<form\b[^>]*>/i)[0];
       const name = tag.match(/\bname="([^"]+)"/)[1];
@@ -180,4 +182,12 @@ test('every support form matches the function contract in all languages', async 
       }
     }
   }
+});
+
+test('waitlist feedback choice is accepted', async (t) => {
+  const { handleSupportPost } = await load();
+  const calls = mockTelegram(t, [200]);
+  const response = await handleSupportPost(post({ ...interest, interest: 'feedback' }), env, 'nl');
+  assert.equal(response.status, 303);
+  assert.match(calls[0].body.text, /interest: feedback/);
 });

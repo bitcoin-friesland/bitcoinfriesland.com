@@ -1,19 +1,18 @@
-# Stiper wurde fan Bitcoin Fryslân
+# Stiperprogramma fan Bitcoin Fryslân (yn tarieding)
 
-De mienskip en de Telegram- en Signalgroepen bliuwe foar elkenien fergees. Partikulieren kinne Bitcoin Fryslân frijwillich in jier stypje mei de aktuele wearde fan EUR 21, allinnich betelle yn sats.
+De mienskip en de Telegram- en Signalgroepen bliuwe foar elkenien fergees. Bitcoin Fryslân wurket oan in frijwillich stiperprogramma en in lytse webwinkel. Betelling en organisaasje binne noch net klear; der kin noch net betelle of besteld wurde.
 
-## Foardielen
+## Wat wy fan plan binne
 
-- 21 Bitcoin Fryslân-stickers.
-- Koartingskoades foar eveneminten.
-- In stiper-tag yn Telegram en Signal.
-- Nei oerlis in Bitcoin-relatearre inisjatyf diele sûnder spam.
+- In jierlikse bydrage fan de aktuele wearde fan EUR 21, betelle yn sats.
+- Foar stipers: 21 Bitcoin Fryslân-stickers, koartingskoades foar eveneminten en in stiper-tag yn Telegram en Signal.
+- Saaklike stipers: in bydrage yn oerlis, sûnder haad- of eksklusive sponsors.
 
-## Oanfraach en betelling
+## Wachtlist en ynput
 
-De popup freget om namme, ferplicht e-mailadres, Telegram- en/of Signal-brûkersnamme, winske betelmomint en stickerbesoarging. Stickers kinne mei de post ferstjoerd wurde of by in folgjende meetup ophelle wurde. De oanfraach is noch gjin betelling; it stiperjier begjint pas nei ûntfangst fan de betelling.
+Fia it formulier op de side kinst dy op de wachtlist sette (stiper, saaklike stiper, stickers/webwinkel) of in idee of feedback stjoere. Wa't op de wachtlist stiet, heart as earste wannear't it programma begjint. In datum is der noch net.
 
 In bydrage keapet gjin ynfloed, eksklusiviteit, oanbefelling of ynhâldlike kontrôle.
 
-- Oanfreegje: https://bitcoinfriesland.com/fy/support
+- Side: https://bitcoinfriesland.com/fy/support
 - Kontakt: info@bitcoinfriesland.com

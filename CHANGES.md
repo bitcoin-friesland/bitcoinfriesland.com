@@ -767,6 +767,9 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Meetings page:** a sticker wall of real meetup posters from Leeuwarden, Harlingen, Drachten and Heerenveen.
 - **Map page:** a Fryslân map with a dot for every town on the business list (OpenStreetMap coordinates, province outline from CBS/PDOK open data) and live counts (43 places, 20 towns). A test fails when the list changes and the hero is not updated.
 - **Other pages** get a matching sticker header with their existing title and introduction. Fixed the "W. Terschellng" typo in the business list.
+- **Second pass after review.** The remaining old-style buttons, soft shadows, gradient panels, tinted boxes and notes on every page now follow the sticker rules; an automated check over all 30 pages found none left. The footer is a light sticker panel that mirrors the hero, with the risk warning as a calm white card and a small warning label. Emojis are replaced by line icons.
+- **Supporter programme marked as "in preparation".** Payment and organisation are not in place yet, so the three-step signup popup is off the pages. The support page now offers a waitlist and a feedback option through the existing form (sent to Telegram), and no longer suggests anyone can pay today. `llms.txt` and the Markdown summaries say the same.
+- Removed the outdated "Speur mee in Sneek" promo from the Dutch consumer page; that treasure hunt has ended.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes
