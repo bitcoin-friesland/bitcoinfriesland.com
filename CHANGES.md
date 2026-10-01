@@ -781,6 +781,8 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Quote of the day** on the homepage: a different original quote every day from Satoshi Nakamoto, Hal Finney, Eric Hughes, Tim May, Nick Szabo or Wei Dai, always with source and date.
 - **Corrections:** Wallet of Satoshi is described as self-custodial (and the easiest start); "gratis op de kaart" is gone because listing on the map will become paid. Removed the defunct Sat.trading link, fixed two outdated business links on the map and removed the dead Comfrey Computers website link.
 - **Footer credit line:** "Webdesign door StudioFab.nl" on every page (followed link). The "Fork mij op Github" link left the map-page footers; the source code stays linked from the About pages, and the contributor rules now name the credit line instead of the GitHub link.
+- **Three new guides** in the news section (now four): "Bitcoin veilig bewaren", "Betalen met Lightning" and "Bitcoin accepteren in je zaak", each with a sticker-style cover, listed in the RSS feed, sitemap and `llms.txt`.
+- **Long-term saving** on the consumer page now also lists Bitkey and Blockstream Jade next to Trezor and BitBox.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes

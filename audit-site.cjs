@@ -14,6 +14,9 @@ const errors = [];
 const untranslatedPages = new Set([
   'nl/blog/index.html',
   'nl/blog/beginnen-met-bitcoin-in-friesland.html',
+  'nl/blog/bitcoin-veilig-bewaren.html',
+  'nl/blog/betalen-met-lightning.html',
+  'nl/blog/bitcoin-accepteren-als-ondernemer.html',
   'nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html',
 ]);
 

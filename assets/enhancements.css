@@ -2681,3 +2681,4 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st-credit { display: inline-block; margin-left: 0.35rem; }
 .st-credit a { color: var(--st-ink) !important; font-weight: 700; text-decoration: underline; text-decoration-color: var(--st-orange); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .st-credit a:hover { color: #d9480f !important; }
+.st main :is(a, button)[class*="px-"][class*="py-"][class*="rounded"], .st .st-btn { text-decoration: none !important; }

@@ -349,4 +349,22 @@
     <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/sats-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
   </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/blog/betalen-met-lightning</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

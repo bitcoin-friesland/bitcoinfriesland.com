@@ -66,6 +66,9 @@ Important facts:
 - [Dutch Bitcoin Friesland news](https://bitcoinfriesland.com/nl/blog/): Guides, news and community stories.
 - [Dutch RSS feed](https://bitcoinfriesland.com/nl/blog/rss.xml): Machine-readable feed for new articles.
 - [Getting started with Bitcoin in Friesland](https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland): Practical Dutch beginner guide.
+- [Storing bitcoin safely](https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren): Dutch guide to recovery phrases, hardware wallets and avoiding scams.
+- [Paying with Lightning](https://bitcoinfriesland.com/nl/blog/betalen-met-lightning): Dutch guide to Lightning wallets, paying by QR code and where to pay in Friesland.
+- [Accepting Bitcoin as a business](https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer): Dutch step-by-step guide for Frisian businesses: payment apps, till, bookkeeping.
 
 ## Other useful pages
 

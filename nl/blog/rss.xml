@@ -5,7 +5,31 @@
     <link>https://bitcoinfriesland.com/nl/blog/</link>
     <description>Nieuws, gidsen en verhalen over Bitcoin in Friesland.</description>
     <language>nl</language>
-    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0200</lastBuildDate>
+
+    <item>
+      <title>Bitcoin veilig bewaren: zo bescherm je je sats</title>
+      <link>https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren</link>
+      <guid>https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren</guid>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0200</pubDate>
+      <description>Zo bewaar je bitcoin veilig: wat een herstelzin is, wanneer een hardware wallet slim is en welke fouten beginners het vaakst maken.</description>
+    </item>
+
+    <item>
+      <title>Betalen met Lightning: snel en goedkoop afrekenen met bitcoin</title>
+      <link>https://bitcoinfriesland.com/nl/blog/betalen-met-lightning</link>
+      <guid>https://bitcoinfriesland.com/nl/blog/betalen-met-lightning</guid>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0200</pubDate>
+      <description>Wat is het Lightning-netwerk en hoe betaal je ermee? Uitleg over Lightning-wallets, QR-codes scannen en waar je in Friesland met sats betaalt.</description>
+    </item>
+
+    <item>
+      <title>Bitcoin accepteren in je zaak: een stappenplan voor Friese ondernemers</title>
+      <link>https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer</link>
+      <guid>https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer</guid>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0200</pubDate>
+      <description>Bitcoin accepteren in je winkel of horecazaak? Een stappenplan: kies een betaaloplossing, zet je kassa klaar, regel je boekhouding en laat het zien.</description>
+    </item>
 
     <item>
       <title>Beginnen met Bitcoin in Friesland: een praktische gids</title>
