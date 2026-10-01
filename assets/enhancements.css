@@ -2530,3 +2530,4 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 /* Wordmark orange darkened for readable contrast */
 .st nav .text-bitcoin-orange, .st footer .text-bitcoin-orange { color: #d9480f !important; }
 .st .support-badge { color: var(--st-ink) !important; }
+.st-sticker--fy .st-flag { width: 1.9rem; height: auto; border: 2px solid #fff; border-radius: 4px; }
