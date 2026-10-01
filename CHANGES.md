@@ -774,6 +774,8 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Business page explains what's in it for a business:** new customers, a free spot on the map with stickers, word of mouth, low fees, instant and final payments, starting small. Removed Restaurant Kreta as an example; it is no longer on the map.
 - **Readability fixes:** the Telegram bands, dark buttons and the orange wordmark now meet contrast; an automated contrast check over all pages found no unreadable text left. The blurry news image (a 128-pixel thumbnail stretched to 640) is replaced by a sharp 1600x840 cover.
 - **New favicon.** The root `favicon.ico` was still the white heart from the original site builder; browsers and Google show that file in tabs, bookmarks and results. It is now the mascot on an orange tile, with 192px and Apple touch icons, linked from every page. The heart shapes in eyebrows, the footer line and the Fryslân sticker are gone (the sticker shows the Frisian flag).
+- **Consumer page rebuilt as a 1-2-3 guide** (all three languages): pick a wallet (easy custodial start or holding your own keys), buy your first sats (Strike, wave.space, Bitonic), pay and meet; then long-term saving with hardware wallets, converting back to euros and a help band. Same facts and links as before, much easier to follow.
+- **Business page rebuilt:** a clear hero, the reasons to accept Bitcoin, "In 4 stappen" with Coinos, a comparison of Coinos, Wallet of Satoshi and BTCPay Server, a "Je bent niet de eerste" map band and the existing FAQ.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes

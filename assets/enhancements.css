@@ -2531,3 +2531,45 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st nav .text-bitcoin-orange, .st footer .text-bitcoin-orange { color: #d9480f !important; }
 .st .support-badge { color: var(--st-ink) !important; }
 .st-sticker--fy .st-flag { width: 1.9rem; height: auto; border: 2px solid #fff; border-radius: 4px; }
+
+/* ---------- Guide components (consumer and business pages) ---------- */
+.st-section--tight { padding: clamp(1.5rem, 3vw, 2.5rem) 0; }
+.st-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.st-stepcard { display: flex; gap: 1rem; align-items: center; padding: 1.1rem 1.25rem; background: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); color: var(--st-ink); text-decoration: none; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.st-stepcard:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); }
+.st-stepcard strong { display: block; font-family: var(--st-display); font-size: 1.2rem; letter-spacing: -0.02em; }
+.st-stepcard small { display: block; color: var(--st-text); font-size: 0.9rem; line-height: 1.4; margin-top: 0.15rem; }
+.st-num { flex: none; display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 2px solid var(--st-ink); border-radius: 50%; background: var(--st-orange); font: 800 1.35rem/1 var(--st-display); box-shadow: var(--st-shadow-sm); }
+.st-steps .st-stepcard:nth-child(2) .st-num { background: var(--st-yellow); }
+.st-steps .st-stepcard:nth-child(3) .st-num { background: var(--st-sky); }
+.st-step-label { display: inline-block; font: 800 0.8rem/1 Inter, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; background: var(--st-ink); color: #fff; border-radius: 999px; padding: 0.45rem 0.8rem; }
+.st-tag { display: inline-block; float: right; font: 700 0.75rem/1 Inter, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; border: 2px solid var(--st-ink); border-radius: 999px; padding: 0.35rem 0.65rem; background: var(--st-sky); }
+.st-tag--orange { background: var(--st-orange); }
+.st-ctas--sm { margin-top: 1.25rem; gap: 0.75rem; }
+.st-ctas--sm .st-btn { padding: 0.65rem 1rem; font-size: 0.95rem; }
+.st-btn .st-icon { width: 1rem; height: 1rem; }
+.st-btn--yellow { background: var(--st-yellow) !important; }
+.st-note { margin-top: 1.5rem; background: #fff6c2; border: 2px solid var(--st-ink); border-radius: var(--st-r); padding: 0.9rem 1.1rem; max-width: 46rem; }
+.st-card--compact h3 { margin-top: 0; }
+.st-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+.st-card--step .st-num { margin-bottom: 0.25rem; }
+.st-card--step h3 { margin-top: 0.75rem; }
+.st-grid-2--wide { align-items: start; gap: 2rem; }
+.st-list { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.75rem; }
+.st-list li { background: #fff; border: 2px solid var(--st-ink); border-radius: var(--st-r); padding: 0.85rem 1rem; line-height: 1.5; }
+.st-list strong { display: block; font-family: var(--st-display); }
+.st-band { background: var(--st-blue); color: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-xl); box-shadow: var(--st-shadow-lg); padding: clamp(1.5rem, 3vw, 2.25rem); }
+.st .st-band h2 { color: #fff !important; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.05; margin-bottom: 0.6rem; }
+.st-band p { color: #e6efff; line-height: 1.55; }
+.st-band--row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.st-fine--center { text-align: center; margin-top: 2.5rem; }
+.st-faq { max-width: 52rem; }
+.st .st-faq h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+.st-faq-list details { background: #fff; border: 2px solid var(--st-ink); border-radius: var(--st-r); box-shadow: var(--st-shadow-sm); padding: 1rem 1.2rem; margin-bottom: 0.9rem; }
+.st-faq-list summary { font-weight: 700; cursor: pointer; }
+.st-faq-list details p { margin-top: 0.6rem; color: var(--st-text); line-height: 1.6; }
+@media (max-width: 900px) { .st-steps, .st-grid-4 { grid-template-columns: 1fr; } .st-band--row { flex-direction: column; align-items: flex-start; } }
+@media (min-width: 901px) and (max-width: 1100px) { .st-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.st-tag { float: none; margin: 0 0 0.9rem; }
+.st-card > .st-tag + .st-card-icon { display: grid; margin-top: 0; }
+.st-band--row .st-btn { white-space: nowrap; flex: none; }
