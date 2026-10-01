@@ -813,3 +813,7 @@ site and main branch remain unchanged. Deployment results are recorded separatel
   have the real account addresses.
 - After this goes live, it helps to open Google Search Console and ask Google
   to re-check the home page so it picks up the new questions-and-answers data.
+- **Real artwork for the three homepage resource cards.** "Ontvang Bitcoin", "Bitcoin wiki" and "Bijeenkomsten en meetups" now use drawn illustrations in the sticker style instead of low-quality stock thumbnails.
+- **Business table matches the site style.** Search box, black header row, striped rows and sticker-style check marks on the map pages.
+- **Guides on the links page.** The four guides are listed under "Nieuws" in all three languages (English and Frisian pages say the guides are in Dutch).
+- **Follow us on Nostr and X.** A new homepage section with a Nostr card (copy-npub button, follow link and the latest note when one is published) and an X card for @bitcoinfryslan. Both are also in the footer "Verbinden" list on every page, in the Organization `sameAs` data and in llms.txt.

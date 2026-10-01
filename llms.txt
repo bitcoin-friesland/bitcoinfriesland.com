@@ -86,5 +86,7 @@ Important facts:
 ## Contact and optional sources
 
 - [Telegram community](https://t.me/bitcoinfriesland): Public community chat.
+- [X](https://x.com/bitcoinfryslan): Bitcoin Friesland on X (@bitcoinfryslan).
+- [Nostr](https://njump.me/npub15qgfat6kkmzecup683u64lalqdceaejq97d8z8njhwk0c68umx6qcs5dcm): Bitcoin Friesland on Nostr (npub15qgfat6kkmzecup683u64lalqdceaejq97d8z8njhwk0c68umx6qcs5dcm).
 - [Signal community](https://signal.group/#CjQKIMHGk9c3UuW1ZsczaSyn-XLnddKtrkukX6aHgaJWcrhwEhAxTON9X1wySW_5CH54Q7ZT): Public Signal group invitation.
 - [Source repository](https://github.com/bitcoin-friesland/bitcoinfriesland.com): Public source and contribution history.

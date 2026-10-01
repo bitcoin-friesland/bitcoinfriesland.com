@@ -902,3 +902,63 @@ document.addEventListener('DOMContentLoaded', function() {
   box.querySelector('[data-quote-author]').textContent = quote[1];
   box.querySelector('[data-quote-source]').textContent = quote[2] + ', ' + date;
 });
+
+// Follow us: copy the Nostr npub, and show the latest Nostr note when one exists.
+// The relays are asked for one kind-1 note of our pubkey; with no answer the
+// note box simply stays hidden and the card still works as a follow link.
+(function() {
+  document.querySelectorAll('[data-copy]').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var value = button.getAttribute('data-copy');
+      var label = button.querySelector('span');
+      var original = label ? label.textContent : '';
+      function done() {
+        if (!label) return;
+        label.textContent = button.getAttribute('data-copied-text') || original;
+        setTimeout(function() { label.textContent = original; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(done).catch(function() {});
+      }
+    });
+  });
+
+  var feed = document.querySelector('[data-nostr-feed]');
+  if (!feed || typeof WebSocket === 'undefined') return;
+  var pubkey = feed.getAttribute('data-pubkey');
+  var relays = ['wss://relay.damus.io', 'wss://nos.lol', 'wss://relay.primal.net'];
+  var newest = null;
+  var sockets = [];
+
+  function render(event) {
+    var text = String(event.content || '').replace(/nostr:\S+/g, '').replace(/\s+/g, ' ').trim();
+    if (!text) return;
+    feed.querySelector('[data-nostr-text]').textContent = text.length > 280 ? text.slice(0, 277) + '…' : text;
+    var time = feed.querySelector('[data-nostr-time]');
+    try {
+      time.textContent = new Date(event.created_at * 1000).toLocaleDateString(feed.getAttribute('data-locale') || 'nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { time.textContent = ''; }
+    feed.hidden = false;
+  }
+
+  relays.forEach(function(url) {
+    try {
+      var socket = new WebSocket(url);
+      sockets.push(socket);
+      socket.onopen = function() {
+        socket.send(JSON.stringify(['REQ', 'bf-latest', { authors: [pubkey], kinds: [1], limit: 1 }]));
+      };
+      socket.onmessage = function(message) {
+        var data;
+        try { data = JSON.parse(message.data); } catch (e) { return; }
+        if (data[0] === 'EVENT' && data[2] && data[2].pubkey === pubkey && data[2].kind === 1) {
+          if (!newest || data[2].created_at > newest.created_at) { newest = data[2]; render(newest); }
+        } else if (data[0] === 'EOSE') {
+          socket.close();
+        }
+      };
+      socket.onerror = function() {};
+    } catch (e) {}
+  });
+  setTimeout(function() { sockets.forEach(function(s) { try { s.close(); } catch (e) {} }); }, 8000);
+})();

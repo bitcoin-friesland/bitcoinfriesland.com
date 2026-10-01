@@ -2682,3 +2682,55 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st-credit a { color: var(--st-ink) !important; font-weight: 700; text-decoration: underline; text-decoration-color: var(--st-orange); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .st-credit a:hover { color: #d9480f !important; }
 .st main :is(a, button)[class*="px-"][class*="py-"][class*="rounded"], .st .st-btn { text-decoration: none !important; }
+.st .st-art { aspect-ratio: 8 / 3; object-fit: cover; border: 2px solid var(--st-ink) !important; border-radius: 14px !important; background: var(--st-sky); }
+
+/* ---------- Business list on the map page ---------- */
+.st .bf-business-search { background: var(--st-sky); background-image: var(--st-dots); background-size: 26px 26px; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); padding: 1.1rem 1.25rem 0.9rem; margin-bottom: 1.5rem; }
+.st .bf-business-search label { display: block; font: 800 0.8rem/1 Inter, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; color: var(--st-ink); }
+.st .bf-business-search input[type="search"] {
+  width: 100%; font: 600 1.05rem Inter, sans-serif; padding: 0.85rem 1rem 0.85rem 2.9rem !important;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 1rem center / 1.2rem;
+}
+.st .bf-business-search p { margin-top: 0.55rem; font-size: 0.9rem; font-weight: 600; color: #3f3f46; }
+.st #businessTable { border-collapse: separate !important; border-spacing: 0; background: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); overflow: hidden; }
+.st #businessTable caption { caption-side: bottom; text-align: left; margin: 0.75rem 0 0 !important; font-size: 0.85rem; color: #52525b !important; }
+.st #businessTable thead th { background: var(--st-ink) !important; color: #fff !important; font: 800 0.75rem/1.2 Inter, sans-serif !important; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.95rem 1rem !important; white-space: nowrap; cursor: pointer; }
+.st #businessTable thead th:hover { background: #2a2a2e !important; }
+.st #businessTable thead tr { border: 0 !important; }
+.st #businessTable tbody tr { border: 0 !important; transition: background-color 0.12s ease; }
+.st #businessTable tbody tr:nth-child(even) { background: #f6f9ff; }
+.st #businessTable tbody tr:hover { background: #fff6c2 !important; }
+.st #businessTable tbody td { padding: 0.85rem 1rem !important; border-bottom: 1.5px solid #e4e9f2; color: var(--st-text) !important; vertical-align: middle; }
+.st #businessTable tbody tr:last-child td { border-bottom: 0; }
+.st #businessTable tbody td:first-child { font: 800 1.02rem/1.25 var(--st-display) !important; letter-spacing: -0.01em; color: var(--st-ink) !important; }
+.st #businessTable tbody td:first-child a { color: var(--st-ink) !important; text-decoration: underline; text-decoration-color: var(--st-orange); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.st #businessTable tbody td:nth-child(4) { font-weight: 700; color: var(--st-ink) !important; }
+.st #businessTable td svg.text-green-500 { width: 1.7rem; height: 1.7rem; padding: 0.25rem; border: 2px solid var(--st-ink); border-radius: 50%; background: #c8f5d6; color: #0b6b2f !important; box-shadow: 2px 2px 0 var(--st-ink); stroke-width: 3; }
+.st #businessTable td svg:is(.text-gray-300, .text-gray-400, .text-red-500, .text-red-400) { width: 1.7rem; height: 1.7rem; padding: 0.3rem; border: 2px dashed #a1a1aa; border-radius: 50%; color: #a1a1aa !important; }
+
+/* ---------- Follow us: Nostr + X cards (homepage) ---------- */
+.st .st-btn--purple { background: #7b2fd1 !important; color: #fff !important; }
+.st-social { align-items: stretch; }
+.st-social-card { position: relative; display: flex; flex-direction: column; gap: 1rem; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); padding: clamp(1.4rem, 3vw, 2rem); overflow: hidden; }
+.st-social-card > .st-btn { margin-top: auto; align-self: flex-start; }
+.st-social-card p { margin: 0; line-height: 1.55; }
+.st-social-card--nostr { background: #f3eaff; transform: rotate(-0.6deg); }
+.st-social-card--x { background: var(--st-ink); color: #fff; transform: rotate(0.6deg); box-shadow: 5px 5px 0 var(--st-orange); }
+.st-social-card--x p { color: #e4e4e7; }
+.st-social-card--x .st-btn { background: #fff !important; color: var(--st-ink) !important; box-shadow: 5px 5px 0 var(--st-orange) !important; }
+.st-social-card--x .st-btn:hover { box-shadow: 7px 7px 0 var(--st-orange) !important; }
+.st-social-badge { display: inline-flex; align-items: center; gap: 0.5rem; font: 800 1.5rem/1 var(--st-display); letter-spacing: -0.02em; }
+.st-social-badge .st-icon { width: 1.9rem; height: 1.9rem; padding: 0.35rem; border-radius: 10px; border: 2px solid var(--st-ink); box-sizing: content-box; }
+.st-social-card--nostr .st-social-badge .st-icon { background: #7b2fd1; color: #fff; }
+.st-social-card--x .st-social-badge .st-icon { background: #fff; color: var(--st-ink); border-color: #fff; }
+.st-social-card--x .st-x-handle { font: 800 clamp(1.6rem, 3vw, 2.2rem)/1.1 var(--st-display); color: #fff; letter-spacing: -0.02em; }
+.st-npub { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.st-npub code { font: 600 0.9rem ui-monospace, SFMono-Regular, Menlo, monospace; background: #fff; border: 2px dashed var(--st-ink); border-radius: 10px; padding: 0.4rem 0.7rem; color: var(--st-ink); }
+.st-npub .st-chip { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--st-ink); }
+.st-npub .st-chip .st-icon { width: 1rem; height: 1rem; }
+.st-nostr-note { background: #fff; border: 2px solid var(--st-ink); border-radius: var(--st-r); padding: 0.9rem 1rem; box-shadow: var(--st-shadow-sm); }
+.st-nostr-note[hidden] { display: none; }
+.st-nostr-note small { display: block; font-size: 0.8rem; color: #52525b; margin-bottom: 0.35rem; }
+.st-nostr-note p { color: var(--st-text); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .st-social-card--nostr, .st-social-card--x { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .st-social-card--nostr, .st-social-card--x { transform: none; } }
