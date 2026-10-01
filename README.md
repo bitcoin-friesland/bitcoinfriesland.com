@@ -88,9 +88,14 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
-├── functions/                # Cloudflare Pages Function that receives the support forms (Telegram)
+├── functions/
+│   ├── [lang]/support.js     # Receives the support forms and forwards them to Telegram
+│   └── googleb3d0f0d3587596d4.html.js  # Google Search Console verification (keep!)
+├── site.webmanifest          # App name and icons for phones
 ├── _headers                  # Security + caching headers (Cloudflare Pages)
 ├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
+├── BingSiteAuth.xml          # Bing Webmaster verification (keep!)
+├── 0655de…bdf2.txt           # IndexNow key (keep!)
 ├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
@@ -172,6 +177,8 @@ Editing scripts are historical text replacements, not a build pipeline. Run them
 The site is static and served as-is. **Pushing to `main` publishes the site.** Because of that, all changes go through a branch + pull request (see [CONTRIBUTING.md](CONTRIBUTING.md)); `main` is live.
 
 Hosting is **Cloudflare Pages**. Every pushed branch gets its own preview at `https://<branch-name>.bitcoinfriesland-com.pages.dev` (the branch name is shortened by Cloudflare); the link also appears as a check on the pull request. Follow the [preview handoff instructions](MAINTENANCE.md#branch-and-deployment-handoff); a pushed branch is not proof of deployment.
+
+**Search engines.** The site is verified in Google Search Console (HTML file served by `functions/googleb3d0f0d3587596d4.html.js`) and in Bing Webmaster Tools (`BingSiteAuth.xml` plus the `msvalidate.01` meta tag on the homepages). Both have the sitemap. Removing any of these files un-verifies the site. After a deploy with new or changed pages, ping IndexNow as described in [MAINTENANCE.md](MAINTENANCE.md#search-and-ai-visibility).
 
 The support forms post to a Pages Function (`functions/[lang]/support.js`) that forwards each request to a private Telegram chat. It needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in Cloudflare Pages > Settings > Variables and Secrets; until they are set, visitors get a polite error page with the e-mail address instead of a fake confirmation.
 

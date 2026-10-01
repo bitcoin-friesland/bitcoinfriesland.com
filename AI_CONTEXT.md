@@ -2,11 +2,11 @@
 # Language note: keep documentation and comments in English unless a user explicitly requests otherwise.
 
 ## Quick facts
-- Event listings were reviewed on 26 September 2026: NodeRunners Conference (19 September) and the BBQ (14 August) are past events in all locales. No upcoming events are currently listed. Keep static HTML, homepage promotions and meetings Markdown summaries synchronized when archiving events; there is no automatic date rollover.
+- Event listings were reviewed on 2 October 2026: all 15 events (newest: NodeRunners Conference, 19 September 2026) are past events, in the same order in all locales. No upcoming events are currently listed. Each event is an `st-event` card (structure in DESIGN.md). Keep static HTML, homepage promotions and meetings Markdown summaries synchronized when archiving events; there is no automatic date rollover.
 - Static multilingual site for Bitcoin Friesland; no build step required (serve HTML/CSS/JS directly). Root `index.html` redirects to Dutch `nl/`.
-- Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `support.html`, `treasure-hunt.html`.
+- Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `support.html`, `treasure-hunt.html`, `what-is-bitcoin.html`, `sats-calculator.html`. Dutch-only: `nl/blog/` (four guides) and `nl/evenementen/`.
 - Brand assets and optimized images live in `assets/images/`; logos/flags use `<picture>` with WebP + PNG fallbacks and explicit width/height.
-- `assets/styles.css` is a minified Tailwind output plus a few custom blocks (links page, telegram CTA, etc.). `assets/main.js` holds all runtime behavior.
+- `assets/styles.css` is a minified Tailwind output plus a few custom blocks (links page, telegram CTA, etc.). The visible design is the sticker system in `assets/enhancements.css` (scoped to `body.st`), documented in DESIGN.md. `assets/main.js` holds all runtime behavior.
 
 ## Runtime behavior (assets/main.js)
 - Keyboard navigation closes dropdowns when focus leaves and preserves visible focus across the desktop/mobile breakpoint, including browsers that blur hidden links before the media-query callback. Homepage down arrows are native localized links to the focusable `why-join` section.
@@ -15,7 +15,8 @@
 - Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
 - Caches the header and updates its shadow only when crossing the top-of-page boundary, using a passive scroll listener.
 - Makes tables sortable by clicking headers or using Enter/Space (adds localized accessible labels, `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending and respects the page language).
-- Runs the supporter signup popup and routes the generic form's supporter choice into that complete flow.
+- Live widgets: footer block height, sats calculator, quote of the day, Nostr latest note, copy buttons and the meetup "Lees meer" toggle (see DESIGN.md section 5). All degrade silently without network.
+- The supporter signup popup code is dormant: the programme is "in preparation" and no page contains the popup trigger. The generic form's waitlist/feedback choice is what visitors use.
 - Supporter validation is step-aware: JS sets noValidate, then explicitly validates details/preferences and reveals invalid steps before focusing fields. Trim required names/addresses. Postal fields are disabled for pickup so FormData excludes them, but values remain available if mail is reselected.
 - Keep form logic centralized: `advanceStep` handles both Enter and next buttons, `validateFields` handles normalization/native validity/focus, and `markFormSubmitting` supplies both forms' localized busy state. Named step constants and cached static panels/address fields live inside the supporter initializer.
 - Marks matching navigation links as the current page and shows an accessible busy state while support forms are being submitted.
@@ -46,8 +47,8 @@
 - CSS: `assets/styles.css` (minified Tailwind + a few custom rules) is linked by all pages.
 - Supporter page styling uses prefixed `.support-*` classes at the bottom of `assets/enhancements.css`. The three support pages include the same honeypot-protected form named `support-interest` (plus the `supporter-signup` dialog form). Both post to `/<lang>/support`, where the Cloudflare Pages Function `functions/[lang]/support.js` forwards them to Telegram; change fields, actions and the function together (`forms-function.test.cjs` enforces this).
 - JS: `assets/main.js` holds runtime behavior; no other bundles are used. HTML references to `main.js` and `enhancements.css` use a shared date-based cache-busting query and should be bumped together after asset changes.
-- Load main.js with `defer` in the head: it downloads early and runs after parsing, before DOMContentLoaded. Do not use `async`; initialization depends on the DOM. Map iframes use native lazy loading; the first visible meeting poster uses high fetch priority and eager loading.
-- `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages. Keep only canonical, indexable URLs in the sitemap.
+- Load main.js with `defer` in the head: it downloads early and runs after parsing, before DOMContentLoaded. Do not use `async`; initialization depends on the DOM. Map iframes use native lazy loading; meetup card images are lazy-loaded and the meetings hero poster wall loads first.
+- `robots.txt` and `sitemap.xml` exist in the repo root; update if adding/removing public pages. Keep only canonical, indexable URLs in the sitemap. The site is verified in Google Search Console and Bing Webmaster Tools; never remove the verification files listed in AGENTS.md.
 - `llms.txt` follows the v2 proposal and links to concise `.html.md` counterparts for core pages. Core HTML pages expose them with `rel="alternate" type="text/markdown"`; all public HTML pages expose `/llms.txt` with `rel="describedby"`.
 
 ## How to work on the site
