@@ -23,7 +23,7 @@
 
 ## Content rules and patterns
 - Always update all three languages together; keep navigation, hero blocks, CTA buttons, and footers structurally identical across languages.
-- Footer must include the risk warning block (NL/EN/FY translations) and the GitHub “Fork” link. Avoid page-specific footer edits—update all pages together.
+- Footer must include the risk warning block (NL/EN/FY translations) and the credit line (Noderunners badge, live block height, StudioFab.nl webdesign credit). The GitHub source link lives on the About pages. Avoid page-specific footer edits—update all pages together.
 - Images:
   - Logos/flags/icons: PNG is fine (single size) with explicit width/height; wrap in `<picture>` only if WebP is available.
   - Photos/illustrations: generate width variants 320/480/640/960/1280 in both WebP and JPEG, named `...-<width>.webp|jpg`. Use `<picture>` with WebP `srcset` + JPEG `srcset` and `sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"`. Fallback `src` can be the 640 variant. Always set dimensions on `<img>`.

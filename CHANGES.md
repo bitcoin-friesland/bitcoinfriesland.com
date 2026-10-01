@@ -780,6 +780,7 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Live block height in the footer** (mempool.space, Blockstream as fallback, checked every minute) and a "Gestart door twee Noderunners" badge with their logo and a followed link on every page; the about pages tell the same story in a short section.
 - **Quote of the day** on the homepage: a different original quote every day from Satoshi Nakamoto, Hal Finney, Eric Hughes, Tim May, Nick Szabo or Wei Dai, always with source and date.
 - **Corrections:** Wallet of Satoshi is described as self-custodial (and the easiest start); "gratis op de kaart" is gone because listing on the map will become paid. Removed the defunct Sat.trading link, fixed two outdated business links on the map and removed the dead Comfrey Computers website link.
+- **Footer credit line:** "Webdesign door StudioFab.nl" on every page (followed link). The "Fork mij op Github" link left the map-page footers; the source code stays linked from the About pages, and the contributor rules now name the credit line instead of the GitHub link.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes

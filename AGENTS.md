@@ -23,7 +23,7 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 - Apply the change to **all three language folders** with identical structure.
 - Write genuine Frisian (`fy`) translations — never leave Dutch or English text in `fy/` pages.
 - Navigation, hero blocks, CTAs and footers stay structurally identical across languages.
-- **The footer is sacred**: it must keep the risk warning block (all three languages) and the GitHub link, and is always updated across all pages together. Read [the legacy script limitations](MAINTENANCE.md#legacy-editing-scripts) first: `maintain-footer.cjs` is a historical replacement helper, not a general footer synchronizer.
+- **The footer is sacred**: it must keep the risk warning block (all three languages) and the credit line (Noderunners badge, live block height and the StudioFab.nl webdesign credit), and is always updated across all pages together. The GitHub source link lives on the About pages, not in the footer. Read [the legacy script limitations](MAINTENANCE.md#legacy-editing-scripts) first: `maintain-footer.cjs` is a historical replacement helper, not a general footer synchronizer.
 
 ## 3. Code conventions
 

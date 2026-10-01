@@ -8,7 +8,7 @@ Thanks for helping build the Bitcoin Friesland website. This repo is worked on b
 
 1. **Every change lands in all three languages** (`nl/`, `en/`, `fy/`) with identical structure.
 2. **`main` is live.** All changes go through a branch + pull request.
-3. **The footer is sacred**: keep the risk warning block and GitHub link across all languages and pages. Review the [maintenance script limitations](MAINTENANCE.md#legacy-editing-scripts) before running bulk updates.
+3. **The footer is sacred**: keep the risk warning block and the credit line (Noderunners badge, block height, StudioFab.nl credit) across all languages and pages. The GitHub source link lives on the About pages. Review the [maintenance script limitations](MAINTENANCE.md#legacy-editing-scripts) before running bulk updates.
 4. **Log your work**: add a short, plain-language entry to [CHANGES.md](CHANGES.md) under the latest round (or start a new one).
 
 ## Workflow

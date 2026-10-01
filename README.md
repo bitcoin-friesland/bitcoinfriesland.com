@@ -114,7 +114,7 @@ This is the most important convention in the repo:
 
 1. Every content change lands in **all three languages** — `nl/`, `en/`, `fy/` — with identical structure.
 2. Navigation, hero blocks, CTA buttons and footers must stay structurally identical across languages.
-3. The footer must always include the **risk warning block** (NL/EN/FY) and the GitHub link. Never edit the footer on one page only — update all pages together. See [maintenance limitations](MAINTENANCE.md#legacy-editing-scripts) before using the legacy footer script.
+3. The footer must always include the **risk warning block** (NL/EN/FY) and the credit line (Noderunners badge, block height, StudioFab.nl credit). The GitHub source link lives on the About pages. Never edit the footer on one page only — update all pages together. See [maintenance limitations](MAINTENANCE.md#legacy-editing-scripts) before using the legacy footer script.
 4. Documentation and code comments are written in **English**, unless a user explicitly asks otherwise.
 
 ## Styling system
