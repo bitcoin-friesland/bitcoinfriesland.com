@@ -10,12 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20261002a">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20261002d">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/assets/images/icon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/assets/images/icon-192.png" type="image/png" sizes="192x192">
 
     <meta name="theme-color" content="#0066cc">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="canonical" href="https://bitcoinfriesland.com/en/meetings">
     <link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/meetings">
     <link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/meetings">
@@ -205,7 +207,7 @@
   ]
 }
     </script>
-    <script defer src="../assets/main.js?v=20261001p"></script>
+    <script defer src="../assets/main.js?v=20261002a"></script>
 </head>
   <body class="st">
     <a class="bf-skip-link" href="#main-content">Skip to content</a>
@@ -329,725 +331,194 @@
       </div>
     </header>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-              <div class="mb-16" id="upcoming-events">
-                <div class="flex items-center justify-center mb-8">
-                  <svg class="h-6 w-6 text-bitcoin-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <h2 class="text-2xl font-bold text-gray-900">Upcoming Events</h2>
-                </div>
-
-                <p class="text-center text-gray-600">There are currently no upcoming events listed on this page.</p>
-              </div>
-
-              <div class="mb-16" id="past-events">
-                <div class="flex items-center justify-center mb-8">
-                  <svg class="h-6 w-6 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <h2 class="text-2xl font-bold text-gray-500">Past Events</h2>
-                </div>
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-    <div data-event-end="2026-09-19T18:00:00+02:00" class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source
-            srcset="
-              ../assets/images/noderunners-conference-2026-320.webp 320w,
-              ../assets/images/noderunners-conference-2026-480.webp 480w,
-              ../assets/images/noderunners-conference-2026-640.webp 640w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            type="image/webp">
-          <img
-            alt="Noderunners Conference 2026 poster"
-            class="w-full h-auto"
-            src="../assets/images/noderunners-conference-2026-640.jpg"
-            srcset="
-              ../assets/images/noderunners-conference-2026-320.jpg 320w,
-              ../assets/images/noderunners-conference-2026-480.jpg 480w,
-              ../assets/images/noderunners-conference-2026-640.jpg 640w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            width="640" height="905" loading="eager" fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-      <div class="bg-gradient-to-r from-friesland-blue/10 via-bitcoin-orange/15 to-friesland-blue/10 px-6 py-4">
-        <div class="flex items-center gap-3">
-          <svg class="h-6 w-6 text-bitcoin-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <div>
-            <h3 class="text-xl font-bold text-gray-800">Noderunners Conference 2026</h3>
-            <p class="text-sm text-gray-700">Past · Saturday, September 19, 2026 · 11:00-18:00</p>
-          </div>
+            <div class="st-shell st-events-wrap">
+          <section class="st-events-block" id="upcoming-events" aria-labelledby="upcoming-title">
+            <div class="st-section-head"><h2 id="upcoming-title">Upcoming meetups</h2></div>
+            <div class="st-events-empty">
+              <span class="st-tip-icon"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+              <div><p class="st-tip-title">There are currently no upcoming events listed on this page.</p><p>New meetups are announced in the Telegram group first.</p></div>
+              <a class="st-btn st-btn--blue" href="https://t.me/bitcoinfriesland" target="_blank" rel="noopener noreferrer">Follow the Telegram group <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></a>
+            </div>
+          </section>
+          <section class="st-events-block" id="past-events" aria-labelledby="past-title">
+            <div class="st-section-head"><h2 id="past-title">Past meetups</h2></div>
+            <div class="st-events-grid">
+          <article class="st-event" data-event-end="2026-09-19T18:00:00+02:00">
+            <div class="st-event-media"><picture><source srcset=" ../assets/images/noderunners-conference-2026-320.webp 320w, ../assets/images/noderunners-conference-2026-480.webp 480w, ../assets/images/noderunners-conference-2026-640.webp 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Noderunners Conference 2026 poster" src="../assets/images/noderunners-conference-2026-640.jpg" srcset=" ../assets/images/noderunners-conference-2026-320.jpg 320w, ../assets/images/noderunners-conference-2026-480.jpg 480w, ../assets/images/noderunners-conference-2026-640.jpg 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="905" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Saturday, September 19, 2026 · 11:00-18:00</span></p>
+              <h3>Noderunners Conference 2026</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Koepelgevangenis Arnhem, Koepelkazerne 52, 6826 KL Arnhem</span></p>
+              <div class="st-event-text" id="ev-en-1" data-event-text><p>NodeRunners Conference 2026 took place on 19 September 2026 from 11:00 to 18:00 at Koepelgevangenis Arnhem, with talks and workshops about Bitcoin, mining, nodes and Nostr.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-1" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://noderunners.network/nl/conference#program" target="_blank" rel="noopener noreferrer">Event information <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source srcset=" ../assets/images/bitcoin-friesland-drachten-sep-2025-320.webp 320w, ../assets/images/bitcoin-friesland-drachten-sep-2025-480.webp 480w, ../assets/images/bitcoin-friesland-drachten-sep-2025-640.webp 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Bitcoin Friesland BBQ – Meat the Resistance at Vliegveld Drachten" src="../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg" srcset=" ../assets/images/bitcoin-friesland-drachten-sep-2025-320.jpg 320w, ../assets/images/bitcoin-friesland-drachten-sep-2025-480.jpg 480w, ../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="714" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Friday 14 August 2026 · from 19:00</span></p>
+              <h3>Bitcoin Friesland BBQ – Meat the Resistance</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Vliegveld Drachten, De Knobben 100A, Drachten</span></p>
+              <div class="st-event-text" id="ev-en-2" data-event-text><p>On 14 August, Bitcoiners gathered at Vliegveld Drachten for fire, good meat and strong conversations.</p><p>The contribution was € 25 in sats for meat and food.</p><p>Bitcoin, fire and community.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-2" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="../nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten">View event →</a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source srcset=" ../assets/images/bitcoin-friesland-meeting-2026-mei-320.webp 320w, ../assets/images/bitcoin-friesland-meeting-2026-mei-480.webp 480w, ../assets/images/bitcoin-friesland-meeting-2026-mei-640.webp 640w, ../assets/images/bitcoin-friesland-meeting-2026-mei.webp 912w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Bitcoin Friesland Meetup at Het Brouwdok" src="../assets/images/bitcoin-friesland-meeting-2026-mei-640.jpg" srcset=" ../assets/images/bitcoin-friesland-meeting-2026-mei-320.jpg 320w, ../assets/images/bitcoin-friesland-meeting-2026-mei-480.jpg 480w, ../assets/images/bitcoin-friesland-meeting-2026-mei-640.jpg 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="797" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Friday, May 29, 2026 · from 19:30</span></p>
+              <h3>Bitcoin Friesland Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Het Brouwdok, Willemskade 8, Harlingen Haven</span></p>
+              <div class="st-event-text" id="ev-en-3" data-event-text><p>Friday evening, May 29, it's time to meet up again. There's no fixed program, just good company.</p><p>This edition we'll gather from 19:30 at Het Brouwdok / Het Proefdok in Harlingen.</p><p>Chat about Bitcoin over a beer; paying with sats works too. Let us know via the RSVP whether you'll be there. Whether you're just starting with Bitcoin or already deep in the rabbit hole — everyone is welcome.</p><p>Feel free to bring someone along!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-3" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://plektos.app/event/naddr1qvzqqqrukvpzpgqsn6h4ddk9n3cr50re4tlm7qm3nmnyqtu6wy089wavl350ekd5qqcxy6t5vdhkjm3dveexjetnd3skuepd95kkset59438ymm4wajx76edxymnwwp5xqurvdp3xgmnxtfsp8w2rp" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-kreta-1-maart-2026-480.webp 480w, ../assets/images/event-kreta-1-maart-2026-640.webp 640w, ../assets/images/event-kreta-1-maart-2026-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-kreta-1-maart-2026-640.jpg" srcset="../assets/images/event-kreta-1-maart-2026-480.jpg 480w, ../assets/images/event-kreta-1-maart-2026-640.jpg 640w, ../assets/images/event-kreta-1-maart-2026-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: Greek-themed meetup at Restaurant Kreta in Sneek" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Sunday, March 1, 2026 · from 19:00</span></p>
+              <h3>Bitcoin Friesland Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Restaurant Kreta, Prins Hendrikkade 1, Sneek</span></p>
+              <div class="st-event-text" id="ev-en-4" data-event-text><p>At 18:30 you can join us for Greek dinner.</p><p>From 19:30 you are welcome for the open meetup with speakers and Bitcoiners.</p><p>Special guest: Patrick van der Meijde, Bitcoin Arnhem. Join us for a great evening full of Bitcoin, freedom, good food and good company. Snacks and drinks at Kreta can of course be paid with Bitcoin.</p><p>Restaurant Kreta is just a few minutes' walk from Sneek train and bus station.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-4" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/313557287/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-byoak-19-feb-2026-480.webp 480w, ../assets/images/event-byoak-19-feb-2026-640.webp 640w, ../assets/images/event-byoak-19-feb-2026-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-byoak-19-feb-2026-640.jpg" srcset="../assets/images/event-byoak-19-feb-2026-480.jpg 480w, ../assets/images/event-byoak-19-feb-2026-640.jpg 640w, ../assets/images/event-byoak-19-feb-2026-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: Thai-themed meetup at ByOak in Sneek" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Thursday, February 19, 2026 · from 18:30</span></p>
+              <h3>Bitcoin Friesland Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>ByOak, Sint Antoniusplein 34, Sneek</span></p>
+              <div class="st-event-text" id="ev-en-5" data-event-text><p>Enjoy Thai food at 18:30.</p><p>From 19:30 we open the doors for a casual meetup with speakers and fellow Bitcoiners.</p><p>Join us for an evening full of Bitcoin, freedom, good food and great company. Snacks and drinks at ByOak can of course be paid with Bitcoin.</p><p>ByOak is a few minutes' walk from Sneek train and bus station.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-5" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/313203501/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-nieuwjaarsborrel-2026-480.webp 480w, ../assets/images/event-nieuwjaarsborrel-2026-640.webp 640w, ../assets/images/event-nieuwjaarsborrel-2026-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-nieuwjaarsborrel-2026-640.jpg" srcset="../assets/images/event-nieuwjaarsborrel-2026-480.jpg 480w, ../assets/images/event-nieuwjaarsborrel-2026-640.jpg 640w, ../assets/images/event-nieuwjaarsborrel-2026-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: clinking glasses and confetti for the 2026 New Year drinks" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Sunday, January 25, 2026 · 14:00 - 17:00</span></p>
+              <h3>Bitcoin Friesland New Year's Drinks</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Unia 12 - Uniabuurt 12, Leeuwarden</span></p>
+              <div class="st-event-text" id="ev-en-6" data-event-text><p>Bitcoin Friesland New Year's borrel. Unia 12 is a new Bitcoin-accepting spot in Leeuwarden and the perfect living-room setting to kick off the new year together and look back at everything we did with Bitcoin in 2025.</p><p>€15 (prepaid in Bitcoin) for five luxe bites: fresh oysters with two garnishes, mini pita with falafel and yogurt dip, street taco with avocado, tomato salsa and mozzarella, roulade of smoked halibut, and a savory cone with beef tartare and piccalilly.</p><p>Register in advance via Telegram, Signal or meetup.com.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-6" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/312894133/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source srcset="../assets/images/bitcoin-meeting-heerenveen-320.webp 320w, ../assets/images/bitcoin-meeting-heerenveen-480.webp 480w, ../assets/images/bitcoin-meeting-heerenveen-640.webp 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Bitcoin Friesland Meetup" src="../assets/images/bitcoin-meeting-heerenveen-640.jpg" srcset="../assets/images/bitcoin-meeting-heerenveen-320.jpg 320w, ../assets/images/bitcoin-meeting-heerenveen-480.jpg 480w, ../assets/images/bitcoin-meeting-heerenveen-640.jpg 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="400" height="300" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Thursday, December 11, 2025 · From 19:30</span></p>
+              <h3>Bitcoin Friesland Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>MusykFabryk, Industrieweg 18a, Heerenveen</span></p>
+              <div class="st-event-text" id="ev-en-7" data-event-text><p>Join us at our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-7" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/312271522/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source srcset="../assets/images/bitcoin-friesland-meeting-28-november-2025-320.webp 320w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-480.webp 480w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-640.webp 640w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Bitcoin Friesland Meetup" src="../assets/images/bitcoin-friesland-meeting-28-november-2025-960.jpg" srcset="../assets/images/bitcoin-friesland-meeting-28-november-2025-320.jpg 320w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-480.jpg 480w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-640.jpg 640w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="400" height="300" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Friday, November 28, 2025 · From 19:00</span></p>
+              <h3>Bitcoin Friesland Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>In de Brouwerij, Zaailand 94, Leeuwarden (upper floor)</span></p>
+              <div class="st-event-text" id="ev-en-8" data-event-text><p>Join us for our Bitcoin Friesland meetup in Leeuwarden. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Live music from 22:00. Pay for your drinks with Bitcoin!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-8" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/311891761/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/noderunners-conference-2025-320.webp 320w, ../assets/images/noderunners-conference-2025-480.webp 480w, ../assets/images/noderunners-conference-2025-640.webp 640w"><img loading="lazy" alt="Poster for NodeRunners Conference 2025" src="../assets/images/noderunners-conference-2025-640.jpg" srcset="../assets/images/noderunners-conference-2025-320.jpg 320w, ../assets/images/noderunners-conference-2025-480.jpg 480w, ../assets/images/noderunners-conference-2025-640.jpg 640w" width="640" height="905" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Saturday, November 1, 2025 · From 12:00</span></p>
+              <h3>NodeRunners Conference 2025</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span></span></p>
+              <div class="st-event-text" id="ev-en-9" data-event-text><p>A Bitcoin conference for node runners and technical Bitcoin enthusiasts, about running Bitcoin nodes, the Lightning Network and other technical sides of Bitcoin.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-9" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://noderunners.network/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/bitcoin-friesland-drachten-sep-2025-320.webp 320w, ../assets/images/bitcoin-friesland-drachten-sep-2025-480.webp 480w, ../assets/images/bitcoin-friesland-drachten-sep-2025-640.webp 640w"><img loading="lazy" alt="Poster for Meat the Resistance, meetup and BBQ in Drachten" src="../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg" srcset="../assets/images/bitcoin-friesland-drachten-sep-2025-320.jpg 320w, ../assets/images/bitcoin-friesland-drachten-sep-2025-480.jpg 480w, ../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg 640w" width="640" height="714" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Friday, October 3, 2025 · BBQ from 17:00 / Free entry from 19:30</span></p>
+              <h3>Meat the Resistance – Meetup & BBQ</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Vliegveld Drachten, De Knobben 100A, Drachten</span></p>
+              <div class="st-event-text" id="ev-en-10" data-event-text><p>Bitcoin Friesland hosted a BBQ and meetup where Bitcoin enthusiasm, knowledge and good company came together. Great food, several talks and plenty of new and seasoned Bitcoiners to meet.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-10" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://meat-the-resistance.info/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source srcset="../assets/images/meat-the-resistance-2025-320.webp 320w, ../assets/images/meat-the-resistance-2025-480.webp 480w, ../assets/images/meat-the-resistance-2025-640.webp 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" type="image/webp"><img loading="lazy" alt="Meat the Resistance – Meetup & BBQ" src="../assets/images/meat-the-resistance-2025-640.jpg" srcset="../assets/images/meat-the-resistance-2025-320.jpg 320w, ../assets/images/meat-the-resistance-2025-480.jpg 480w, ../assets/images/meat-the-resistance-2025-640.jpg 640w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="400" height="300" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Thursday, August 21, 2025 · BBQ from 17:00 / Free entry from 19:30</span></p>
+              <h3>Meat the Resistance – Meetup & BBQ</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>MusykFabryk, Industrieweg 18a, Heerenveen</span></p>
+              <div class="st-event-text" id="ev-en-11" data-event-text><p>Bitcoin Friesland organizes together with the Libertarian Party, Noderunners, Your Plan B and Agorists an inspiring evening full of freedom, fire and connection. BBQ dinner (21,000 sats or €21) or free evening program from 19:30.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-11" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://meat-the-resistance.info" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><img loading="lazy" alt="Bitcoin meeting" src="../assets/images/bitcoin-meeting-heerenveen-640.jpg" data-webp="../assets/images/bitcoin-meeting-heerenveen-640.webp" width="100" height="100" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Thursday, July 3, 2025 · From 19:30</span></p>
+              <h3>Bitcoin Fryslân Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>MusykFabryk, Industrieweg 18a, Heerenveen</span></p>
+              <div class="st-event-text" id="ev-en-12" data-event-text><p>Join us for our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-12" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/308609053/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-bitcoin-meetup-480.webp 480w, ../assets/images/event-bitcoin-meetup-640.webp 640w, ../assets/images/event-bitcoin-meetup-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-bitcoin-meetup-640.jpg" srcset="../assets/images/event-bitcoin-meetup-480.jpg 480w, ../assets/images/event-bitcoin-meetup-640.jpg 640w, ../assets/images/event-bitcoin-meetup-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: clinking beer mugs at a Bitcoin meetup in Friesland" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Thursday, May 8, 2025 · From 19:30</span></p>
+              <h3>Bitcoin Fryslân Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Drachten Airfield (EHDR)</span></p>
+              <div class="st-event-text" id="ev-en-13" data-event-text><p>Join our Bitcoin Friesland meetup at Drachten Airfield. Optional food/snacks beforehand at 't Haantje or De Drie Turven (Schwartzenberglaan). Suggest they accept BTC/Lightning. Free parking at the airfield.</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-13" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://t.me/BitcoinFriesland/7257" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-bitcoin-meetup-480.webp 480w, ../assets/images/event-bitcoin-meetup-640.webp 640w, ../assets/images/event-bitcoin-meetup-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-bitcoin-meetup-640.jpg" srcset="../assets/images/event-bitcoin-meetup-480.jpg 480w, ../assets/images/event-bitcoin-meetup-640.jpg 640w, ../assets/images/event-bitcoin-meetup-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: clinking beer mugs at a Bitcoin meetup in Friesland" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Friday, March 21, 2025 · From 19:30</span></p>
+              <h3>Bitcoin Fryslân Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>MusykFabryk, Industrieweg 18a, Heerenveen</span></p>
+              <div class="st-event-text" id="ev-en-14" data-event-text><p>Join us for our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-14" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/306558096/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+          <article class="st-event">
+            <div class="st-event-media"><picture><source type="image/webp" srcset="../assets/images/event-bitcoin-meetup-480.webp 480w, ../assets/images/event-bitcoin-meetup-640.webp 640w, ../assets/images/event-bitcoin-meetup-960.webp 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw"><img src="../assets/images/event-bitcoin-meetup-640.jpg" srcset="../assets/images/event-bitcoin-meetup-480.jpg 480w, ../assets/images/event-bitcoin-meetup-640.jpg 640w, ../assets/images/event-bitcoin-meetup-960.jpg 960w" sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 100vw" width="640" height="800" alt="Illustration: clinking beer mugs at a Bitcoin meetup in Friesland" loading="lazy" decoding="async"></picture><span class="st-event-tag">Past</span></div>
+            <div class="st-event-body">
+              <p class="st-event-date"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span>Wednesday, March 5, 2025 · From 19:00</span></p>
+              <h3>Bitcoin Fryslân Meetup</h3>
+              <p class="st-event-loc"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Greek Restaurant Kreta, Prins Hendrikkade 1, Sneek</span></p>
+              <div class="st-event-text" id="ev-en-15" data-event-text><p>Join us for our Bitcoin Friesland meetup in Sneek. Network with fellow Bitcoin enthusiasts and enjoy Greek cuisine. Free entrance. Pay for your drinks and food with Bitcoin!</p></div>
+              <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-en-15" data-more="Read more" data-less="Show less" hidden><span>Read more</span><svg class="st-icon st-event-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="st-event-cta"><a class="st-btn" href="https://www.meetup.com/bitcoinmeetup/events/306068312/" target="_blank" rel="noopener noreferrer">Visit <svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a></div>
+            </div>
+          </article>
+            </div>
+          </section>
+          <section class="st-events-block" aria-labelledby="propose-title">
+            <div class="st-propose">
+              <span class="st-step-label">Organising something?</span>
+              <h2 id="propose-title">Suggest Event</h2>
+              <p>Do you have a Bitcoin meetup you would like to share? Send us an email at:</p>
+              <a class="st-btn st-btn--orange" href="mailto:info@bitcoinfriesland.com"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> info@bitcoinfriesland.com</a>
+            </div>
+          </section>
         </div>
-      </div>
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Koepelgevangenis Arnhem, Koepelkazerne 52, 6826 KL Arnhem</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>NodeRunners Conference 2026 took place on 19 September 2026 from 11:00 to 18:00 at Koepelgevangenis Arnhem, with talks and workshops about Bitcoin, mining, nodes and Nostr.</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="https://noderunners.network/nl/conference#program" target="_blank" rel="noopener noreferrer" class="nr-card-cta w-full flex items-center justify-center bg-bitcoin-orange text-white px-4 rounded-lg font-medium">
-          Event information <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source
-            srcset="
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-320.webp 320w,
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-480.webp 480w,
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-640.webp 640w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            type="image/webp">
-          <img
-            alt="Bitcoin Friesland BBQ – Meat the Resistance at Vliegveld Drachten"
-            class="w-full h-auto"
-            src="../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg"
-            srcset="
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-320.jpg 320w,
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-480.jpg 480w,
-              ../assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg 640w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            width="640" height="714" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <div class="bg-gradient-to-r from-friesland-blue/10 via-bitcoin-orange/15 to-friesland-blue/10 px-6 py-4">
-        <div class="flex items-center gap-3">
-          <svg class="h-6 w-6 text-bitcoin-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <h3 class="text-xl font-bold text-gray-800">Bitcoin Friesland BBQ – Meat the Resistance</h3>
-            <p class="text-sm text-gray-700">Past · Friday 14 August 2026 · from 19:00</p>
-          </div>
-        </div>
-      </div>
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            <span class="text-sm text-gray-700">Vliegveld Drachten, De Knobben 100A, Drachten</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>On 14 August, Bitcoiners gathered at Vliegveld Drachten for fire, good meat and strong conversations.</p>
-            <p>The contribution was € 25 in sats for meat and food.</p>
-            <p>Bitcoin, fire and community.</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="../nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          View event <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-
-
-
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source
-            srcset="
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-320.webp 320w,
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-480.webp 480w,
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-640.webp 640w, ../assets/images/bitcoin-friesland-meeting-2026-mei.webp 912w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            type="image/webp">
-          <img
-            alt="Bitcoin Friesland Meetup at Het Brouwdok"
-            class="w-full h-auto"
-            src="../assets/images/bitcoin-friesland-meeting-2026-mei-640.jpg"
-            srcset="
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-320.jpg 320w,
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-480.jpg 480w,
-              ../assets/images/bitcoin-friesland-meeting-2026-mei-640.jpg 640w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            width="640" height="797" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6"></div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          Friday, May 29, 2026 · from 19:30
-        </div>
-      </div>
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Het Brouwdok, Willemskade 8, Harlingen Haven</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>Friday evening, May 29, it's time to meet up again. There's no fixed program, just good company.</p>
-            <p>This edition we'll gather from 19:30 at Het Brouwdok / Het Proefdok in Harlingen.</p>
-            <p>Chat about Bitcoin over a beer; paying with sats works too. Let us know via the RSVP whether you'll be there. Whether you're just starting with Bitcoin or already deep in the rabbit hole — everyone is welcome.</p>
-            <p>Feel free to bring someone along!</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="https://plektos.app/event/naddr1qvzqqqrukvpzpgqsn6h4ddk9n3cr50re4tlm7qm3nmnyqtu6wy089wavl350ekd5qqcxy6t5vdhkjm3dveexjetnd3skuepd95kkset59438ymm4wajx76edxymnwwp5xqurvdp3xgmnxtfsp8w2rp" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source
-            srcset="
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-320.webp 320w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-480.webp 480w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-640.webp 640w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-960.webp 960w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-1280.webp 1280w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            type="image/webp">
-          <img
-            alt="Bitcoin Friesland Meetup at Restaurant Kreta"
-            class="w-full h-auto"
-            src="../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-640.jpg"
-            srcset="
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-320.jpg 320w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-480.jpg 480w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-640.jpg 640w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-960.jpg 960w,
-              ../assets/images/bitcoin-friesland-meetup-kreta-1-maart-2026-1280.jpg 1280w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            width="640" height="427" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6"></div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Sunday, March 1, 2026 · from 19:00
-        </div>
-      </div>
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Restaurant Kreta, Prins Hendrikkade 1, Sneek</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>At 18:30 you can join us for Thai dinner.</p>
-            <p>From 19:30 you are welcome for the open meetup with speakers and Bitcoiners.</p>
-            <p>Special guest: Patrick van der Meijde, Bitcoin Arnhem. Join us for a great evening full of Bitcoin, freedom, good food and good company. Snacks and drinks at Kreta can of course be paid with Bitcoin.</p>
-            <p>Restaurant Kreta is just a few minutes' walk from Sneek train and bus station.</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/313557287/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source
-            srcset="
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-320.webp 320w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-480.webp 480w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-640.webp 640w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-960.webp 960w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-1280.webp 1280w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            type="image/webp">
-          <img
-            alt="Bitcoin Friesland Meetup at ByOak"
-            class="w-full h-auto"
-            src="../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-640.jpg"
-            srcset="
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-320.jpg 320w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-480.jpg 480w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-640.jpg 640w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-960.jpg 960w,
-              ../assets/images/bitcoin-friesland-meetup-feb-19-2026-by-oak-1280.jpg 1280w"
-            sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-            width="640" height="427" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6"></div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Thursday, February 19, 2026 · from 18:30
-        </div>
-      </div>
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">ByOak, Sint Antoniusplein 34, Sneek</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>Enjoy Thai food at 18:30.</p>
-            <p>From 19:30 we open the doors for a casual meetup with speakers and fellow Bitcoiners.</p>
-            <p>Join us for an evening full of Bitcoin, freedom, good food and great company. Snacks and drinks at ByOak can of course be paid with Bitcoin.</p>
-            <p>ByOak is a few minutes' walk from Sneek train and bus station.</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/313203501/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source srcset="../assets/images/bitcoin-friesland-happy-2026-320.webp 320w, ../assets/images/bitcoin-friesland-happy-2026-480.webp 480w, ../assets/images/bitcoin-friesland-happy-2026-640.webp 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" type="image/webp">
-          <img alt="Bitcoin Friesland New Year's Drinks" class="w-full h-auto" src="../assets/images/bitcoin-friesland-happy-2026-640.jpg" srcset="../assets/images/bitcoin-friesland-happy-2026-320.jpg 320w, ../assets/images/bitcoin-friesland-happy-2026-480.jpg 480w, ../assets/images/bitcoin-friesland-happy-2026-640.jpg 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" width="640" height="467" loading="lazy" decoding="async">
-        </picture>
-      </div>
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland New Year's Drinks</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Sunday, January 25, 2026 · 14:00 - 17:00
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Unia 12 - Uniabuurt 12, Leeuwarden</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 space-y-3 mt-4">
-            <p>Bitcoin Friesland New Year's borrel. Unia 12 is a new Bitcoin-accepting spot in Leeuwarden and the perfect living-room setting to kick off the new year together and look back at everything we did with Bitcoin in 2025.</p>
-            <p>€15 (prepaid in Bitcoin) for five luxe bites: fresh oysters with two garnishes, mini pita with falafel and yogurt dip, street taco with avocado, tomato salsa and mozzarella, roulade of smoked halibut, and a savory cone with beef tartare and piccalilly.</p>
-            <p>Register in advance via Telegram, Signal or meetup.com.</p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/312894133/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source srcset="../assets/images/bitcoin-meeting-heerenveen-320.webp 320w, ../assets/images/bitcoin-meeting-heerenveen-480.webp 480w, ../assets/images/bitcoin-meeting-heerenveen-640.webp 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" type="image/webp">
-          <img alt="Bitcoin Friesland Meetup" class="w-full h-auto" src="../assets/images/bitcoin-meeting-heerenveen-640.jpg" srcset="../assets/images/bitcoin-meeting-heerenveen-320.jpg 320w, ../assets/images/bitcoin-meeting-heerenveen-480.jpg 480w, ../assets/images/bitcoin-meeting-heerenveen-640.jpg 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" width="400" height="300" loading="lazy" decoding="async">
-        </picture>
-      </div>
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Thursday, December 11, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:30</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">MusykFabryk, Industrieweg 18a, Heerenveen</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join us at our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/312271522/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source srcset="../assets/images/bitcoin-friesland-meeting-28-november-2025-320.webp 320w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-480.webp 480w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-640.webp 640w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-960.webp 960w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" type="image/webp">
-          <img alt="Bitcoin Friesland Meetup" class="w-full h-auto" src="../assets/images/bitcoin-friesland-meeting-28-november-2025-960.jpg" srcset="../assets/images/bitcoin-friesland-meeting-28-november-2025-320.jpg 320w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-480.jpg 480w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-640.jpg 640w, ../assets/images/bitcoin-friesland-meeting-28-november-2025-960.jpg 960w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" width="400" height="300" loading="lazy" decoding="async">
-        </picture>
-      </div>
-
-
-      <div class="pb-2 px-6 bg-gradient-to-r from-friesland-blue/5 via-bitcoin-orange/10 to-friesland-blue/5">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Friesland Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Friday, November 28, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:00</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">In de Brouwerij, Zaailand 94, Leeuwarden (upper floor)</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join us for our Bitcoin Friesland meetup in Leeuwarden. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Live music from 22:00. Pay for your drinks with Bitcoin!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/311891761/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-      <div class="overflow-hidden rounded-t-2xl">
-        <picture>
-          <source srcset="../assets/images/meat-the-resistance-2025-320.webp 320w, ../assets/images/meat-the-resistance-2025-480.webp 480w, ../assets/images/meat-the-resistance-2025-640.webp 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" type="image/webp">
-          <img alt="Meat the Resistance – Meetup & BBQ" class="w-full h-auto" src="../assets/images/meat-the-resistance-2025-640.jpg" srcset="../assets/images/meat-the-resistance-2025-320.jpg 320w, ../assets/images/meat-the-resistance-2025-480.jpg 480w, ../assets/images/meat-the-resistance-2025-640.jpg 640w" sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" width="400" height="300" loading="lazy" decoding="async">
-        </picture>
-      </div>
-
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Meat the Resistance – Meetup & BBQ</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Thursday, August 21, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">BBQ from 17:00 / Free entry from 19:30</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">MusykFabryk, Industrieweg 18a, Heerenveen</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Bitcoin Friesland organizes together with the Libertarian Party, Noderunners, Your Plan B and Agorists an inspiring evening full of freedom, fire and connection. BBQ dinner (21,000 sats or €21) or free evening program from 19:30.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://meat-the-resistance.info" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-      <div class="overflow-hidden rounded-t-2xl">
-          <img alt="Bitcoin meeting" class="w-full h-auto" src="../assets/images/bitcoin-meeting-heerenveen-640.jpg" data-webp="../assets/images/bitcoin-meeting-heerenveen-640.webp" width="100" height="100" loading="lazy" decoding="async">
-      </div>
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Fryslân Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Thursday, July 3, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:30</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">MusykFabryk, Industrieweg 18a, Heerenveen</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join us for our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/308609053/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Fryslân Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Thursday, May 8, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:30</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Drachten Airfield (EHDR)</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join our Bitcoin Friesland meetup at Drachten Airfield. Optional food/snacks beforehand at 't Haantje or De Drie Turven (Schwartzenberglaan). Suggest they accept BTC/Lightning. Free parking at the airfield.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://t.me/BitcoinFriesland/7257" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Fryslân Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Friday, March 21, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:30</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">MusykFabryk, Industrieweg 18a, Heerenveen</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join us for our Bitcoin Friesland meetup in Heerenveen. Network with fellow Bitcoin enthusiasts and enjoy the evening. Free entrance. Pay for your drinks with Bitcoin!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/306558096/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div class="max-w-md mx-auto rounded-2xl border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-70 bg-white">
-
-
-      <div class="pb-2 px-6 bg-gray-100">
-        <div class="pt-6">
-          <!-- Badge verwijderd -->
-        </div>
-        <h3 class="text-xl font-bold mt-3 text-gray-800">Bitcoin Fryslân Meetup</h3>
-        <div class="flex items-center mt-2 text-gray-600">
-          <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Wednesday, March 5, 2025
-        </div>
-      </div>
-
-      <div class="py-4 px-6">
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">From 19:00</span>
-          </div>
-          <div class="flex items-start">
-            <svg class="h-4 w-4 mr-3 mt-1 text-friesland-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span class="text-sm text-gray-700">Greek Restaurant Kreta, Prins Hendrikkade 1, Sneek</span>
-          </div>
-          <div class="text-sm leading-relaxed text-gray-600 mt-4">
-            <p>Join us for our Bitcoin Friesland meetup in Sneek. Network with fellow Bitcoin enthusiasts and enjoy Greek cuisine. Free entrance. Pay for your drinks and food with Bitcoin!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bezoek button -->
-      <div class="px-6 pb-6">
-        <a href="https://www.meetup.com/bitcoinmeetup/events/306068312/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center border border-blue-500 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-          Visit <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-    </div>
-                </div>
-              </div>
-
-              <div class="mb-16">
-                <div class="flex items-center justify-center mb-8">
-                  <svg class="h-6 w-6 text-friesland-blue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                  <h2 class="text-2xl font-bold text-friesland-blue">Suggest Event</h2>
-                </div>
-                <div class="max-w-3xl mx-auto">
-
-    <div class="border-0 shadow-md overflow-hidden rounded-xl bg-white">
-      <div class="pb-2 bg-gradient-to-r from-friesland-blue/10 via-bitcoin-orange/10 to-friesland-blue/5 px-6 pt-6">
-        <h3 class="text-xl font-bold text-gray-900 text-center">
-          Suggest Event
-        </h3>
-      </div>
-
-      <div class="p-6">
-        <div class="text-center py-4">
-          <svg class="mx-auto h-10 w-10 text-friesland-blue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-          <p class="text-lg text-gray-600 mb-4">
-            Do you have a Bitcoin meetup you would like to share? Send us an email at:
-          </p>
-          <a href="mailto:info@bitcoinfriesland.com" class="text-xl font-medium text-friesland-blue hover:underline hover:text-friesland-blue/80 transition-colors">
-            info@bitcoinfriesland.com
-          </a>
-        </div>
-      </div>
-    </div>
-    </div>
-                </div>
-              </div>
             </div>
           </main>
 
@@ -1128,9 +599,9 @@
 
                 <!-- Risk Warning Footer -->
         <div class="bf-risk-note bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
-          <h3 class="text-lg font-semibold text-red-800 mb-3">Risk Warning</h3>
+          <h3 class="text-lg font-semibold text-red-800 mb-3">Risk warning</h3>
           <p class="text-red-700 text-sm leading-relaxed">
-            Bitcoin prices can fluctuate strongly. Without self-custody or when losing keys you can lose the full value. Bitcoin is not covered by a European deposit guarantee scheme. This page is purely informational and does not constitute financial advice.
+            Yes, we have to say this. The bitcoin price can swing wildly: sometimes towards the moon, sometimes towards the basement. Lose your keys, or leave your bitcoin with someone else, and you can lose all of it, with no helpdesk to undo it. Bitcoin is not covered by a European deposit guarantee scheme. This site is for information only and is not financial advice. We are Frisian Bitcoiners, not investment advisers.
           </p>
         </div>
 

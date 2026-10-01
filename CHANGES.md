@@ -886,6 +886,15 @@ at 2 a.m.
 - **Every page got its own share card.** When someone posts a link on WhatsApp, Telegram, X or Facebook, they now see a sticker-style card made for that page (35 in total, in Dutch, English and Frisian) instead of one blue logo card for everything. The map card shows the actual map, the meetups card real posters, the calculator card a calculator. Link previews finally look like they belong to the same website.
 - **Homepage leftovers rebuilt.** "Waarom aansluiten", "Leer over Bitcoin" and "Bronnen en links" were the last blocks wearing the old outfit (pastel gradients, text links pretending to be buttons, a 2015 Bitcoin logo). They are now proper sticker cards with real buttons. The English and Frisian homepages, which were missing two of these blocks, now have them too, and the English meetups card no longer sends you to X.
 
+## Round 41: Meetups that look like meetups (October 2026)
+
+- **Every meetup card rebuilt.** All 15 past events now use one sticker card: same size, image in the same spot, buttons on exactly the same line. Long descriptions fold up after three lines with a "Lees meer" button, so one chatty event no longer stretches the whole row. The faded grey look for past events is gone; a small "Afgelopen" sticker does that job now.
+- **Real artwork instead of food clipart.** The Kreta (Greek), ByOak (Thai) and Nieuwjaarsborrel cards got hand-built illustrations in the site style, and the three 2025 meetups that had no picture at all now share a generic meetup illustration.
+- **Small facts fixed along the way.** The Kreta card promised Thai food at a Greek restaurant; it now promises Greek. The English and Frisian pages were missing two 2025 events (the October BBQ and NodeRunners Conference 2025) and listed them in a different order. All three languages now have the same 15 events, newest first.
+- **Heroes with character for Links, Nieuws and Steunen.** Links gets a pile of link stickers, Nieuws the four guide covers, Steunen a sticker sheet with the "Binnenkort" label. They now feel like siblings of the home, map and meetup heroes.
+- **Disclaimers with a wink.** Same legal message (prices swing, lose your keys and it is gone, no deposit guarantee, no financial advice), but written by humans: "soms richting de maan, soms richting de kelder" and "We zijn Friese Bitcoiners, geen beleggingsadviseurs".
+- **New favicon set.** The mascot as a proper sticker on an orange tile, with a die-cut white edge, crisp from 16 pixels up, plus home-screen icons and a web app manifest.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.

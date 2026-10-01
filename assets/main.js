@@ -962,3 +962,34 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   setTimeout(function() { sockets.forEach(function(s) { try { s.close(); } catch (e) {} }); }, 8000);
 })();
+
+// Meetup cards: show "Lees meer" only when the text is longer than its three
+// visible lines, and toggle the full text without changing other cards.
+(function() {
+  var texts = document.querySelectorAll('[data-event-text]');
+  if (!texts.length) return;
+  function measure() {
+    texts.forEach(function(text) {
+      var button = document.querySelector('[aria-controls="' + text.id + '"]');
+      if (!button || text.classList.contains('is-open')) return;
+      var overflows = text.scrollHeight > text.clientHeight + 2;
+      button.hidden = !overflows;
+      text.classList.toggle('is-short', !overflows);
+    });
+  }
+  texts.forEach(function(text) {
+    var button = document.querySelector('[aria-controls="' + text.id + '"]');
+    if (!button) return;
+    button.addEventListener('click', function() {
+      var open = !text.classList.contains('is-open');
+      text.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var label = button.querySelector('span');
+      if (label) label.textContent = button.getAttribute(open ? 'data-less' : 'data-more');
+    });
+  });
+  measure();
+  window.addEventListener('load', measure);
+  var timer;
+  window.addEventListener('resize', function() { clearTimeout(timer); timer = setTimeout(measure, 150); });
+})();
