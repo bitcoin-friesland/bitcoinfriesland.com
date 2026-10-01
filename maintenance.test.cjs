@@ -45,3 +45,26 @@ test('preview staging excludes tooling and has preview-only noindex headers', t 
   assert.match(fs.readFileSync(path.join(output, '_headers'), 'utf8'), /X-Robots-Tag: noindex, nofollow/);
   assert.equal(fs.readFileSync(path.join(output, 'robots.txt'), 'utf8'), fs.readFileSync(path.join(__dirname, 'robots.txt'), 'utf8'));
 });
+
+// The map hero shows counts and a dot per town. Keep them in step with the business table.
+test('map hero numbers and town dots match the business list', () => {
+  const towns = (html) => {
+    const body = html.match(/<tbody[\s\S]*?<\/tbody>/)[0];
+    return [...body.matchAll(/<tr\b[\s\S]*?<\/tr>/g)].map((row) => {
+      const cells = [...row[0].matchAll(/<td\b[\s\S]*?<\/td>/g)].map((cell) => cell[0].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+      return cells[3].replace(' (SWF)', '');
+    });
+  };
+  const dutch = towns(fs.readFileSync(path.join(__dirname, 'nl', 'map.html'), 'utf8'));
+  const unique = new Set(dutch);
+  for (const language of ['nl', 'en', 'fy']) {
+    const html = fs.readFileSync(path.join(__dirname, language, 'map.html'), 'utf8');
+    const stat = (name) => Number(html.match(new RegExp(`data-stat="${name}">(\\d+)<`))[1]);
+    assert.equal(towns(html).length, dutch.length, `${language}: same number of businesses as the Dutch list`);
+    assert.equal(stat('places'), dutch.length, `${language}: places count`);
+    assert.equal(stat('towns'), unique.size, `${language}: towns count`);
+    assert.equal(stat('sneek'), dutch.filter((town) => town === 'Sneek').length, `${language}: Sneek count`);
+    const dots = new Set([...html.matchAll(/data-town="([^"]+)"/g)].map((match) => match[1]));
+    for (const town of unique) assert.ok(dots.has(town), `${language}: no map dot for ${town}; add its coordinates to the hero map`);
+  }
+});

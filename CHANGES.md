@@ -760,6 +760,15 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Headers and IndexNow.** A new `_headers` file adds security headers, long caching for versioned assets and correct types for the Markdown and text files. An IndexNow key file lets Bing (which feeds ChatGPT search) be told about changed pages after a deploy.
 - No design, colours or footer content changed for visitors.
 
+## Round 39 (sticker design across the whole site)
+
+- **New look on every page, in all three languages.** Thick black outlines, hard offset shadows and flat brand colours, inspired by the "Betaal hier met Bitcoin" stickers the community hands out. Headings use Bricolage Grotesque; body text stays Inter. Navigation, buttons, cards, FAQ, forms, the business table and the supporter dialog all follow the same rules. The footer is now a dark backing sheet; the risk warning and GitHub link are unchanged.
+- **Homepage hero: "Bitcoin in Friesland? Gewoon dwaan."** The slogan from the community flyer, with the mascot and stickers (Lightning, Fryslân, "Betaal hier met Bitcoin", 21 stickers for supporters).
+- **Meetings page:** a sticker wall of real meetup posters from Leeuwarden, Harlingen, Drachten and Heerenveen.
+- **Map page:** a Fryslân map with a dot for every town on the business list (OpenStreetMap coordinates, province outline from CBS/PDOK open data) and live counts (43 places, 20 towns). A test fails when the list changes and the hero is not updated.
+- **Other pages** get a matching sticker header with their existing title and introduction. Fixed the "W. Terschellng" typo in the business list.
+- Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
