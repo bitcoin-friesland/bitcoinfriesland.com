@@ -76,6 +76,8 @@ NodeRunners Conference 2026 vond plaats op 19 september 2026 van 11:00 tot 18:00
 
 De Bitcoin Friesland BBQ "Meat the Resistance" vond plaats op vrijdag 14 augustus 2026 op Vliegveld Drachten.
 
+De pagina toont ook het archief: 15 eerdere meetups en evenementen sinds maart 2025, onder meer in Sneek, Leeuwarden, Harlingen, Drachten en Heerenveen, plus de NodeRunners Conference in Arnhem. Nieuwe data verschijnen eerst in de Telegram-groep.
+
 ---
 
 Language: Dutch. Source: https://bitcoinfriesland.com/nl/map
@@ -268,6 +270,8 @@ NodeRunners Conference 2026 took place on 19 September 2026 from 11:00 to 18:00 
 
 The Bitcoin Friesland BBQ "Meat the Resistance" took place on Friday 14 August 2026 at Vliegveld Drachten.
 
+The page also keeps the archive: 15 earlier meetups and events since March 2025, in places such as Sneek, Leeuwarden, Harlingen, Drachten and Heerenveen, plus the NodeRunners Conference in Arnhem. New dates appear in the Telegram group first.
+
 ---
 
 Language: English. Source: https://bitcoinfriesland.com/en/map
@@ -459,6 +463,8 @@ Der steane op it stuit gjin kommende eveneminten op dizze side.
 NodeRunners Conference 2026 wie op 19 septimber 2026 fan 11.00 oant 18.00 oere yn de Koepelgevangenis yn Arnhem, mei lêzingen en workshops oer Bitcoin, mining, nodes en Nostr.
 
 De Bitcoin Fryslân BBQ "Meat the Resistance" wie op freed 14 augustus 2026 op Vliegveld Drachten.
+
+De side hâldt ek it argyf by: 15 eardere gearkomsten en eveneminten sûnt maart 2025, ûnder oaren yn Snits, Ljouwert, Harns, Drachten en It Hearrenfean, plus de NodeRunners Conference yn Arnhem. Nije datums ferskine earst yn de Telegram-groep.
 
 ---
 

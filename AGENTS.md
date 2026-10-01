@@ -35,6 +35,9 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 - Images: `<picture>` with WebP + fallback, explicit `width`/`height`; photos get 320/480/640/960/1280 variants (see CONTRIBUTING.md).
 - Documentation and code comments in **English**, unless the user explicitly asks otherwise.
 
+- **Never delete the search-engine verification files**: `functions/googleb3d0f0d3587596d4.html.js`, `BingSiteAuth.xml`, the `msvalidate.01` meta tags on the homepages, and the IndexNow key file `0655de585572012ffeb84d2c23e0bdf2.txt`. Without them the site loses its Google Search Console and Bing verification.
+- Meetup cards follow the fixed `st-event` structure in [DESIGN.md](DESIGN.md#meetup-cards-meetings-pages); every page has its own share card in `assets/images/og/`.
+
 ## 4. Housekeeping duties (part of every content PR)
 
 - New public page → add it to `sitemap.xml` and `llms.txt`.

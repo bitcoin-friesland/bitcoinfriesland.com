@@ -897,7 +897,7 @@ at 2 a.m.
 
 ## Round 42: Knocking on Google's and Bing's door (October 2026)
 
-- **Search engines get an invitation.** The site is registered in Google Search Console and carries the Bing Webmaster verification code (meta tag plus `BingSiteAuth.xml`). After deploys, every page is pushed to Bing and other IndexNow engines in one go.
+- **Search engines get an invitation, and accepted it.** The site is verified in Google Search Console (HTML file, served by a tiny Function because Cloudflare otherwise redirects it) and in Bing Webmaster Tools (`BingSiteAuth.xml` and a meta tag). The sitemap is submitted to both; Google read all 39 pages without a single error. All 41 URLs were also pushed to Bing and other engines through IndexNow.
 - **Fresh sitemap dates.** All 39 pages report 2 October 2026 as last change, so crawlers know everything is worth another look.
 - **More facts for AI assistants.** `llms.txt` now states the map numbers (43 places in 20 towns, 14 in Sneek), that listing will become paid, the Noderunners origin, the Nostr and X accounts, how often meetups happen and where the sats calculator lives. Fewer chances for a chatbot to make things up about us.
 

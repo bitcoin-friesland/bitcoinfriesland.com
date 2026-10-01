@@ -99,8 +99,12 @@ Copy an existing example from a page rather than writing markup from scratch.
 |---|---|
 | `.st-hero.st-hero--home` | Homepage: slogan, mascot and sticker pile (`.st-stickers`, `.st-sticker--*`) |
 | `.st-hero.st-hero--page` | Every other page: badge, title, intro |
+| `.st-hero--art` + `.st-hero-art` | Page hero with an artwork pile on the right (links: `.st-ha-chip` link stickers; news: `.st-ha-cover` guide covers; support: `.st-ha-paper` sticker sheet with `.st-ha-round`). Each piece is absolutely positioned with inline `left/top` percentages and a `--r` rotation |
 | `.st-posters` / `.st-poster` | Meetings page poster wall |
 | `.st-map` | Map page Fryslân map with town dots |
+
+A page hero without art looks unfinished next to the others. Give every new
+page hero a `.st-hero-art` pile, or at least the badge.
 
 ### Text bits
 
@@ -121,6 +125,7 @@ Copy an existing example from a page rather than writing markup from scratch.
 | `.st-btn--blue` | Secondary action. White text |
 | `.st-btn--yellow` | Friendly extra action |
 | `.st-btn--purple` | Nostr only |
+| `.st-btn--dark` | Ink button with an orange shadow; one per section at most ("Bekijk alle bronnen") |
 | `.st-ctas` (`--sm`) | Row of buttons with consistent spacing |
 | `.st-chip` | Small pill button (calculator quick amounts, copy npub) |
 
@@ -140,6 +145,42 @@ external-link icon.
 | `.st-social-card--nostr` / `--x` | Follow cards on the homepage |
 | `.st-band` | Full-width coloured band (Telegram, map promo) |
 | `.st-art` | Illustration thumbnail, 8:3, outlined |
+| `.st-grid-3 > .st-card` | Cards in a 3-grid are flex columns: their `.st-ctas` row sticks to the bottom so buttons line up |
+
+### Meetup cards (meetings pages)
+
+Every event, upcoming or past, is one `<article class="st-event">`. The card
+is built from fixed-height blocks so **all cards are the same size and all
+buttons sit on the same line**. Do not add extra blocks or remove empty ones;
+leave a block empty instead (for example an event without a location).
+
+```html
+<article class="st-event">
+  <div class="st-event-media"><picture>…4:5 image…</picture><span class="st-event-tag">Afgelopen</span></div>
+  <div class="st-event-body">
+    <p class="st-event-date"><svg class="st-icon">…calendar…</svg><span>Vrijdag 29 mei 2026 · vanaf 19:30</span></p>
+    <h3>Bitcoin Friesland Meetup</h3>
+    <p class="st-event-loc"><svg class="st-icon">…pin…</svg><span>Het Brouwdok, Willemskade 8, Harlingen</span></p>
+    <div class="st-event-text" id="ev-nl-3" data-event-text><p>…</p></div>
+    <button type="button" class="st-event-more" aria-expanded="false" aria-controls="ev-nl-3"
+            data-more="Lees meer" data-less="Minder" hidden><span>Lees meer</span><svg class="st-icon st-event-more-icon">…</svg></button>
+    <div class="st-event-cta"><a class="st-btn" href="…">Bezoek →</a></div>
+  </div>
+</article>
+```
+
+- Date and location show at most two lines, the title two lines, the text
+  three lines. `main.js` reveals "Lees meer" only when the text is longer.
+- The image box is 4:5 with `object-fit: contain`, so posters are never cut
+  off. New artwork should be 960x1200 (see section 6).
+- `id`s must be unique per page (`ev-<lang>-<n>`). Translate `data-more` and
+  `data-less` per language ("Read more"/"Show less", "Lês mear"/"Minder").
+- An upcoming event goes in `#upcoming-events` without the "Afgelopen" tag;
+  when it has passed, move the card to the top of `#past-events` and add the
+  tag. There is no automatic date rollover. Keep the three languages in the
+  same order (newest first) and update `meetings.html.md` too.
+- The Noderunners card carries `data-event-end`; `maintenance.test.cjs`
+  checks it stays in the past list.
 
 ### Footer
 
@@ -166,12 +207,28 @@ Quotes must be real, with source and date. Do not add anything Satoshi
 
 ## 6. Art and images
 
-- Illustrations are flat, ink-outlined, in the token colours. The homepage
-  card art (`assets/images/art-*-960x360.jpg`) and the guide covers
-  (`nl/blog/*-cover-1600x840.jpg`) are the reference.
+- Illustrations are flat, ink-outlined, in the token colours. The references:
+  homepage card art (`assets/images/art-*-960x360.jpg`), guide covers
+  (`assets/images/*-cover-1600x840.jpg`, with 640x336 copies for the news
+  hero), meetup art (`assets/images/event-*-{480,640,960}.{jpg,webp}`, 4:5)
+  and the share cards (`assets/images/og/og-<page>-<lang>.jpg`, 1200x630).
+- Artwork is drawn as SVG/HTML and rendered with headless Chrome, then saved
+  as JPEG and WebP. The mascot is always the real
+  `bitcoin-friesland-logo.png`, never redrawn.
+- Every public page has its own share card. A new page needs a new
+  `og-<page>-<lang>.jpg` plus `og:image`, `twitter:image`, alt texts and
+  `primaryImageOfPage` pointing to it.
 - No stock photos with handshakes. No AI images with seven fingers.
 - Always set `width`, `height`, `alt` and `loading="lazy"` below the fold.
   Supply at least 2x the displayed size so nothing looks pixelated.
+
+### Favicons
+
+`favicon.ico` (16/32/48), `assets/images/icon-32.png`, `icon-192.png` and
+`icon-512.png` are the mascot as a sticker on an orange tile.
+`apple-touch-icon.png` and `icon-maskable-512.png` are full-bleed orange,
+because iOS and Android cut their own shape. `site.webmanifest` lists them.
+Replace all of them together, never just one.
 
 ## 7. Copy
 
@@ -180,6 +237,10 @@ Quotes must be real, with source and date. Do not add anything Satoshi
 - Dutch website copy: no emphasis accents ("een", not "één"), but keep the
   spelling marks that belong to the word (ideeën, cliënten, geïnteresseerd).
 - Write for a curious neighbour, not for a cryptographer. Short sentences.
+- Disclaimers may wink, but must keep their substance: prices swing, lost
+  keys or custodial platforms can mean losing everything, no deposit
+  guarantee, not financial advice. The footer risk-warning label stays short
+  (it is a one-line pill); put the joke in the paragraph.
 
 ## 8. Before you open a pull request
 
