@@ -6,7 +6,7 @@ const path = require('node:path');
 
 function preparePreview(root = __dirname) {
   const output = fs.mkdtempSync(path.join(os.tmpdir(), 'bitcoin-friesland-preview-'));
-  for (const name of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt', 'favicon.ico', 'apple-touch-icon.png', 'assets', 'nl', 'en', 'fy']) {
+  for (const name of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt', 'favicon.ico', 'apple-touch-icon.png', 'site.webmanifest', 'assets', 'nl', 'en', 'fy']) {
     fs.cpSync(path.join(root, name), path.join(output, name), {
       recursive: true,
       filter: source => {

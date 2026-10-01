@@ -62,15 +62,15 @@ function addRiskWarningToAllPages() {
   const riskWarnings = {
     nl: {
       title: 'Risicowaarschuwing',
-      text: 'Bitcoin-koersen kunnen sterk schommelen. Zonder eigen beheer of bij verlies van sleutels kunt u de volledige waarde kwijtraken. Bitcoin valt niet onder een Europees depositogarantiestelsel. Deze pagina is uitsluitend informatief en vormt geen financieel advies.'
+      text: 'Ja, die moet er echt in. De bitcoinkoers kan flink schommelen: soms richting de maan, soms richting de kelder. Raak je je sleutels kwijt of laat je je bitcoin bij een ander staan, dan kun je alles kwijtraken, en er is geen klantenservice die het terugzet. Bitcoin valt niet onder een Europees depositogarantiestelsel. Deze site is informatief en geen financieel advies. We zijn Friese Bitcoiners, geen beleggingsadviseurs.'
     },
     en: {
-      title: 'Risk Warning',
-      text: 'Bitcoin prices can fluctuate strongly. Without self-custody or when losing keys you can lose the full value. Bitcoin is not covered by a European deposit guarantee scheme. This page is purely informational and does not constitute financial advice.'
+      title: 'Risk warning',
+      text: 'Yes, we have to say this. The bitcoin price can swing wildly: sometimes towards the moon, sometimes towards the basement. Lose your keys, or leave your bitcoin with someone else, and you can lose all of it, with no helpdesk to undo it. Bitcoin is not covered by a European deposit guarantee scheme. This site is for information only and is not financial advice. We are Frisian Bitcoiners, not investment advisers.'
     },
     fy: {
       title: 'Risikowierskôging',
-      text: 'Bitcoin-koersen kinne sterk skomelje. Sûnder eigen behear of by ferlies fan kaaien kinne jo de folsleine wearde kwytreitsje. Bitcoin falt net ûnder in Europeesk depositgarânsjestelsel. Dizze side is útsluutend ynformatyf en foarmet gjin finansjeel advys.'
+      text: 'Ja, dizze moat der echt yn. De bitcoinkoers kin flink skommelje: soms rjochting de moanne, soms rjochting de kelder. Reitsje jo jo kaaien kwyt of litte jo jo bitcoin by in oar stean, dan kinne jo alles kwytreitsje, en der is gjin klanteservice dy\'t it weromset. Bitcoin falt net ûnder in Europeesk depositgarânsjestelsel. Dizze side is ynformatyf en gjin finansjeel advys. Wy binne Fryske Bitcoiners, gjin beleggingsadviseurs.'
     }
   };
 
@@ -92,9 +92,9 @@ function addRiskWarningToAllPages() {
       let content = fs.readFileSync(filePath, 'utf8');
 
       // Check if risk warning already exists
-      if (content.includes('Risicowaarschuwing') || content.includes('Risk Warning') || content.includes('Risikowierskôging')) {
+      if (content.includes('Risicowaarschuwing') || /Risk [Ww]arning/.test(content) || content.includes('Risikowierskôging')) {
         const updatedContent = content.replace(
-          /<div class="(?!bf-risk-note )(bg-red-50 border border-red-200 rounded-lg p-6 mt-8)">(?=\s*<h3[^>]*>(?:Risicowaarschuwing|Risk Warning|Risikowierskôging)<\/h3>)/g,
+          /<div class="(?!bf-risk-note )(bg-red-50 border border-red-200 rounded-lg p-6 mt-8)">(?=\s*<h3[^>]*>(?:Risicowaarschuwing|Risk [Ww]arning|Risikowierskôging)[^<]*<\/h3>)/g,
           '<div class="bf-risk-note $1">'
         );
 
