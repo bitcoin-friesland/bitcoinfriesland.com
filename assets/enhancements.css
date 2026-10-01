@@ -2483,3 +2483,50 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st .support-independence .support-rules { border-color: #fff !important; box-shadow: 8px 8px 0 var(--st-orange) !important; }
 .st main [class*="text-amber"], .st main [class*="text-yellow-7"], .st main [class*="text-yellow-8"] { color: var(--st-ink) !important; }
 .st .link-category h3 { border-bottom: 2px solid var(--st-ink) !important; padding-bottom: 0.6rem; }
+/* Colour variants must outrank the generic sticker-button rule (id scope) */
+.st #main-content :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-friesland-blue, .bg-blue-500, .bg-blue-600, .bg-blue-700) { background-color: var(--st-blue) !important; color: #fff !important; }
+.st #main-content :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-bitcoin-orange, .bg-orange-500, .bg-orange-600) { background-color: var(--st-orange) !important; color: var(--st-ink) !important; }
+.st #main-content :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-black, .bg-gray-900, .bg-gray-800, .bg-gray-700) { background-color: var(--st-ink) !important; color: #fff !important; }
+.st #main-content :is(a, button, div)[class*="px-"][class*="rounded"]:is(.bg-friesland-blue, .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-black, .bg-gray-900, .bg-gray-800, .bg-gray-700) svg { color: #fff !important; }
+/* The Telegram band keeps its solid blue (it carries a legacy gradient class) */
+.st #main-content section.telegram-cta { background: var(--st-blue) !important; background-image: none !important; }
+.st #main-content section.telegram-cta a { background-color: #fff !important; color: var(--st-ink) !important; }
+.st #main-content section.telegram-cta a.bf-btn-ghost-white { background-color: var(--st-yellow) !important; }
+
+/* ---------- Shared sticker sections (business benefits, beginner page) ---------- */
+.st-section { padding: clamp(3rem, 6vw, 5rem) 0; }
+.st-shell { width: min(1200px, calc(100% - 2rem)); margin: 0 auto; }
+.st-section-head { max-width: 46rem; margin-bottom: 2.5rem; }
+.st .st-section-head h2 { font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.02; margin: 1rem 0 0.9rem; }
+.st-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.st-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.st-card { background: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow-lg); padding: 1.6rem 1.6rem 1.75rem; }
+.st .st-card h3 { font-size: 1.4rem; line-height: 1.15; margin: 1rem 0 0.5rem; }
+.st-card p { color: var(--st-text); line-height: 1.6; }
+.st-card-icon { display: inline-grid; place-items: center; width: 3rem; height: 3rem; border: 2px solid var(--st-ink); border-radius: 14px; background: var(--st-yellow); box-shadow: var(--st-shadow-sm); }
+.st-card-icon .st-icon { width: 1.5rem; height: 1.5rem; }
+.st-grid-3 > .st-card:nth-child(3n+2) .st-card-icon { background: var(--st-orange); }
+.st-grid-3 > .st-card:nth-child(3n+3) .st-card-icon { background: var(--st-sky); }
+.st-fine { margin-top: 1.25rem; font-size: 0.875rem; color: #52525b; }
+.st-section--sky { background: var(--st-sky); background-image: var(--st-dots); background-size: 26px 26px; border-block: var(--st-line) solid var(--st-ink); }
+@media (max-width: 900px) { .st-grid-3, .st-grid-2 { grid-template-columns: 1fr; } }
+.st-glossary { margin: 0; }
+.st-gloss { background: #fff; border: 2px solid var(--st-ink); border-radius: var(--st-r); padding: 1.1rem 1.25rem; }
+.st-gloss dt { font-family: var(--st-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
+.st-gloss dd { margin: 0.35rem 0 0; color: var(--st-text); line-height: 1.55; }
+.st .st-card-title { font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.05; margin-bottom: 0.8rem; }
+.st-card--faq details { border: 2px solid var(--st-ink); border-radius: var(--st-r); padding: 0.85rem 1rem; margin-bottom: 0.75rem; background: var(--st-sky); }
+.st-card--faq details:last-child { margin-bottom: 0; }
+.st-card--faq summary { font-weight: 700; cursor: pointer; }
+.st-card--faq details p { margin-top: 0.5rem; color: var(--st-text); line-height: 1.55; }
+/* Legacy coloured gradient bands with white text become solid blue sticker bands (outranks the gradient reset) */
+.st #main-content section.telegram-cta[class]:not(.st-hero),
+.st #main-content section[class*="bg-gradient-to"][class]:not(.st-hero):is([class*="from-blue-"], [class*="from-friesland-blue"]:not([class*="from-friesland-blue/"])) {
+  background: var(--st-blue) !important; background-image: none !important; color: #fff;
+  border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-xl) !important; box-shadow: var(--st-shadow-lg);
+  width: min(1200px, calc(100% - 2rem)); margin: 3rem auto !important;
+}
+.st #main-content section[class*="bg-gradient-to"][class]:not(.st-hero):is([class*="from-blue-"], [class*="from-friesland-blue"]:not([class*="from-friesland-blue/"])) :is(h2, h3, p, span) { color: #fff !important; }
+/* Wordmark orange darkened for readable contrast */
+.st nav .text-bitcoin-orange, .st footer .text-bitcoin-orange { color: #d9480f !important; }
+.st .support-badge { color: var(--st-ink) !important; }

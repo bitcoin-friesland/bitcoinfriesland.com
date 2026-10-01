@@ -289,4 +289,34 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/what-is-bitcoin</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/en/what-is-bitcoin</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/fy/what-is-bitcoin</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/what-is-bitcoin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
+  </url>
 </urlset>

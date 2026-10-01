@@ -770,6 +770,9 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Second pass after review.** The remaining old-style buttons, soft shadows, gradient panels, tinted boxes and notes on every page now follow the sticker rules; an automated check over all 30 pages found none left. The footer is a light sticker panel that mirrors the hero, with the risk warning as a calm white card and a small warning label. Emojis are replaced by line icons.
 - **Supporter programme marked as "in preparation".** Payment and organisation are not in place yet, so the three-step signup popup is off the pages. The support page now offers a waitlist and a feedback option through the existing form (sent to Telegram), and no longer suggests anyone can pay today. `llms.txt` and the Markdown summaries say the same.
 - Removed the outdated "Speur mee in Sneek" promo from the Dutch consumer page; that treasure hunt has ended.
+- **New beginner page "Wat is Bitcoin?"** (`/nl/what-is-bitcoin`, also in English and Frisian): plain-language explanation, a glossary, a short history and next steps, with FAQ structured data. Linked from the homepage card and FAQ and from the consumer page; listed in the sitemap and `llms.txt`.
+- **Business page explains what's in it for a business:** new customers, a free spot on the map with stickers, word of mouth, low fees, instant and final payments, starting small. Removed Restaurant Kreta as an example; it is no longer on the map.
+- **Readability fixes:** the Telegram bands, dark buttons and the orange wordmark now meet contrast; an automated contrast check over all pages found no unreadable text left. The blurry news image (a 128-pixel thumbnail stretched to 640) is replaced by a sharp 1600x840 cover.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes

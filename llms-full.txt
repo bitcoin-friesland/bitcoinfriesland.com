@@ -30,6 +30,36 @@ Bitcoin Friesland verkoopt geen financieel product en geeft geen financieel advi
 
 ---
 
+Language: Dutch. Source: https://bitcoinfriesland.com/nl/what-is-bitcoin
+
+## Wat is Bitcoin?
+
+Bitcoin is digitaal geld dat van niemand is en dat niemand kan bijdrukken. Hier lees je in gewone taal hoe het werkt, zonder vakjargon.
+
+- **Geld zonder bank.** Met bitcoin stuur je geld rechtstreeks naar iemand anders, via internet. Er zit geen bank tussen. Duizenden computers over de hele wereld houden samen bij wie wat heeft.
+- **Nooit meer dan 21 miljoen.** Er komen nooit meer dan 21 miljoen bitcoin. Niemand kan dat aantal veranderen of extra geld bijdrukken. Daarom noemen mensen het wel digitaal goud.
+- **Je koopt geen hele bitcoin.** 1 bitcoin bestaat uit 100 miljoen kleine stukjes: sats. Je kunt dus al met een paar euro beginnen, net zoals je met centen betaalt.
+- **Jouw sleutels, jouw geld.** Je bewaart bitcoin in een wallet: een app op je telefoon. Die geeft je een geheime herstelzin van 12 of 24 woorden. Wie die zin heeft, heeft je bitcoin. Schrijf hem op papier en deel hem met niemand.
+- **Snel betalen met Lightning.** Voor kleine bedragen gebruik je Lightning. Daarmee betaal je in een paar seconden voor bijna niets, bijvoorbeeld bij Friese ondernemers op de Bitcoin Kaart.
+- **De koers schommelt.** Wat een bitcoin in euro’s waard is, gaat flink op en neer. Leg er nooit geld in dat je niet kunt missen. Dit is uitleg, geen financieel advies.
+
+### Woorden die je vaak hoort
+
+- **Wallet:** De app waarin je bitcoin bewaart en verstuurt.
+- **Sats:** Het kleinste stukje bitcoin. 100 miljoen sats is 1 bitcoin.
+- **Herstelzin:** 12 of 24 woorden waarmee je je wallet terugzet als je telefoon kwijt is. Het belangrijkste dat je hebt.
+- **Blockchain:** Het openbare kasboek met alle bitcoinbetalingen, bijgehouden door computers over de hele wereld.
+- **Lightning:** Een snelle laag bovenop bitcoin voor kleine, goedkope betalingen.
+- **Exchange:** Een bedrijf waar je euro’s omwisselt voor bitcoin, en terug.
+
+### Wie heeft Bitcoin bedacht?
+
+Bitcoin begon in 2009. De bedenker noemde zich Satoshi Nakamoto; wie dat echt is, weet niemand. Sindsdien draait het netwerk dag en nacht door, zonder baas.
+
+- https://bitcoinfriesland.com/nl/what-is-bitcoin
+
+---
+
 Language: Dutch. Source: https://bitcoinfriesland.com/nl/meetings
 
 ## Bitcoin-bijeenkomsten en evenementen
@@ -192,6 +222,36 @@ Bitcoin Friesland does not sell a financial product and does not provide financi
 
 ---
 
+Language: English. Source: https://bitcoinfriesland.com/en/what-is-bitcoin
+
+## What is Bitcoin?
+
+Bitcoin is digital money that belongs to no one and that nobody can print more of. Here is how it works in plain language, without jargon.
+
+- **Money without a bank.** With bitcoin you send money directly to someone else over the internet. There is no bank in between. Thousands of computers around the world keep track together of who owns what.
+- **Never more than 21 million.** There will never be more than 21 million bitcoin. Nobody can change that number or print extra. That is why people call it digital gold.
+- **You don’t buy a whole bitcoin.** 1 bitcoin is made of 100 million small pieces called sats. So you can start with a few euros, just like paying with cents.
+- **Your keys, your money.** You keep bitcoin in a wallet: an app on your phone. It gives you a secret recovery phrase of 12 or 24 words. Whoever has that phrase has your bitcoin. Write it on paper and never share it.
+- **Fast payments with Lightning.** For small amounts you use Lightning. You pay in a few seconds for almost nothing, for example at Frisian businesses on the Bitcoin map.
+- **The price moves a lot.** What a bitcoin is worth in euros goes up and down a lot. Never put in money you cannot afford to lose. This is an explanation, not financial advice.
+
+### Words you will hear a lot
+
+- **Wallet:** The app where you keep and send bitcoin.
+- **Sats:** The smallest piece of bitcoin. 100 million sats make 1 bitcoin.
+- **Recovery phrase:** 12 or 24 words that restore your wallet if you lose your phone. The most important thing you own.
+- **Blockchain:** The public ledger of all bitcoin payments, kept by computers around the world.
+- **Lightning:** A fast layer on top of bitcoin for small, cheap payments.
+- **Exchange:** A company where you swap euros for bitcoin and back.
+
+### Who invented Bitcoin?
+
+Bitcoin started in 2009. Its creator used the name Satoshi Nakamoto; nobody knows who that really is. Since then the network has run day and night, without a boss.
+
+- https://bitcoinfriesland.com/en/what-is-bitcoin
+
+---
+
 Language: English. Source: https://bitcoinfriesland.com/en/meetings
 
 ## Bitcoin meetups and events
@@ -351,6 +411,36 @@ Bitcoin Fryslân ferkeapet gjin finansjeel produkt en jout gjin finansjeel advys
 - Webside: https://bitcoinfriesland.com/fy/
 - Telegram: https://t.me/bitcoinfriesland
 - E-mail: info@bitcoinfriesland.com
+
+---
+
+Language: Frisian. Source: https://bitcoinfriesland.com/fy/what-is-bitcoin
+
+## Wat is Bitcoin?
+
+Bitcoin is digitaal jild dat fan nimmen is en dat nimmen bydrukke kin. Hjir lêze jo yn gewoane taal hoe't it wurket, sûnder fakjargon.
+
+- **Jild sûnder bank.** Mei bitcoin stjoere jo jild streekrjocht nei in oar, fia ynternet. Der sit gjin bank tusken. Tûzenen kompjûters oer de hiele wrâld hâlde mei-inoar by wa't wat hat.
+- **Nea mear as 21 miljoen.** Der komme nea mear as 21 miljoen bitcoin. Nimmen kin dat oantal feroarje of ekstra jild bydrukke. Dêrom neame minsken it wol digitaal goud.
+- **Jo keapje gjin hiele bitcoin.** 1 bitcoin bestiet út 100 miljoen lytse stikjes: sats. Jo kinne dus al mei in pear euro begjinne, krekt sa't jo mei sinten betelje.
+- **Jo kaaien, jo jild.** Jo bewarje bitcoin yn in wallet: in app op jo telefoan. Dy jout jo in geheime herstelsin fan 12 of 24 wurden. Wa't dy sin hat, hat jo bitcoin. Skriuw him op papier en diel him mei nimmen.
+- **Fluch betelje mei Lightning.** Foar lytse bedraggen brûke jo Lightning. Dêrmei betelje jo yn in pear sekonden foar hast neat, bygelyks by Fryske ûndernimmers op de Bitcoinkaart.
+- **De koers skommelet.** Wat in bitcoin yn euro’s wurdich is, giet flink op en del. Lis der nea jild yn dat jo net misse kinne. Dit is útlis, gjin finansjeel advys.
+
+### Wurden dy’t jo faak hearre
+
+- **Wallet:** De app dêr't jo bitcoin yn bewarje en mei ferstjoere.
+- **Sats:** It lytste stikje bitcoin. 100 miljoen sats is 1 bitcoin.
+- **Herstelsin:** 12 of 24 wurden dêr't jo jo wallet mei weromsette as jo telefoan kwyt is. It wichtichste dat jo hawwe.
+- **Blockchain:** It iepenbiere kasboek mei alle bitcoinbetellingen, byhâlden troch kompjûters oer de hiele wrâld.
+- **Lightning:** In flugge laach boppe op bitcoin foar lytse, goedkeape betellingen.
+- **Exchange:** In bedriuw dêr't jo euro’s ynwikselje foar bitcoin, en werom.
+
+### Wa hat Bitcoin betocht?
+
+Bitcoin begûn yn 2009. De betinker neamde him Satoshi Nakamoto; wa't dat echt is, wit nimmen. Sûnt dy tiid draait it netwurk dei en nacht troch, sûnder baas.
+
+- https://bitcoinfriesland.com/fy/what-is-bitcoin
 
 ---
 

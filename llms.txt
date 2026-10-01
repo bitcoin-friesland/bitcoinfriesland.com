@@ -36,6 +36,7 @@ Important facts:
 - [Meetups and events](https://bitcoinfriesland.com/nl/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
 - [Bitcoin map](https://bitcoinfriesland.com/nl/map.html.md): How to find places that accept Bitcoin in Friesland.
 - [Supporter programme](https://bitcoinfriesland.com/nl/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
+- [Wat is Bitcoin?](https://bitcoinfriesland.com/nl/what-is-bitcoin.html.md): Uitleg in gewone taal voor beginners: digitaal geld zonder bank, 21 miljoen, sats, wallets en Lightning.
 - [About](https://bitcoinfriesland.com/nl/about.html.md): Wat de community doet, gratis meedoen, onafhankelijkheid en contact.
 
 ## English core pages
@@ -44,6 +45,7 @@ Important facts:
 - [Meetups and events](https://bitcoinfriesland.com/en/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
 - [Bitcoin map](https://bitcoinfriesland.com/en/map.html.md): How to find places that accept Bitcoin in Friesland.
 - [Supporter programme](https://bitcoinfriesland.com/en/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
+- [What is Bitcoin?](https://bitcoinfriesland.com/en/what-is-bitcoin.html.md): Plain-language beginner explanation: money without a bank, 21 million cap, sats, wallets and Lightning.
 - [About](https://bitcoinfriesland.com/en/about.html.md): What the community does, free participation, independence and contact.
 - [For consumers](https://bitcoinfriesland.com/en/consumers.html.md): First steps with wallets, buying, paying and safe storage.
 - [For businesses](https://bitcoinfriesland.com/en/business.html.md): Accepting Bitcoin and Lightning payments in your business.
@@ -54,6 +56,7 @@ Important facts:
 - [Gearkomsten en eveneminten](https://bitcoinfriesland.com/fy/meetings.html.md): Kommende en ôfrûne eveneminten. De konferinsje fan 19 septimber 2026 stiet yn it argyf.
 - [Bitcoinkaart](https://bitcoinfriesland.com/fy/map.html.md): Plakken fine dêr'tst yn Fryslân mei Bitcoin betelje kinst.
 - [Stiperprogramma](https://bitcoinfriesland.com/fy/support.html.md): Stiperprogramma yn tarieding: plannen, wachtlist en ynput.
+- [Wat is Bitcoin?](https://bitcoinfriesland.com/fy/what-is-bitcoin.html.md): Útlis yn gewoane taal foar begjinners: jild sûnder bank, 21 miljoen, sats, wallets en Lightning.
 - [Oer ús](https://bitcoinfriesland.com/fy/about.html.md): Wat de mienskip docht, fergees meidwaan, unôfhinklikens en kontakt.
 - [Foar konsuminten](https://bitcoinfriesland.com/fy/consumers.html.md): Earste stappen mei wallets, keapje, betelje en feilich bewarje.
 - [Foar bedriuwen](https://bitcoinfriesland.com/fy/business.html.md): Bitcoin- en Lightning-betellingen akseptearje yn jo bedriuw.

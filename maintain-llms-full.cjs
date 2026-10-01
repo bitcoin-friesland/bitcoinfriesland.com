@@ -11,7 +11,7 @@ const languages = [
   ['en', 'English'],
   ['fy', 'Frisian'],
 ];
-const pages = ['index', 'meetings', 'map', 'support', 'about', 'consumers', 'business'];
+const pages = ['index', 'what-is-bitcoin', 'meetings', 'map', 'support', 'about', 'consumers', 'business'];
 
 function buildLlmsFull(root = __dirname) {
   const parts = [
