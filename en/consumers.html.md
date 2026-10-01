@@ -4,7 +4,7 @@ Practical first steps for people in Friesland who want to get started with Bitco
 
 ## First steps
 
-1. **Pick a wallet.** Start with a user-friendly app such as Wallet of Satoshi, BlueWallet or Phoenix. Wallet of Satoshi is a custodial wallet: the provider holds your balance.
+1. **Pick a wallet.** Start with a user-friendly app such as Wallet of Satoshi, BlueWallet or Phoenix. Wallet of Satoshi is the easiest start, and you hold your own keys.
 2. **Buy your first bitcoin**, for example via Strike or wave.space. If you already hold bitcoin with another provider, send a small amount to your wallet to practise.
 3. **Visit a Bitcoin meetup** from Bitcoin Friesland to learn from others.
 

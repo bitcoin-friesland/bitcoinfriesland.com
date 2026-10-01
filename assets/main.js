@@ -646,3 +646,259 @@ document.addEventListener('DOMContentLoaded', function() {
     success.focus();
   }
 });
+
+// Sats calculator: converts sats to euro or dollar and back with a live bitcoin price.
+// Prices come from mempool.space, with CoinGecko as a fallback. Nothing is stored.
+document.addEventListener('DOMContentLoaded', function() {
+  var root = document.querySelector('[data-sats-calculator]');
+  if (!root) return;
+
+  var locale = root.getAttribute('data-locale') || 'nl-NL';
+  var satsInput = root.querySelector('[data-field="sats"]');
+  var fiatInput = root.querySelector('[data-field="fiat"]');
+  var priceLine = root.querySelector('[data-price-line]');
+  var rateLine = root.querySelector('[data-rate-line]');
+  var btcLine = root.querySelector('[data-btc-line]');
+  var fiatLabel = root.querySelector('[data-fiat-label]');
+  var refreshButton = root.querySelector('[data-refresh]');
+  var currency = 'EUR';
+  var prices = null;
+  var lastEdited = 'sats';
+  var decimalSeparator = (1.1).toLocaleString(locale).charAt(1);
+
+  function number(value, digits) {
+    return new Intl.NumberFormat(locale, { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(value);
+  }
+  function money(value, digits) {
+    return new Intl.NumberFormat(locale, { style: 'currency', currency: currency, minimumFractionDigits: digits, maximumFractionDigits: digits }).format(value);
+  }
+  function fiatDigits(value) {
+    if (value === 0) return 2;
+    if (value < 0.01) return 5;
+    if (value < 1) return 4;
+    return 2;
+  }
+  function parseSats(text) {
+    var digits = String(text).replace(/[^\d]/g, '');
+    return digits ? parseInt(digits, 10) : null;
+  }
+  function parseFiat(text) {
+    var cleaned = String(text).replace(/[\s ]/g, '');
+    if (decimalSeparator === ',') cleaned = cleaned.replace(/\./g, '').replace(',', '.');
+    else cleaned = cleaned.replace(/,/g, '');
+    var value = parseFloat(cleaned.replace(/[^\d.]/g, ''));
+    return isNaN(value) ? null : value;
+  }
+  function price() {
+    return prices ? prices[currency] : null;
+  }
+
+  function showBtc(sats) {
+    if (!btcLine) return;
+    if (sats === null) { btcLine.textContent = ''; return; }
+    var btc = new Intl.NumberFormat(locale, { maximumFractionDigits: 8 }).format(sats / 1e8);
+    btcLine.textContent = '= ' + btc + ' BTC';
+  }
+
+  function recalculate() {
+    var p = price();
+    if (lastEdited === 'sats') {
+      var sats = parseSats(satsInput.value);
+      showBtc(sats);
+      if (!p || sats === null) { fiatInput.value = ''; return; }
+      var fiat = sats / 1e8 * p;
+      fiatInput.value = number(fiat, fiatDigits(fiat));
+    } else {
+      var amount = parseFiat(fiatInput.value);
+      if (!p || amount === null) { satsInput.value = ''; showBtc(null); return; }
+      var result = Math.round(amount / p * 1e8);
+      satsInput.value = number(result, 0);
+      showBtc(result);
+    }
+  }
+
+  function showPrice() {
+    var p = price();
+    if (!p) return;
+    priceLine.textContent = root.getAttribute('data-text-price').replace('{price}', money(p, 0));
+    if (rateLine) {
+      rateLine.textContent = root.getAttribute('data-text-rate')
+        .replace('{one}', money(1, 0))
+        .replace('{sats}', number(Math.round(1e8 / p), 0))
+        .replace('{time}', new Date(prices.time).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }));
+    }
+  }
+
+  function fetchJson(url) {
+    var controller = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = controller ? setTimeout(function() { controller.abort(); }, 8000) : null;
+    return fetch(url, controller ? { signal: controller.signal } : {}).then(function(response) {
+      if (timer) clearTimeout(timer);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    });
+  }
+
+  function loadPrices() {
+    root.classList.add('is-loading');
+    return fetchJson('https://mempool.space/api/v1/prices')
+      .then(function(data) {
+        if (!data.EUR || !data.USD) throw new Error('missing price');
+        return { EUR: data.EUR, USD: data.USD, time: Date.now() };
+      })
+      .catch(function() {
+        return fetchJson('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur,usd').then(function(data) {
+          return { EUR: data.bitcoin.eur, USD: data.bitcoin.usd, time: Date.now() };
+        });
+      })
+      .then(function(result) {
+        prices = result;
+        root.classList.remove('is-error');
+        showPrice();
+        recalculate();
+      })
+      .catch(function() {
+        root.classList.add('is-error');
+        priceLine.textContent = root.getAttribute('data-text-error');
+        if (rateLine) rateLine.textContent = '';
+      })
+      .then(function() {
+        root.classList.remove('is-loading');
+      });
+  }
+
+  function setCurrency(next) {
+    currency = next;
+    root.querySelectorAll('[data-currency]').forEach(function(button) {
+      button.setAttribute('aria-pressed', button.getAttribute('data-currency') === next ? 'true' : 'false');
+    });
+    if (fiatLabel) fiatLabel.textContent = fiatLabel.getAttribute(next === 'EUR' ? 'data-label-eur' : 'data-label-usd');
+    root.querySelectorAll('[data-fiat]').forEach(function(chip) {
+      chip.textContent = money(parseFloat(chip.getAttribute('data-fiat')), 0);
+    });
+    showPrice();
+    recalculate();
+  }
+
+  satsInput.addEventListener('input', function() { lastEdited = 'sats'; recalculate(); });
+  fiatInput.addEventListener('input', function() { lastEdited = 'fiat'; recalculate(); });
+  satsInput.addEventListener('blur', function() {
+    var sats = parseSats(satsInput.value);
+    if (sats !== null) satsInput.value = number(sats, 0);
+  });
+  root.querySelectorAll('[data-currency]').forEach(function(button) {
+    button.addEventListener('click', function() { setCurrency(button.getAttribute('data-currency')); });
+  });
+  root.querySelectorAll('[data-sats]').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      lastEdited = 'sats';
+      satsInput.value = number(parseInt(chip.getAttribute('data-sats'), 10), 0);
+      recalculate();
+    });
+  });
+  root.querySelectorAll('[data-fiat]').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      lastEdited = 'fiat';
+      fiatInput.value = number(parseFloat(chip.getAttribute('data-fiat')), 0);
+      recalculate();
+    });
+  });
+  if (refreshButton) refreshButton.addEventListener('click', loadPrices);
+
+  root.hidden = false;
+  setCurrency('EUR');
+  loadPrices();
+  setInterval(function() { if (!document.hidden) loadPrices(); }, 60000);
+});
+
+// Footer: live Bitcoin block height from mempool.space (Blockstream as fallback).
+// A new block arrives roughly every ten minutes; checking each minute shows it promptly.
+document.addEventListener('DOMContentLoaded', function() {
+  var badge = document.querySelector('[data-block-height]');
+  if (!badge || typeof fetch !== 'function') return;
+  var number = badge.querySelector('[data-block-number]');
+  var locale = document.documentElement.lang === 'en' ? 'en-GB' : 'nl-NL';
+  var current = null;
+
+  function height(url) {
+    return fetch(url, { cache: 'no-store' }).then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.text();
+    }).then(function(text) {
+      var value = parseInt(text, 10);
+      if (!value) throw new Error('bad height');
+      return value;
+    });
+  }
+
+  function update() {
+    height('https://mempool.space/api/blocks/tip/height')
+      .catch(function() { return height('https://blockstream.info/api/blocks/tip/height'); })
+      .then(function(value) {
+        if (value === current) return;
+        var isNew = current !== null;
+        current = value;
+        number.textContent = new Intl.NumberFormat(locale).format(value);
+        badge.hidden = false;
+        if (isNew) {
+          badge.classList.remove('is-new');
+          void badge.offsetWidth;
+          badge.classList.add('is-new');
+        }
+      })
+      .catch(function() {});
+  }
+
+  update();
+  setInterval(function() { if (!document.hidden) update(); }, 60000);
+});
+
+// Homepage: a different Bitcoin or cypherpunk quote every day (same quote for everyone on a given day).
+// Original wording only, each with its source and date.
+var BF_QUOTES = [
+  ['The root problem with conventional currency is all the trust that’s required to make it work.', 'Satoshi Nakamoto', 'P2P Foundation', '2009-02-11'],
+  ['I’ve been working on a new electronic cash system that’s fully peer-to-peer, with no trusted third party.', 'Satoshi Nakamoto', 'Cryptography mailing list', '2008-10-31'],
+  ['The Times 03/Jan/2009 Chancellor on brink of second bailout for banks', 'Satoshi Nakamoto', 'Bitcoin genesis block', '2009-01-03'],
+  ['It might make sense just to get some in case it catches on.', 'Satoshi Nakamoto', 'Cryptography mailing list', '2009-01'],
+  ['Lost coins only make everyone else’s coins worth slightly more. Think of it as a donation to everyone.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-06-21'],
+  ['If you don’t believe it or don’t get it, I don’t have the time to try to convince you, sorry.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-07-29'],
+  ['Writing a description for this thing for general audiences is bloody hard. There’s nothing to relate it to.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-07-05'],
+  ['The nature of Bitcoin is such that once version 0.1 was released, the core design was set in stone for the rest of its lifetime.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-06-17'],
+  ['In a few decades when the reward gets too small, the transaction fee will become the main compensation for nodes.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-02'],
+  ['I’m sure that in 20 years there will either be very large transaction volume or no volume.', 'Satoshi Nakamoto', 'Bitcointalk', '2010-02'],
+  ['It’s very attractive to the libertarian viewpoint if we can explain it properly. I’m better with code than with words though.', 'Satoshi Nakamoto', 'Cryptography mailing list', '2008-11'],
+  ['…we can win a major battle in the arms race and gain a new territory of freedom for several years.', 'Satoshi Nakamoto', 'Cryptography mailing list', '2008-11'],
+  ['Bitcoin is an implementation of Wei Dai’s b-money proposal on Cypherpunks in 1998 and Nick Szabo’s Bitgold proposal.', 'Satoshi Nakamoto', 'Bitcointalk', '2010'],
+  ['Running bitcoin', 'Hal Finney', 'Twitter', '2009-01'],
+  ['Bitcoin seems to be a very promising idea.', 'Hal Finney', 'Cryptography mailing list', '2008-11'],
+  ['Privacy is necessary for an open society in the electronic age.', 'Eric Hughes', 'A Cypherpunk’s Manifesto', '1993-03-09'],
+  ['Cypherpunks write code.', 'Eric Hughes', 'A Cypherpunk’s Manifesto', '1993-03-09'],
+  ['We cannot expect governments, corporations, or other large, faceless organizations to grant us privacy out of their beneficence.', 'Eric Hughes', 'A Cypherpunk’s Manifesto', '1993-03-09'],
+  ['A specter is haunting the modern world, the specter of crypto anarchy.', 'Timothy C. May', 'The Crypto Anarchist Manifesto', '1988'],
+  ['Trusted third parties are security holes.', 'Nick Szabo', 'Trusted Third Parties Are Security Holes', '2001'],
+  ['I am fascinated by Tim May’s crypto-anarchy.', 'Wei Dai', 'b-money', '1998']
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+  var box = document.querySelector('[data-quote-of-the-day]');
+  if (!box) return;
+  var locale = document.documentElement.lang === 'en' ? 'en-GB' : (document.documentElement.lang === 'fy' ? 'fy-NL' : 'nl-NL');
+  var now = new Date();
+  var day = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 86400000);
+  var quote = BF_QUOTES[day % BF_QUOTES.length];
+  var parts = quote[3].split('-');
+  var date;
+  if (parts.length === 1) {
+    date = parts[0];
+  } else if (document.documentElement.lang === 'fy') {
+    // Browsers have no Frisian month names, so spell them out.
+    var months = ['jannewaris', 'febrewaris', 'maart', 'april', 'maaie', 'juny', 'july', 'augustus', 'septimber', 'oktober', 'novimber', 'desimber'];
+    date = (parts[2] ? +parts[2] + ' ' : '') + months[+parts[1] - 1] + ' ' + parts[0];
+  } else {
+    date = new Intl.DateTimeFormat(locale, parts.length === 3 ? { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' } : { month: 'long', year: 'numeric', timeZone: 'UTC' })
+      .format(new Date(Date.UTC(+parts[0], +parts[1] - 1, +(parts[2] || 1))));
+  }
+  box.querySelector('[data-quote-text]').textContent = quote[0];
+  box.querySelector('[data-quote-author]').textContent = quote[1];
+  box.querySelector('[data-quote-source]').textContent = quote[2] + ', ' + date;
+});

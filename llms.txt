@@ -71,6 +71,7 @@ Important facts:
 
 - [For consumers](https://bitcoinfriesland.com/nl/consumers): Wallets, safety and first steps.
 - [For businesses](https://bitcoinfriesland.com/nl/business): Accepting Bitcoin and Lightning payments.
+- [Sats calculator](https://bitcoinfriesland.com/nl/sats-calculator): Converts sats to euros or dollars and back with the live price from mempool.space (also in English and Frisian).
 - [Resources and links](https://bitcoinfriesland.com/nl/links): Curated Bitcoin tools and learning resources.
 - [Treasure hunt](https://bitcoinfriesland.com/nl/treasure-hunt): Community treasure-hunt information.
 - [Past Bitcoin BBQ](https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten): Archived event page for 14 August 2026.

@@ -319,4 +319,34 @@
     <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/what-is-bitcoin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
   </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/nl/sats-calculator</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/en/sats-calculator</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+  </url>
+  <url>
+    <loc>https://bitcoinfriesland.com/fy/sats-calculator</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/sats-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
+  </url>
 </urlset>

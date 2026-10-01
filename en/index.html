@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20261001l">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20261001o">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/assets/images/icon-192.png" type="image/png" sizes="192x192">
     
@@ -208,7 +208,7 @@
   ]
 }
     </script>
-    <script defer src="../assets/main.js?v=20260926a"></script>
+    <script defer src="../assets/main.js?v=20261001o"></script>
 </head>
   <body class="st">
     <a class="bf-skip-link" href="#main-content">Skip to content</a>
@@ -432,7 +432,17 @@
     </section>
     
     <!-- Educational Section -->
-        <section class="py-16 bg-white">
+        <section class="st-section st-section--tight" aria-labelledby="quote-title">
+      <div class="st-shell">
+        <figure class="st-quote" data-quote-of-the-day>
+          <div class="st-quote-head"><span class="st-step-label" id="quote-title">Quote of the day</span><span class="st-quote-intro">A new line every day from Satoshi Nakamoto and the cypherpunks who made Bitcoin possible.</span></div>
+          <blockquote><p data-quote-text>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</p></blockquote>
+          <figcaption><strong data-quote-author>Satoshi Nakamoto</strong><span data-quote-source>Bitcoin genesis block, 3 January 2009</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Frequently Asked Questions</h2>
         
@@ -613,6 +623,14 @@
         </div>
         
         <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+          <div class="st-footer-strip">
+            <a class="st-block" href="https://mempool.space/" target="_blank" rel="noopener noreferrer" title="Live Bitcoin block height via mempool.space" data-block-height hidden>
+              <span class="st-block-dot" aria-hidden="true"></span><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span class="st-block-label">Block height</span><strong data-block-number>…</strong>
+            </a>
+            <a class="st-nr" href="https://noderunners.network/" target="_blank" rel="noopener" aria-label="Bitcoin Friesland was started by two Noderunners">
+              <span>Started by two</span><img src="../assets/images/noderunners-logo-black.svg" alt="Noderunners" width="140" height="27" loading="lazy" decoding="async">
+            </a>
+          </div>
           <p class="text-gray-500 text-sm">© 2026 www.bitcoinfriesland.com is made by enthusiastic Bitcoin Friesland community contributors.</p>
         </div>
       </div>

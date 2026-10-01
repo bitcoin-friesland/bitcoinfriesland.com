@@ -152,7 +152,7 @@ Praktische eerste stappen voor mensen in Friesland die met Bitcoin willen beginn
 
 ### Eerste stappen
 
-1. **Kies een wallet.** Begin met een gebruiksvriendelijke app zoals Wallet of Satoshi, BlueWallet of Phoenix. Wallet of Satoshi is een custodian-wallet: de aanbieder beheert je saldo.
+1. **Kies een wallet.** Begin met een gebruiksvriendelijke app zoals Wallet of Satoshi, BlueWallet of Phoenix. Wallet of Satoshi is de makkelijkste start; je beheert er zelf je sleutels.
 2. **Koop je eerste bitcoin**, bijvoorbeeld via Strike of wave.space. Heb je al bitcoin bij een andere aanbieder, stuur dan een klein bedrag naar je wallet om te oefenen.
 3. **Bezoek een Bitcoin-meetup** van Bitcoin Friesland om van anderen te leren.
 
@@ -184,7 +184,7 @@ Uitleg voor ondernemers in Friesland die Bitcoin- en Lightning-betalingen willen
 
 ### Zo begin je
 
-De pagina beschrijft coinos.io als eenvoudig voorbeeld: maak een account met je bedrijfsnaam, vul je profiel in en genereer QR-codes waarmee klanten betalen. Coinos accepteert zowel on-chain als Lightning-betalingen. Andere opties zijn Wallet of Satoshi en BTCPay Server. Coinos en Wallet of Satoshi bewaren je bitcoins voor je; BTCPay Server geeft je volledige controle.
+De pagina beschrijft coinos.io als eenvoudig voorbeeld: maak een account met je bedrijfsnaam, vul je profiel in en genereer QR-codes waarmee klanten betalen. Coinos accepteert zowel on-chain als Lightning-betalingen. Andere opties zijn Wallet of Satoshi en BTCPay Server. Coinos bewaart je bitcoins voor je; bij Wallet of Satoshi en BTCPay Server beheer je zelf je sleutels.
 
 Daarna kan de locatie worden toegevoegd aan de lijst en de Bitcoin Kaart, en kunnen "Betaal hier met Bitcoin"-stickers worden meegegeven.
 
@@ -344,7 +344,7 @@ Practical first steps for people in Friesland who want to get started with Bitco
 
 ### First steps
 
-1. **Pick a wallet.** Start with a user-friendly app such as Wallet of Satoshi, BlueWallet or Phoenix. Wallet of Satoshi is a custodial wallet: the provider holds your balance.
+1. **Pick a wallet.** Start with a user-friendly app such as Wallet of Satoshi, BlueWallet or Phoenix. Wallet of Satoshi is the easiest start, and you hold your own keys.
 2. **Buy your first bitcoin**, for example via Strike or wave.space. If you already hold bitcoin with another provider, send a small amount to your wallet to practise.
 3. **Visit a Bitcoin meetup** from Bitcoin Friesland to learn from others.
 
@@ -376,7 +376,7 @@ Guidance for businesses in Friesland that want to accept Bitcoin and Lightning p
 
 ### How to start
 
-The page describes coinos.io as a simple example: create an account with your business name, fill in your profile and generate QR codes that customers scan to pay. Coinos accepts both on-chain and Lightning payments. Other options are Wallet of Satoshi and BTCPay Server. Coinos and Wallet of Satoshi hold your bitcoin for you; BTCPay Server gives you full control.
+The page describes coinos.io as a simple example: create an account with your business name, fill in your profile and generate QR codes that customers scan to pay. Coinos accepts both on-chain and Lightning payments. Other options are Wallet of Satoshi and BTCPay Server. Coinos holds your bitcoin for you; with Wallet of Satoshi and BTCPay Server you hold your own keys.
 
 Afterwards the location can be added to the list and the Bitcoin map, and "Pay here with Bitcoin" stickers can be provided.
 
