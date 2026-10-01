@@ -2734,3 +2734,14 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st-nostr-note p { color: var(--st-text); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 @media (max-width: 900px) { .st-social-card--nostr, .st-social-card--x { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .st-social-card--nostr, .st-social-card--x { transform: none; } }
+
+/* ---------- Tip stickers (consumers guide) ---------- */
+.st-tip { display: flex; align-items: flex-start; gap: 1rem; margin-top: 2.25rem; max-width: 46rem; background: var(--st-yellow); border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); padding: 1.1rem 1.4rem 1.2rem 1.1rem; transform: rotate(-0.4deg); }
+.st-tip--alt { background: #fff; }
+.st-tip-icon { flex: none; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border: 2px solid var(--st-ink); border-radius: 50%; background: var(--st-orange); color: var(--st-ink); box-shadow: var(--st-shadow-sm); }
+.st-tip--alt .st-tip-icon { background: var(--st-yellow); }
+.st-tip-icon .st-icon { width: 1.35rem; height: 1.35rem; }
+.st .st-tip p { margin: 0; color: var(--st-text); line-height: 1.55; }
+.st .st-tip .st-tip-title { font: 800 1.2rem/1.2 var(--st-display); letter-spacing: -0.02em; color: var(--st-ink); margin: 0.15rem 0 0.3rem; }
+@media (max-width: 640px) { .st-tip { transform: none; padding: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .st-tip { transform: none; } }

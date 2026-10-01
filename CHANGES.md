@@ -818,3 +818,4 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Guides on the links page.** The four guides are listed under "Nieuws" in all three languages (English and Frisian pages say the guides are in Dutch).
 - **Follow us on Nostr and X.** A new homepage section with a Nostr card (copy-npub button, follow link and the latest note when one is published) and an X card for @bitcoinfryslan. Both are also in the footer "Verbinden" list on every page, in the Organization `sameAs` data and in llms.txt.
 - **Menu says "Meet-ups".** The Dutch menu, mobile menu, footer links and breadcrumbs now call the meetings page "Meet-ups" instead of "Bijeenkomsten".
+- **Consumer guide tips are stickers now.** The two pale yellow tip boxes ("begin klein" and "al bitcoin bij een andere aanbieder?") are now sticker callouts with an icon, a bold heading and the same outline and shadow as the cards.
