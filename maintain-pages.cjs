@@ -59,7 +59,7 @@ function updateBusinessPages() {
     let content = fs.readFileSync(filePath, 'utf8');
     
     // Add Coinos links for all languages
-    content = content.replace(/\bCoinos\b(?![^<]*>)/g, '<a href="https://coinos.io/" target="_blank" class="text-friesland-blue hover:underline">Coinos</a>');
+    content = content.replace(/\bCoinos\b(?![^<]*>)/g, '<a href="https://coinos.io/" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:underline">Coinos</a>');
     
     // Language-specific updates
     if (lang === 'en') {
@@ -85,15 +85,20 @@ function updateBusinessPages() {
 function main() {
   const args = process.argv.slice(2);
   
-  if (args.length === 0) {
+  if (args.length === 0 || (args.length === 1 && args[0] === '--help')) {
     console.log('\n📋 Available commands:');
-    console.log('  node page-maintenance.cjs consumer  - Update consumer pages');
-    console.log('  node page-maintenance.cjs business  - Update business pages');
-    console.log('  node page-maintenance.cjs all       - Update all pages');
+    console.log('  node maintain-pages.cjs consumer  - Update consumer pages');
+    console.log('  node maintain-pages.cjs business  - Update business pages');
+    console.log('  node maintain-pages.cjs all       - Update all pages');
     return;
   }
   
   const command = args[0].toLowerCase();
+  if (args.length !== 1 || !['consumer', 'business', 'all'].includes(command)) {
+    console.error('Unknown command. Use: consumer, business, or all');
+    process.exitCode = 1;
+    return;
+  }
   
   switch (command) {
     case 'consumer':

@@ -23,13 +23,13 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 - Apply the change to **all three language folders** with identical structure.
 - Write genuine Frisian (`fy`) translations — never leave Dutch or English text in `fy/` pages.
 - Navigation, hero blocks, CTAs and footers stay structurally identical across languages.
-- **The footer is sacred**: it must keep the risk warning block (all three languages) and the GitHub link, and is always updated across all pages together (use `node maintain-footer.cjs all`).
+- **The footer is sacred**: it must keep the risk warning block (all three languages) and the credit line (Noderunners badge, live block height and the StudioFab.nl webdesign credit), and is always updated across all pages together. The GitHub source link lives on the About pages, not in the footer. Read [the legacy script limitations](MAINTENANCE.md#legacy-editing-scripts) first: `maintain-footer.cjs` is a historical replacement helper, not a general footer synchronizer.
 
 ## 3. Code conventions
 
 - **No build step.** Edit HTML/CSS/JS directly. Do not introduce frameworks, bundlers or package.json.
 - **Never edit `assets/styles.css`** (compiled Tailwind output). Only classes already used on the site exist in it — do not rely on new Tailwind classes.
-- Custom CSS goes at the bottom of **`assets/enhancements.css`** in a commented block, using **prefixed custom classes** (e.g. `.nr-promo-*`) for new sections.
+- Custom CSS goes at the bottom of **`assets/enhancements.css`** in a commented block. The site uses the **sticker design system** (`body.st`, `st-*` classes): read **[DESIGN.md](DESIGN.md)** before any visual change and reuse its components and tokens. No emojis; use inline SVG icons.
 - New JS behavior goes in **`assets/main.js`**, dependency-free.
 - Brand colors: `--bf-blue: #0066cc`, `--bf-orange: #f97316`, `--bf-red: #ea384c`.
 - Images: `<picture>` with WebP + fallback, explicit `width`/`height`; photos get 320/480/640/960/1280 variants (see CONTRIBUTING.md).
@@ -38,6 +38,7 @@ The site is trilingual (`nl/`, `en/`, `fy/`) with language parity. When you add 
 ## 4. Housekeeping duties (part of every content PR)
 
 - New public page → add it to `sitemap.xml` and `llms.txt`.
+- Every URL you write (canonical, hreflang, sitemap, JSON-LD, links) is the clean form without `.html`; the host redirects `.html`. Edited a `.html.md` summary? Run `node maintain-llms-full.cjs`.
 - New/changed event, offer or key page → update `llms.txt` (AI assistants read it).
 - User-facing or structural change → add a plain-language entry to `CHANGES.md` under the latest round (or start a new round).
 

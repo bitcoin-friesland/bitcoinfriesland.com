@@ -14,15 +14,15 @@ function updateFooterText() {
   const footerTranslations = {
     nl: {
       old: '© 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork mij op Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is gemaakt met 🧡 door enthousiaste Bitcoin Friesland community bijdragers. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork mij op Github</a>'
     },
     en: {
       old: '© 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork me on Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is made with 🧡 by enthusiastic Bitcoin Friesland community contributors. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork me on Github</a>'
     },
     fy: {
       old: '© 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen.',
-      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork my op Github</a>'
+      new: '© Public Domain & UNLICENSED 2025 www.bitcoinfriesland.com is makke mei 🧡 troch entûsjaste Bitcoin Fryslân mienskip bydragen. - <a href="https://github.com/bitcoin-friesland/bitcoinfriesland.com" target="_blank" rel="noopener noreferrer" class="text-friesland-blue hover:text-friesland-blue/80 transition-colors">Fork my op Github</a>'
     }
   };
 
@@ -74,34 +74,44 @@ function addRiskWarningToAllPages() {
     }
   };
 
-  // Get all HTML files in each language directory
+  function getHtmlFiles(directory) {
+    return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+      const filePath = `${directory}/${entry.name}`;
+      if (entry.isDirectory()) return getHtmlFiles(filePath);
+      return entry.isFile() && entry.name.endsWith('.html') ? [filePath] : [];
+    });
+  }
+
+  // Get every HTML file, including nested blog and event pages.
   const languages = ['nl', 'en', 'fy'];
-  const pages = ['index.html', 'business.html', 'consumers.html', 'meetings.html', 'map.html', 'links.html', 'about.html', 'treasure-hunt.html'];
 
   languages.forEach(lang => {
     console.log(`\n📝 Processing ${lang.toUpperCase()} pages...`);
-    
-    pages.forEach(page => {
-      const filePath = `${lang}/${page}`;
-      
-      if (!fs.existsSync(filePath)) {
-        console.log(`  ⚠️  ${page} not found, skipping...`);
-        return;
-      }
-      
+
+    getHtmlFiles(lang).forEach(filePath => {
       let content = fs.readFileSync(filePath, 'utf8');
-      
+
       // Check if risk warning already exists
       if (content.includes('Risicowaarschuwing') || content.includes('Risk Warning') || content.includes('Risikowierskôging')) {
-        console.log(`  ✅ ${page} already has risk warning`);
+        const updatedContent = content.replace(
+          /<div class="(?!bf-risk-note )(bg-red-50 border border-red-200 rounded-lg p-6 mt-8)">(?=\s*<h3[^>]*>(?:Risicowaarschuwing|Risk Warning|Risikowierskôging)<\/h3>)/g,
+          '<div class="bf-risk-note $1">'
+        );
+
+        if (updatedContent !== content) {
+          fs.writeFileSync(filePath, updatedContent, 'utf8');
+          console.log(`  ✅ ${filePath} risk warning restyled`);
+        } else {
+          console.log(`  ✅ ${filePath} already has the current risk warning`);
+        }
         return;
       }
-      
+
       const warning = riskWarnings[lang];
-      
+
       // Add risk warning before the copyright footer
       const riskWarningHtml = `        <!-- Risk Warning Footer -->
-        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
+        <div class="bf-risk-note bg-red-50 border border-red-200 rounded-lg p-6 mt-8">
           <h3 class="text-lg font-semibold text-red-800 mb-3">${warning.title}</h3>
           <p class="text-red-700 text-sm leading-relaxed">
             ${warning.text}
@@ -115,9 +125,9 @@ function addRiskWarningToAllPages() {
         /(<div class="border-t border-gray-200 mt-8 pt-8 text-center">)/,
         riskWarningHtml + '$1'
       );
-      
+
       fs.writeFileSync(filePath, content, 'utf8');
-      console.log(`  ✅ ${page} updated with risk warning`);
+      console.log(`  ✅ ${filePath} updated with risk warning`);
     });
   });
 
@@ -131,15 +141,20 @@ function addRiskWarningToAllPages() {
 function main() {
   const args = process.argv.slice(2);
   
-  if (args.length === 0) {
+  if (args.length === 0 || (args.length === 1 && args[0] === '--help')) {
     console.log('\n📋 Available commands:');
-    console.log('  node footer-maintenance.cjs text     - Update footer text (copyright, github)');
-    console.log('  node footer-maintenance.cjs warning  - Add risk warnings to all pages');
-    console.log('  node footer-maintenance.cjs all      - Update all footer elements');
+    console.log('  node maintain-footer.cjs text     - Update matching map footer text');
+    console.log('  node maintain-footer.cjs warning  - Add risk warnings to all pages');
+    console.log('  node maintain-footer.cjs all      - Run both footer replacements');
     return;
   }
   
   const command = args[0].toLowerCase();
+  if (args.length !== 1 || !['text', 'warning', 'all'].includes(command)) {
+    console.error('Unknown command. Use: text, warning, or all');
+    process.exitCode = 1;
+    return;
+  }
   
   switch (command) {
     case 'text':

@@ -376,9 +376,536 @@ small clean-ups.
 - `assets/enhancements.css` (v6 nav underline block)
 - `CHANGES.md` (this entry)
 
-## Good to know
-- No page design, colours, text content or navigation changed for visitors.
+## Round 17 (supporter programme foundation)
+
+58. **Added a complete support page in Dutch, English and Frisian.**
+    Visitors can now read how the EUR 21 yearly supporter contribution,
+    business support and donations work. The page makes clear that the
+    community and Telegram group remain free.
+
+59. **Added honest contact flows while payment details are still open.**
+    Supporter, business, donation and sticker buttons open a prepared email.
+    The site does not show a fake checkout, stale Lightning invoice or
+    unconfirmed donation address.
+
+60. **Made independence and promotion rules explicit.**
+    The pages state that support cannot buy influence or an endorsement.
+    Bitcoin-related promotion requires prior approval and must be honest,
+    clear and free of spam or dubious investments.
+
+61. **Prepared the webshop without pretending it is live.**
+    The shop section explains that stickers and other items are being
+    prepared, that margin goes to the community fund, and that ordering is
+    handled personally for now.
+
+62. **Added support links throughout the site.**
+    Desktop navigation, mobile navigation and footers now link to the new
+    page. The sitemap and `llms.txt` also describe it.
+
+## Round 17 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- Navigation and footer links across all language pages
+- `sitemap.xml`, `llms.txt`, `README.md`, `AI_CONTEXT.md`
+
+## Round 18 (supporter interest form)
+
+63. **Visitors can now register their interest without opening an email app.**
+    The supporter, business, donation and sticker actions lead to one short
+    form on the page. The selected support type is filled in automatically.
+
+64. **The form is ready for Netlify Forms.** It has matching fields in Dutch,
+    English and Frisian, a spam honeypot, a language marker and a clear
+    confirmation message. Payment and sticker fulfilment still happen
+    personally, so the form does not pretend there is an online checkout.
+
+## Round 18 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `README.md`, `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 19 (simpler supporter coin)
+
+65. **The orange supporter coin is now simpler.** The reference to Bitcoin's
+    21 million supply and the yearly label were removed from the hero graphic.
+    It now says only `€21` and `in sats` in all three languages.
+
+## Round 19 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `CHANGES.md`
+
+## Round 20 (confirmed supporter benefits)
+
+66. **The supporter benefits are now specific.** A yearly supporter receives
+    21 Bitcoin Friesland stickers, discount codes for events, and a visible
+    supporter tag in the Telegram and Signal groups. The same promise appears
+    in Dutch, English and Frisian.
+
+## Round 20 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `CHANGES.md`
+
+## Round 21 (simpler top navigation)
+
+67. **Removed the redundant Home link from the top navigation.** The Bitcoin
+    Friesland logo remains the clear route back to the homepage. The link was
+    removed from both desktop and mobile menus on every Dutch, English and
+    Frisian page.
+
+## Round 21 files
+
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `CHANGES.md`
+
+## Round 22 (BBQ moved to past events)
+
+68. **The Bitcoin Friesland BBQ of 14 August 2026 is now marked as past.**
+    The card moved from upcoming to past events in Dutch, English and Frisian.
+    Stale ticket buttons and `InStock` event data were removed, while the
+    Dutch event information page remains available as a historical page.
+
+## Round 22 files
+
+- `nl/meetings.html`, `en/meetings.html`, `fy/meetings.html`
+- `nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html`
+- `llms.txt`, `CHANGES.md`
+
+## Round 23 (subtle risk warning)
+
+69. **The footer risk warning is now visually quieter.** The warning text stays
+    unchanged, but the strong red box has become a compact neutral note with a
+    thin muted-blue accent, smaller heading and softer text. The treatment is
+    consistent across every Dutch, English and Frisian page.
+
+## Round 23 files
+
+- `assets/enhancements.css`, `maintain-footer.cjs`
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `CHANGES.md`
+
+## Round 24 (supporter signup popup)
+
+70. **The supporter buttons now open a three-step signup popup.** Supporters
+    provide a required name and email, plus at least a Telegram or Signal
+    username. They choose sats or EUR, online or meetup payment, and postal or
+    meetup delivery for their 21 stickers. Postal delivery reveals address
+    fields. A final review step makes clear that submitting is not yet payment.
+
+71. **Supporter requests have their own Netlify form.** The new
+    `supporter-signup` form records the request as new and keeps payment status
+    separate from form submission. Dutch, English and Frisian use identical
+    field names so future administration can process them consistently.
+
+## Round 24 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `CHANGES.md`
+
+## Round 25 (sats-only supporter contribution)
+
+72. **The supporter contribution can only be paid in sats.** The EUR payment
+    option has been removed from the Dutch, English and Frisian signup flows.
+    The fixed contribution is now stated as the current satoshi value of €21,
+    while supporters can still choose online payment or payment at a meetup.
+
+## Round 25 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/main.js`
+- `CHANGES.md`
+
+## Round 26 (supporter flow quick wins)
+
+73. **The sats-only contribution is now consistent everywhere.** The trust
+    block, supporter card and general support form now all say that the yearly
+    contribution is the satoshi value of €21, rather than describing sats as a
+    preference.
+
+74. **The short contact form no longer creates incomplete supporter requests.**
+    Choosing supporter in that form now opens the full supporter flow, which
+    collects the required contact, payment timing and sticker delivery details.
+
+75. **Forms and navigation are more robust.** Text fields now have sensible
+    length limits, username fields are easier to enter on mobile, menu states
+    are exposed to assistive technology, Escape closes open menus, and sortable
+    table headers work with a keyboard and sort ascending on their first use.
+
+## Round 26 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- `assets/enhancements.css`, `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 27 (site-wide accessibility and content quick wins)
+
+76. **Mobile menus and FAQ controls now have safer defaults.** Every HTML
+    button has an explicit type, mobile menu buttons expose their initial
+    collapsed state before JavaScript runs, and business FAQ questions are
+    linked to their answers for assistive technology.
+
+77. **The language picker now speaks the page language.** Its accessible label
+    is Dutch, English or Frisian to match the current page, while the menu and
+    Escape-key behaviour remain unchanged.
+
+78. **Removed two brittle content claims.** The business FAQ no longer shows
+    an undated 59% mining-energy statistic, `BT Pay` is corrected to
+    `BTCPay Server`, and the treasure hunt no longer promises an unverified
+    `100+` community count.
+
+## Round 27 files
+
+- All HTML pages in `nl/`, `en/` and `fy/`
+- `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 28 (native controls and menu polish)
+
+79. **The language selector is now a real HTML button.** All 29 language
+    selectors can be understood and operated correctly even before JavaScript
+    adds enhancements. Their Dutch, English and Frisian labels are included
+    directly in the page.
+
+80. **Keyboard controls no longer risk firing twice.** Native buttons now use
+    their built-in Enter and Space behaviour; the JavaScript keyboard fallback
+    is reserved for older non-button controls.
+
+81. **Navigation menus no longer overlap.** Opening the language selector
+    closes the mobile menu and vice versa. Clicking outside closes either menu,
+    and resizing to desktop resets an open mobile menu.
+
+82. **Map sorting is clearer and more natural.** Sortable table columns now
+    announce `Sort by`, `Sorteer op` or `Sortearje op`, and compare text using
+    the current page language with natural number handling.
+
+83. **Browsers reliably receive the latest assets.** References to the shared
+    JavaScript and enhancement stylesheet now use one current cache-busting
+    version across the site instead of a mix of old versions and unversioned
+    URLs.
+
+## Round 28 files
+
+- All pages containing the language selector in `nl/`, `en/` and `fy/`
+- All HTML pages referencing shared assets, including `404.html`
+- `assets/main.js`
+- `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 29 (supporter transparency and metadata)
+
+84. **The required email address now has a clear purpose.** The supporter flow
+    explains in Dutch, English and Frisian that contact details are used for
+    the request, payment, stickers, discount codes, invitations and community
+    benefits.
+
+85. **Forms show that submission is in progress.** Both support forms disable
+    their submit button, expose an accessible busy state and show localized
+    sending text after a valid submission, reducing accidental duplicates.
+
+86. **Screen readers can identify the active navigation page.** Navigation
+    links now receive `aria-current` after clean Netlify URLs and `.html` URLs
+    are normalized. Dutch blog articles keep News marked as their section.
+
+87. **Search and AI metadata match the current site.** Sitemap dates now
+    reflect the pages changed on 1 September 2026, while `llms.txt` lists the
+    upcoming event before the past BBQ and accurately summarizes the supporter
+    programme.
+
+## Round 29 files
+
+- `nl/support.html`, `en/support.html`, `fy/support.html`
+- All HTML asset references, `assets/main.js`
+- `sitemap.xml`, `llms.txt`, `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 30 (SEO and LLM discoverability)
+
+88. **Search crawlers now receive one consistent rule set.** Unsupported crawl
+    delays and separate Google/Bing groups were removed, so the intended path
+    exclusions apply to every matching crawler.
+
+89. **The sitemap now contains canonical pages only.** The root redirect was
+    removed because its canonical destination is the Dutch homepage.
+
+90. **AI agents get clean, structured content.** `llms.txt` now follows the v2
+    proposal with descriptive Markdown links. The home, meetings, map and
+    supporter pages have concise Markdown counterparts in Dutch, English and
+    Frisian, and the HTML advertises those versions directly.
+
+91. **Search and social previews are more explicit.** Public pages allow large
+    image previews, expose `llms.txt`, identify alternate Open Graph locales and
+    provide image descriptions for Open Graph and Twitter cards.
+
+92. **SEO regressions can be caught with one command.** The dependency-free
+    `node audit-site.cjs` check covers metadata, structured data, images, local
+    links, translations, canonical sitemap URLs, shared asset versions and LLM
+    files.
+
+## Round 30 files
+
+- All public HTML pages in `nl/`, `en/`, `fy/`
+- Core `*.html.md` files in `nl/`, `en/`, `fy/`
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `audit-site.cjs`
+- `README.md`, `CONTRIBUTING.md`, `AI_CONTEXT.md`, `CHANGES.md`
+
+## Round 31 (community identity for search and AI answers)
+
+- Replaced the empty About pages with genuine Dutch, English and Frisian
+  introductions, answers about free participation, independence and contact.
+- Added descriptive links to meetups, the map, beginner and business information,
+  and the supporter programme.
+- Linked AboutPage and Organization structured data with one shared organization
+  identifier across languages. The data describes the visible content.
+- Expanded the LLM guide with all three About pages and corrected contradictory
+  deployment instructions in AI_CONTEXT.md.
+- Files: nl/about.html, en/about.html, fy/about.html, llms.txt, sitemap.xml,
+  AI_CONTEXT.md and CHANGES.md.
+
+## Round 32 (code quality and maintainer documentation)
+
+- Hardened the read-only site audit: missing translations no longer silently
+  bypass checks, empty folders are not valid page links, malformed URLs report
+  useful errors, and missing asset versions and duplicate sitemap URLs fail.
+- Added six dependency-free regression tests using isolated temporary copies.
+- Added MAINTENANCE.md with sources of truth, verification steps, audit limits,
+  legacy-script cautions and safe handoff guidance.
+- Corrected local-server instructions, footer-script scope and a reference to
+  a nonexistent map data file. No visitor-facing pages or styling changed.
+- Files: audit-site.cjs, audit-site.test.cjs, MAINTENANCE.md, README.md,
+  CONTRIBUTING.md, AI_CONTEXT.md and CHANGES.md.
+
+## Round 33 (consistent identity and trustworthy information)
+
+- Connected community structured data across all 30 language pages with one
+  organization identifier and homepage, including article and event references.
+  External organizers remain separate. Community descriptions now describe the
+  organization consistently rather than borrowing unrelated page descriptions.
+- Added information-checking and correction guidance to all three About pages.
+- Clarified that the LLM guide links to summaries, while HTML and the linked
+  organizers/businesses provide the primary information. Removed the stale
+  guide-wide review date rather than implying every linked fact was rechecked.
+- Added an identity regression test; all seven tests and the site audit pass.
+  Checked the new content in the local browser for NL, EN and FY.
+- Documented evidence-based GEO maintenance and measurement; no ranking or
+  citation increase is claimed. No deployment was performed in this round.
+
+## Round 34 (earlier loading and less runtime work)
+
+- Moved shared JavaScript into the head with defer across all 30 language pages,
+  bringing download discovery earlier without blocking HTML parsing.
+- Prioritized the first event poster and enabled native lazy loading for map
+  embeds in NL/EN/FY. Kept the existing visual design and image assets.
+- Reduced header scroll work and initialized navigation before images/embeds
+  finish loading. Resize updates now run only at the desktop breakpoint.
+- Bumped shared asset versions, added a defer regression test and documented
+  the remaining protected-stylesheet font bottleneck. Eight tests pass.
+- Local Chromium checks cover mobile/desktop navigation, scroll state and
+  supporter-dialog opening in all languages. Real-world timings were not
+  established, and no production or preview deployment was performed.
+
+## Round 35 (supporter form bug fixes)
+
+- Reproduced and fixed three bugs in all languages: Enter was blocked by hidden
+  required fields, whitespace-only names passed validation, and switching from
+  post to pickup still included the old postal address in the submission.
+- Validation now reveals the correct step before reporting an invalid field,
+  rejects whitespace-only addresses, and preserves postal edits without sending
+  them for pickup. Removed delayed opening focus that could interrupt typing.
+- Added 12 isolated Playwright browser checks, preserving Netlify form names,
+  honeypot and field declarations. No real submissions or payments were made.
+- Updated shared asset versions and maintainer guidance. No deployment this round.
+
+## Round 36 (shared form logic refactor)
+
+- Consolidated button and Enter navigation into one supporter step transition.
+- Extracted shared required-field validation and localized submission-button
+  presentation; replaced step magic numbers with named constants and cached
+  static panel/address references within the flow.
+- Expanded browser coverage for successful postal submissions, back-and-edit
+  review updates and both forms' busy states. Preserved Netlify form contracts,
+  existing design and the dependency-free website runtime.
+- Updated maintainer guidance and shared asset versions. No deployment this round.
+
+## Round 37 (nine improvements and full preview release)
+
+Low-hanging fruit:
+1. Corrected CLI help names and rejected invalid/extra arguments without edits.
+2. Protected new-tab links generated by maintenance helpers; added an audit guard.
+3. External map links now preserve the embedded Friesland location and zoom.
+
+Low-risk improvements:
+4. Added localized keyboard skip links and homepage main landmarks.
+5. Restore pending submit buttons when returning through browser history.
+6. Audit duplicate IDs, broken same-page anchors and malformed fragments.
+
+High-impact improvements:
+7. Added searchable NL/EN/FY business lists with counts, empty-state guidance,
+   sorting compatibility and a no-JavaScript fallback.
+8. Added pinned, read-only PR/push quality checks in GitHub Actions.
+9. Added public-file-only preview staging with preview-only noindex headers.
+
+Updated shared asset versions, map summaries and maintenance documentation.
+This release includes previously undeployed work from rounds 32–36; the live
+site and main branch remain unchanged. Deployment results are recorded separately.
+
+## Round 38 (search and AI visibility audit)
+
+- **Every page now advertises the address the server actually serves.** The host redirects `/nl/about.html` to `/nl/about`, but canonical tags, language links, the sitemap, `llms.txt` and internal links all pointed at the `.html` form. Google received a canonical that redirected elsewhere. All of them now use the clean address, and the site audit fails if a `.html` address is advertised again.
+- **Search snippets rewritten.** Meta descriptions on the about, business, consumers, links, map, meetings and treasure-hunt pages (all three languages) are now 130-155 characters and describe what the page really contains. The treasure-hunt titles no longer invite people to join a hunt that has ended. The blog post and BBQ page titles were shortened so Google does not cut them off.
+- **A proper share image.** All 27 main pages shared a Thai-food event poster whose text was cut off in link previews. They now use a 1200x630 card with the logo and name. Width, height and type are declared so previews render immediately.
+- **More structured data.** Every main page now describes the website, the page and its breadcrumb trail. The organisation record gained a contact point, the GitHub organisation and topics. No search box markup was added because the site has no site-wide search.
+- **More for AI assistants.** Nine new Markdown summaries (about, consumers and business in three languages), a "Quick answers" block in `llms.txt`, and a new `llms-full.txt` that joins every summary in one file. `node maintain-llms-full.cjs` regenerates it and the audit fails when it goes stale.
+- **Headers and IndexNow.** A new `_headers` file adds security headers, long caching for versioned assets and correct types for the Markdown and text files. An IndexNow key file lets Bing (which feeds ChatGPT search) be told about changed pages after a deploy.
+- No design, colours or footer content changed for visitors.
+
+## Round 39: The Sticker Glow-Up (October 2026)
+
+> *In which a perfectly decent website looks in the mirror, sees a 2019
+> template with soft gradients and a heart-shaped favicon from its previous
+> owner, and decides it is time for a haircut.*
+
+The community hands out "Betaal hier met Bitcoin" stickers: thick black
+outlines, flat colours, a mascot sticking its tongue out. They are loud,
+friendly and impossible to miss. The website was none of those things. It is
+now. Every page, all three languages, one design language. The full rulebook
+lives in [DESIGN.md](DESIGN.md) so nobody has to reverse-engineer it from CSS
+at 2 a.m.
+
+### The look
+
+- **Everything got outlines and hard shadows.** Navigation, buttons, cards,
+  FAQ, forms, the business table and dialogs now look like stickers someone
+  slapped on a laptop lid. Headings use Bricolage Grotesque, body text stays
+  Inter. Soft blurry shadows were escorted out of the building.
+- **Homepage hero: "Bitcoin in Friesland? Gewoon dwaan."** The slogan from
+  the community flyer, the mascot, and a little pile of stickers (Lightning,
+  Fryslân flag, "Betaal hier met Bitcoin", 21 stickers for supporters).
+- **Meetings page:** a poster wall of real meetup posters from Leeuwarden,
+  Harlingen, Drachten and Heerenveen. Now in high resolution, because
+  pixelated posters are a crime against graphic designers.
+- **Map page:** a hand-drawn-looking map of Fryslân with a dot for every town
+  on the business list (OpenStreetMap coordinates, province outline from
+  CBS/PDOK open data) and live counts. If someone adds a business and forgets
+  the map, a test fails and tells on them.
+- **Other pages** get a matching sticker header. The "W. Terschellng" typo was
+  found and given its missing vowel back.
+- **Emojis are retired.** They were replaced by proper line icons. The emojis
+  have been informed and are taking it well.
+- **New favicon.** The browser tab still showed a white heart left behind by
+  the site builder the site was originally made with. It is now the mascot on
+  an orange tile, including 192px and Apple touch icons. The heart has moved
+  on to new opportunities.
+- **Real art instead of stock thumbnails.** The homepage cards "Ontvang
+  Bitcoin", "Bitcoin wiki" and "Bijeenkomsten en meetups" now have drawn
+  illustrations in the sticker style. The previous thumbnails have been
+  quietly composted.
+- **Readability fixes.** Telegram bands, dark buttons and the orange wordmark
+  now pass contrast checks. An automated check over every page found no
+  unreadable text left. The blurry news image (a 128-pixel thumbnail
+  stretched to 640, bravely) is now a sharp 1600x840 cover.
+- **The footer** is a light sticker panel that mirrors the hero. The risk
+  warning is a calm white card, not a red alarm. A second pass replaced every
+  remaining old-style button, soft shadow, gradient and tinted box; an
+  automated style audit over all pages found zero survivors.
+- **Business table** on the map pages: black header row, zebra stripes and
+  check marks that look like little green stickers.
+- **Tips on the consumer page** used to be pale yellow boxes with the energy
+  of a forgotten Post-it. They are now proper sticker callouts with an icon
+  and a bold heading.
+
+### New things to click
+
+- **"Wat is Bitcoin?"** (`/nl/what-is-bitcoin`, also in English and Frisian):
+  the explanation you would give your aunt at a birthday party. Plain words, a
+  glossary, a short history and next steps, with FAQ structured data.
+- **Sats calculator** (`/nl/sats-calculator`): sats to euros or dollars and
+  back, with the live price from mempool.space (CoinGecko as backup). Quick
+  buttons like "21 euro" included. Lives under Tools on the links page.
+- **Live block height in the footer.** Every page now shows the current
+  Bitcoin block, refreshed every minute from mempool.space (Blockstream as
+  backup). It is the most Bitcoin thing a footer can do.
+- **Quote of the day** on the homepage: a different original quote each day
+  from Satoshi Nakamoto, Hal Finney, Eric Hughes, Tim May, Nick Szabo or Wei
+  Dai, always with source and date. No made-up Satoshi quotes. We checked.
+- **Follow us on Nostr and X.** A homepage section with a Nostr card (copy
+  the npub, follow link, and the latest note as soon as one is published) and
+  an X card for @bitcoinfryslan. Both are also in the footer, in the
+  structured data and in `llms.txt`.
+- **Four guides** in the news section: "Beginnen met Bitcoin in Friesland",
+  "Bitcoin veilig bewaren", "Betalen met Lightning" and "Bitcoin accepteren
+  in je zaak", each with a sticker cover, in the RSS feed, the sitemap,
+  `llms.txt` and the links page.
+- **"Gestart door twee Noderunners"** badge with logo and a followed link in
+  every footer; the about pages tell the origin story.
+- **"Webdesign door StudioFab.nl"** credit in every footer (followed link).
+
+### Rebuilt pages
+
+- **Consumer page** is now a 1-2-3 guide: pick a wallet, buy your first sats
+  (Strike, wave.space, Bitonic), pay and meet. Then long-term saving with
+  hardware wallets (Trezor, BitBox, and now Bitkey and Blockstream Jade),
+  converting back to euros and a help band.
+- **Business page** explains what is in it for a business before asking
+  anything: new customers, a spot on the map, word of mouth, low fees,
+  instant and final payments. Then "In 4 stappen" and a comparison of
+  Coinos, Wallet of Satoshi, BTCPay Server and Lightning Checkout.
+- **Supporter programme is "in preparation".** Payment and organisation are
+  not ready yet, so the signup popup is gone. The support page offers a
+  waitlist and a feedback form instead, delivered to Telegram, and no longer
+  suggests anyone can pay today.
+
+### Corrections, because facts matter
+
+- Wallet of Satoshi is self-custodial these days, and still the easiest start.
+- "Gratis op de kaart" is gone: listing on the map will become paid.
+- The Sat.trading link went to a site that no longer exists. Removed.
+- Two outdated business links and a dead Comfrey Computers link fixed or
+  removed. Restaurant Kreta is no longer used as an example; it left the map.
+- The outdated "Speur mee in Sneek" promo is gone; that treasure hunt ended.
+- The Dutch menu says **Meet-ups** instead of "Bijeenkomsten".
+- "Fork mij op Github" left the footer. The source code is still linked from
+  the About pages.
+
+### Under the hood
+
+- Everything visual lives in one block at the bottom of
+  `assets/enhancements.css`, scoped to `body.st`. The compiled Tailwind file
+  was not touched and there is still no build step.
+- New behaviour (calculator, block height, quote of the day, Nostr feed,
+  copy buttons) is in `assets/main.js`, dependency-free, and degrades
+  gracefully: if an API is down, the page simply shows less, never an error.
+- Checks: site audit, 31 regression tests, a style audit for leftover
+  old-style elements and a contrast audit over every page. All green.
+- Future ideas are parked in [BACKLOG.md](BACKLOG.md), starting with a
+  Facebook page that posts once a week on autopilot.
+
+## Maintenance notes
+### Support forms on Cloudflare Pages - 28 September 2026
+- The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
+- Visitors only see "received" after Telegram accepted the message; otherwise they get an error page with the e-mail address. Spam is limited by the honeypot, a same-site check and length caps.
+- One-time setup (bot token and chat id in Cloudflare) is described in MAINTENANCE.md. Until it is done, the forms show the error page instead of a false confirmation. No visible design or copy changes.
+
+### Repository hygiene — 26 September 2026
+- Aligned contributor and maintenance checks with the actual CI workflow, including its trigger and browser-test limitations.
+- Corrected footer-helper and fragment-audit guidance; documented local-only serving, stacked branches and preview/production boundaries.
+- Added editor defaults and ignore rules for local credentials, dependencies and browser reports. No runtime, content, compiled CSS or deployment changes.
+
+### Keyboard navigation fixes — 26 September 2026
+- Fixed the inactive homepage down arrow in all three languages; it now scrolls and moves keyboard focus to the introduction.
+- Fixed lost keyboard focus when switching between mobile and desktop navigation.
+- Close language and mobile dropdowns when keyboard users tab out, keeping expanded-state announcements synchronized.
+- Added nine browser regressions (three per language) and refreshed shared asset versions.
+
+### Event archive correction — 26 September 2026
+- Moved the 19 September NodeRunners conference into past events in Dutch, English and Frisian, with an explicit past label and archival description.
+- Removed expired homepage ticket promotions and conference discount controls.
+- Updated AI-readable summaries, sitemap dates and regression tests. No upcoming events are currently listed.
+
+- No page design, colours or footer navigation changed for visitors.
 - The "X" and "Nostr" footer links are gone for now. Add them back when you
-  have the real account addresses.
+  have the real account addresses. (Update, October 2026: they are back, with
+  the real accounts. See Round 39.)
 - After this goes live, it helps to open Google Search Console and ask Google
   to re-check the home page so it picks up the new questions-and-answers data.

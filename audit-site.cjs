@@ -1,0 +1,256 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const { buildLlmsFull } = require('./maintain-llms-full.cjs');
+
+const root = __dirname;
+const languages = ['nl', 'en', 'fy'];
+const openGraphLocales = { nl: 'nl_NL', en: 'en_GB', fy: 'fy_NL' };
+const siteOrigin = 'https://bitcoinfriesland.com/';
+const errors = [];
+// These existing editorial pages intentionally have no EN/FY counterpart.
+// Keep this explicit: a missing translation elsewhere must fail the audit.
+const untranslatedPages = new Set([
+  'nl/blog/index.html',
+  'nl/blog/beginnen-met-bitcoin-in-friesland.html',
+  'nl/blog/bitcoin-veilig-bewaren.html',
+  'nl/blog/betalen-met-lightning.html',
+  'nl/blog/bitcoin-accepteren-als-ondernemer.html',
+  'nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html',
+]);
+
+function isFile(file) {
+  return fs.existsSync(file) && fs.statSync(file).isFile();
+}
+
+function checkCommunityIdentity(node, file) {
+  if (!node || typeof node !== 'object') return;
+  if (node['@type'] === 'Organization' && ['Bitcoin Friesland', 'Bitcoin Fryslân'].includes(node.name)) {
+    if (node['@id'] !== `${siteOrigin}#organization`) report(file, 'community Organization must use the shared @id');
+    if (node.url !== siteOrigin) report(file, 'community Organization must use the shared homepage URL');
+  }
+  for (const child of Object.values(node)) checkCommunityIdentity(child, file);
+}
+
+function isCleanUrlViolation(url) {
+  return /\.html(?:$|[?#])/i.test(url) || /\/index(?:$|[?#])/i.test(url);
+}
+
+function walkHtml(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) return walkHtml(absolute);
+    return entry.isFile() && entry.name.endsWith('.html') ? [absolute] : [];
+  });
+}
+
+function relative(file) {
+  return path.relative(root, file).split(path.sep).join('/');
+}
+
+function report(file, message) {
+  errors.push(`${relative(file)}: ${message}`);
+}
+
+function matchContent(source, attribute, value) {
+  const escaped = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(`<meta\\s+${attribute}="${escaped}"\\s+content="([^"]+)"`, 'i');
+  return source.match(pattern)?.[1] || '';
+}
+
+const pages = languages.flatMap((language) => walkHtml(path.join(root, language)));
+const canonicalToFile = new Map();
+const titles = new Map();
+const descriptions = new Map();
+const enhancementVersions = new Set();
+const scriptVersions = new Set();
+
+for (const file of pages) {
+  const source = fs.readFileSync(file, 'utf8');
+  const canonical = source.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1];
+  const title = source.match(/<title>([^<]+)<\/title>/i)?.[1].trim();
+  const description = matchContent(source, 'name', 'description');
+  const robots = matchContent(source, 'name', 'robots');
+
+  if (!title) report(file, 'missing or empty title');
+  if (!description) report(file, 'missing meta description');
+  if (robots !== 'index, follow, max-image-preview:large') report(file, 'unexpected robots preview policy');
+  if (title && title.length > 65) report(file, `title is ${title.length} characters; keep it under 65 so it is not truncated`);
+  if (description && (description.length < 90 || description.length > 160)) {
+    report(file, `meta description is ${description.length} characters; aim for 90-160`);
+  }
+  if (title) {
+    if (titles.has(title)) report(file, `title duplicates ${relative(titles.get(title))}`);
+    titles.set(title, file);
+  }
+  if (description) {
+    if (descriptions.has(description)) report(file, `meta description duplicates ${relative(descriptions.get(description))}`);
+    descriptions.set(description, file);
+  }
+  if (!/"@type":\s*"BreadcrumbList"/.test(source)) report(file, 'missing BreadcrumbList structured data');
+  for (const advertised of source.matchAll(/https:\/\/bitcoinfriesland\.com\/[^"\s<]*\.html(?![.\w])/gi)) {
+    report(file, `advertised URL must not end in .html: ${advertised[0]}`);
+  }
+  if (!canonical) report(file, 'missing canonical URL');
+  // The host 308-redirects *.html to the clean URL, so every advertised URL must already be the clean form.
+  if (canonical && isCleanUrlViolation(canonical)) report(file, `canonical must be the clean URL without .html: ${canonical}`);
+  if (canonical && matchContent(source, 'property', 'og:url') !== canonical) report(file, 'og:url must equal the canonical URL');
+  for (const alternate of source.matchAll(/hreflang="[^"]+"\s+href="([^"]+)"/gi)) {
+    if (isCleanUrlViolation(alternate[1])) report(file, `hreflang must use the clean URL without .html: ${alternate[1]}`);
+  }
+  if (!source.includes('rel="describedby" href="https://bitcoinfriesland.com/llms.txt"')) report(file, 'missing llms.txt discovery link');
+
+  for (const property of ['og:title', 'og:description', 'og:url', 'og:image', 'og:image:alt']) {
+    if (!matchContent(source, 'property', property)) report(file, `missing ${property}`);
+  }
+  for (const name of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image', 'twitter:image:alt']) {
+    if (!matchContent(source, 'name', name)) report(file, `missing ${name}`);
+  }
+
+  const h1Count = (source.match(/<h1\b/gi) || []).length;
+  if (h1Count !== 1) report(file, `expected one h1, found ${h1Count}`);
+
+  const ids = new Set();
+  for (const match of source.matchAll(/\bid="([^"]+)"/g)) {
+    if (ids.has(match[1])) report(file, `duplicate id: ${match[1]}`);
+    ids.add(match[1]);
+  }
+  for (const match of source.matchAll(/\bhref="#([^"]+)"/g)) {
+    try {
+      if (!ids.has(decodeURIComponent(match[1]))) report(file, `broken same-page link: #${match[1]}`);
+    } catch {
+      report(file, `malformed same-page link: #${match[1]}`);
+    }
+  }
+
+  for (const image of source.match(/<img\b[^>]*>/gis) || []) {
+    if (!/\balt="[^"]*"/i.test(image)) report(file, 'image without alt attribute');
+    if (!/\bwidth="\d+"/i.test(image) || !/\bheight="\d+"/i.test(image)) report(file, 'image without explicit dimensions');
+  }
+
+  for (const link of source.match(/<a\b[^>]*>/gi) || []) {
+    if (/target="_blank"/i.test(link) && !/rel="[^"]*\bnoopener\b/i.test(link)) {
+      report(file, 'new-tab link must include rel="noopener"');
+    }
+  }
+
+  for (const attribute of source.matchAll(/\b(?:href|src)="([^"]+)"/gi)) {
+    const value = attribute[1];
+    if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
+    const cleanValue = value.split('#')[0].split('?')[0];
+    if (!cleanValue) continue;
+    if (/\.html$/i.test(cleanValue)) report(file, `internal link must use the clean URL without .html: ${value}`);
+    let decoded;
+    try {
+      decoded = decodeURIComponent(cleanValue);
+    } catch {
+      report(file, `malformed local reference: ${value}`);
+      continue;
+    }
+    const target = decoded.startsWith('/')
+      ? path.join(root, decoded.slice(1))
+      : path.resolve(path.dirname(file), decoded);
+    const candidates = [target, `${target}.html`, path.join(target, 'index.html')];
+    if (!candidates.some(isFile)) report(file, `broken local reference: ${value}`);
+  }
+
+  const jsonLdBlocks = [...source.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
+  if (!jsonLdBlocks.length) report(file, 'missing JSON-LD');
+  for (const block of jsonLdBlocks) {
+    try {
+      checkCommunityIdentity(JSON.parse(block[1]), file);
+    } catch (error) {
+      report(file, `invalid JSON-LD (${error.message})`);
+    }
+  }
+
+  if (canonical) {
+    if (canonicalToFile.has(canonical)) report(file, `canonical duplicates ${relative(canonicalToFile.get(canonical))}`);
+    canonicalToFile.set(canonical, file);
+  }
+
+  const pagePath = relative(file);
+  const localPath = pagePath.split('/').slice(1).join('/');
+  if (!untranslatedPages.has(pagePath)) {
+    for (const language of languages) {
+      if (!isFile(path.join(root, language, localPath))) report(file, `missing ${language} translation: ${language}/${localPath}`);
+      if (!source.includes(`hreflang="${language}"`)) report(file, `missing ${language} hreflang`);
+    }
+    if (!source.includes('hreflang="x-default"')) report(file, 'missing x-default hreflang');
+    const pageLanguage = pagePath.split('/')[0];
+    for (const language of languages.filter((language) => language !== pageLanguage)) {
+      if (!source.includes(`property="og:locale:alternate" content="${openGraphLocales[language]}"`)) {
+        report(file, `missing ${openGraphLocales[language]} Open Graph locale alternate`);
+      }
+    }
+  }
+
+  if (fs.existsSync(`${file}.md`)) {
+    const markdownUrl = `${siteOrigin}${pagePath}.md`;
+    if (!source.includes(`rel="alternate" type="text/markdown" href="${markdownUrl}"`)) {
+      report(file, 'missing Markdown alternate link');
+    }
+  }
+  for (const markdownLink of source.matchAll(/rel="alternate"\s+type="text\/markdown"\s+href="https:\/\/bitcoinfriesland\.com\/([^"]+)"/gi)) {
+    if (!fs.existsSync(path.join(root, markdownLink[1]))) report(file, `Markdown alternate does not exist: ${markdownLink[1]}`);
+  }
+
+  const enhancementVersion = source.match(/assets\/enhancements\.css\?v=([0-9a-z]+)/i)?.[1];
+  const scriptVersion = source.match(/assets\/main\.js\?v=([0-9a-z]+)/i)?.[1];
+  const head = source.split(/<\/head>/i)[0];
+  if (!/<script\s+defer\s+src="[^"]*assets\/main\.js\?v=[^"]+"><\/script>/i.test(head)) {
+    report(file, 'main.js must be deferred in the head for early, non-blocking download');
+  }
+  if (enhancementVersion) enhancementVersions.add(enhancementVersion);
+  else report(file, 'missing versioned enhancements.css reference');
+  if (scriptVersion) scriptVersions.add(scriptVersion);
+  else report(file, 'missing versioned main.js reference');
+}
+
+if (enhancementVersions.size !== 1) errors.push(`HTML pages use multiple enhancements.css versions: ${[...enhancementVersions].join(', ')}`);
+if (scriptVersions.size !== 1) errors.push(`HTML pages use multiple main.js versions: ${[...scriptVersions].join(', ')}`);
+
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const sitemapEntries = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapUrls = new Set(sitemapEntries);
+if (sitemapUrls.size !== sitemapEntries.length) errors.push('sitemap.xml: duplicate URL entries');
+const canonicalUrls = new Set(canonicalToFile.keys());
+for (const url of sitemapUrls) if (isCleanUrlViolation(url)) errors.push(`sitemap.xml: URL must be the clean form without .html: ${url}`);
+for (const url of canonicalUrls) if (!sitemapUrls.has(url)) errors.push(`sitemap.xml: missing canonical ${url}`);
+for (const url of sitemapUrls) if (!canonicalUrls.has(url)) errors.push(`sitemap.xml: non-canonical or unknown URL ${url}`);
+
+const llms = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8');
+if (!/^# Bitcoin Friesland\s*$/m.test(llms)) errors.push('llms.txt: missing required H1');
+if (!/^>\s+\S/m.test(llms)) errors.push('llms.txt: missing summary blockquote');
+const firstSection = llms.search(/^##\s/m);
+if (firstSection < 0) {
+  errors.push('llms.txt: missing file-list sections');
+} else {
+  for (const line of llms.slice(firstSection).split('\n')) {
+    if (line.startsWith('- ') && !line.startsWith('- [')) errors.push(`llms.txt: section list item is not a Markdown link: ${line}`);
+  }
+}
+for (const match of llms.matchAll(/\]\(https:\/\/bitcoinfriesland\.com\/([^\s)]+\.md)\)/g)) {
+  if (!fs.existsSync(path.join(root, match[1]))) errors.push(`llms.txt: missing linked Markdown file ${match[1]}`);
+}
+
+if (!llms.includes('https://bitcoinfriesland.com/llms-full.txt')) errors.push('llms.txt: missing link to llms-full.txt');
+const llmsFullPath = path.join(root, 'llms-full.txt');
+if (!isFile(llmsFullPath)) {
+  errors.push('llms-full.txt: missing (run node maintain-llms-full.cjs)');
+} else if (fs.readFileSync(llmsFullPath, 'utf8') !== buildLlmsFull(root)) {
+  errors.push('llms-full.txt: out of date with the .html.md files (run node maintain-llms-full.cjs)');
+}
+
+const robotsTxt = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
+if (/^Crawl-delay:/im.test(robotsTxt)) errors.push('robots.txt: Crawl-delay is not part of Google robots.txt rules');
+if ((robotsTxt.match(/^User-agent:/gim) || []).length !== 1) errors.push('robots.txt: use one shared crawler group unless a specific exception is required');
+
+if (errors.length) {
+  console.error(`Site audit failed with ${errors.length} issue${errors.length === 1 ? '' : 's'}:\n`);
+  for (const error of errors) console.error(`- ${error}`);
+  process.exit(1);
+}
+
+console.log(`Site audit passed: ${pages.length} HTML pages, ${sitemapUrls.size} canonical sitemap URLs and ${[...llms.matchAll(/\.html\.md\)/g)].length} LLM Markdown links.`);

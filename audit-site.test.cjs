@@ -1,0 +1,143 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { spawnSync } = require('node:child_process');
+const { test } = require('node:test');
+
+// Exercise the CLI against isolated copies; never modify the working website.
+function fixture(t) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bf-audit-'));
+  t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
+  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html', 'favicon.ico', 'apple-touch-icon.png']) {
+    fs.cpSync(path.join(__dirname, name), path.join(directory, name), { recursive: true });
+  }
+  // The audit only reads assets. Avoid copying image binaries for each test.
+  fs.symlinkSync(path.join(__dirname, 'assets'), path.join(directory, 'assets'), 'dir');
+  return directory;
+}
+
+function audit(directory) {
+  const result = spawnSync(process.execPath, [path.join(directory, 'audit-site.cjs')], {
+    cwd: os.tmpdir(),
+    encoding: 'utf8',
+  });
+  if (result.error) throw result.error;
+  return { status: result.status, output: result.stdout + result.stderr };
+}
+
+function edit(directory, file, transform) {
+  const target = path.join(directory, file);
+  fs.writeFileSync(target, transform(fs.readFileSync(target, 'utf8')));
+}
+
+test('current site passes even when invoked outside the repository', (t) => {
+  const result = audit(fixture(t));
+  assert.equal(result.status, 0, result.output);
+});
+
+test('missing translation is explicitly reported', (t) => {
+  const directory = fixture(t);
+  fs.unlinkSync(path.join(directory, 'fy/about.html'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /missing fy translation: fy\/about.html/);
+});
+
+test('empty directory is not accepted as a working page', (t) => {
+  const directory = fixture(t);
+  fs.mkdirSync(path.join(directory, 'empty'));
+  edit(directory, 'nl/about.html', (html) => html.replace('</body>', '<a href="/empty/">Empty</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /broken local reference: \/empty\//);
+});
+
+test('malformed URLs produce a useful failure instead of a stack trace', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', (html) => html.replace('</body>', '<a href="/%invalid">Invalid</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/about.html: malformed local reference: \/%invalid/);
+  assert.doesNotMatch(result.output, /URIError/);
+});
+
+test('missing cache version is reported on the affected page', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', (html) => html.replace(/main\.js\?v=[0-9a-z]+/i, 'main.js'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/about.html: missing versioned main.js reference/);
+});
+
+test('duplicate sitemap entries are rejected', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'sitemap.xml', (xml) => xml.replace('</urlset>', `${xml.match(/<url>[\s\S]*?<\/url>/)[0]}</urlset>`));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /sitemap.xml: duplicate URL entries/);
+});
+
+test('community identity cannot diverge between language pages', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'fy/about.html', (html) => html.replace('https://bitcoinfriesland.com/#organization', 'https://bitcoinfriesland.com/fy/#organization'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /fy\/about.html: community Organization must use the shared @id/);
+});
+
+test('shared script must not block HTML parsing', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', (html) => html.replace('<script defer src=', '<script src='));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /main.js must be deferred in the head/);
+});
+
+test('duplicate IDs and broken fragment links are reported', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html.replace('</body>', '<div id="main-content"></div><a href="#missing-section">Missing</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /duplicate id: main-content/);
+  assert.match(result.output, /broken same-page link: #missing-section/);
+});
+
+test('new-tab links retain opener protection', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html.replace('</body>', '<a href="https://example.com" target="_blank">External</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /new-tab link must include/);
+});
+
+test('advertised URLs must be the clean form the host serves', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html', html => html
+    .replace('<link rel="canonical" href="https://bitcoinfriesland.com/nl/about">', '<link rel="canonical" href="https://bitcoinfriesland.com/nl/about.html">')
+    .replace('</body>', '<a href="map.html">Map</a></body>'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/about.html: canonical must be the clean URL without .html/);
+  assert.match(result.output, /nl\/about.html: og:url must equal the canonical URL/);
+  assert.match(result.output, /nl\/about.html: internal link must use the clean URL without .html: map.html/);
+});
+
+test('llms-full.txt must be regenerated when a Markdown summary changes', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/about.html.md', (markdown) => `${markdown}\nExtra regel.\n`);
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /llms-full.txt: out of date/);
+});
+
+test('search snippets must be unique and fit their limits', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/links.html', (html) => html
+    .replace(/<title>[^<]+<\/title>/, '<title>Bitcoin Bronnen en Links - Bitcoin Friesland en nog heel veel extra woorden die niet passen</title>')
+    .replace(/(<meta name="description" content=")[^"]+(")/, '$1Te kort$2'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/links.html: title is \d+ characters/);
+  assert.match(result.output, /nl\/links.html: meta description is 7 characters/);
+});

@@ -26,11 +26,14 @@ Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin buil
 |---|---|---|
 | `README.md` | Everyone | You are here — overview, structure, how to run and edit |
 | `CONTRIBUTING.md` | **Humans** | Branch/PR workflow, checklists, image & styling rules |
+| `MAINTENANCE.md` | Maintainers | Sources of truth, verification, script limitations and safe handoff |
 | `AGENTS.md` | **AI assistants** | Canonical rules for AI coding agents (read first) |
 | `AI_CONTEXT.md` | AI assistants | Deep site internals: runtime behavior, content patterns, scripts |
 | `.github/copilot-instructions.md` | GitHub Copilot | Auto-loaded Copilot context (short version of AGENTS.md) |
+| `DESIGN.md` | Everyone who touches the look | The sticker design system: tokens, components, widgets, rules |
 | `CHANGES.md` | Everyone | Plain-language changelog of every improvement round |
-| `llms.txt` | LLM crawlers | Plain-language site summary (keep updated!) |
+| `BACKLOG.md` | Everyone | Ideas parked for later |
+| `llms.txt` | LLM agents | v2-compatible site guide with links to clean Markdown content |
 
 ---
 
@@ -56,8 +59,9 @@ Deliberately boring — no build step, no framework, no dependencies:
 | Markup | Hand-written HTML5, one file per page per language |
 | Styling | `assets/styles.css` (compiled Tailwind output) + `assets/enhancements.css` (custom polish layer) |
 | Behavior | `assets/main.js` (vanilla JS, no bundler) |
-| Fonts | Inter via Google Fonts |
+| Fonts | Bricolage Grotesque (headings) + Inter (body) via Google Fonts |
 | Images | `<picture>` with WebP + fallback, explicit width/height |
+| Hosting | Cloudflare Pages (clean URLs, `_headers`, one Pages Function for the forms) |
 
 ## Repository structure
 
@@ -72,6 +76,9 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── business.html         #   For businesses
 │   ├── links.html            #   Resources & links
 │   ├── about.html            #   About the community
+│   ├── support.html          #   Supporters (in preparation), waitlist & feedback
+│   ├── what-is-bitcoin.html  #   Beginner explanation + glossary
+│   ├── sats-calculator.html  #   Sats ↔ EUR/USD calculator
 │   └── treasure-hunt.html    #   Treasure hunt
 ├── nl/blog/                  # Dutch blog (+ HOW-TO-ADD-A-POST.md, RSS)
 ├── nl/evenementen/           # Dedicated Dutch event pages
@@ -81,11 +88,16 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
 ├── robots.txt / sitemap.xml  # Crawler directives & index
-├── llms.txt                  # Plain-language site summary for AI assistants
+├── functions/                # Cloudflare Pages Function that receives the support forms (Telegram)
+├── _headers                  # Security + caching headers (Cloudflare Pages)
+├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
+├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
 ├── CONTRIBUTING.md           # Contribution guide for humans
+├── DESIGN.md                 # Sticker design system rulebook
 ├── CHANGES.md                # Plain-language changelog ("rounds")
+├── BACKLOG.md                # Ideas for later
 ├── .github/
 │   └── copilot-instructions.md  # Auto-loaded GitHub Copilot context
 └── maintain-*.cjs / translations-*.cjs  # Node maintenance scripts (no deps)
@@ -93,13 +105,13 @@ Deliberately boring — no build step, no framework, no dependencies:
 
 ## Running & editing locally
 
-No build step. Either open the HTML files directly in a browser, or serve the folder for correct relative paths:
+No build step. Serve the repository root so root-relative links work correctly:
 
 ```sh
-npx serve .        # or: python3 -m http.server
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Then visit `http://localhost:3000/nl/` (or `/en/`, `/fy/`).
+Then visit `http://localhost:8000/nl/` (or `/en/`, `/fy/`). Stop the server with Ctrl+C. Alternatively, use `npx serve .` and open the address printed by that server. Node.js 20+ is needed for the audit and regression tests, not for serving the site.
 
 When adding a page, **copy an existing page as a template** so the nav, footer and risk warning stay intact, then translate the content.
 
@@ -109,30 +121,37 @@ This is the most important convention in the repo:
 
 1. Every content change lands in **all three languages** — `nl/`, `en/`, `fy/` — with identical structure.
 2. Navigation, hero blocks, CTA buttons and footers must stay structurally identical across languages.
-3. The footer must always include the **risk warning block** (NL/EN/FY) and the GitHub link. Never edit the footer on one page only — update all pages together (`maintain-footer.cjs` exists for this).
+3. The footer must always include the **risk warning block** (NL/EN/FY) and the credit line (Noderunners badge, block height, StudioFab.nl credit). The GitHub source link lives on the About pages. Never edit the footer on one page only — update all pages together. See [maintenance limitations](MAINTENANCE.md#legacy-editing-scripts) before using the legacy footer script.
 4. Documentation and code comments are written in **English**, unless a user explicitly asks otherwise.
 
 ## Styling system
 
 - **`assets/styles.css`** is compiled Tailwind output. Do not hand-edit it, and do not rely on Tailwind classes that are not already used somewhere on the site — unused classes do not exist in the compiled file.
-- **`assets/enhancements.css`** is the hand-written layer loaded after it. All custom styling goes here, at the bottom, in a commented block. It is additive only: removing the file + its `<link>` reverts the site to the base look.
-- Brand colors: `--bf-blue: #0066cc` (Frisian flag blue), `--bf-orange: #f97316` (Bitcoin orange), `--bf-red: #ea384c`.
-- New, self-contained sections should use **prefixed custom classes** (e.g. `.nr-promo-*`) in `enhancements.css` so they render identically everywhere without depending on the compiled Tailwind set.
+- **`assets/enhancements.css`** is the hand-written layer loaded after it. All custom styling goes here. The current look is the **sticker design system** (ink outlines, hard shadows, flat brand colours), a block at the bottom scoped to `body.st`.
+- **Read [DESIGN.md](DESIGN.md) before changing anything visual.** It lists the tokens (`--st-ink`, `--st-orange`, `--st-blue`, `--st-yellow`, ...), every `st-*` component, the contrast rules and the cache-busting routine.
+- No emojis on the site; use inline SVG line icons (`class="st-icon"`).
 
 ## Runtime behavior (JS)
 
-All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, and copy-to-clipboard helpers. Keep new behavior here, dependency-free.
+All behavior lives in `assets/main.js`: mobile menu, language dropdown (with outside-click close and keyboard support), FAQ accordion, sticky-header shadow, sortable tables, copy-to-clipboard helpers, form feedback, the sats calculator, the live block height in the footer, the quote of the day and the Nostr follow card. Live widgets use public APIs with a fallback and degrade silently when offline (details in [DESIGN.md](DESIGN.md#5-live-widgets-assetsmainjs)). Keep new behavior here, dependency-free.
 
 ## SEO, social & LLM assets
 
 Already in place — keep them working when adding pages:
 
-- `hreflang` links between the three language versions of every page
-- Canonical URL, Open Graph + Twitter cards, geo tags, and JSON-LD (`Organization`, `FAQPage`, `Event`) per page
+- `hreflang` links between the three language versions of every translated page
+- Canonical URL, Open Graph + Twitter cards, crawler preview controls, and page-appropriate JSON-LD (`Organization`, `BlogPosting`, `FAQPage`, `Event`)
 - `sitemap.xml` — update when adding/removing public pages
-- `robots.txt` — crawl directives
-- `llms.txt` — plain-language summary that AI assistants read; update it when events, offers or key pages change
+- `robots.txt` — shared crawl directives that apply consistently to search crawlers
+- `llms.txt` — v2-compatible guide that AI agents can use to discover the clean Markdown versions of core pages
+- `*.html.md` — concise, navigation-free Markdown counterparts for the most important NL/EN/FY pages
+- `llms-full.txt` — all Markdown summaries in one file; regenerate with `node maintain-llms-full.cjs` after editing any `.html.md`
+- `_headers` — security and caching headers; serves `llms*.txt` and `.md` with the right type
 - `404.html` — branded not-found page
+
+Run `node audit-site.cjs` before a PR. It checks essential metadata, social cards, JSON-LD syntax, image attributes, local links, language parity, sitemap canonicals, asset versions and LLM discovery links.
+
+Run `node --test audit-site.test.cjs maintenance.test.cjs forms-function.test.cjs` for the dependency-free regression suite. See [MAINTENANCE.md](MAINTENANCE.md#verification) for the full checks and optional browser tests; these checks do not replace browser testing.
 
 ## Maintenance scripts
 
@@ -140,14 +159,21 @@ Node scripts, no dependencies:
 
 | Script | Purpose |
 |---|---|
+| `node audit-site.cjs` | Read-only SEO, social metadata, sitemap and LLM discoverability audit |
 | `node maintain-pages.cjs consumer\|business\|all` | Tweaks consumer/business pages (terminology, links, phrasing) |
-| `node maintain-footer.cjs text\|warning\|all` | Updates footer copyright/GitHub link and risk warnings on every page |
+| `node maintain-footer.cjs text\|warning\|all` | Legacy footer replacements: text targets map pages; warning scans all language HTML |
 | `node translations-restore.cjs` | Restores EN/FY translations for map strings |
 | `node translations-frisian.cjs` | Applies extra Frisian translations to `fy/map.html` |
+
+Editing scripts are historical text replacements, not a build pipeline. Run them from the repository root, only for a relevant change, and inspect the diff. Details: [MAINTENANCE.md](MAINTENANCE.md).
 
 ## Deployment
 
 The site is static and served as-is. **Pushing to `main` publishes the site.** Because of that, all changes go through a branch + pull request (see [CONTRIBUTING.md](CONTRIBUTING.md)); `main` is live.
+
+Hosting is **Cloudflare Pages**. Every pushed branch gets its own preview at `https://<branch-name>.bitcoinfriesland-com.pages.dev` (the branch name is shortened by Cloudflare); the link also appears as a check on the pull request. Follow the [preview handoff instructions](MAINTENANCE.md#branch-and-deployment-handoff); a pushed branch is not proof of deployment.
+
+The support forms post to a Pages Function (`functions/[lang]/support.js`) that forwards each request to a private Telegram chat. It needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in Cloudflare Pages > Settings > Variables and Secrets; until they are set, visitors get a polite error page with the e-mail address instead of a fake confirmation.
 
 ## Contributing
 
