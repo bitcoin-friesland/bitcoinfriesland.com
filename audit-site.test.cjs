@@ -9,7 +9,7 @@ const { test } = require('node:test');
 function fixture(t) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bf-audit-'));
   t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
-  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html']) {
+  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html', 'favicon.ico', 'apple-touch-icon.png']) {
     fs.cpSync(path.join(__dirname, name), path.join(directory, name), { recursive: true });
   }
   // The audit only reads assets. Avoid copying image binaries for each test.
