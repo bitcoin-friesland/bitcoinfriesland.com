@@ -13,6 +13,9 @@ Important facts:
 - Supporter programme: in preparation. Payments and organisation are not in place yet, so nothing can be paid or ordered. The support page has a waitlist and feedback form; people on the waitlist hear first when it starts. No start date has been announced.
 - Planned supporter contribution: the current value of EUR 21 a year, paid in sats. Planned benefits: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
 - Financial or material support never buys influence, exclusivity, editorial control or an endorsement.
+- Bitcoin map, October 2026: 43 places in 20 Frisian towns accept Bitcoin or Lightning, 14 of them in Sneek. Listing on the map will become paid in the future; no date or price has been announced.
+- Bitcoin Friesland was started by two Noderunners (https://noderunners.network/).
+- Follow the community on Nostr (npub15qgfat6kkmzecup683u64lalqdceaejq97d8z8njhwk0c68umx6qcs5dcm) and on X (@bitcoinfryslan).
 
 ## Quick answers
 
@@ -26,7 +29,11 @@ Important facts:
 
 **How can a business start accepting Bitcoin?** The business page explains a simple point-of-sale setup, custodial versus self-custodial options and bookkeeping basics. Bitcoin Friesland offers no paid consultancy.
 
-**Are there upcoming meetups?** The meetings page lists upcoming and past events and is the primary source; the Telegram group announces changes.
+**Are there upcoming meetups?** The meetings page lists upcoming and past events and is the primary source; the Telegram group announces new dates first.
+
+**How often are there meetups?** Since 2025 there has been a meetup roughly every month or two, in towns such as Sneek, Leeuwarden, Harlingen, Drachten and Heerenveen, plus a yearly summer BBQ. Entry is free; food and drinks can usually be paid in sats.
+
+**Is there a tool to convert sats to euros?** Yes. The sats calculator converts sats to euros or dollars and back with the live price: https://bitcoinfriesland.com/nl/sats-calculator
 
 **How do I contact the community or report a mistake?** Email info@bitcoinfriesland.com with the page link and, if possible, a source.
 
