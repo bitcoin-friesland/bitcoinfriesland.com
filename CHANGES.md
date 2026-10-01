@@ -881,6 +881,11 @@ at 2 a.m.
 - Future ideas are parked in [BACKLOG.md](BACKLOG.md), starting with a
   Facebook page that posts once a week on autopilot.
 
+## Round 40: Share cards and a homepage clean-up (October 2026)
+
+- **Every page got its own share card.** When someone posts a link on WhatsApp, Telegram, X or Facebook, they now see a sticker-style card made for that page (35 in total, in Dutch, English and Frisian) instead of one blue logo card for everything. The map card shows the actual map, the meetups card real posters, the calculator card a calculator. Link previews finally look like they belong to the same website.
+- **Homepage leftovers rebuilt.** "Waarom aansluiten", "Leer over Bitcoin" and "Bronnen en links" were the last blocks wearing the old outfit (pastel gradients, text links pretending to be buttons, a 2015 Bitcoin logo). They are now proper sticker cards with real buttons. The English and Frisian homepages, which were missing two of these blocks, now have them too, and the English meetups card no longer sends you to X.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
