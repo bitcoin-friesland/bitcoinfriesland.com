@@ -9,7 +9,7 @@
 
 ## Sa begjinne jo
 
-De side beskriuwt coinos.io as ienfâldich foarbyld: meitsje in account mei jo bedriuwsnamme, folje jo profyl yn en generearje QR-koades dêr't klanten mei betelje. Coinos akseptearret sawol on-chain as Lightning-betellingen. Oare opsjes binne Wallet of Satoshi en BTCPay Server.
+De side beskriuwt coinos.io as ienfâldich foarbyld: meitsje in account mei jo bedriuwsnamme, folje jo profyl yn en generearje QR-koades dêr't klanten mei betelje. Coinos akseptearret sawol on-chain as Lightning-betellingen. Oare opsjes binne Wallet of Satoshi, BTCPay Server en Lightning Checkout (kassa-app yn de browser, WooCommerce-keppeling en deistige útbetelling).
 
 Dêrnei kin de lokaasje tafoege wurde oan de list en de Bitcoin Kaart, en kinne "Betelje hjir mei Bitcoin"-stickers meijûn wurde.
 

@@ -783,6 +783,7 @@ site and main branch remain unchanged. Deployment results are recorded separatel
 - **Footer credit line:** "Webdesign door StudioFab.nl" on every page (followed link). The "Fork mij op Github" link left the map-page footers; the source code stays linked from the About pages, and the contributor rules now name the credit line instead of the GitHub link.
 - **Three new guides** in the news section (now four): "Bitcoin veilig bewaren", "Betalen met Lightning" and "Bitcoin accepteren in je zaak", each with a sticker-style cover, listed in the RSS feed, sitemap and `llms.txt`.
 - **Long-term saving** on the consumer page now also lists Bitkey and Blockstream Jade next to Trezor and BitBox.
+- **Lightning Checkout** added as a fourth option for businesses (browser till app, WooCommerce plugin, daily payouts), on the business page, in the business guide and in the summaries.
 - Everything lives in one block at the bottom of `assets/enhancements.css` (scoped to `body.st`); no compiled CSS or build step changed.
 
 ## Maintenance notes

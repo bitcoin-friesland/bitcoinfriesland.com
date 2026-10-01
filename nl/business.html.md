@@ -9,7 +9,7 @@ Uitleg voor ondernemers in Friesland die Bitcoin- en Lightning-betalingen willen
 
 ## Zo begin je
 
-De pagina beschrijft coinos.io als eenvoudig voorbeeld: maak een account met je bedrijfsnaam, vul je profiel in en genereer QR-codes waarmee klanten betalen. Coinos accepteert zowel on-chain als Lightning-betalingen. Andere opties zijn Wallet of Satoshi en BTCPay Server. Coinos bewaart je bitcoins voor je; bij Wallet of Satoshi en BTCPay Server beheer je zelf je sleutels.
+De pagina beschrijft coinos.io als eenvoudig voorbeeld: maak een account met je bedrijfsnaam, vul je profiel in en genereer QR-codes waarmee klanten betalen. Coinos accepteert zowel on-chain als Lightning-betalingen. Andere opties zijn Wallet of Satoshi, BTCPay Server en Lightning Checkout (kassa-app in de browser, WooCommerce-koppeling en dagelijkse uitbetaling). Coinos bewaart je bitcoins voor je; bij Wallet of Satoshi en BTCPay Server beheer je zelf je sleutels.
 
 Daarna kan de locatie worden toegevoegd aan de lijst en de Bitcoin Kaart, en kunnen "Betaal hier met Bitcoin"-stickers worden meegegeven.
 
