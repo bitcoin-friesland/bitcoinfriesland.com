@@ -16,3 +16,5 @@ A contribution does not buy influence, exclusivity, endorsement or editorial con
 
 - Page: https://bitcoinfriesland.com/en/support
 - Contact: info@bitcoinfriesland.com
+
+Donations are already possible: zap Bitcoin Friesland on Nostr or send sats to the Lightning address bitcoinFriesland@coinos.io. A donation does not come with promotion or a mention.

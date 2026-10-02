@@ -16,3 +16,5 @@ In bydrage keapet gjin ynfloed, eksklusiviteit, oanbefelling of ynhâldlike kont
 
 - Side: https://bitcoinfriesland.com/fy/support
 - Kontakt: info@bitcoinfriesland.com
+
+Donearje kin no al: zap Bitcoin Fryslân op Nostr of stjoer sats nei it Lightning-adres bitcoinFriesland@coinos.io. In donaasje jout gjin rjocht op promoasje of fermelding.
