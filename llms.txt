@@ -12,6 +12,7 @@ Important facts:
 
 - Supporter programme: in preparation. Payments and organisation are not in place yet, so nothing can be paid or ordered. The support page has a waitlist and feedback form; people on the waitlist hear first when it starts. No start date has been announced.
 - Planned supporter contribution: the current value of EUR 21 a year, paid in sats. Planned benefits: 21 Bitcoin Friesland stickers, event discount codes and a supporter tag in Telegram and Signal.
+- Donations in sats are possible now, separate from the supporter programme: zap Bitcoin Friesland on Nostr or pay the Lightning address bitcoinFriesland@coinos.io. A donation gives no promotion or mention.
 - Financial or material support never buys influence, exclusivity, editorial control or an endorsement.
 - Bitcoin map, October 2026: 43 places in 20 Frisian towns accept Bitcoin or Lightning, 14 of them in Sneek. Listing on the map will become paid in the future; no date or price has been announced.
 - Bitcoin Friesland was started by two Noderunners (https://noderunners.network/).

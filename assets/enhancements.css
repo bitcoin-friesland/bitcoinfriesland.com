@@ -2839,3 +2839,11 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
   .st-ha-mascot { width: 70px; height: 70px; } .st-ha-badge { width: 68px; height: 68px; }
 }
 @media (max-width: 520px) { .st-hero-art--links .st-ha-badge { display: none; } }
+
+/* ---------- Donations: Lightning address and Nostr zap ---------- */
+.support-donation .support-ln { margin: 1.1rem 0 0.2rem; }
+.support-donation .support-ln code { overflow-wrap: anywhere; font-size: 0.95rem; }
+.st .support-button-zap { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #7b2fd1 !important; color: #fff !important; }
+.support-button-zap .st-icon { width: 1.15rem; height: 1.15rem; }
+.support-donation .support-note { margin-top: 1rem; }
+.support-donation .support-note .support-text-link { display: inline; }

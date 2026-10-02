@@ -16,3 +16,5 @@ Een bijdrage koopt geen invloed, exclusiviteit, aanbeveling of inhoudelijke cont
 
 - Pagina: https://bitcoinfriesland.com/nl/support
 - Contact: info@bitcoinfriesland.com
+
+Doneren kan nu al: zap Bitcoin Friesland op Nostr of stuur sats naar het Lightning-adres bitcoinFriesland@coinos.io. Een donatie geeft geen recht op promotie of vermelding.

@@ -137,7 +137,7 @@ for (const file of pages) {
 
   for (const attribute of source.matchAll(/\b(?:href|src)="([^"]+)"/gi)) {
     const value = attribute[1];
-    if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
+    if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|lightning:|bitcoin:|nostr:|data:|javascript:|\/\/)/i.test(value)) continue;
     const cleanValue = value.split('#')[0].split('?')[0];
     if (!cleanValue) continue;
     if (/\.html$/i.test(cleanValue)) report(file, `internal link must use the clean URL without .html: ${value}`);

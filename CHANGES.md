@@ -901,6 +901,12 @@ at 2 a.m.
 - **Fresh sitemap dates.** All 39 pages report 2 October 2026 as last change, so crawlers know everything is worth another look.
 - **More facts for AI assistants.** `llms.txt` now states the map numbers (43 places in 20 towns, 14 in Sneek), that listing will become paid, the Noderunners origin, the Nostr and X accounts, how often meetups happen and where the sats calculator lives. Fewer chances for a chatbot to make things up about us.
 
+## Round 43: Zap us (October 2026)
+
+- **Donating sats works today.** The donation card on the support page no longer says "ask us personally". It shows the community's Lightning address (`bitcoinFriesland@coinos.io`) with a copy button, a purple "Zap ons op Nostr" button and an "Open in je wallet" button that hands the address to any Lightning wallet. People were already zapping the Nostr profile; now the website admits it.
+- The site audit treats `lightning:`, `bitcoin:` and `nostr:` links as external, like `mailto:`.
+- `llms.txt` and the support summaries mention the donation route.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
