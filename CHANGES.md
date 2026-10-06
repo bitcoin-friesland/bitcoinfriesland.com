@@ -907,6 +907,10 @@ at 2 a.m.
 - The site audit treats `lightning:`, `bitcoin:` and `nostr:` links as external, like `mailto:`.
 - `llms.txt` and the support summaries mention the donation route.
 
+## Round 44: Google wanted to know who is performing (October 2026)
+
+- **Event data complete.** Search Console flagged the two events (BBQ and NodeRunners Conference 2026) for missing "performer" and "offers". Both now say who hosts them and what entry cost: the BBQ's €25 contribution in sats, and the conference ticket of 65,850 sats as listed by the organizer. Nothing was invented; individual speakers are not named because the pages do not name them.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
