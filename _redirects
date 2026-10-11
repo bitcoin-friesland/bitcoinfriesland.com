@@ -1,0 +1,4 @@
+# Send the bare domain straight to the Dutch homepage with a real redirect
+# instead of the meta refresh in index.html (which stays as a fallback).
+# Verification files (Google, Bing, IndexNow) live on their own paths and are not affected.
+/ /nl/ 301

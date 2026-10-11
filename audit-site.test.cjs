@@ -141,3 +141,31 @@ test('search snippets must be unique and fit their limits', (t) => {
   assert.match(result.output, /nl\/links.html: title is \d+ characters/);
   assert.match(result.output, /nl\/links.html: meta description is 7 characters/);
 });
+
+const listingEvent = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Test meetup","startDate":"2026-01-01T19:00:00+01:00"}</script>';
+
+test('Event structured data on a listing page is rejected', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/meetings.html', (html) => html.replace('</head>', `${listingEvent}</head>`));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /Event "Test meetup" belongs on its own event page/);
+});
+
+test('event offers need an ISO currency and a price visible on the page', (t) => {
+  const directory = fixture(t);
+  const page = 'nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html';
+  edit(directory, page, (html) => html.replace('"priceCurrency": "EUR"', '"priceCurrency": "BTC"').replace('"price": "25"', '"price": "0.0006585"'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /currency must be an ISO 4217 code, found BTC/);
+  assert.match(result.output, /price 0\.0006585 is not visible on the page/);
+});
+
+test('hreflang alternates must link back to each other', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'en/about.html', (html) => html.replace('hreflang="nl" href="https://bitcoinfriesland.com/nl/about"', 'hreflang="nl" href="https://bitcoinfriesland.com/nl/links"'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /does not link back/);
+});

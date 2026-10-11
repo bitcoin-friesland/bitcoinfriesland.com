@@ -911,6 +911,16 @@ at 2 a.m.
 
 - **Event data complete.** Search Console flagged the two events (BBQ and NodeRunners Conference 2026) for missing "performer" and "offers". Both now say who hosts them and what entry cost: the BBQ's €25 contribution in sats, and the conference ticket of 65,850 sats as listed by the organizer. Nothing was invented; individual speakers are not named because the pages do not name them.
 
+## Round 45: Codex audited, Opus decided (October 2026)
+
+A fresh SEO/GEO audit (#20, #21, #22) found nothing broken, but a few things that were not quite honest or not quite fast. All of it is fixed:
+
+- **Fonts now live on our own server.** Every page used to ask Google for two font stylesheets before it could show text, one of them hidden inside the compiled CSS. Bricolage Grotesque and Inter are now served from `assets/fonts/` and preloaded. Faster first paint, and visitors' IP addresses no longer go to Google just to show a heading.
+- **Event data tells the truth, the whole truth, and only what is on the page.** Last week we gave Google a ticket price in BTC (not a currency Google accepts) that was not even visible on the card, and called the organizer a "performer" to silence a warning. Sorry, Google. The meetings pages now describe their 15 events as a plain list. Only the BBQ page, which is about one single event, keeps full event data, with the €25 contribution that is printed on the page. The site audit now fails if this happens again.
+- **"Meedoen is gratis" got its small print.** Joining the community is free; some events, like the BBQ, ask for a contribution. Heroes, summaries and `llms.txt` now say exactly that, with the real amounts.
+- **The bare domain redirects properly** to `/nl/` instead of using a meta refresh.
+- **A real routine for checking the map** is written down in MAINTENANCE.md, so the "last updated" date only moves when someone actually checked.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.

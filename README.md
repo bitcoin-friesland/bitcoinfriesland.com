@@ -59,7 +59,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 | Markup | Hand-written HTML5, one file per page per language |
 | Styling | `assets/styles.css` (compiled Tailwind output) + `assets/enhancements.css` (custom polish layer) |
 | Behavior | `assets/main.js` (vanilla JS, no bundler) |
-| Fonts | Bricolage Grotesque (headings) + Inter (body) via Google Fonts |
+| Fonts | Bricolage Grotesque (headings) + Inter (body), self-hosted in `assets/fonts/` (OFL) |
 | Images | `<picture>` with WebP + fallback, explicit width/height |
 | Hosting | Cloudflare Pages (clean URLs, `_headers`, one Pages Function for the forms) |
 
@@ -92,6 +92,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── [lang]/support.js     # Receives the support forms and forwards them to Telegram
 │   └── googleb3d0f0d3587596d4.html.js  # Google Search Console verification (keep!)
 ├── site.webmanifest          # App name and icons for phones
+├── _redirects                # Bare domain → /nl/ (301)
 ├── _headers                  # Security + caching headers (Cloudflare Pages)
 ├── llms.txt / llms-full.txt  # LLM guide; core pages also have .html.md versions (llms-full.txt is generated)
 ├── BingSiteAuth.xml          # Bing Webmaster verification (keep!)
