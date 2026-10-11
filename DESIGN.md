@@ -74,7 +74,7 @@ Defined on `:root` at the top of the sticker block in `enhancements.css`. Use th
 | `--st-line` | `2.5px` | Standard outline width |
 | `--st-shadow-sm` / `--st-shadow` / `--st-shadow-lg` | 3, 5, 8px offset | Small chips / cards and buttons / hero-sized panels |
 | `--st-r` / `--st-r-lg` / `--st-r-xl` | 14, 22, 32px | Radius for small, normal, big things |
-| `--st-display` | Bricolage Grotesque | Headings and big numbers. Body text is Inter |
+| `--st-display` | Bricolage Grotesque | Headings and big numbers. Body text is Inter. Both are self-hosted in `assets/fonts/`; never add Google Fonts links |
 
 **Contrast:** text must pass WCAG AA. White text goes on ink, blue or the
 Nostr purple. Ink text goes on orange, yellow, white and sky. White on orange

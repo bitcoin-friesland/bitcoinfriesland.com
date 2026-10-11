@@ -65,6 +65,7 @@ const titles = new Map();
 const descriptions = new Map();
 const enhancementVersions = new Set();
 const scriptVersions = new Set();
+const alternatesByFile = new Map();
 
 for (const file of pages) {
   const source = fs.readFileSync(file, 'utf8');
@@ -157,13 +158,37 @@ for (const file of pages) {
 
   const jsonLdBlocks = [...source.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
   if (!jsonLdBlocks.length) report(file, 'missing JSON-LD');
+  const visibleText = source
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;/g, ' ')
+    .replace(/\s+/g, ' ');
   for (const block of jsonLdBlocks) {
+    let data;
     try {
-      checkCommunityIdentity(JSON.parse(block[1]), file);
+      data = JSON.parse(block[1]);
     } catch (error) {
       report(file, `invalid JSON-LD (${error.message})`);
+      continue;
+    }
+    checkCommunityIdentity(data, file);
+    const nodes = Array.isArray(data) ? data : data['@graph'] || [data];
+    for (const node of nodes) {
+      if (!node || node['@type'] !== 'Event') continue;
+      // Google treats events as single-event pages; listing pages describe their events with an ItemList.
+      if (!relative(file).includes('/evenementen/')) report(file, `Event "${node.name}" belongs on its own event page, not on a listing page`);
+      for (const offer of [].concat(node.offers || [])) {
+        if (!/^[A-Z]{3}$/.test(offer.priceCurrency || '') || ['BTC', 'XBT'].includes(offer.priceCurrency)) {
+          report(file, `Event offer currency must be an ISO 4217 code, found ${offer.priceCurrency}`);
+        }
+        if (offer.price !== undefined && !visibleText.includes(String(offer.price))) {
+          report(file, `Event offer price ${offer.price} is not visible on the page`);
+        }
+      }
     }
   }
+  alternatesByFile.set(file, [...source.matchAll(/<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"/gi)].map((match) => match[2]));
 
   if (canonical) {
     if (canonicalToFile.has(canonical)) report(file, `canonical duplicates ${relative(canonicalToFile.get(canonical))}`);
@@ -206,6 +231,18 @@ for (const file of pages) {
   else report(file, 'missing versioned enhancements.css reference');
   if (scriptVersion) scriptVersions.add(scriptVersion);
   else report(file, 'missing versioned main.js reference');
+}
+
+// Every hreflang target must point back to the page that links to it.
+for (const [file, alternates] of alternatesByFile) {
+  const source = fs.readFileSync(file, 'utf8');
+  const canonical = source.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1];
+  for (const url of new Set(alternates)) {
+    if (url === canonical) continue;
+    const targetFile = canonicalToFile.get(url);
+    if (!targetFile) continue;
+    if (!(alternatesByFile.get(targetFile) || []).includes(canonical)) report(file, `hreflang target ${url} does not link back to ${canonical}`);
+  }
 }
 
 if (enhancementVersions.size !== 1) errors.push(`HTML pages use multiple enhancements.css versions: ${[...enhancementVersions].join(', ')}`);

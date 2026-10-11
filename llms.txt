@@ -22,7 +22,7 @@ Important facts:
 
 **What is Bitcoin Friesland?** A volunteer community for Bitcoin education, adoption and meetups in the Dutch province of Friesland (Frysk: Fryslân). It is independent of sponsors, supporters and businesses.
 
-**Is it free to join?** Yes. Joining the community and its Telegram and Signal groups is free. Supporting the community financially is optional and gives no influence over content.
+**Is it free to join?** Yes. Joining the community and its Telegram and Signal groups is free. Individual events can have their own contribution (see below). Supporting the community financially is optional and gives no influence over content.
 
 **How do I get started with Bitcoin in Friesland?** Read the beginner guide, pick a wallet, buy a small amount and visit a meetup. Nothing on the site is financial advice.
 
@@ -32,7 +32,7 @@ Important facts:
 
 **Are there upcoming meetups?** The meetings page lists upcoming and past events and is the primary source; the Telegram group announces new dates first.
 
-**How often are there meetups?** Since 2025 there has been a meetup roughly every month or two, in towns such as Sneek, Leeuwarden, Harlingen, Drachten and Heerenveen, plus a yearly summer BBQ. Entry is free; food and drinks can usually be paid in sats.
+**How often are there meetups?** Since 2025 there has been a meetup roughly every month or two, in towns such as Sneek, Leeuwarden, Harlingen, Drachten and Heerenveen, plus a yearly summer BBQ. Most meetups are free to attend; some events have their own contribution, for example EUR 25 in sats for the August 2026 BBQ and EUR 15 for the January 2026 New Year drinks. Food and drinks can usually be paid in sats.
 
 **Is there a tool to convert sats to euros?** Yes. The sats calculator converts sats to euros or dollars and back with the live price: https://bitcoinfriesland.com/nl/sats-calculator
 

@@ -13,3 +13,5 @@ NodeRunners Conference 2026 vond plaats op 19 september 2026 van 11:00 tot 18:00
 De Bitcoin Friesland BBQ "Meat the Resistance" vond plaats op vrijdag 14 augustus 2026 op Vliegveld Drachten.
 
 De pagina toont ook het archief: 15 eerdere meetups en evenementen sinds maart 2025, onder meer in Sneek, Leeuwarden, Harlingen, Drachten en Heerenveen, plus de NodeRunners Conference in Arnhem. Nieuwe data verschijnen eerst in de Telegram-groep.
+
+Meedoen aan de community is gratis. Sommige evenementen hebben een eigen bijdrage, zoals € 25 in sats voor de BBQ van augustus 2026 en € 15 voor de Nieuwjaarsborrel van januari 2026.

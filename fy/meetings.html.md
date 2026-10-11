@@ -13,3 +13,5 @@ NodeRunners Conference 2026 wie op 19 septimber 2026 fan 11.00 oant 18.00 oere y
 De Bitcoin Fryslân BBQ "Meat the Resistance" wie op freed 14 augustus 2026 op Vliegveld Drachten.
 
 De side hâldt ek it argyf by: 15 eardere gearkomsten en eveneminten sûnt maart 2025, ûnder oaren yn Snits, Ljouwert, Harns, Drachten en It Hearrenfean, plus de NodeRunners Conference yn Arnhem. Nije datums ferskine earst yn de Telegram-groep.
+
+Meidwaan oan de mienskip is fergees. Guon eveneminten hawwe in eigen bydrage, lykas € 25 yn sats foar de BBQ fan augustus 2026 en € 15 foar de Nijjiersborrel fan jannewaris 2026.

@@ -6,11 +6,10 @@
     <title>Bitcoin Meetups in Friesland - Events and Gatherings</title>
     <meta name="description" content="Bitcoin meetups in Friesland: upcoming gatherings and an overview of past events from Bitcoin Friesland and the wider Bitcoin community." >
     <meta name="robots" content="index, follow, max-image-preview:large">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+    <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20261002e">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20261011a">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/assets/images/icon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/assets/images/icon-192.png" type="image/png" sizes="192x192">
@@ -86,96 +85,6 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "NodeRunners Conference 2026",
-  "startDate": "2026-09-19T11:00:00+02:00",
-  "endDate": "2026-09-19T18:00:00+02:00",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "description": "NodeRunners Conference 2026 took place on 19 September 2026 from 11:00 to 18:00 at Koepelgevangenis Arnhem, with talks and workshops about Bitcoin, mining, nodes and Nostr.",
-  "image": "https://bitcoinfriesland.com/assets/images/noderunners-conference-2026-640.jpg",
-  "url": "https://noderunners.network/nl/conference#program",
-  "location": {
-    "@type": "Place",
-    "name": "Koepelgevangenis Arnhem",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Koepelkazerne 52",
-      "postalCode": "6826 KL",
-      "addressLocality": "Arnhem",
-      "addressCountry": "NL"
-    }
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "NodeRunners",
-    "url": "https://noderunners.network/"
-  },
-  "performer": {
-    "@type": "Organization",
-    "name": "NodeRunners",
-    "url": "https://noderunners.network/"
-  },
-  "offers": {
-    "@type": "Offer",
-    "name": "Conference ticket",
-    "price": "0.0006585",
-    "priceCurrency": "BTC",
-    "url": "https://noderunners.network/nl/conference#tickets",
-    "validThrough": "2026-09-19T11:00:00+02:00"
-  },
-  "isAccessibleForFree": false
-}
-</script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Bitcoin Friesland BBQ – Meat the Resistance",
-  "startDate": "2026-08-14T19:00:00+02:00",
-  "endDate": "2026-08-14T23:00:00+02:00",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "description": "Past Bitcoin Friesland BBQ 'Meat the Resistance' at Vliegveld Drachten: fire, good meat and strong conversations.",
-  "image": "https://bitcoinfriesland.com/assets/images/bitcoin-friesland-drachten-sep-2025-640.jpg",
-  "url": "https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten",
-  "location": {
-    "@type": "Place",
-    "name": "Vliegveld Drachten",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "De Knobben 100A",
-      "addressLocality": "Drachten",
-      "addressCountry": "NL"
-    }
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "Bitcoin Friesland",
-    "url": "https://bitcoinfriesland.com/",
-    "@id": "https://bitcoinfriesland.com/#organization",
-    "alternateName": "Bitcoin Fryslân"
-  },
-  "performer": {
-    "@type": "Organization",
-    "@id": "https://bitcoinfriesland.com/#organization",
-    "name": "Bitcoin Friesland",
-    "url": "https://bitcoinfriesland.com/"
-  },
-  "offers": {
-    "@type": "Offer",
-    "name": "Bijdrage voor vlees en eten, te betalen in sats",
-    "price": "25",
-    "priceCurrency": "EUR",
-    "url": "https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten",
-    "validThrough": "2026-08-14T19:00:00+02:00"
-  },
-  "isAccessibleForFree": false
-}
-</script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
@@ -213,6 +122,104 @@
         "url": "https://bitcoinfriesland.com/assets/images/og/og-meetings-en.jpg",
         "width": 1200,
         "height": 630
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Past meetups",
+        "numberOfItems": 15,
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Noderunners Conference 2026 (Saturday, September 19, 2026 · 11:00-18:00)",
+            "url": "https://noderunners.network/nl/conference#program"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Bitcoin Friesland BBQ – Meat the Resistance (Friday 14 August 2026 · from 19:00)",
+            "url": "https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Bitcoin Friesland Meetup (Friday, May 29, 2026 · from 19:30)",
+            "url": "https://plektos.app/event/naddr1qvzqqqrukvpzpgqsn6h4ddk9n3cr50re4tlm7qm3nmnyqtu6wy089wavl350ekd5qqcxy6t5vdhkjm3dveexjetnd3skuepd95kkset59438ymm4wajx76edxymnwwp5xqurvdp3xgmnxtfsp8w2rp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Bitcoin Friesland Meetup (Sunday, March 1, 2026 · from 19:00)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/313557287/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Bitcoin Friesland Meetup (Thursday, February 19, 2026 · from 18:30)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/313203501/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Bitcoin Friesland New Year's Drinks (Sunday, January 25, 2026 · 14:00 - 17:00)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/312894133/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Bitcoin Friesland Meetup (Thursday, December 11, 2025 · From 19:30)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/312271522/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Bitcoin Friesland Meetup (Friday, November 28, 2025 · From 19:00)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/311891761/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "NodeRunners Conference 2025 (Saturday, November 1, 2025 · From 12:00)",
+            "url": "https://noderunners.network/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Meat the Resistance – Meetup & BBQ (Friday, October 3, 2025 · BBQ from 17:00 / Free entry from 19:30)",
+            "url": "https://meat-the-resistance.info/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Meat the Resistance – Meetup & BBQ (Thursday, August 21, 2025 · BBQ from 17:00 / Free entry from 19:30)",
+            "url": "https://meat-the-resistance.info"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Bitcoin Fryslân Meetup (Thursday, July 3, 2025 · From 19:30)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/308609053/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Bitcoin Fryslân Meetup (Thursday, May 8, 2025 · From 19:30)",
+            "url": "https://t.me/BitcoinFriesland/7257"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "Bitcoin Fryslân Meetup (Friday, March 21, 2025 · From 19:30)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/306558096/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "Bitcoin Fryslân Meetup (Wednesday, March 5, 2025 · From 19:00)",
+            "url": "https://www.meetup.com/bitcoinmeetup/events/306068312/"
+          }
+        ]
       }
     },
     {
@@ -344,7 +351,7 @@
         <div>
           <span class="st-kicker"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Leeuwarden · Harlingen · Drachten · Heerenveen</span>
           <h1 class="st-h1 st-h1--md"><span class="st-h1-top">Bitcoin meetups in Friesland</span>Meet Bitcoiners near you.</h1>
-          <p class="st-lede">From De Brouwerij in Leeuwarden to Drachten airfield: evenings of good conversation, shared knowledge and paying in sats. Joining is free.</p>
+          <p class="st-lede">From De Brouwerij in Leeuwarden to Drachten airfield: evenings of good conversation, shared knowledge and paying in sats. Joining the community is free; some events, like the BBQ, ask for their own contribution.</p>
           <div class="st-ctas">
             <a href="#past-events" class="st-btn st-btn--orange">See all meetups ↓</a>
             <a href="https://t.me/bitcoinfriesland" target="_blank" rel="noopener noreferrer" class="st-btn">Join the Telegram group</a>
