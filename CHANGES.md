@@ -921,6 +921,12 @@ A fresh SEO/GEO audit (#20, #21, #22) found nothing broken, but a few things tha
 - **The bare domain redirects properly** to `/nl/` instead of using a meta refresh.
 - **A real routine for checking the map** is written down in MAINTENANCE.md, so the "last updated" date only moves when someone actually checked.
 
+## Round 46: The map got a check-up (October 2026)
+
+- **All 43 businesses checked against BTC Map** and the OpenStreetMap data behind it. 40 are on BTC Map, the other 3 were already marked as not listed. Two fixes: Sipke in Sneek turns out to accept on-chain bitcoin too, and Vliegclub Fryslân moved from De Knobben 110-A to 100-A (the address everyone else already used).
+- **The date under the list is now honest about what it means**: "Laatst gecontroleerd: 12 oktober 2026 (via BTC Map)", in all three languages.
+- Ten entries were last verified on BTC Map more than a year ago. They stay on the map (old is not the same as wrong) and are first in line for a phone call at the next check. The list is in MAINTENANCE.md.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
