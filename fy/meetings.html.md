@@ -4,7 +4,7 @@ Bitcoin Fryslân organisearret en dielt tagonklike gearkomsten dêr't begjinners
 
 ## Oankommend
 
-Der steane op it stuit gjin kommende eveneminten op dizze side.
+Freed 11 desimber 2026, fanôf 19:30: Bitcoin Meeting yn de Musykfabryk, Industrieweg 18-A yn It Hearrenfean. Drinken mei Bitcoin ôfrekkenje kin. Details (Nederlânsk): https://bitcoinfriesland.com/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026
 
 ## Ôfrûn
 

@@ -30,7 +30,7 @@ Important facts:
 
 **How can a business start accepting Bitcoin?** The business page explains a simple point-of-sale setup, custodial versus self-custodial options and bookkeeping basics. Bitcoin Friesland offers no paid consultancy.
 
-**Are there upcoming meetups?** The meetings page lists upcoming and past events and is the primary source; the Telegram group announces new dates first.
+**Are there upcoming meetups?** Yes: a Bitcoin Meeting on Friday 11 December 2026 from 19:30 at the Musykfabryk, Industrieweg 18-A, Heerenveen (https://bitcoinfriesland.com/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026). The meetings page lists upcoming and past events and is the primary source; the Telegram group announces new dates first.
 
 **How often are there meetups?** Since 2025 there has been a meetup roughly every month or two, in towns such as Sneek, Leeuwarden, Harlingen, Drachten and Heerenveen, plus a yearly summer BBQ. Most meetups are free to attend; some events have their own contribution, for example EUR 25 in sats for the August 2026 BBQ and EUR 15 for the January 2026 New Year drinks. Food and drinks can usually be paid in sats.
 

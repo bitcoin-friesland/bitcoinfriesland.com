@@ -11,7 +11,7 @@ for (const locale of ['nl', 'en', 'fy']) {
     const meetings = read('meetings.html');
     const upcoming = meetings.split('id="upcoming-events"')[1].split('id="past-events"')[0];
     const past = meetings.split('id="past-events"')[1];
-    assert.doesNotMatch(upcoming, /Noderunners Conference|<h3/);
+    assert.doesNotMatch(upcoming, /Noderunners Conference/i);
     assert.match(past, /data-event-end="2026-09-19T18:00:00\+02:00"/);
     assert.match(past, /Noderunners Conference 2026/);
     for (const file of ['index.html', 'meetings.html', 'meetings.html.md']) {
