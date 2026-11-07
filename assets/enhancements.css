@@ -2885,3 +2885,8 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .support-button-zap .st-icon { width: 1.15rem; height: 1.15rem; }
 .support-donation .support-note { margin-top: 1rem; }
 .support-donation .support-note .support-text-link { display: inline; }
+
+/* ---------- Upcoming meetup card ---------- */
+.st-event-tag--soon { background: var(--st-orange); color: var(--st-ink); box-shadow: 3px 3px 0 var(--st-ink); }
+.st-events-grid + .st-events-note { margin-top: 1.5rem; color: var(--st-text); }
+.st-events-note a { color: var(--st-blue); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }

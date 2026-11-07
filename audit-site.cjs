@@ -18,6 +18,7 @@ const untranslatedPages = new Set([
   'nl/blog/betalen-met-lightning.html',
   'nl/blog/bitcoin-accepteren-als-ondernemer.html',
   'nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten.html',
+  'nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026.html',
 ]);
 
 function isFile(file) {

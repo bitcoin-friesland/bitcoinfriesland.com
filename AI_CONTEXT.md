@@ -2,7 +2,7 @@
 # Language note: keep documentation and comments in English unless a user explicitly requests otherwise.
 
 ## Quick facts
-- Event listings were reviewed on 2 October 2026: all 15 events (newest: NodeRunners Conference, 19 September 2026) are past events, in the same order in all locales. No upcoming events are currently listed. Each event is an `st-event` card (structure in DESIGN.md). Keep static HTML, homepage promotions and meetings Markdown summaries synchronized when archiving events; there is no automatic date rollover.
+- Event listings were reviewed on 7 November 2026: one upcoming event (Bitcoin Meeting Heerenveen, Friday 11 December 2026, 19:30, Musykfabryk) with its own page `nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026`, and 15 past events, in the same order in all locales. Each event is an `st-event` card (structure in DESIGN.md). After 11 December 2026, move the card to the top of `#past-events` with the past tag, restore the empty upcoming notice, set the event page status to past and update the meetings summaries and `llms.txt`; there is no automatic date rollover.
 - Static multilingual site for Bitcoin Friesland; no build step required (serve HTML/CSS/JS directly). Root `index.html` redirects to Dutch `nl/`.
 - Languages live in sibling folders `nl/`, `en/`, `fy/` with matching pages: `index.html`, `business.html`, `consumers.html`, `meetings.html`, `map.html`, `links.html`, `about.html`, `support.html`, `treasure-hunt.html`, `what-is-bitcoin.html`, `sats-calculator.html`. Dutch-only: `nl/blog/` (four guides) and `nl/evenementen/`.
 - Brand assets and optimized images live in `assets/images/`; logos/flags use `<picture>` with WebP + PNG fallbacks and explicit width/height.

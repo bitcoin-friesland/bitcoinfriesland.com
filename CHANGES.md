@@ -927,6 +927,12 @@ A fresh SEO/GEO audit (#20, #21, #22) found nothing broken, but a few things tha
 - **The date under the list is now honest about what it means**: "Laatst gecontroleerd: 12 oktober 2026 (via BTC Map)", in all three languages.
 - Ten entries were last verified on BTC Map more than a year ago. They stay on the map (old is not the same as wrong) and are first in line for a phone call at the next check. The list is in MAINTENANCE.md.
 
+## Round 47: A meetup on the calendar again (November 2026)
+
+- **Bitcoin Meeting Heerenveen, Friday 11 December 2026, 19:30, Musykfabryk.** The "Aankomende meet-ups" block finally has something in it: the new poster as a card with an orange "Binnenkort" sticker, in all three languages.
+- **Its own event page** (`/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026`) with the poster, the facts, a share card and event data for Google. Only what is on the poster is on the page: no invented entry price or programme.
+- The meetings summaries, `llms.txt`, the sitemap and AI_CONTEXT know about it too, and AI_CONTEXT explains what to do after 11 December (move it to the archive).
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.

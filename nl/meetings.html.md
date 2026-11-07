@@ -4,7 +4,7 @@ Bitcoin Friesland organiseert en deelt laagdrempelige bijeenkomsten waar beginne
 
 ## Aankomend
 
-Er staan momenteel geen aankomende evenementen op deze pagina.
+Vrijdag 11 december 2026, vanaf 19:30: Bitcoin Meeting in de Musykfabryk, Industrieweg 18-A in Heerenveen. Drankjes afrekenen met Bitcoin is mogelijk. Details: https://bitcoinfriesland.com/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026
 
 ## Afgelopen
 
