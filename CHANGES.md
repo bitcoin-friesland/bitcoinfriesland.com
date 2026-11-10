@@ -933,6 +933,26 @@ A fresh SEO/GEO audit (#20, #21, #22) found nothing broken, but a few things tha
 - **Its own event page** (`/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026`) with the poster, the facts, a share card and event data for Google. Only what is on the poster is on the page: no invented entry price or programme.
 - The meetings summaries, `llms.txt`, the sitemap and AI_CONTEXT know about it too, and AI_CONTEXT explains what to do after 11 December (move it to the archive).
 
+## Round 48: What people actually search for, and a little bounce (November 2026)
+
+Search Console had five weeks of data, so this round follows the numbers instead of a hunch.
+
+**Found better (SEO)**
+- **"Wat is Bitcoin?" answers the real questions.** That page gets the most impressions, for "hoe werkt bitcoin", "hoeveel bitcoins zijn er" and "bitcoin uitleg", but sat on page nine of Google. It now has a four-step "Hoe werkt Bitcoin?", a "Hoeveel bitcoins zijn er?" section with a **live counter** (over 20.1 million of 21 million, calculated from the current block), nine questions and answers, and a title that says what is on it. In Dutch, English and Frisian.
+- **Sats calculator shows common amounts.** People search for "1000 sats" and "50 sats". A table now shows 1 to 1,000,000 sats in euro and dollar on the live price, plus four short questions and answers.
+- **Guides link to each other** ("Lees ook"), and every footer links to "Wat is Bitcoin?" and the calculator.
+- **The December meetup is on the homepage** as a yellow strip under the hero. It removes itself after 11 December. Google did not know the event page yet; the homepage link and a fresh sitemap submission fix that.
+- Frisian map: "Leeuwarden" and "Uitwellingerga" in two rows are now Ljouwert and Twellingea, like the rest.
+
+**Read better by AI (GEO)**
+- **The whole Bitcoin map as plain text.** `map.html.md` lists all 43 businesses by town with address and payment method, in three languages, generated from the table by `node maintain-map-md.cjs`. An assistant can now answer "waar kan ik in Sneek met bitcoin betalen?" without guessing. The audit fails when the list and the table differ.
+- The four guides, the calculator and the upcoming meetup have Markdown versions, linked from `llms.txt` and joined in `llms-full.txt`.
+
+**Looks better (small polish)**
+- Cards fade in as you scroll (this had silently stopped working for the sticker cards), pages change with a soft fade, the hero stickers pop in and bob, and the mascot wiggles when you hover over it. All of it switches off for people who prefer reduced motion.
+- A reading progress bar on the guides, a back-to-top sticker on long pages, yellow text selection, a big faint X behind the X card, and FAQ answers that open smoothly.
+- "Chat Mee Met Onze Community" Stopped Shouting In Title Case.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.

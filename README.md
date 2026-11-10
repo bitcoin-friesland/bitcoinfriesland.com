@@ -98,6 +98,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 ├── BingSiteAuth.xml          # Bing Webmaster verification (keep!)
 ├── 0655de…bdf2.txt           # IndexNow key (keep!)
 ├── maintain-llms-full.cjs    # Regenerates llms-full.txt from the .html.md files
+├── maintain-map-md.cjs       # Regenerates the business list in map.html.md from the map table
 ├── AGENTS.md                 # Canonical rules for AI coding agents
 ├── AI_CONTEXT.md             # Deep site internals for AI assistants
 ├── CONTRIBUTING.md           # Contribution guide for humans
@@ -166,6 +167,7 @@ Node scripts, no dependencies:
 | Script | Purpose |
 |---|---|
 | `node audit-site.cjs` | Read-only SEO, social metadata, sitemap and LLM discoverability audit |
+| `node maintain-map-md.cjs` | Rewrites the business list in `map.html.md` (nl/en/fy) from the map table; `--check` only reports |
 | `node maintain-pages.cjs consumer\|business\|all` | Tweaks consumer/business pages (terminology, links, phrasing) |
 | `node maintain-footer.cjs text\|warning\|all` | Legacy footer replacements: text targets map pages; warning scans all language HTML |
 | `node translations-restore.cjs` | Restores EN/FY translations for map strings |

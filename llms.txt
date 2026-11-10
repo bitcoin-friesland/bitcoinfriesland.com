@@ -36,60 +36,70 @@ Important facts:
 
 **Is there a tool to convert sats to euros?** Yes. The sats calculator converts sats to euros or dollars and back with the live price: https://bitcoinfriesland.com/nl/sats-calculator
 
+**Which businesses accept Bitcoin in Sneek, Leeuwarden or another Frisian town?** The Bitcoin map summary lists every business by town with its address and payment method: https://bitcoinfriesland.com/nl/map.html.md (English: https://bitcoinfriesland.com/en/map.html.md). Confirm with the business before you go.
+
+**How many bitcoin exist?** Never more than 21 million. In November 2026 just over 20.1 million were in circulation (almost 96 percent). The beginner page shows the live number.
+
 **How do I contact the community or report a mistake?** Email info@bitcoinfriesland.com with the page link and, if possible, a source.
 
 ## Dutch core pages
 
 - [Home](https://bitcoinfriesland.com/nl/index.html.md): Community overview and main routes into the site.
-- [Meetups and events](https://bitcoinfriesland.com/nl/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
-- [Bitcoin map](https://bitcoinfriesland.com/nl/map.html.md): How to find places that accept Bitcoin in Friesland.
+- [Meetups and events](https://bitcoinfriesland.com/nl/meetings.html.md): The upcoming Bitcoin Meeting in Heerenveen (11 December 2026) and 15 past events.
+- [Bitcoin map](https://bitcoinfriesland.com/nl/map.html.md): Every business on the map, grouped by town, with type, address and payment method (on-chain, Lightning).
 - [Supporter programme](https://bitcoinfriesland.com/nl/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
-- [Wat is Bitcoin?](https://bitcoinfriesland.com/nl/what-is-bitcoin.html.md): Uitleg in gewone taal voor beginners: digitaal geld zonder bank, 21 miljoen, sats, wallets en Lightning.
+- [Wat is Bitcoin?](https://bitcoinfriesland.com/nl/what-is-bitcoin.html.md): Uitleg in gewone taal voor beginners: hoe Bitcoin werkt, hoeveel bitcoins er zijn, sats, wallets en Lightning.
 - [About](https://bitcoinfriesland.com/nl/about.html.md): Wat de community doet, gratis meedoen, onafhankelijkheid en contact.
+- [Voor consumenten](https://bitcoinfriesland.com/nl/consumers.html.md): Eerste stappen met wallets, kopen, betalen en veilig bewaren.
+- [Voor bedrijven](https://bitcoinfriesland.com/nl/business.html.md): Bitcoin- en Lightning-betalingen accepteren in je zaak.
+- [Sats-calculator](https://bitcoinfriesland.com/nl/sats-calculator.html.md): Sats omrekenen naar euro of dollar; vaste omrekenfeiten.
 
 ## English core pages
 
 - [Home](https://bitcoinfriesland.com/en/index.html.md): English community overview and main routes into the site.
-- [Meetups and events](https://bitcoinfriesland.com/en/meetings.html.md): Upcoming notices and past events. The 19 September 2026 conference is archived.
-- [Bitcoin map](https://bitcoinfriesland.com/en/map.html.md): How to find places that accept Bitcoin in Friesland.
+- [Meetups and events](https://bitcoinfriesland.com/en/meetings.html.md): The upcoming Bitcoin Meeting in Heerenveen (11 December 2026) and 15 past events.
+- [Bitcoin map](https://bitcoinfriesland.com/en/map.html.md): Every business on the map, grouped by town, with type, address and payment method (on-chain, Lightning).
 - [Supporter programme](https://bitcoinfriesland.com/en/support.html.md): Supporter programme in preparation: plans, waitlist and feedback.
-- [What is Bitcoin?](https://bitcoinfriesland.com/en/what-is-bitcoin.html.md): Plain-language beginner explanation: money without a bank, 21 million cap, sats, wallets and Lightning.
+- [What is Bitcoin?](https://bitcoinfriesland.com/en/what-is-bitcoin.html.md): Plain-language beginner explanation: how Bitcoin works, how many bitcoin exist, sats, wallets and Lightning.
 - [About](https://bitcoinfriesland.com/en/about.html.md): What the community does, free participation, independence and contact.
 - [For consumers](https://bitcoinfriesland.com/en/consumers.html.md): First steps with wallets, buying, paying and safe storage.
 - [For businesses](https://bitcoinfriesland.com/en/business.html.md): Accepting Bitcoin and Lightning payments in your business.
+- [Sats calculator](https://bitcoinfriesland.com/en/sats-calculator.html.md): Converting sats to euros or dollars; fixed conversion facts.
 
 ## Frisian core pages
 
 - [Thusside](https://bitcoinfriesland.com/fy/index.html.md): Frysk oersjoch fan de mienskip en de wichtichste siden.
-- [Gearkomsten en eveneminten](https://bitcoinfriesland.com/fy/meetings.html.md): Kommende en ôfrûne eveneminten. De konferinsje fan 19 septimber 2026 stiet yn it argyf.
-- [Bitcoinkaart](https://bitcoinfriesland.com/fy/map.html.md): Plakken fine dêr'tst yn Fryslân mei Bitcoin betelje kinst.
+- [Gearkomsten en eveneminten](https://bitcoinfriesland.com/fy/meetings.html.md): De kommende Bitcoin Meeting yn It Hearrenfean (11 desimber 2026) en 15 eardere eveneminten.
+- [Bitcoinkaart](https://bitcoinfriesland.com/fy/map.html.md): Alle bedriuwen op de kaart, per plak, mei type, adres en betelmetoade (on-chain, Lightning).
 - [Stiperprogramma](https://bitcoinfriesland.com/fy/support.html.md): Stiperprogramma yn tarieding: plannen, wachtlist en ynput.
-- [Wat is Bitcoin?](https://bitcoinfriesland.com/fy/what-is-bitcoin.html.md): Útlis yn gewoane taal foar begjinners: jild sûnder bank, 21 miljoen, sats, wallets en Lightning.
+- [Wat is Bitcoin?](https://bitcoinfriesland.com/fy/what-is-bitcoin.html.md): Útlis yn gewoane taal foar begjinners: hoe't Bitcoin wurket, hoefolle bitcoins der binne, sats, wallets en Lightning.
 - [Oer ús](https://bitcoinfriesland.com/fy/about.html.md): Wat de mienskip docht, fergees meidwaan, unôfhinklikens en kontakt.
 - [Foar konsuminten](https://bitcoinfriesland.com/fy/consumers.html.md): Earste stappen mei wallets, keapje, betelje en feilich bewarje.
 - [Foar bedriuwen](https://bitcoinfriesland.com/fy/business.html.md): Bitcoin- en Lightning-betellingen akseptearje yn jo bedriuw.
+- [Sats-rekkener](https://bitcoinfriesland.com/fy/sats-calculator.html.md): Sats omrekkenje nei euro of dollar; fêste omrekkenfeiten.
 
 ## News and feeds
 
 - [Dutch Bitcoin Friesland news](https://bitcoinfriesland.com/nl/blog/): Guides, news and community stories.
 - [Dutch RSS feed](https://bitcoinfriesland.com/nl/blog/rss.xml): Machine-readable feed for new articles.
-- [Getting started with Bitcoin in Friesland](https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland): Practical Dutch beginner guide.
-- [Storing bitcoin safely](https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren): Dutch guide to recovery phrases, hardware wallets and avoiding scams.
-- [Paying with Lightning](https://bitcoinfriesland.com/nl/blog/betalen-met-lightning): Dutch guide to Lightning wallets, paying by QR code and where to pay in Friesland.
-- [Accepting Bitcoin as a business](https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer): Dutch step-by-step guide for Frisian businesses: payment apps, till, bookkeeping.
+- [Getting started with Bitcoin in Friesland](https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland.html.md): Practical Dutch beginner guide.
+- [Storing bitcoin safely](https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren.html.md): Dutch guide to recovery phrases, hardware wallets and avoiding scams.
+- [Paying with Lightning](https://bitcoinfriesland.com/nl/blog/betalen-met-lightning.html.md): Dutch guide to Lightning wallets, paying by QR code and where to pay in Friesland.
+- [Accepting Bitcoin as a business](https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer.html.md): Dutch step-by-step guide for Frisian businesses: payment apps, till, bookkeeping.
 
 ## Other useful pages
 
 - [For consumers](https://bitcoinfriesland.com/nl/consumers): Wallets, safety and first steps.
 - [For businesses](https://bitcoinfriesland.com/nl/business): Accepting Bitcoin and Lightning payments.
-- [Sats calculator](https://bitcoinfriesland.com/nl/sats-calculator): Converts sats to euros or dollars and back with the live price from mempool.space (also in English and Frisian).
+- [Sats calculator](https://bitcoinfriesland.com/nl/sats-calculator): Converts sats to euros or dollars and back with the live price from mempool.space, with a table of common amounts (also in English and Frisian).
 - [Resources and links](https://bitcoinfriesland.com/nl/links): Curated Bitcoin tools and learning resources.
 - [Treasure hunt](https://bitcoinfriesland.com/nl/treasure-hunt): Community treasure-hunt information.
+- [Bitcoin Meeting Heerenveen, 11 December 2026](https://bitcoinfriesland.com/nl/evenementen/bitcoin-meeting-heerenveen-11-december-2026.html.md): Upcoming meetup: date, time, venue and how to let people know you are coming.
 - [Past Bitcoin BBQ](https://bitcoinfriesland.com/nl/evenementen/bitcoin-bbq-meat-the-resistance-drachten): Archived event page for 14 August 2026.
 
 ## Full text
 
-- [Full text of the core pages](https://bitcoinfriesland.com/llms-full.txt): All Markdown summaries in Dutch, English and Frisian in one file, generated from the `.html.md` files.
+- [Full text of the core pages](https://bitcoinfriesland.com/llms-full.txt): All Markdown summaries in Dutch, English and Frisian, the four Dutch guides and the upcoming event in one file, generated from the `.html.md` files.
 
 ## Contact and optional sources
 

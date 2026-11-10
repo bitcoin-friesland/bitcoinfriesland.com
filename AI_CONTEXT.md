@@ -15,7 +15,8 @@
 - Adds accessible FAQ accordion toggling (show/hide content, answer relationships, expanded state and arrow rotation) where used.
 - Caches the header and updates its shadow only when crossing the top-of-page boundary, using a passive scroll listener.
 - Makes tables sortable by clicking headers or using Enter/Space (adds localized accessible labels, `.sort-indicator` spans and `aria-sort` on DOMContentLoaded; first use sorts ascending and respects the page language).
-- Live widgets: footer block height, sats calculator, quote of the day, Nostr latest note, copy buttons and the meetup "Lees meer" toggle (see DESIGN.md section 5). All degrade silently without network.
+- Live widgets: footer block height, live bitcoin supply, sats calculator with its amounts table, quote of the day, Nostr latest note, copy buttons, the meetup "Lees meer" toggle, dated notices (`data-hide-after`), reading progress and back-to-top (see DESIGN.md section 5). All degrade silently without network.
+- The homepage "next meetup" strip (nl/en/fy) hides itself after 11 December 2026 through `data-hide-after`; remove the markup when you archive the event.
 - The supporter signup popup code is dormant: the programme is "in preparation" and no page contains the popup trigger. The generic form's waitlist/feedback choice is what visitors use.
 - Supporter validation is step-aware: JS sets noValidate, then explicitly validates details/preferences and reveals invalid steps before focusing fields. Trim required names/addresses. Postal fields are disabled for pickup so FormData excludes them, but values remain available if mail is reselected.
 - Keep form logic centralized: `advanceStep` handles both Enter and next buttons, `validateFields` handles normalization/native validity/focus, and `markFormSubmitting` supplies both forms' localized busy state. Named step constants and cached static panels/address fields live inside the supporter initializer.

@@ -9,7 +9,7 @@
     <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/enhancements.css?v=20261107a">
+    <link rel="stylesheet" href="../assets/enhancements.css?v=20261110a">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/assets/images/icon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/assets/images/icon-192.png" type="image/png" sizes="192x192">
@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="canonical" href="https://bitcoinfriesland.com/nl/sats-calculator">
+    <link rel="alternate" type="text/markdown" href="https://bitcoinfriesland.com/nl/sats-calculator.html.md">
     <link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator">
     <link rel="alternate" hreflang="en" href="https://bitcoinfriesland.com/en/sats-calculator">
     <link rel="alternate" hreflang="fy" href="https://bitcoinfriesland.com/fy/sats-calculator">
@@ -135,7 +136,47 @@
   ]
 }
     </script>
-    <script defer src="../assets/main.js?v=20261002a"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hoeveel is 1.000 sats in euro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1.000 sats is 0,00001 bitcoin. Hoeveel euro dat is, hangt af van de koers van dat moment: vul 1.000 in de calculator in of kijk in de tabel met veelgebruikte bedragen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel sats is 1 euro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dat verandert met de koers. De calculator laat het live zien: kies euro, vul 1 in en je ziet het aantal sats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel sats zitten er in 1 bitcoin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "100 miljoen. Een sat (satoshi) is het kleinste stukje bitcoin: 0,00000001 BTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is het verschil tussen sats en bitcoin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het is hetzelfde geld in een andere eenheid, zoals centen en euro’s. Kleine bedragen zijn makkelijker te lezen in sats."
+      }
+    }
+  ]
+}
+    </script>
+    <script defer src="../assets/main.js?v=20261110a"></script>
 </head>
   <body class="st">
     <a class="bf-skip-link" href="#main-content">Direct naar inhoud</a>
@@ -274,14 +315,48 @@
         <noscript><p class="st-note">Voor deze calculator is JavaScript nodig.</p></noscript>
       </div>
     </section>
-    <section class="st-section st-section--sky">
+    <section class="st-section st-section--sky" aria-labelledby="amounts-title">
       <div class="st-shell">
+        <div class="st-section-head"><h2 id="amounts-title">Veelgebruikte bedragen</h2><p class="st-lede">Wat is 50, 1.000 of 21.000 sats waard? De tabel rekent mee met de live koers.</p></div>
+        <div class="st-table-wrap">
+          <table class="st-table">
+            <caption>Live koers via mempool.space. Zonder JavaScript zie je alleen de bitcoin-bedragen.</caption>
+            <thead><tr><th scope="col">Sats</th><th scope="col" class="st-col-btc">Bitcoin</th><th scope="col">Euro</th><th scope="col">Dollar</th></tr></thead>
+            <tbody>
+              <tr data-sats-row="1"><td>1</td><td class="st-col-btc">0,00000001</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="50"><td>50</td><td class="st-col-btc">0,0000005</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="100"><td>100</td><td class="st-col-btc">0,000001</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="1000"><td>1.000</td><td class="st-col-btc">0,00001</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="10000"><td>10.000</td><td class="st-col-btc">0,0001</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="21000"><td>21.000</td><td class="st-col-btc">0,00021</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="100000"><td>100.000</td><td class="st-col-btc">0,001</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+              <tr data-sats-row="1000000"><td>1.000.000</td><td class="st-col-btc">0,01</td><td data-cell="EUR">…</td><td data-cell="USD">…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="st-table-note">Op dit moment is 1 euro ongeveer <strong data-sats-per="EUR">…</strong> sats en 1 dollar ongeveer <strong data-sats-per="USD">…</strong> sats.</p>
+      </div>
+    </section>
+    <section class="st-section" aria-labelledby="know-title">
+      <div class="st-shell">
+        <div class="st-section-head"><h2 id="know-title">Goed om te weten</h2></div>
         <div class="st-grid-3">
 <article class="st-card"><span class="st-card-icon"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></span><h3>Wat is een sat?</h3><p>Een sat (satoshi) is het kleinste stukje bitcoin. 100 miljoen sats is 1 bitcoin. Zo kun je met kleine bedragen rekenen.</p></article>
 <article class="st-card"><span class="st-card-icon"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><h3>Waarom in sats rekenen?</h3><p>Veel Bitcoiners prijzen in sats. Op meetups en bij Friese ondernemers betaal je vaak een bedrag in euro’s, omgerekend naar sats.</p></article>
 <article class="st-card"><span class="st-card-icon"><svg class="st-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><h3>Waar komt de koers vandaan?</h3><p>De koers komt live van mempool.space, met CoinGecko als reserve. Hij ververst elke minuut zolang de pagina openstaat.</p></article>
         </div>
         <div class="st-ctas"><span class="st-step-label">Meer weten?</span><a class="st-btn" href="what-is-bitcoin">Wat is Bitcoin? →</a><a class="st-btn" href="consumers">Beginnen met Bitcoin →</a></div>
+      </div>
+    </section>
+    <section class="st-section st-section--sky" aria-labelledby="faq-title">
+      <div class="st-shell">
+        <div class="st-section-head"><h2 id="faq-title">Veelgestelde vragen over sats</h2></div>
+        <div class="st-card st-card--faq st-card--faq-wide">
+          <details><summary>Hoeveel is 1.000 sats in euro?</summary><p>1.000 sats is 0,00001 bitcoin. Hoeveel euro dat is, hangt af van de koers van dat moment: vul 1.000 in de calculator in of kijk in de tabel met veelgebruikte bedragen.</p></details>
+          <details><summary>Hoeveel sats is 1 euro?</summary><p>Dat verandert met de koers. De calculator laat het live zien: kies euro, vul 1 in en je ziet het aantal sats.</p></details>
+          <details><summary>Hoeveel sats zitten er in 1 bitcoin?</summary><p>100 miljoen. Een sat (satoshi) is het kleinste stukje bitcoin: 0,00000001 BTC.</p></details>
+          <details><summary>Wat is het verschil tussen sats en bitcoin?</summary><p>Het is hetzelfde geld in een andere eenheid, zoals centen en euro’s. Kleine bedragen zijn makkelijker te lezen in sats.</p></details>
+        </div>
       </div>
     </section>
   </main>
@@ -312,6 +387,8 @@
               <li><a href="meetings" class="text-gray-600 hover:text-friesland-blue transition-colors">Meet-ups</a></li>
               <li><a href="map" class="text-gray-600 hover:text-friesland-blue transition-colors">Bitcoin Kaart</a></li>
               <li><a href="links" class="text-gray-600 hover:text-friesland-blue transition-colors">Links</a></li>
+              <li><a href="what-is-bitcoin" class="text-gray-600 hover:text-friesland-blue transition-colors">Wat is Bitcoin?</a></li>
+              <li><a href="sats-calculator" class="text-gray-600 hover:text-friesland-blue transition-colors">Sats-calculator</a></li>
               <li><a href="blog/" class="text-gray-600 hover:text-friesland-blue transition-colors">Nieuws</a></li>
               <li><a href="support" class="text-gray-600 hover:text-friesland-blue transition-colors">Steunen</a></li>
               <li><a href="about" class="text-gray-600 hover:text-friesland-blue transition-colors">Over ons</a></li>

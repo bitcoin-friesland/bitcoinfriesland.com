@@ -182,6 +182,19 @@ leave a block empty instead (for example an event without a location).
 - The Noderunners card carries `data-event-end`; `maintenance.test.cjs`
   checks it stays in the past list.
 
+### Round 48 additions
+
+| Class | Use |
+|---|---|
+| `.st-next` (in `.st-next-wrap`) | Yellow "next meetup" strip under the homepage hero: tag, title, date line, "more info" pill |
+| `.st-factbox`, `.st-factbox-num`, `.st-meter` | One big number with a label and a filled bar (bitcoin supply) |
+| `.st-table-wrap` > `.st-table` | Plain data table with an ink header; `.st-col-btc` columns hide on phones |
+| `.st-related` | "Lees ook" link cards under a guide |
+| `.st-prose` | Running text next to a card or fact box |
+| `.st-card--faq-wide` | FAQ card as a single column |
+
+Motion: reveal, page fades (`@view-transition`), hero pop-in/bob and the mascot wiggle all sit behind `prefers-reduced-motion`. Animate with the separate `translate`, `scale` and `rotate` properties so a component's own `transform` (the sticker tilt) stays intact.
+
 ### Footer
 
 `.st-footer-strip` holds the live block height (`.st-block`) and the
@@ -201,6 +214,11 @@ never an error.
 | `[data-quote-of-the-day]` | One quote per day from `BF_QUOTES` (21 sourced quotes) | Local list, no network |
 | `[data-nostr-feed]` | Latest note of our npub | damus, nos.lol, primal relays. Stays hidden when there is no note |
 | `[data-copy]` | Copies the attribute value, shows `data-copied-text` | Clipboard API |
+| `[data-btc-supply]`, `[data-btc-supply-pct]`, `[data-btc-height]` | How many bitcoin exist now, the share of 21 million and the block it was calculated from. Put static text inside as the fallback; wrap live-only lines in `[data-btc-live] hidden` | Same block height as the footer |
+| `[data-sats-row="1000"]` with `[data-cell="EUR"]` / `[data-cell="USD"]`, `[data-sats-per="EUR"]` | Table of amounts and "1 euro = x sats" on the calculator page | Calculator prices |
+| `[data-hide-after="2026-12-11T23:59:00+01:00"]` | Hides a dated notice after that moment (homepage "next meetup" strip). The HTML must still be removed later | Local clock |
+| `[data-reading-progress]` on an `<article>` | Orange progress bar at the top of the page | Scroll position |
+| (automatic) | Back-to-top button on pages longer than 2.5 screens; scroll reveal for cards | — |
 
 Quotes must be real, with source and date. Do not add anything Satoshi
 "probably would have said".

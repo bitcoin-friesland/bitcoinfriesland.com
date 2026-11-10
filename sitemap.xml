@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://bitcoinfriesland.com/nl/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/"/>
@@ -83,7 +83,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/en/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/"/>
@@ -163,7 +163,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/fy/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/"/>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/fy/map</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/map"/>
@@ -279,7 +279,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/blog/beginnen-met-bitcoin-in-friesland</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -297,7 +297,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/what-is-bitcoin</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
@@ -307,7 +307,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/en/what-is-bitcoin</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
@@ -317,7 +317,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/fy/what-is-bitcoin</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/what-is-bitcoin"/>
@@ -327,7 +327,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/sats-calculator</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
@@ -337,7 +337,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/en/sats-calculator</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
@@ -347,7 +347,7 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/fy/sats-calculator</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl" href="https://bitcoinfriesland.com/nl/sats-calculator"/>
@@ -357,19 +357,19 @@
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/blog/bitcoin-veilig-bewaren</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/blog/betalen-met-lightning</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://bitcoinfriesland.com/nl/blog/bitcoin-accepteren-als-ondernemer</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
