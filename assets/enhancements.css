@@ -631,12 +631,14 @@ a.border-bitcoin-orange:hover { background-color: var(--bf-orange); color: #ffff
 
 /* --- Scroll reveal for cards (activated from main.js; without JS
        the .bf-reveal class is never added, so nothing is hidden) --- */
+/* Uses the separate `translate` property so components keep their own
+   `transform` (sticker rotations) while they slide in. */
 .bf-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1);
+  translate: 0 18px;
+  transition: opacity .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1) !important;
 }
-.bf-reveal.in { opacity: 1; transform: none; }
+.bf-reveal.in { opacity: 1; translate: 0 0; }
 
 /* ============================================================
    v5 — hero upgrade + Signal integration styles
@@ -2890,3 +2892,106 @@ body.st main.bg-gradient-to-br.from-white { background: #fff !important; }
 .st-event-tag--soon { background: var(--st-orange); color: var(--st-ink); box-shadow: 3px 3px 0 var(--st-ink); }
 .st-events-grid + .st-events-note { margin-top: 1.5rem; color: var(--st-text); }
 .st-events-note a { color: var(--st-blue); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* ============================================================
+   Round 48: small polish (smoother, livelier) + new SEO blocks
+   ============================================================ */
+
+/* ---------- Smooth page changes (browsers without support just navigate) ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.18s; }
+.st #root > nav { view-transition-name: bf-nav; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+
+.st ::selection { background: var(--st-yellow); color: var(--st-ink); }
+
+/* ---------- Cards in grids lift a little under the pointer ---------- */
+@media (hover: hover) {
+  :is(.st-grid-3, .st-grid-4) > .st-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  :is(.st-grid-3, .st-grid-4) > .st-card:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--st-ink); }
+}
+
+/* ---------- Hero stickers pop in and bob gently ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .st-stickers .st-sticker { animation: st-in 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) backwards, st-bob 7s ease-in-out 0.6s infinite; }
+  .st-stickers .st-sticker--bolt { animation-delay: 0.08s, -1.5s; }
+  .st-stickers .st-sticker--fy { animation-delay: 0.16s, -3s; }
+  .st-stickers .st-sticker--pay { animation-delay: 0.24s, -4.5s; }
+  .st-stickers .st-sticker--21 { animation-delay: 0.32s, -2.2s; }
+  .st-stickers .st-sticker--mascot { animation-duration: 0.55s, 9s; }
+  .st-sticker--mascot:hover img, .st-hero-badge:hover img, .st-ha-mascot:hover img { animation: st-wiggle 0.6s ease-in-out; }
+  .st-hero-art > * { animation: st-in 0.5s cubic-bezier(0.2, 1.5, 0.4, 1) backwards; }
+  .st-hero-art > :nth-child(2) { animation-delay: 0.06s; } .st-hero-art > :nth-child(3) { animation-delay: 0.12s; }
+  .st-hero-art > :nth-child(4) { animation-delay: 0.18s; } .st-hero-art > :nth-child(5) { animation-delay: 0.24s; }
+  .st-hero-art > :nth-child(n+6) { animation-delay: 0.3s; }
+}
+@keyframes st-in { from { scale: 0.82; } to { scale: 1; } }
+@keyframes st-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@keyframes st-wiggle { 0%, 100% { rotate: 0deg; } 25% { rotate: -9deg; } 60% { rotate: 7deg; } 85% { rotate: -3deg; } }
+
+/* ---------- "Next meetup" strip (homepage) ---------- */
+.st-next-wrap { padding: 1.5rem 0 0; }
+.st-next { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; background: var(--st-yellow); border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); padding: 0.9rem 1.25rem; color: var(--st-ink); text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.st-next:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); }
+.st-next[hidden] { display: none; }
+.st-next-tag { background: var(--st-ink); color: #fff; font: 800 0.75rem/1 Inter, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.75rem; border-radius: 999px; }
+.st-next-title { font: 800 1.25rem/1.2 var(--st-display); letter-spacing: -0.02em; }
+.st-next-meta { font: 600 1rem/1.3 Inter, sans-serif; }
+.st-next-go { margin-left: auto; font: 800 1rem/1 Inter, sans-serif; background: #fff; border: 2px solid var(--st-ink); border-radius: 999px; padding: 0.55rem 1rem; box-shadow: var(--st-shadow-sm); white-space: nowrap; }
+@media (max-width: 640px) { .st-next-go { margin-left: 0; } }
+
+/* ---------- X follow card: big faint X fills the empty corner ---------- */
+.st-social-card--x::after { content: ""; position: absolute; right: -2.5rem; bottom: -3rem; width: 17rem; height: 17rem; opacity: 0.08; pointer-events: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.st-social-card--x > * { position: relative; z-index: 1; }
+
+/* ---------- Reading progress (guides, event pages) and back-to-top ---------- */
+.st-progress { position: fixed; inset: 0 0 auto 0; height: 5px; background: var(--st-orange); border-bottom: 1.5px solid var(--st-ink); transform-origin: 0 50%; transform: scaleX(0); z-index: 60; pointer-events: none; }
+.st-top { position: fixed; right: 1rem; bottom: 1rem; z-index: 45; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--st-yellow); color: var(--st-ink); border: 2.5px solid var(--st-ink); box-shadow: var(--st-shadow-sm); cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.st-top[hidden] { display: none; }
+.st-top svg { width: 1.3rem; height: 1.3rem; }
+.st-top:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--st-ink); }
+.st-top:focus-visible { outline: 3px solid var(--st-blue); outline-offset: 3px; }
+@media print { .st-progress, .st-top { display: none; } }
+
+/* ---------- FAQ answers open smoothly where the browser can ---------- */
+@supports (interpolate-size: allow-keywords) {
+  .st-card--faq { interpolate-size: allow-keywords; }
+  .st-card--faq details::details-content { block-size: 0; overflow: clip; transition: block-size 0.25s ease, content-visibility 0.25s allow-discrete; }
+  .st-card--faq details[open]::details-content { block-size: auto; }
+}
+
+/* ---------- Fact box with a big number (bitcoin supply) ---------- */
+.st-factbox { background: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow-lg); padding: 1.5rem 1.6rem 1.6rem; }
+.st .st-factbox p { margin: 0; }
+.st-factbox-label { font: 800 0.8rem/1 Inter, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #52525b; }
+.st .st-factbox-num { font: 800 clamp(2.2rem, 5vw, 3.4rem)/1.05 var(--st-display); letter-spacing: -0.04em; color: var(--st-ink); margin: 0.5rem 0 0.2rem; font-variant-numeric: tabular-nums; }
+.st-factbox-num small { display: block; font: 600 1rem/1.4 Inter, sans-serif; letter-spacing: 0; color: #52525b; margin-top: 0.3rem; }
+.st-meter { height: 1.1rem; border: 2px solid var(--st-ink); border-radius: 999px; background: #fff; overflow: hidden; margin: 1rem 0 0.8rem; }
+.st-meter span { display: block; height: 100%; background: var(--st-orange); border-right: 2px solid var(--st-ink); }
+.st-factbox [data-btc-live][hidden] { display: none; }
+
+/* ---------- Plain data table (sats calculator) ---------- */
+.st-table-wrap { max-width: 46rem; background: #fff; border: var(--st-line) solid var(--st-ink); border-radius: var(--st-r-lg); box-shadow: var(--st-shadow); overflow: hidden; }
+.st-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.st-table caption { text-align: left; padding: 0.8rem 1rem; font-size: 0.85rem; color: #52525b; caption-side: bottom; border-top: 1.5px solid #e4e4e7; }
+.st-table th { background: var(--st-ink); color: #fff; text-align: left; padding: 0.75rem 1rem; font: 700 0.78rem/1 Inter, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.st-table td { padding: 0.7rem 1rem; border-top: 1.5px solid #e4e4e7; color: var(--st-text); }
+.st-table tbody tr:nth-child(even) { background: #f4f8ff; }
+.st-table td:first-child { font-weight: 700; color: var(--st-ink); }
+@media (max-width: 560px) { .st-table .st-col-btc { display: none; } .st-table th, .st-table td { padding: 0.65rem 0.7rem; } }
+
+/* ---------- "Read next" links under guides ---------- */
+.st-related { margin-top: 2.5rem; }
+.st .st-related h2 { font: 800 1.5rem/1.2 var(--st-display); letter-spacing: -0.02em; margin: 0 0 1rem; }
+.st-related ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+.st .st-related a { display: block; height: 100%; background: #fff; border: 2px solid var(--st-ink); border-radius: var(--st-r); box-shadow: var(--st-shadow-sm); padding: 0.85rem 1rem; font: 700 1rem/1.3 Inter, sans-serif; color: var(--st-ink) !important; text-decoration: none; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.st main .st-related li a { text-decoration: none !important; font-weight: 700 !important; }
+.st .st-related a:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--st-ink); }
+.st-related a small { display: block; font: 500 0.85rem/1.4 Inter, sans-serif; color: #52525b; margin-top: 0.2rem; }
+@media (max-width: 640px) { .st-related ul { grid-template-columns: 1fr; } }
+
+/* ---------- Text blocks and notes for the new sections ---------- */
+.st-prose p { color: var(--st-text); font-size: 1.05rem; line-height: 1.65; margin: 0; }
+.st-prose p + p { margin-top: 1rem; }
+.st .st-table-note { margin: 1.25rem 0 0; color: var(--st-text); max-width: 46rem; }
+.st-card--faq-wide { max-width: 46rem; }

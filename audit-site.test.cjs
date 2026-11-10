@@ -9,7 +9,7 @@ const { test } = require('node:test');
 function fixture(t) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bf-audit-'));
   t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
-  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html', 'favicon.ico', 'apple-touch-icon.png', 'site.webmanifest']) {
+  for (const name of ['nl', 'en', 'fy', 'audit-site.cjs', 'maintain-llms-full.cjs', 'maintain-map-md.cjs', 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', 'index.html', '404.html', 'favicon.ico', 'apple-touch-icon.png', 'site.webmanifest']) {
     fs.cpSync(path.join(__dirname, name), path.join(directory, name), { recursive: true });
   }
   // The audit only reads assets. Avoid copying image binaries for each test.
@@ -168,4 +168,12 @@ test('hreflang alternates must link back to each other', (t) => {
   const result = audit(directory);
   assert.equal(result.status, 1);
   assert.match(result.output, /does not link back/);
+});
+
+test('map Markdown summary must list the same businesses as the map table', (t) => {
+  const directory = fixture(t);
+  edit(directory, 'nl/map.html.md', (markdown) => markdown.replace('- Sipke:', '- Sipke (oud):'));
+  const result = audit(directory);
+  assert.equal(result.status, 1);
+  assert.match(result.output, /nl\/map\.html\.md: business list is out of date/);
 });

@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
-  var targets = document.querySelectorAll('.max-w-md.rounded-2xl, article[class*="border"], .link-category');
+  var targets = document.querySelectorAll('.st-card, .st-event, .st-tip, .st-social-card, .st-quote, .st-gloss, .st-stepcard, .st-propose, .st-next, .st-factbox, article[class*="border"], .link-category');
   if (!targets.length) return;
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -729,6 +729,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // "Common amounts" table below the calculator: every row shows its value in euro and dollar.
+  function fillTable() {
+    if (!prices) return;
+    function fiat(code, value) {
+      var digits = value < 0.01 ? 5 : value < 1 ? 4 : 2;
+      return new Intl.NumberFormat(locale, { style: 'currency', currency: code, minimumFractionDigits: digits, maximumFractionDigits: digits }).format(value);
+    }
+    document.querySelectorAll('[data-sats-row]').forEach(function(row) {
+      var sats = parseInt(row.getAttribute('data-sats-row'), 10);
+      ['EUR', 'USD'].forEach(function(code) {
+        var cell = row.querySelector('[data-cell="' + code + '"]');
+        if (cell) cell.textContent = fiat(code, sats / 1e8 * prices[code]);
+      });
+    });
+    document.querySelectorAll('[data-sats-per]').forEach(function(el) {
+      el.textContent = number(Math.round(1e8 / prices[el.getAttribute('data-sats-per')]), 0);
+    });
+  }
+
   function fetchJson(url) {
     var controller = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = controller ? setTimeout(function() { controller.abort(); }, 8000) : null;
@@ -756,6 +775,7 @@ document.addEventListener('DOMContentLoaded', function() {
         root.classList.remove('is-error');
         showPrice();
         recalculate();
+        fillTable();
       })
       .catch(function() {
         root.classList.add('is-error');
@@ -831,6 +851,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Pages can show how many bitcoin exist right now. The number follows from the block height:
+  // 50 BTC per block at the start, halved every 210,000 blocks.
+  function showSupply(blockHeight) {
+    var targets = document.querySelectorAll('[data-btc-supply]');
+    if (!targets.length) return;
+    var sats = 0, reward = 50e8, blocks = blockHeight + 1;
+    while (blocks > 0 && reward >= 1) {
+      var era = Math.min(blocks, 210000);
+      sats += era * reward;
+      blocks -= era;
+      reward = Math.floor(reward / 2);
+    }
+    var supply = sats / 1e8;
+    targets.forEach(function(el) { el.textContent = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(supply); });
+    document.querySelectorAll('[data-btc-supply-pct]').forEach(function(el) {
+      el.textContent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(supply / 21e6 * 100);
+    });
+    document.querySelectorAll('[data-btc-height]').forEach(function(el) { el.textContent = new Intl.NumberFormat(locale).format(blockHeight); });
+    document.querySelectorAll('[data-btc-live]').forEach(function(el) { el.hidden = false; });
+  }
+
   function update() {
     height('https://mempool.space/api/blocks/tip/height')
       .catch(function() { return height('https://blockstream.info/api/blocks/tip/height'); })
@@ -840,6 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
         current = value;
         number.textContent = new Intl.NumberFormat(locale).format(value);
         badge.hidden = false;
+        showSupply(value);
         if (isNew) {
           badge.classList.remove('is-new');
           void badge.offsetWidth;
@@ -993,3 +1035,52 @@ document.addEventListener('DOMContentLoaded', function() {
   var timer;
   window.addEventListener('resize', function() { clearTimeout(timer); timer = setTimeout(measure, 150); });
 })();
+
+// Small page polish: dated notices that hide themselves, a reading progress bar on long
+// articles and a back-to-top button. All optional; without JavaScript nothing is missing.
+document.addEventListener('DOMContentLoaded', function() {
+  // <... data-hide-after="2026-12-12T00:00:00+01:00"> disappears once that moment has passed.
+  document.querySelectorAll('[data-hide-after]').forEach(function(el) {
+    var end = Date.parse(el.getAttribute('data-hide-after'));
+    if (end && Date.now() > end) el.hidden = true;
+  });
+
+  var article = document.querySelector('[data-reading-progress]');
+  if (article) {
+    var bar = document.createElement('div');
+    bar.className = 'st-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    var ticking = false;
+    var paint = function() {
+      ticking = false;
+      var box = article.getBoundingClientRect();
+      var total = box.height - window.innerHeight;
+      var done = total > 0 ? Math.min(1, Math.max(0, -box.top / total)) : 0;
+      bar.style.transform = 'scaleX(' + done + ')';
+    };
+    window.addEventListener('scroll', function() { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+    paint();
+  }
+
+  if (document.documentElement.scrollHeight > window.innerHeight * 2.5) {
+    var labels = { nl: 'Terug naar boven', en: 'Back to top', fy: 'Werom nei boppen' };
+    var top = document.createElement('button');
+    top.type = 'button';
+    top.className = 'st-top';
+    top.hidden = true;
+    top.setAttribute('aria-label', labels[document.documentElement.lang] || labels.nl);
+    top.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>';
+    top.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      var main = document.getElementById('main-content');
+      if (main) main.focus({ preventScroll: true });
+    });
+    document.body.appendChild(top);
+    var shown = false;
+    window.addEventListener('scroll', function() {
+      var next = window.scrollY > window.innerHeight;
+      if (next !== shown) { shown = next; top.hidden = !next; }
+    }, { passive: true });
+  }
+});

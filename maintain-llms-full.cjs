@@ -11,7 +11,15 @@ const languages = [
   ['en', 'English'],
   ['fy', 'Frisian'],
 ];
-const pages = ['index', 'what-is-bitcoin', 'meetings', 'map', 'support', 'about', 'consumers', 'business'];
+const pages = ['index', 'what-is-bitcoin', 'meetings', 'map', 'support', 'about', 'consumers', 'business', 'sats-calculator'];
+// Dutch-only pages: the four guides and the upcoming event.
+const dutchOnly = [
+  'blog/beginnen-met-bitcoin-in-friesland',
+  'blog/bitcoin-veilig-bewaren',
+  'blog/betalen-met-lightning',
+  'blog/bitcoin-accepteren-als-ondernemer',
+  'evenementen/bitcoin-meeting-heerenveen-11-december-2026',
+];
 
 function buildLlmsFull(root = __dirname) {
   const parts = [
@@ -29,6 +37,12 @@ function buildLlmsFull(root = __dirname) {
       const body = fs.readFileSync(file, 'utf8').trim().replace(/^(#+) /gm, '#$1 ');
       parts.push('', '---', '', `Language: ${label}. Source: ${url}`, '', body);
     }
+  }
+  for (const page of dutchOnly) {
+    const file = path.join(root, 'nl', `${page}.html.md`);
+    if (!fs.existsSync(file)) continue;
+    const body = fs.readFileSync(file, 'utf8').trim().replace(/^(#+) /gm, '#$1 ');
+    parts.push('', '---', '', `Language: Dutch. Source: ${origin}/nl/${page}`, '', body);
   }
   return `${parts.join('\n')}\n`;
 }

@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { buildLlmsFull } = require('./maintain-llms-full.cjs');
+const { staleMapMarkdown } = require('./maintain-map-md.cjs');
 
 const root = __dirname;
 const languages = ['nl', 'en', 'fy'];
@@ -279,6 +280,10 @@ if (!isFile(llmsFullPath)) {
   errors.push('llms-full.txt: missing (run node maintain-llms-full.cjs)');
 } else if (fs.readFileSync(llmsFullPath, 'utf8') !== buildLlmsFull(root)) {
   errors.push('llms-full.txt: out of date with the .html.md files (run node maintain-llms-full.cjs)');
+}
+
+for (const language of staleMapMarkdown(root)) {
+  errors.push(`${language}/map.html.md: business list is out of date with the map table (run node maintain-map-md.cjs)`);
 }
 
 const robotsTxt = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
