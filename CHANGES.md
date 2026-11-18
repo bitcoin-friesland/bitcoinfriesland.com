@@ -954,6 +954,11 @@ Search Console had five weeks of data, so this round follows the numbers instead
 - "Chat Mee Met Onze Community" Stopped Shouting In Title Case.
 
 ## Maintenance notes
+### README refresh - 18 November 2026
+- The README now opens with the logo, live links and screenshots of the homepage (desktop and phone) and the map page, stored in `docs/img/`.
+- Added a short "How the site works" diagram (pull request, checks, preview, Cloudflare Pages, support forms to Telegram) and listed the blog how-to and the licence in the documentation map.
+- Removed the emoji from the README and CONTRIBUTING.md. Documentation only: no page, style, script or deployment changes.
+
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.
 - Visitors only see "received" after Telegram accepted the message; otherwise they get an error page with the e-mail address. Spam is limited by the honeypot, a same-site check and length caps.

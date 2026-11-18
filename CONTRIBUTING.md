@@ -2,7 +2,7 @@
 
 Thanks for helping build the Bitcoin Friesland website. This repo is worked on by **3 humans and several AI coding agents**, and `main` publishes the live site — so we keep a strict but simple workflow.
 
-> 🤖 AI assistants: follow [AGENTS.md](AGENTS.md) + [AI_CONTEXT.md](AI_CONTEXT.md) instead — they contain machine-oriented rules and site internals.
+> AI assistants: follow [AGENTS.md](AGENTS.md) + [AI_CONTEXT.md](AI_CONTEXT.md) instead — they contain machine-oriented rules and site internals.
 
 ## The golden rules
 
