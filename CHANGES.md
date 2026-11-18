@@ -953,6 +953,13 @@ Search Console had five weeks of data, so this round follows the numbers instead
 - A reading progress bar on the guides, a back-to-top sticker on long pages, yellow text selection, a big faint X behind the X card, and FAQ answers that open smoothly.
 - "Chat Mee Met Onze Community" Stopped Shouting In Title Case.
 
+## Round 49: Small search wins (November 2026)
+
+- Every page now names the X account in its share data (`twitter:site`), so posts on X credit @bitcoinfryslan.
+- Every page points AI tools to `llms.txt` and `llms-full.txt` with `rel="llms"` links, and feed readers to the RSS feed.
+- The meetings pages list the upcoming Heerenveen meetup in their structured event list, not only the past ones.
+- `llms.txt` says when it was last updated and what the next meetup is.
+
 ## Maintenance notes
 ### Support forms on Cloudflare Pages - 28 September 2026
 - The forms were built for Netlify Forms, but the site runs on Cloudflare Pages, where posting to `/nl/support` answered "405 Method Not Allowed" and every request would have been lost. A small Pages Function now receives both forms in all three languages and sends each request to a private Telegram chat, then returns visitors to the same confirmation as before.

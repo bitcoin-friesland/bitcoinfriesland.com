@@ -18,6 +18,8 @@ Important facts:
 - Bitcoin Friesland was started by two Noderunners (https://noderunners.network/).
 - Follow the community on Nostr (npub15qgfat6kkmzecup683u64lalqdceaejq97d8z8njhwk0c68umx6qcs5dcm) and on X (@bitcoinfryslan).
 
+Last updated: 18 November 2026. The next meetup is the Bitcoin Meeting in Heerenveen on Friday 11 December 2026.
+
 ## Quick answers
 
 **What is Bitcoin Friesland?** A volunteer community for Bitcoin education, adoption and meetups in the Dutch province of Friesland (Frysk: Fryslân). It is independent of sponsors, supporters and businesses.
