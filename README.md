@@ -1,22 +1,60 @@
-# Bitcoin Friesland — bitcoinfriesland.com
+<div align="center">
+
+<img src="assets/images/bitcoin-friesland-logo.png" alt="Bitcoin Friesland logo" width="112" height="112">
+
+# Bitcoin Friesland
+
+**The community website of Bitcoin Friesland / Bitcoin Fryslân: meetups, a map of Frisian businesses that accept bitcoin, and plain-language guides in Dutch, English and Frisian.**
 
 ![Languages: NL · EN · FY](https://img.shields.io/badge/languages-NL%20%C2%B7%20EN%20%C2%B7%20FY-0066cc)
 ![Stack: static HTML/CSS/JS](https://img.shields.io/badge/stack-static%20HTML%2FCSS%2FJS-f97316)
 ![Build step: none](https://img.shields.io/badge/build%20step-none-4ade80)
+![Hosting: Cloudflare Pages](https://img.shields.io/badge/hosting-Cloudflare%20Pages-f38020)
+![License: Unlicense](https://img.shields.io/badge/license-Unlicense-lightgrey)
 ![PRs welcome](https://img.shields.io/badge/PRs-welcome-ea384c)
 
-The official website of **Bitcoin Friesland / Bitcoin Fryslân** — a volunteer community promoting Bitcoin adoption and education in the Dutch province of Friesland.
+[Live site](https://bitcoinfriesland.com) · [Bitcoin map](https://bitcoinfriesland.com/nl/map) · [Meetups](https://bitcoinfriesland.com/nl/meetings) · [Telegram](https://t.me/bitcoinfriesland) · info@bitcoinfriesland.com
 
-**Live site:** https://bitcoinfriesland.com · **Community:** [Telegram](https://t.me/bitcoinfriesland) · **Contact:** info@bitcoinfriesland.com
+<img src="docs/img/home-desktop.webp" alt="Homepage of bitcoinfriesland.com on a desktop screen" width="860">
 
-## 🇳🇱 Kort samengevat
+</div>
+
+The official website of **Bitcoin Friesland / Bitcoin Fryslân**, a volunteer community promoting Bitcoin adoption and education in the Dutch province of Friesland.
+
+## Kort samengevat (NL)
 Statische website (HTML/CSS/JS) met taalpariteit in `nl/`, `en/` en `fy/`. Geen build-stap. Bijdragen via branch + pull request op `main`. Houd alle drie talen synchroon. Richtlijnen: `CONTRIBUTING.md` (mensen) en `AGENTS.md` (AI-assistenten).
 
-## 🇬🇧 In short
+## In short (EN)
 Static HTML/CSS/JS site with language parity across `nl/`, `en/` and `fy/`. No build step. Contribute via branch + pull request against `main`. Keep all three languages in sync. Guidelines: `CONTRIBUTING.md` (humans) and `AGENTS.md` (AI assistants).
 
-## Frysk yn it koart
+## Frysk yn it koart (FY)
 Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin build-stap. Bydrage fia branch + pull request nei `main`. Hâld alle trije talen lykmjittich. Rjochtlinen: `CONTRIBUTING.md` (minsken) en `AGENTS.md` (AI-assistenten).
+
+## How the site works
+
+```mermaid
+flowchart LR
+  A["Branch + pull request"] --> B["CI: Site quality<br/>audit + node tests"]
+  A --> C["Cloudflare Pages<br/>branch preview"]
+  B --> D["Review by a maintainer"]
+  C --> D
+  D --> E["Merge to main"]
+  E --> F["Cloudflare Pages<br/>bitcoinfriesland.com"]
+  F --> G["Static pages<br/>nl/ en/ fy/"]
+  F --> H["Pages Function<br/>functions/[lang]/support.js"]
+  H --> I["Private Telegram chat"]
+  G --> J["Live widgets in assets/main.js<br/>public APIs, silent fallback"]
+```
+
+- **Pages** are hand-written HTML files, one per page per language. Cloudflare Pages serves them with clean URLs (no `.html`); `_redirects` sends the bare domain to `/nl/`.
+- **Forms** on the support pages post to one Pages Function, which forwards each request to a private Telegram chat (see [Deployment](#deployment)).
+- **Checks** run in GitHub Actions on every pull request and on `main` (`.github/workflows/site-quality.yml`): `node audit-site.cjs`, the `node --test` suite and `node --check assets/main.js`.
+
+<p align="center">
+  <img src="docs/img/home-phone.webp" alt="Homepage on a phone" width="260">
+  &nbsp;&nbsp;
+  <img src="docs/img/map-desktop.webp" alt="Bitcoin map page on a desktop screen" width="560">
+</p>
 
 ---
 
@@ -33,12 +71,15 @@ Statyske side (HTML/CSS/JS) mei taalpariteit yn `nl/`, `en/` en `fy/`. Gjin buil
 | `DESIGN.md` | Everyone who touches the look | The sticker design system: tokens, components, widgets, rules |
 | `CHANGES.md` | Everyone | Plain-language changelog of every improvement round |
 | `BACKLOG.md` | Everyone | Ideas parked for later |
+| `nl/blog/HOW-TO-ADD-A-POST.md` | Editors | How to add a post to the Dutch blog |
+| `LICENSE` | Everyone | The Unlicense (public domain) |
 | `llms.txt` | LLM agents | v2-compatible site guide with links to clean Markdown content |
 
 ---
 
 ## Contents
 
+- [How the site works](#how-the-site-works)
 - [Tech stack](#tech-stack)
 - [Repository structure](#repository-structure)
 - [Running & editing locally](#running--editing-locally)
@@ -87,6 +128,7 @@ Deliberately boring — no build step, no framework, no dependencies:
 │   ├── enhancements.css      # Custom, hand-written polish layer (edit here)
 │   ├── main.js               # All runtime behavior
 │   └── images/               # Logos, flags, photos (WebP + fallback variants)
+├── docs/img/                 # Screenshots used in this README
 ├── robots.txt / sitemap.xml  # Crawler directives & index
 ├── functions/
 │   ├── [lang]/support.js     # Receives the support forms and forwards them to Telegram
@@ -197,4 +239,4 @@ Questions or ideas? Reach the community on [Telegram](https://t.me/bitcoinfriesl
 
 ---
 
-Made with 🧡 in Friesland.
+Made in Friesland by the Bitcoin Friesland community.
